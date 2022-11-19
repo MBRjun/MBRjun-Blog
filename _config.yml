@@ -6,14 +6,23 @@
 title: MBRjun-Blog
 subtitle: ''
 description: '基本上是写一些教程了...description 我还没想好填什么...'
-keywords: MBRjun,技术,Linux,服务器,软路由,PVE,原神,博客,B站
+keywords:
+  - MBRjun
+  - 技术
+  - Linux
+  - 服务器
+  - 软路由
+  - PVE
+  - 原神
+  - 博客
+  - B站
 author: MBRjun
-language: zh-Hans
+language: zh-cn
 timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://blog.mbrjun/cn
+url: https://blog.mbrjun.cn
 permalink: :name/
 permalink_defaults:
 pretty_urls:
@@ -44,7 +53,7 @@ post_asset_folder: false
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace: ''
@@ -97,7 +106,9 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+#theme: landscape
+theme: tranquilpeak
+  
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
