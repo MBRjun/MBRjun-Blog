@@ -73,14 +73,14 @@ sidebar:
 #            title: global.facebook
 #            url: https://facebook.com/
 #            icon: fab fa-facebook
-        google_plus:
-            title: global.google_plus
-            url: https://plus.google.com/
-            icon: fab fa-google-plus
-        linked_in:
-            title: global.linkedin
-            url: https://www.linkedin.com/profile/
-            icon: fab fa-linkedin
+#        google_plus:
+#            title: global.google_plus
+#            url: https://plus.google.com/
+#            icon: fab fa-google-plus
+#        linked_in:
+#            title: global.linkedin
+#            url: https://www.linkedin.com/profile/
+#            icon: fab fa-linkedin
         mail:
             title: global.mail
             url: mailto:mbrjun@foxmail.com
@@ -123,9 +123,9 @@ author:
     # or in `source/assets/images/` (production)
     # or you can use an external url
     # Overwritten by your gravatar image if `gravatar_email` is filled
-    picture:
+    picture: https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg
     # Your Twitter username without the @. E.g : `tranquilpeak`
-    twitter:
+    twitter: MBRjun
     # Your personal google plus profile id, not your blog or business page id.
     # E.g : `+JohnDoe` or `123812884128439`
     google_plus:
@@ -150,10 +150,10 @@ author:
 # large sidebar is swiped on all lower screens
 # 5: Display header bar on all screens and large sidebar is swiped on large screen
 # 6: Display header bar on all screens and medium sidebar is swiped
-sidebar_behavior: 1
+sidebar_behavior: 2
 # Hide sidebar on all article page to let article take full width to improve reading, and
 # enjoy wide images and cover images. (true: enable, false: disable)
-clear_reading: true
+clear_reading: false
 # Display thumbnail image of each post on index pages (false: disabled, true: enabled)
 thumbnail_image: true
 # Display thumbnail image at the right of title in index pages (`right`, `left` or `bottom`)
@@ -269,15 +269,15 @@ fb_app_id:
 #     share_on_foo_bar: "Share on Foo Bar"
 # ```
 sharing_options:
-    facebook:
-        icon: "fab fa-facebook"
-        url: "https://www.facebook.com/sharer/sharer.php?u={{post.permalink}}"
-    twitter:
-        icon: "fab fa-twitter"
-        url: "https://twitter.com/intent/tweet?text={{post.permalink}}"
-    google_plus:
-        icon: "fab fa-google-plus"
-        url: "https://plus.google.com/share?url={{post.permalink}}"
+  #facebook:
+  #      icon: "fab fa-facebook"
+  #      url: "https://www.facebook.com/sharer/sharer.php?u={{post.permalink}}"
+  twitter:
+       icon: "fab fa-twitter"
+       url: "https://twitter.com/intent/tweet?text={{post.permalink}}"
+  #  google_plus:
+  #      icon: "fab fa-google-plus"
+  #      url: "https://plus.google.com/share?url={{post.permalink}}"
 # Business Social Networks
 #    linkedin:
 #        icon: "fab fa-linkedin"
@@ -286,18 +286,18 @@ sharing_options:
 #        icon: "fab fa-xing"
 #        url: "https://www.xing.com/spi/shares/new?url={{post.permalink}}"
 # Asian social networks
-#    weibo:
-#        title: "Weibo"
-#        icon: "fab fa-weibo"
-#        url: "http://service.weibo.com/share/share.php?&title={{post.permalink}}"
-#    qq:
-#        title: "QQ"
-#        icon: "fab fa-qq"
-#        url: "http://connect.qq.com/widget/shareqq/index.html?url={{post.permalink}}&title={{post.title}}"
-#    qzone:
-#        title: "Qzone"
-#        icon: "fa fa-star"
-#        url: "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{post.permalink}}"
+  weibo:
+      title: "Weibo"
+      icon: "fab fa-weibo"
+      url: "http://service.weibo.com/share/share.php?&title={{post.permalink}}"
+  qq:
+      title: "QQ"
+      icon: "fab fa-qq"
+      url: "http://connect.qq.com/widget/shareqq/index.html?url={{post.permalink}}&title={{post.title}}"
+  qzone:
+      title: "Qzone"
+      icon: "fa fa-star"
+      url: "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{post.permalink}}"
 #    renren:
 #        title: "Renren"
 #        icon: "fab fa-renren"
