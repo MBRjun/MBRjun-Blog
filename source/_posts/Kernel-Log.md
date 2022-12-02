@@ -148,3 +148,17 @@ vscode还没折腾好（gpg: 签名数据失败）
 昨天更新了一下 OpenWrt 固件，并且打算12月底或者明年年初再更一版 #todo  
 
 感觉最近在写 Kernel Log 没有好好 Blogging 了，一会去水个文章x  
+
+
+## Fri, Dec 2 2022 
+草）昨天说更key库的nodejs，咕咕咕  
+
+=DATABASE ERROR=  
+
+~~我不知道发生了什么，但似乎确实发生了什么~~  
+
+~~日志已记录 C5+2~~  
+
+今天继续折腾Hexo，另外追加：昨天又寸了一次  
+
+今天先把blog页面搞好，有时间的话写完 Actions Build
