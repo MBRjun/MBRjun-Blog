@@ -208,3 +208,15 @@ ikuai N5105 PVE 虚拟机在以下环境下，不会出现自动重启的问题
 硬要说的话...明天追悼会今天怎么这么多人造谣，这都jb啥心态  
 
 好了，再水一个提交就去睡觉：wq~~嗯我的vim怎么了~~  
+
+
+## Tue, Dec 5 2022
+~~nothing to commit, working tree clean~~  
+
+做了：更新 MBRjun/key.mbrjun.cn Node.js 至 v18 Latest LTS  
+
+非得写点啥就是昨天有点困  
+
+
+## Wed, Dec 6 2022
+还是不知道写点啥了，一会去更新下依赖吧  
