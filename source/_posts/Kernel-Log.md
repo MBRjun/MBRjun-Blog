@@ -251,3 +251,31 @@ xm
 ## Sat, Dec 10 2022
 Nothing  
 No commit  
+
+
+## Sun, Dec 11 2022
+做了个核酸  
+（数据丢失）  
+
+## Mon, Dec 12 2022
+班里好多阳，还有好多没做核酸/抗原但是发烧了，线下复课没啥希望了，哈人  
+
+天津AQI爆表了，最高 AQI(US) 1140，大致是沙尘暴  
+
+好像几年都没爆过了  
+
+
+## Tue, Dec 13 2022
+天气有点冷，是 -8 到 -3，预计周六会更冷  
+
+发情了半天  
+
+以及想出去玩玩  
+
+Kernel Log 三天没更新了，主要是 LZ Pro Plus Ultra  
+
+今天 2 commits！好耶  
+
+以及水了一个 Code review  
+
+如果这个人code review说好耶证明他根本没看代码 ~~@qualiarw~~  
