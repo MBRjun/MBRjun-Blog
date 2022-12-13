@@ -279,3 +279,15 @@ Kernel Log 三天没更新了，主要是 LZ Pro Plus Ultra
 以及水了一个 Code review  
 
 如果这个人code review说好耶证明他根本没看代码 ~~@qualiarw~~  
+
+
+## Wed, Dec 14 2022
+什么也没有做  
+
+
+## Thu, Dec 15 2022
+懒得cut  
+
+去寸止了 
+
+哦好吧昨天没提交 一会再cut下  
