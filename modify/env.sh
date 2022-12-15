@@ -1,10 +1,10 @@
 #!/bin/bash
 
-sudo apt install nodejs npm curl
+sudo apt install nodejs npm
 #to do: switch to yarn
-wget -O ./nodejs.tar.xz https://nodejs.org/dist/v19.1.0/node-v19.1.0-linux-x64.tar.xz
+wget -O ./nodejs.tar.xz https://nodejs.org/dist/v19.2.0/node-v19.2.0-linux-x64.tar.xz
 tar -xvf ./nodejs.tar.xz
-cd node-v19.1.0-linux-x64
+cd node-v19.2.0-linux-x64
 sudo cp -R ./* /usr
 #thats fuck-apt command
 sudo npm install -g npm@latest
