@@ -9,6 +9,8 @@ sudo cp -R ./* /usr
 #thats fuck-apt command
 sudo npm install -g npm@latest
 #GOODCOMMAND
+npm install
+#忘了写安装hexo的命令（你看这人怎么还写中文注释
 cp modify/theme.yml themes/tranquilpeak/_config.yml
 cd themes/tranquilpeak
 npm install && npm run prod
