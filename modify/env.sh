@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo apt install nodejs npm p7zip-full
+sudo apt install nodejs npm neofetch
 #to do: switch to yarn
 wget -O ./nodejs.tar.xz https://nodejs.org/dist/v19.2.0/node-v19.2.0-linux-x64.tar.xz
 tar -xvf ./nodejs.tar.xz

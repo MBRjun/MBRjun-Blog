@@ -24,6 +24,9 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: modify/env.sh
 
+    - name: neofetch
+      run: neofetch
+
     - name: Generate HTML
       run: |
         hexo generate
