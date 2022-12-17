@@ -1,0 +1,41 @@
+name: Generate HTML
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+  push:
+
+env:
+  TZ: Asia/Shanghai
+
+permissions: write-all
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@main
+      submodules: 'true'
+
+    - name: Install Hexo and theme
+      env:
+        DEBIAN_FRONTEND: noninteractive
+      run: modify/env.sh
+
+    - name: Generate HTML
+      run: |
+        hexo generate
+        echo "FILE_DATE=$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
+
+    - name: Upload to artifact
+      uses: actions/upload-artifact@main
+      with:
+        name: build-${{ env.FILE_DATE }}.zip
+        path: public
+
+    - name: Delete workflow runs
+      uses: GitRML/delete-workflow-runs@main
+      with:
+        retain_days: 1
+        keep_minimum_runs: 20
