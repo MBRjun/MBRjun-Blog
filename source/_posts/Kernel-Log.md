@@ -320,3 +320,11 @@ Kernel Log 三天没更新了，主要是 LZ Pro Plus Ultra
 （再次使用时间穿越  
 
 前几天的一直没数据 可以去看468  
+
+昨天刷了 iOS 16.3 Developer Beta，玩了下SK 2FA  
+
+想搞个 YubiKey 了  
+
+今天git要怎么水5个commit）  
+
+~~更新下njs吧~~  
