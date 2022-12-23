@@ -292,27 +292,27 @@ Kernel Log 三天没更新了，主要是 LZ Pro Plus Ultra
 
 哦好吧昨天没提交 一会再cut下  
 
-## Fri, Dec 15 2022
+## Fri, Dec 16 2022
 无数据：COVID-19  
 
 
-## Sat, Dec 16 2022
+## Sat, Dec 17 2022
 无数据：COVID-19  
 
 
-## Sun, Dec 17 2022
+## Sun, Dec 18 2022
 无数据：COVID-19  
 
 
-## Mon, Dec 18 2022
+## Mon, Dec 19 2022
 无数据：COVID-19  
 
 
-## Tue, Dec 19 2022
+## Tue, Dec 20 2022
 无数据：COVID-19
 
 
-## Wed, Dec 20 2022
+## Wed, Dec 21 2022
 有点发情  
 
 嗯我昨天怎么没commit啊  
@@ -328,3 +328,15 @@ Kernel Log 三天没更新了，主要是 LZ Pro Plus Ultra
 今天git要怎么水5个commit）  
 
 ~~更新下njs吧~~  
+
+
+## Thu, Dec 22 2022
+无事发生  
+
+
+## Fri, Dec 23 2022
+今天过的还不错，顺便寸了五次（  
+
+另外在这里写点东西防止以后忘了  
+
+Arcaea 3.6.4 版本（大概是这个）有个Bug，只要你用过这个版本，你存档的光追会自动解锁  
