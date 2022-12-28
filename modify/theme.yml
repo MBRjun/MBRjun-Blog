@@ -58,8 +58,12 @@ sidebar:
             icon: fa fa-question
         link:
             title: 友情链接
-            url: "/links/"
+            url: /links
             icon: fa fa-link
+        travelling:
+            title: 开往
+            url: https://travellings.link/
+            icon: fa fa-paper-plane
     author_links:
         github:
             title: global.github
