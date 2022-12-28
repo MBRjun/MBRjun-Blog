@@ -52,10 +52,10 @@ sidebar:
 #            icon: fa fa-search
 #            # `open-algolia-search` classes are used to open algolia search modal
 #            class: open-algolia-search
-        about:
-            title: global.about
-            url: "#about"
-            icon: fa fa-question
+#        about:
+#            title: global.about
+#            url: "#about"
+#            icon: fa fa-question
         link:
             title: 友情链接
             url: /links
@@ -114,7 +114,7 @@ sidebar:
 #     class: open-algolia-search
 header:
     right_link:
-        url: /#about
+        url: /about
         icon:
         class:
 
@@ -126,7 +126,7 @@ header:
 # Your biography and your job is editable in each languages files in `languages` folder
 author:
     email: mbrjun@foxmail.com
-    location:
+    location: Earth
     # Your profile picture located in folder `source/_images/` (development)
     # or in `source/assets/images/` (production)
     # or you can use an external url
