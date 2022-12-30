@@ -7,6 +7,8 @@ updated: 1970-01-01 00:00:00
 ## Fri, Nov 25 2022
 整了一个很新的东西--Kernel Log  
 
+<!-- more -->
+
 这个页面可能没啥意义，就是随便造出来的  
 
 其实之前在 kernel.mbrjun.cn 整了一个 Kernel Log(藏在了 HTML 注释里，大概写了个 12kB 就不写了)  
@@ -348,3 +350,6 @@ Arcaea 3.6.4 版本（大概是这个）有个Bug，只要你用过这个版本�
 这两天多搓搓blog 看看能不能明年之前搓完  
 
 有点想试试 Code server  
+
+## Fri, Dec 30 2022
+基本搓完了 ww
