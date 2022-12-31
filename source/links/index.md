@@ -87,7 +87,7 @@ date: 2022-12-28 22:38:12
                </div>
             </div></br>
             <div class="card">
-               <img class="ava" src="https://blog.slqwq.cn/favicon.ico" />
+               <img class="ava" src="https://npm.elemecdn.com/perorepe-cdn/v1/bigger-photos/avatar.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.slqwq.cn/">Hajeekn's Blog</a>
