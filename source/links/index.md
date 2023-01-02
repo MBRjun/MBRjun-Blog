@@ -181,6 +181,15 @@ date: 2022-12-28 22:38:12
                   <div class="info">Arisa 的个人博客</div>
                </div>
             </div></br>
+            <div class="card">
+               <img class="ava" src="https://q1.qlogo.cn/g?b=qq&nk=3526514925&s=640" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://blog.yidaozhan.top">一刀斩の小窝</a>
+                  </div>
+                  <div class="info">一刀斩的博客</div>
+               </div>
+            </div></br>
          </div>
       </div>
    </div>
