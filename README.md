@@ -1,4 +1,4 @@
-## MBRjun-Blog
+# MBRjun-Blog
 MBRjun-Blog 的源码仓库  
 
 这是一个使用 Hexo 搭建的 Blog，所有文章已在 2023 年 1 月 1 日发布到 [blog.mbrjun.cn](https://blog.mbrjun.cn)，旧的 Typecho Blog 已被备份保存  
