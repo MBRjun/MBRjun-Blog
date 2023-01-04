@@ -14,6 +14,7 @@ npm install
 npm install hexo-cli -g
 #忘了写安装hexo的命令（你看这人怎么还写中文注释
 cp modify/theme.yml themes/tranquilpeak/_config.yml
+cp modify/zh-cn.yml themes/tranquilpeak/languages/zh-cn.yml
 cp modify/footer.ejs themes/tranquilpeak/layout/_partial/footer.ejs
 cp modify/post.ejs themes/tranquilpeak/layout/_partial/post.ejs
 cd themes/tranquilpeak
