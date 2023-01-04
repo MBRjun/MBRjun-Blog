@@ -96,15 +96,6 @@ date: 2022-12-28 22:38:12
                </div>
             </div></br>
             <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/03/13/ao.webp" />
-               <div class="card-header">
-                  <div>
-                     <a href="https://gblog.tech/">生草博客</a>
-                  </div>
-                  <div class="info">草</div>
-               </div>
-            </div></br>
-            <div class="card">
                <img class="ava" src="https://avatar.mbrjun.cn/avatar/e554da26e947151c678f1f2a8f78e72b" />
                <div class="card-header">
                   <div>
