@@ -10,7 +10,7 @@ check:
 	@if [ -z $(nodeversion) ]; then\
 		echo -e "\033[41;37m[CHECK  ]\033[0m Node.js was not detected.\n\033[32m[CHECK  ]\033[0m Install Node.js v18 or v19 first." && exit 2;\
 	elif [ $(nodeversion) = "18" ]; then\
-		@echo -e "\033[32m[CHECK  ]\033[0m Node.js 18($(shell node -v)) detected";\
+		echo -e "\033[32m[CHECK  ]\033[0m Node.js 18($(shell node -v)) detected";\
 	elif [ $(nodeversion) = "19" ]; then\
 		echo -e "\033[32m[CHECK  ]\033[0m Node.js 19($(shell node -v)) detected.";\
 	else\
