@@ -7,7 +7,8 @@ MBRjun-Blog 的源码仓库
 
 
 ## 构建
-该 Blog 使用 GitHub Action 实现自动构建，如果你希望手动构建，你需要：  
+该 Blog 使用 GitHub Action 实现自动构建
 
-1. 使用一台基于 Debian GNU/Linux 的机器执行 modify/env.sh，系统可能会要求您输入电脑的密码
-2. 使用 ``hexo s debug`` 命令开启一个 Web 服务器来实时调试，使用 ``hexo generate`` 命令进行生产构建  
+## 手动构建
+1. 安装 Node.js v18 或 v19
+2. 运行 ``make hexo`` 命令进行生产构建  
