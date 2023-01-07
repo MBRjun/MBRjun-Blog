@@ -1,5 +1,6 @@
 nodeversion=$(shell node -v | cut -c2-3)
 nodepm=npm
+SHELL=/bin/bash
 #nodepm=yarn
 
 .PHONY: world init git modify submodules packages hexo ci generate g clean
