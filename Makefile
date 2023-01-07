@@ -39,7 +39,7 @@ packages: init
 
 hexo: submodules
 	@echo -e "\033[32m[HEXO   ]\033[0m \c"
-	$(nodepm) run build
+	node_modules/hexo/bin/hexo generate
 
 ci: hexo
 
