@@ -1,7 +1,7 @@
 {
   "name": "MBRjun-Blog",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
+  "private": false,
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
