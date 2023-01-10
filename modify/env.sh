@@ -2,9 +2,9 @@
 
 sudo apt install nodejs npm neofetch
 #to do: switch to yarn
-wget -O ./nodejs.tar.xz https://nodejs.org/dist/v19.3.0/node-v19.3.0-linux-x64.tar.xz
+wget -O ./nodejs.tar.xz https://nodejs.org/dist/v19.4.0/node-v19.4.0-linux-x64.tar.xz
 tar -xf ./nodejs.tar.xz
-cd node-v19.3.0-linux-x64
+cd node-v19.4.0-linux-x64
 sudo cp -R ./* /usr
 #thats fuck-apt command
 sudo npm install -g npm@latest
