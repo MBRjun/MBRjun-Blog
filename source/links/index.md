@@ -108,7 +108,7 @@ date: 2022-12-28 22:38:12
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/04/24/wl.jpg" />
                <div class="card-header">
                   <div>
-                     <a href="https://blog.lhf277.cn/">梁布斯博客</a>
+                     <a href="https://blog.cnmobile.link/">LiangBurs' Blog</a>
                   </div>
                   <div class="info">May all the beauty be blessed.——《Moon Halo》</div>
                </div>
