@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo -e "\033[41;37mDeprecated: env.sh, please switch to make. Continue after 10 seconds.\033[0m"
+sleep 10
 sudo apt install nodejs npm neofetch
 #to do: switch to yarn
 wget -O ./nodejs.tar.xz https://nodejs.org/dist/v19.4.0/node-v19.4.0-linux-x64.tar.xz
