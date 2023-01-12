@@ -27,7 +27,7 @@ jobs:
     - name: neofetch
       run: neofetch --off
 
-    - name: Generate HTML
+    - name: Build
       run: |
         hexo generate
         echo "FILE_DATE=$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
@@ -37,6 +37,12 @@ jobs:
       with:
         name: build-${{ env.FILE_DATE }}.zip
         path: public
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
 
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2.0.3
