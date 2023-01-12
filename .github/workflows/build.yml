@@ -19,30 +19,34 @@ jobs:
       with:
         submodules: 'true'
 
-    - name: Install Hexo and theme
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    - name: Install GNU make
       env:
         DEBIAN_FRONTEND: noninteractive
-      run: modify/env.sh
-
-    - name: neofetch
-      run: neofetch --off
+      run: sudo apt install make -y
 
     - name: Build
       run: |
-        hexo generate
+        make ci
         echo "FILE_DATE=$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
 
-    - name: Upload to artifact
-      uses: actions/upload-artifact@main
-      with:
-        name: build-${{ env.FILE_DATE }}.zip
-        path: public
+    #- name: Upload to artifact
+    #  uses: actions/upload-artifact@main
+    #  with:
+    #    name: build-${{ env.FILE_DATE }}.zip
+    #    path: public
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: ./public
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
 
     - name: Delete workflow runs
       uses: Mattraks/delete-workflow-runs@v2.0.3
