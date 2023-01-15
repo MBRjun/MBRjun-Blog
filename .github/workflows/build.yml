@@ -24,11 +24,6 @@ jobs:
       with:
         node-version: 18
 
-    - name: Install GNU make
-      env:
-        DEBIAN_FRONTEND: noninteractive
-      run: sudo apt install make -y
-
     - name: Build
       run: |
         make ci
