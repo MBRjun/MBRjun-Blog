@@ -3,11 +3,11 @@
   <title>MBRjun-Blog</title>
   
   
-  <link href="https://blog.mbrjun.cn/atom.xml" rel="self"/>
+  <link href="https://www.mbrjun.cn/atom.xml" rel="self"/>
   
-  <link href="https://blog.mbrjun.cn/"/>
-  <updated>2023-01-15T10:38:25.372Z</updated>
-  <id>https://blog.mbrjun.cn/</id>
+  <link href="https://www.mbrjun.cn/"/>
+  <updated>2023-01-16T14:04:08.168Z</updated>
+  <id>https://www.mbrjun.cn/</id>
   
   <author>
     <name>MBRjun</name>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>S/MIME(X.509) 签名 Git 提交教程</title>
-    <link href="https://blog.mbrjun.cn/archives/469/"/>
-    <id>https://blog.mbrjun.cn/archives/469/</id>
+    <link href="https://www.mbrjun.cn/archives/469/"/>
+    <id>https://www.mbrjun.cn/archives/469/</id>
     <published>2023-01-01T00:00:00.000Z</published>
-    <updated>2023-01-15T10:38:25.372Z</updated>
+    <updated>2023-01-16T14:04:08.168Z</updated>
     
     <content type="html"><![CDATA[<p>大概是全网第一个 Linux 使用 S&#x2F;MIME（即X.509）签名 Git 提交的教程  </p><p>很多人都知道 Git 可以使用 S&#x2F;MIME 签名，但是很少有人尝试 S&#x2F;MIME，而是选择 OpenPGP 签名，所以我在这里写一个 S&#x2F;MIME 的教程，想玩的可以来参考下  </p><span id="more"></span><hr><p><strong>先说一句，本文章仅针对 Linux</strong></p><p>你应该在点进这篇文章之前已经看过一些其他文档了，如果没有也没关系  </p><p>关于 S&#x2F;MIME 你可能找不到其他有用的文档，就连 <em>GitHub 的官方文档也是依托答辩</em>  </p><p><img src="https://cos.mbrjun.cn/IMGS/2022/12/31/cg.png"></p><p>首先，GitHub 给的这个 <a href="https://github.com/github/smimesign#installation">github&#x2F;smimesign</a> 连 Linux 都不兼容，上次提交还是在 2021，底下的教程还是错的  </p><p>然后，这个 TerminalTerminalGit Bash 是啥玩意？  </p><p><img src="https://cos.mbrjun.cn/IMGS/2022/12/31/fs.png"></p><p>中文文档更是惨不忍睹  </p><h2 id="签名提交"><a href="#签名提交" class="headerlink" title="签名提交"></a>签名提交</h2><p>我们使用的工具是 <code>gpgsm</code>，在 Debian GNU&#x2F;Linux 上使用包管理器安装它：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">apt install gpgsm<br></code></pre></td></tr></table></figure><p>如果你使用 Arch Linux，它已经被包含到 <code>gnupg</code>，所以您不需要手动安装它  </p><p>接下来，简单地执行：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">gpgsm --import /path/to/secret.pem<br></code></pre></td></tr></table></figure><p>然后依次输入你的<strong>私钥锁码</strong>，为 gpgsm 设置的<strong>新密码</strong>，<strong>重复上一步的密码</strong>，即可将私钥导入 <code>gpgsm</code></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">gpgsm: 1224 bytes of 3DES encrypted text<br>gpgsm: 5288 bytes of RC2 encrypted text<br>gpgsm: processing certBag<br>gpgsm: dirmngr cache-only key lookup failed: Not found<br>gpgsm: processing certBag<br>gpgsm: processing certBag<br>gpgsm: DBG: keygrip= AE 02 E3 4B E9 7E 61 0C C3 33 93 67 AF 6A 3D 29 18 B3 68 9B<br>gpgsm: total number processed: 4<br>gpgsm:               imported: 1<br>gpgsm:              unchanged: 2<br>gpgsm:       secret keys read: 1<br>gpgsm:   secret keys imported: 1<br><br></code></pre></td></tr></table></figure><p>导入完成后，配置 git 使用 gpgsm 进行签名：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">git config --global gpg.format x509<br></code></pre></td></tr></table></figure><p>（是的，<code>git</code> 默认的 X.509 签名工具就是 <code>gpgsm</code>）<br>接下来查看你私钥的 ID：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">gpgsm --list-secret-keys<br></code></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">/home/mbrjun/.gnupg/pubring.kbx<br>-------------------------------<br>           ID: 0xC7D9F286 &lt;&lt;- ID Here!<br>          S/N: 3D7BA6B1C470C8938BBB4B08FEC7A956<br>        (dec): 81724941220654032059336759622481979734<br>       Issuer: /CN=Actalis Client Authentication CA G3/O=Actalis S.p.A./L=Ponte San Pietro/ST=Bergamo/C=IT<br>      Subject: /CN=mbrjun@foxmail.com<br>          aka: mbrjun@foxmail.com<br>     validity: 2022-10-26 16:28:57 through 2023-10-26 16:28:57<br>     key type: 2048 bit RSA<br>    key usage: digitalSignature keyEncipherment<br>ext key usage: clientAuth (suggested), emailProtection (suggested)<br>     policies: 1.3.159.1.24.1:N:<br>  fingerprint: 6A:B8:DE:4C:82:76:21:E8:4C:F8:6E:BC:DE:61:B3:8F:C7:D9:F2:86<br>     sha2 fpr: FE:C5:8C:B9:B2:0D:B8:DD:36:BE:41:74:5F:B3:A1:90:68:B7:C9:BE:CD:A2:B9:EF:61:FE:DA:64:80:65:AF:96<br></code></pre></td></tr></table></figure><p>然后把这个 ID 告诉<code>git</code>，例如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">git config --global user.signingkey 0xC7D9F286<br></code></pre></td></tr></table></figure><p>将上方命令的 <code>0xC7D9F286</code> 替换为你的私钥 ID</p><p>最后，设置 git 的默认签名</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">git config --global commit.gpgsign true<br></code></pre></td></tr></table></figure><p>大功告成！立刻使用你的 X.509 证书来签名提交吧！<br><img src="https://cos.mbrjun.cn/IMGS/2022/12/31/dr.png"></p><h2 id="验证提交签名"><a href="#验证提交签名" class="headerlink" title="验证提交签名"></a>验证提交签名</h2><h3 id="git-命令行"><a href="#git-命令行" class="headerlink" title="git 命令行"></a>git 命令行</h3><p>打开 git log：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">git log --show-signature<br></code></pre></td></tr></table></figure><p>可以看到 gpgsm 会验证签名证书的有效性：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">commit ab7cb75fb8f3a1193a3297764d56b5231d46a6ee<br>gpgsm: Signature made 2022-11-13 04:44:10 UTC<br>gpgsm:                using rsa2048 key 6AB8DE4C827621E84CF86EBCDE61B38FC7D9F286<br>gpgsm: Note: non-critical certificate policy not allowed<br>gpgsm: Note: non-critical certificate policy not allowed<br>gpgsm: Good signature from &quot;/CN=mbrjun@foxmail.com&quot;<br>gpgsm:                 aka &quot;mbrjun@foxmail.com&quot;<br>Author: MBRjun &lt;mbrjun@foxmail.com&gt;<br>Date:   Sun Nov 13 12:44:10 2022 +0800<br><br>    GOOD COMMIT,WITH SMIME SIG(RETRY 1)<br></code></pre></td></tr></table></figure><h3 id="github-com"><a href="#github-com" class="headerlink" title="github.com"></a>github.com</h3><p>GitHub 验证 X.509 不需要上传公钥，同时也不兼容自签名：  </p><p>使用 X.509 签名会比其他签名方法多一种状态，即<strong>Pending</strong>：<br><img src="https://cos.mbrjun.cn/IMGS/2022/12/31/zs.jpg"></p><p>因为 X.509 还会进行证书吊销检查，证书吊销后，所有使用该证书的签名将会<strong>无效</strong>  </p>]]></content>
     
@@ -31,21 +31,21 @@
     
     
     
-    <category term="教程" scheme="https://blog.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="教程" scheme="https://blog.mbrjun.cn/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.mbrjun.cn/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="S/MIME" scheme="https://blog.mbrjun.cn/tags/S-MIME/"/>
+    <category term="S/MIME" scheme="https://www.mbrjun.cn/tags/S-MIME/"/>
     
-    <category term="git" scheme="https://blog.mbrjun.cn/tags/git/"/>
+    <category term="git" scheme="https://www.mbrjun.cn/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>我大抵是阳了</title>
-    <link href="https://blog.mbrjun.cn/archives/468/"/>
-    <id>https://blog.mbrjun.cn/archives/468/</id>
+    <link href="https://www.mbrjun.cn/archives/468/"/>
+    <id>https://www.mbrjun.cn/archives/468/</id>
     <published>2022-12-18T07:15:00.000Z</published>
     <updated>2022-12-22T09:57:44.000Z</updated>
     
@@ -57,19 +57,19 @@
     
     
     
-    <category term="疫情" scheme="https://blog.mbrjun.cn/categories/%E7%96%AB%E6%83%85/"/>
+    <category term="疫情" scheme="https://www.mbrjun.cn/categories/%E7%96%AB%E6%83%85/"/>
     
     
-    <category term="COVID-19" scheme="https://blog.mbrjun.cn/tags/COVID-19/"/>
+    <category term="COVID-19" scheme="https://www.mbrjun.cn/tags/COVID-19/"/>
     
-    <category term="疫情" scheme="https://blog.mbrjun.cn/tags/%E7%96%AB%E6%83%85/"/>
+    <category term="疫情" scheme="https://www.mbrjun.cn/tags/%E7%96%AB%E6%83%85/"/>
     
   </entry>
   
   <entry>
     <title>zstd 命令行使用简明教程</title>
-    <link href="https://blog.mbrjun.cn/archives/467/"/>
-    <id>https://blog.mbrjun.cn/archives/467/</id>
+    <link href="https://www.mbrjun.cn/archives/467/"/>
+    <id>https://www.mbrjun.cn/archives/467/</id>
     <published>2022-12-01T01:35:00.000Z</published>
     <updated>2022-12-01T02:39:50.000Z</updated>
     
@@ -80,23 +80,23 @@
     
     
     
-    <category term="代码" scheme="https://blog.mbrjun.cn/categories/%E4%BB%A3%E7%A0%81/"/>
+    <category term="代码" scheme="https://www.mbrjun.cn/categories/%E4%BB%A3%E7%A0%81/"/>
     
     
-    <category term="Linux" scheme="https://blog.mbrjun.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.mbrjun.cn/tags/Linux/"/>
     
-    <category term="zstd" scheme="https://blog.mbrjun.cn/tags/zstd/"/>
+    <category term="zstd" scheme="https://www.mbrjun.cn/tags/zstd/"/>
     
-    <category term="压缩" scheme="https://blog.mbrjun.cn/tags/%E5%8E%8B%E7%BC%A9/"/>
+    <category term="压缩" scheme="https://www.mbrjun.cn/tags/%E5%8E%8B%E7%BC%A9/"/>
     
-    <category term="算法" scheme="https://blog.mbrjun.cn/tags/%E7%AE%97%E6%B3%95/"/>
+    <category term="算法" scheme="https://www.mbrjun.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>Linux 6.0 内核编译教程</title>
-    <link href="https://blog.mbrjun.cn/archives/466/"/>
-    <id>https://blog.mbrjun.cn/archives/466/</id>
+    <link href="https://www.mbrjun.cn/archives/466/"/>
+    <id>https://www.mbrjun.cn/archives/466/</id>
     <published>2022-08-15T05:02:00.000Z</published>
     <updated>2022-08-16T07:01:19.000Z</updated>
     
@@ -107,33 +107,33 @@
     
     
     
-    <category term="代码" scheme="https://blog.mbrjun.cn/categories/%E4%BB%A3%E7%A0%81/"/>
+    <category term="代码" scheme="https://www.mbrjun.cn/categories/%E4%BB%A3%E7%A0%81/"/>
     
     
-    <category term="Linux" scheme="https://blog.mbrjun.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.mbrjun.cn/tags/Linux/"/>
     
-    <category term="CentOS" scheme="https://blog.mbrjun.cn/tags/CentOS/"/>
+    <category term="CentOS" scheme="https://www.mbrjun.cn/tags/CentOS/"/>
     
-    <category term="内核" scheme="https://blog.mbrjun.cn/tags/%E5%86%85%E6%A0%B8/"/>
+    <category term="内核" scheme="https://www.mbrjun.cn/tags/%E5%86%85%E6%A0%B8/"/>
     
-    <category term="Arch" scheme="https://blog.mbrjun.cn/tags/Arch/"/>
+    <category term="Arch" scheme="https://www.mbrjun.cn/tags/Arch/"/>
     
-    <category term="Ubuntu" scheme="https://blog.mbrjun.cn/tags/Ubuntu/"/>
+    <category term="Ubuntu" scheme="https://www.mbrjun.cn/tags/Ubuntu/"/>
     
-    <category term="make" scheme="https://blog.mbrjun.cn/tags/make/"/>
+    <category term="make" scheme="https://www.mbrjun.cn/tags/make/"/>
     
-    <category term="Linux6.0" scheme="https://blog.mbrjun.cn/tags/Linux6-0/"/>
+    <category term="Linux6.0" scheme="https://www.mbrjun.cn/tags/Linux6-0/"/>
     
-    <category term="Linux6" scheme="https://blog.mbrjun.cn/tags/Linux6/"/>
+    <category term="Linux6" scheme="https://www.mbrjun.cn/tags/Linux6/"/>
     
-    <category term="deepin" scheme="https://blog.mbrjun.cn/tags/deepin/"/>
+    <category term="deepin" scheme="https://www.mbrjun.cn/tags/deepin/"/>
     
   </entry>
   
   <entry>
     <title>Linux 下修改磁盘分区编号</title>
-    <link href="https://blog.mbrjun.cn/archives/465/"/>
-    <id>https://blog.mbrjun.cn/archives/465/</id>
+    <link href="https://www.mbrjun.cn/archives/465/"/>
+    <id>https://www.mbrjun.cn/archives/465/</id>
     <published>2022-07-23T14:31:54.000Z</published>
     <updated>2022-07-23T14:31:54.000Z</updated>
     
@@ -144,29 +144,29 @@
     
     
     
-    <category term="教程" scheme="https://blog.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Linux" scheme="https://blog.mbrjun.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.mbrjun.cn/tags/Linux/"/>
     
-    <category term="CentOS" scheme="https://blog.mbrjun.cn/tags/CentOS/"/>
+    <category term="CentOS" scheme="https://www.mbrjun.cn/tags/CentOS/"/>
     
-    <category term="Arch" scheme="https://blog.mbrjun.cn/tags/Arch/"/>
+    <category term="Arch" scheme="https://www.mbrjun.cn/tags/Arch/"/>
     
-    <category term="Ubuntu" scheme="https://blog.mbrjun.cn/tags/Ubuntu/"/>
+    <category term="Ubuntu" scheme="https://www.mbrjun.cn/tags/Ubuntu/"/>
     
-    <category term="分区表" scheme="https://blog.mbrjun.cn/tags/%E5%88%86%E5%8C%BA%E8%A1%A8/"/>
+    <category term="分区表" scheme="https://www.mbrjun.cn/tags/%E5%88%86%E5%8C%BA%E8%A1%A8/"/>
     
-    <category term="MBR" scheme="https://blog.mbrjun.cn/tags/MBR/"/>
+    <category term="MBR" scheme="https://www.mbrjun.cn/tags/MBR/"/>
     
-    <category term="GPT" scheme="https://blog.mbrjun.cn/tags/GPT/"/>
+    <category term="GPT" scheme="https://www.mbrjun.cn/tags/GPT/"/>
     
   </entry>
   
   <entry>
     <title>我们Arc人下午过年，晚上吊丧，其他圈子能做得到吗！？</title>
-    <link href="https://blog.mbrjun.cn/archives/461/"/>
-    <id>https://blog.mbrjun.cn/archives/461/</id>
+    <link href="https://www.mbrjun.cn/archives/461/"/>
+    <id>https://www.mbrjun.cn/archives/461/</id>
     <published>2022-07-09T13:06:00.000Z</published>
     <updated>2022-07-09T13:37:58.000Z</updated>
     
@@ -177,25 +177,25 @@
     
     
     
-    <category term="游戏" scheme="https://blog.mbrjun.cn/categories/%E6%B8%B8%E6%88%8F/"/>
+    <category term="游戏" scheme="https://www.mbrjun.cn/categories/%E6%B8%B8%E6%88%8F/"/>
     
     
-    <category term="Arcaea" scheme="https://blog.mbrjun.cn/tags/Arcaea/"/>
+    <category term="Arcaea" scheme="https://www.mbrjun.cn/tags/Arcaea/"/>
     
-    <category term="韵律源点" scheme="https://blog.mbrjun.cn/tags/%E9%9F%B5%E5%BE%8B%E6%BA%90%E7%82%B9/"/>
+    <category term="韵律源点" scheme="https://www.mbrjun.cn/tags/%E9%9F%B5%E5%BE%8B%E6%BA%90%E7%82%B9/"/>
     
-    <category term="对立" scheme="https://blog.mbrjun.cn/tags/%E5%AF%B9%E7%AB%8B/"/>
+    <category term="对立" scheme="https://www.mbrjun.cn/tags/%E5%AF%B9%E7%AB%8B/"/>
     
-    <category term="Arcaea4.0" scheme="https://blog.mbrjun.cn/tags/Arcaea4-0/"/>
+    <category term="Arcaea4.0" scheme="https://www.mbrjun.cn/tags/Arcaea4-0/"/>
     
-    <category term="lowiro" scheme="https://blog.mbrjun.cn/tags/lowiro/"/>
+    <category term="lowiro" scheme="https://www.mbrjun.cn/tags/lowiro/"/>
     
   </entry>
   
   <entry>
     <title>Proxmox VE 配置 RSTP</title>
-    <link href="https://blog.mbrjun.cn/archives/459/"/>
-    <id>https://blog.mbrjun.cn/archives/459/</id>
+    <link href="https://www.mbrjun.cn/archives/459/"/>
+    <id>https://www.mbrjun.cn/archives/459/</id>
     <published>2022-06-11T12:56:00.000Z</published>
     <updated>2022-06-11T14:32:44.000Z</updated>
     
@@ -206,35 +206,35 @@
     
     
     
-    <category term="教程" scheme="https://blog.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="PVE" scheme="https://blog.mbrjun.cn/tags/PVE/"/>
+    <category term="PVE" scheme="https://www.mbrjun.cn/tags/PVE/"/>
     
-    <category term="交换机" scheme="https://blog.mbrjun.cn/tags/%E4%BA%A4%E6%8D%A2%E6%9C%BA/"/>
+    <category term="交换机" scheme="https://www.mbrjun.cn/tags/%E4%BA%A4%E6%8D%A2%E6%9C%BA/"/>
     
-    <category term="RSTP" scheme="https://blog.mbrjun.cn/tags/RSTP/"/>
+    <category term="RSTP" scheme="https://www.mbrjun.cn/tags/RSTP/"/>
     
-    <category term="STP" scheme="https://blog.mbrjun.cn/tags/STP/"/>
+    <category term="STP" scheme="https://www.mbrjun.cn/tags/STP/"/>
     
-    <category term="生成树" scheme="https://blog.mbrjun.cn/tags/%E7%94%9F%E6%88%90%E6%A0%91/"/>
+    <category term="生成树" scheme="https://www.mbrjun.cn/tags/%E7%94%9F%E6%88%90%E6%A0%91/"/>
     
-    <category term="生成树协议" scheme="https://blog.mbrjun.cn/tags/%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE/"/>
+    <category term="生成树协议" scheme="https://www.mbrjun.cn/tags/%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE/"/>
     
-    <category term="快速生成树协议" scheme="https://blog.mbrjun.cn/tags/%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE/"/>
+    <category term="快速生成树协议" scheme="https://www.mbrjun.cn/tags/%E5%BF%AB%E9%80%9F%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE/"/>
     
-    <category term="OvS" scheme="https://blog.mbrjun.cn/tags/OvS/"/>
+    <category term="OvS" scheme="https://www.mbrjun.cn/tags/OvS/"/>
     
-    <category term="Proxmox VE" scheme="https://blog.mbrjun.cn/tags/Proxmox-VE/"/>
+    <category term="Proxmox VE" scheme="https://www.mbrjun.cn/tags/Proxmox-VE/"/>
     
-    <category term="Linux Bridge" scheme="https://blog.mbrjun.cn/tags/Linux-Bridge/"/>
+    <category term="Linux Bridge" scheme="https://www.mbrjun.cn/tags/Linux-Bridge/"/>
     
   </entry>
   
   <entry>
     <title>原神私服 Android 游玩教程 (免 root)</title>
-    <link href="https://blog.mbrjun.cn/archives/454/"/>
-    <id>https://blog.mbrjun.cn/archives/454/</id>
+    <link href="https://www.mbrjun.cn/archives/454/"/>
+    <id>https://www.mbrjun.cn/archives/454/</id>
     <published>2022-05-22T07:14:00.000Z</published>
     <updated>2022-07-25T13:38:52.000Z</updated>
     
@@ -245,27 +245,27 @@
     
     
     
-    <category term="游戏" scheme="https://blog.mbrjun.cn/categories/%E6%B8%B8%E6%88%8F/"/>
+    <category term="游戏" scheme="https://www.mbrjun.cn/categories/%E6%B8%B8%E6%88%8F/"/>
     
     
-    <category term="原神" scheme="https://blog.mbrjun.cn/tags/%E5%8E%9F%E7%A5%9E/"/>
+    <category term="原神" scheme="https://www.mbrjun.cn/tags/%E5%8E%9F%E7%A5%9E/"/>
     
-    <category term="Grasscutter" scheme="https://blog.mbrjun.cn/tags/Grasscutter/"/>
+    <category term="Grasscutter" scheme="https://www.mbrjun.cn/tags/Grasscutter/"/>
     
-    <category term="mitmproxy" scheme="https://blog.mbrjun.cn/tags/mitmproxy/"/>
+    <category term="mitmproxy" scheme="https://www.mbrjun.cn/tags/mitmproxy/"/>
     
-    <category term="私服" scheme="https://blog.mbrjun.cn/tags/%E7%A7%81%E6%9C%8D/"/>
+    <category term="私服" scheme="https://www.mbrjun.cn/tags/%E7%A7%81%E6%9C%8D/"/>
     
-    <category term="Genshin Impact" scheme="https://blog.mbrjun.cn/tags/Genshin-Impact/"/>
+    <category term="Genshin Impact" scheme="https://www.mbrjun.cn/tags/Genshin-Impact/"/>
     
-    <category term="原神私服" scheme="https://blog.mbrjun.cn/tags/%E5%8E%9F%E7%A5%9E%E7%A7%81%E6%9C%8D/"/>
+    <category term="原神私服" scheme="https://www.mbrjun.cn/tags/%E5%8E%9F%E7%A5%9E%E7%A7%81%E6%9C%8D/"/>
     
   </entry>
   
   <entry>
     <title>寂静之城</title>
-    <link href="https://blog.mbrjun.cn/archives/452/"/>
-    <id>https://blog.mbrjun.cn/archives/452/</id>
+    <link href="https://www.mbrjun.cn/archives/452/"/>
+    <id>https://www.mbrjun.cn/archives/452/</id>
     <published>2022-05-19T05:10:00.000Z</published>
     <updated>2022-05-19T13:28:55.000Z</updated>
     
@@ -280,17 +280,17 @@
     
     
     
-    <category term="生活日记" scheme="https://blog.mbrjun.cn/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E8%AE%B0/"/>
+    <category term="生活日记" scheme="https://www.mbrjun.cn/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E8%AE%B0/"/>
     
     
-    <category term="寂静之城" scheme="https://blog.mbrjun.cn/tags/%E5%AF%82%E9%9D%99%E4%B9%8B%E5%9F%8E/"/>
+    <category term="寂静之城" scheme="https://www.mbrjun.cn/tags/%E5%AF%82%E9%9D%99%E4%B9%8B%E5%9F%8E/"/>
     
   </entry>
   
   <entry>
     <title>解决「此证书对于所选的目的无效」</title>
-    <link href="https://blog.mbrjun.cn/archives/451/"/>
-    <id>https://blog.mbrjun.cn/archives/451/</id>
+    <link href="https://www.mbrjun.cn/archives/451/"/>
+    <id>https://www.mbrjun.cn/archives/451/</id>
     <published>2022-05-18T06:52:41.000Z</published>
     <updated>2022-05-18T06:52:41.000Z</updated>
     
@@ -302,25 +302,25 @@
     
     
     
-    <category term="软件" scheme="https://blog.mbrjun.cn/categories/%E8%BD%AF%E4%BB%B6/"/>
+    <category term="软件" scheme="https://www.mbrjun.cn/categories/%E8%BD%AF%E4%BB%B6/"/>
     
     
-    <category term="TLS" scheme="https://blog.mbrjun.cn/tags/TLS/"/>
+    <category term="TLS" scheme="https://www.mbrjun.cn/tags/TLS/"/>
     
-    <category term="SSL" scheme="https://blog.mbrjun.cn/tags/SSL/"/>
+    <category term="SSL" scheme="https://www.mbrjun.cn/tags/SSL/"/>
     
-    <category term="OpenSSL" scheme="https://blog.mbrjun.cn/tags/OpenSSL/"/>
+    <category term="OpenSSL" scheme="https://www.mbrjun.cn/tags/OpenSSL/"/>
     
-    <category term="CA" scheme="https://blog.mbrjun.cn/tags/CA/"/>
+    <category term="CA" scheme="https://www.mbrjun.cn/tags/CA/"/>
     
-    <category term="CSR" scheme="https://blog.mbrjun.cn/tags/CSR/"/>
+    <category term="CSR" scheme="https://www.mbrjun.cn/tags/CSR/"/>
     
   </entry>
   
   <entry>
     <title>浅谈 Android Zygote</title>
-    <link href="https://blog.mbrjun.cn/archives/445/"/>
-    <id>https://blog.mbrjun.cn/archives/445/</id>
+    <link href="https://www.mbrjun.cn/archives/445/"/>
+    <id>https://www.mbrjun.cn/archives/445/</id>
     <published>2022-05-10T15:31:43.000Z</published>
     <updated>2022-05-10T15:31:43.000Z</updated>
     
@@ -331,29 +331,29 @@
     
     
     
-    <category term="代码" scheme="https://blog.mbrjun.cn/categories/%E4%BB%A3%E7%A0%81/"/>
+    <category term="代码" scheme="https://www.mbrjun.cn/categories/%E4%BB%A3%E7%A0%81/"/>
     
     
-    <category term="虚拟机" scheme="https://blog.mbrjun.cn/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <category term="虚拟机" scheme="https://www.mbrjun.cn/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
-    <category term="Android" scheme="https://blog.mbrjun.cn/tags/Android/"/>
+    <category term="Android" scheme="https://www.mbrjun.cn/tags/Android/"/>
     
-    <category term="Zygote" scheme="https://blog.mbrjun.cn/tags/Zygote/"/>
+    <category term="Zygote" scheme="https://www.mbrjun.cn/tags/Zygote/"/>
     
-    <category term="Java" scheme="https://blog.mbrjun.cn/tags/Java/"/>
+    <category term="Java" scheme="https://www.mbrjun.cn/tags/Java/"/>
     
-    <category term="Magisk" scheme="https://blog.mbrjun.cn/tags/Magisk/"/>
+    <category term="Magisk" scheme="https://www.mbrjun.cn/tags/Magisk/"/>
     
-    <category term="Zygisk" scheme="https://blog.mbrjun.cn/tags/Zygisk/"/>
+    <category term="Zygisk" scheme="https://www.mbrjun.cn/tags/Zygisk/"/>
     
-    <category term="Riru" scheme="https://blog.mbrjun.cn/tags/Riru/"/>
+    <category term="Riru" scheme="https://www.mbrjun.cn/tags/Riru/"/>
     
   </entry>
   
   <entry>
     <title>Arcaea 修改残片数量</title>
-    <link href="https://blog.mbrjun.cn/archives/443/"/>
-    <id>https://blog.mbrjun.cn/archives/443/</id>
+    <link href="https://www.mbrjun.cn/archives/443/"/>
+    <id>https://www.mbrjun.cn/archives/443/</id>
     <published>2022-05-10T13:36:00.000Z</published>
     <updated>2022-05-10T13:40:45.000Z</updated>
     
@@ -364,17 +364,17 @@
     
     
     
-    <category term="游戏" scheme="https://blog.mbrjun.cn/categories/%E6%B8%B8%E6%88%8F/"/>
+    <category term="游戏" scheme="https://www.mbrjun.cn/categories/%E6%B8%B8%E6%88%8F/"/>
     
     
-    <category term="Arcaea" scheme="https://blog.mbrjun.cn/tags/Arcaea/"/>
+    <category term="Arcaea" scheme="https://www.mbrjun.cn/tags/Arcaea/"/>
     
   </entry>
   
   <entry>
     <title>Typecho 数据库优化</title>
-    <link href="https://blog.mbrjun.cn/archives/440/"/>
-    <id>https://blog.mbrjun.cn/archives/440/</id>
+    <link href="https://www.mbrjun.cn/archives/440/"/>
+    <id>https://www.mbrjun.cn/archives/440/</id>
     <published>2022-05-05T17:01:00.000Z</published>
     <updated>2022-05-06T16:41:15.000Z</updated>
     
@@ -385,31 +385,31 @@
     
     
     
-    <category term="网络" scheme="https://blog.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/"/>
+    <category term="网络" scheme="https://www.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="服务器" scheme="https://blog.mbrjun.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="https://www.mbrjun.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
-    <category term="typecho" scheme="https://blog.mbrjun.cn/tags/typecho/"/>
+    <category term="typecho" scheme="https://www.mbrjun.cn/tags/typecho/"/>
     
-    <category term="优化" scheme="https://blog.mbrjun.cn/tags/%E4%BC%98%E5%8C%96/"/>
+    <category term="优化" scheme="https://www.mbrjun.cn/tags/%E4%BC%98%E5%8C%96/"/>
     
-    <category term="Mysql" scheme="https://blog.mbrjun.cn/tags/Mysql/"/>
+    <category term="Mysql" scheme="https://www.mbrjun.cn/tags/Mysql/"/>
     
-    <category term="数据库" scheme="https://blog.mbrjun.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="数据库" scheme="https://www.mbrjun.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
-    <category term="UTF8" scheme="https://blog.mbrjun.cn/tags/UTF8/"/>
+    <category term="UTF8" scheme="https://www.mbrjun.cn/tags/UTF8/"/>
     
-    <category term="emoji" scheme="https://blog.mbrjun.cn/tags/emoji/"/>
+    <category term="emoji" scheme="https://www.mbrjun.cn/tags/emoji/"/>
     
-    <category term="InnoDB" scheme="https://blog.mbrjun.cn/tags/InnoDB/"/>
+    <category term="InnoDB" scheme="https://www.mbrjun.cn/tags/InnoDB/"/>
     
   </entry>
   
   <entry>
     <title>从 Let&#39;s Encrypt E1 获取 ECDSA 证书</title>
-    <link href="https://blog.mbrjun.cn/archives/442/"/>
-    <id>https://blog.mbrjun.cn/archives/442/</id>
+    <link href="https://www.mbrjun.cn/archives/442/"/>
+    <id>https://www.mbrjun.cn/archives/442/</id>
     <published>2022-05-02T17:09:46.000Z</published>
     <updated>2022-05-02T17:09:46.000Z</updated>
     
@@ -427,35 +427,35 @@
     
     
     
-    <category term="教程" scheme="https://blog.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="HTTPS" scheme="https://blog.mbrjun.cn/tags/HTTPS/"/>
+    <category term="HTTPS" scheme="https://www.mbrjun.cn/tags/HTTPS/"/>
     
-    <category term="TLS" scheme="https://blog.mbrjun.cn/tags/TLS/"/>
+    <category term="TLS" scheme="https://www.mbrjun.cn/tags/TLS/"/>
     
-    <category term="证书" scheme="https://blog.mbrjun.cn/tags/%E8%AF%81%E4%B9%A6/"/>
+    <category term="证书" scheme="https://www.mbrjun.cn/tags/%E8%AF%81%E4%B9%A6/"/>
     
-    <category term="SSL" scheme="https://blog.mbrjun.cn/tags/SSL/"/>
+    <category term="SSL" scheme="https://www.mbrjun.cn/tags/SSL/"/>
     
-    <category term="ECDSA" scheme="https://blog.mbrjun.cn/tags/ECDSA/"/>
+    <category term="ECDSA" scheme="https://www.mbrjun.cn/tags/ECDSA/"/>
     
-    <category term="RSA" scheme="https://blog.mbrjun.cn/tags/RSA/"/>
+    <category term="RSA" scheme="https://www.mbrjun.cn/tags/RSA/"/>
     
-    <category term="ECC" scheme="https://blog.mbrjun.cn/tags/ECC/"/>
+    <category term="ECC" scheme="https://www.mbrjun.cn/tags/ECC/"/>
     
-    <category term="ACME" scheme="https://blog.mbrjun.cn/tags/ACME/"/>
+    <category term="ACME" scheme="https://www.mbrjun.cn/tags/ACME/"/>
     
-    <category term="acme.sh" scheme="https://blog.mbrjun.cn/tags/acme-sh/"/>
+    <category term="acme.sh" scheme="https://www.mbrjun.cn/tags/acme-sh/"/>
     
-    <category term="Let&#39;s Encrypt" scheme="https://blog.mbrjun.cn/tags/Let-s-Encrypt/"/>
+    <category term="Let&#39;s Encrypt" scheme="https://www.mbrjun.cn/tags/Let-s-Encrypt/"/>
     
   </entry>
   
   <entry>
     <title>Typecho 使用腾讯云 CDN 配置 HTTP 回源</title>
-    <link href="https://blog.mbrjun.cn/archives/438/"/>
-    <id>https://blog.mbrjun.cn/archives/438/</id>
+    <link href="https://www.mbrjun.cn/archives/438/"/>
+    <id>https://www.mbrjun.cn/archives/438/</id>
     <published>2022-04-28T17:14:51.000Z</published>
     <updated>2022-04-28T17:14:51.000Z</updated>
     
@@ -466,27 +466,27 @@
     
     
     
-    <category term="代码" scheme="https://blog.mbrjun.cn/categories/%E4%BB%A3%E7%A0%81/"/>
+    <category term="代码" scheme="https://www.mbrjun.cn/categories/%E4%BB%A3%E7%A0%81/"/>
     
     
-    <category term="typecho" scheme="https://blog.mbrjun.cn/tags/typecho/"/>
+    <category term="typecho" scheme="https://www.mbrjun.cn/tags/typecho/"/>
     
-    <category term="CDN" scheme="https://blog.mbrjun.cn/tags/CDN/"/>
+    <category term="CDN" scheme="https://www.mbrjun.cn/tags/CDN/"/>
     
-    <category term="腾讯云" scheme="https://blog.mbrjun.cn/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/"/>
+    <category term="腾讯云" scheme="https://www.mbrjun.cn/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/"/>
     
-    <category term="blog" scheme="https://blog.mbrjun.cn/tags/blog/"/>
+    <category term="blog" scheme="https://www.mbrjun.cn/tags/blog/"/>
     
-    <category term="PHP" scheme="https://blog.mbrjun.cn/tags/PHP/"/>
+    <category term="PHP" scheme="https://www.mbrjun.cn/tags/PHP/"/>
     
-    <category term="http" scheme="https://blog.mbrjun.cn/tags/http/"/>
+    <category term="http" scheme="https://www.mbrjun.cn/tags/http/"/>
     
   </entry>
   
   <entry>
     <title>为 IP 地址 免费签发 SSL/TLS 证书</title>
-    <link href="https://blog.mbrjun.cn/archives/435/"/>
-    <id>https://blog.mbrjun.cn/archives/435/</id>
+    <link href="https://www.mbrjun.cn/archives/435/"/>
+    <id>https://www.mbrjun.cn/archives/435/</id>
     <published>2022-04-27T11:38:00.000Z</published>
     <updated>2022-04-27T14:00:21.000Z</updated>
     
@@ -497,27 +497,27 @@
     
     
     
-    <category term="网络" scheme="https://blog.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/"/>
+    <category term="网络" scheme="https://www.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="IPv6" scheme="https://blog.mbrjun.cn/tags/IPv6/"/>
+    <category term="IPv6" scheme="https://www.mbrjun.cn/tags/IPv6/"/>
     
-    <category term="TLS" scheme="https://blog.mbrjun.cn/tags/TLS/"/>
+    <category term="TLS" scheme="https://www.mbrjun.cn/tags/TLS/"/>
     
-    <category term="证书" scheme="https://blog.mbrjun.cn/tags/%E8%AF%81%E4%B9%A6/"/>
+    <category term="证书" scheme="https://www.mbrjun.cn/tags/%E8%AF%81%E4%B9%A6/"/>
     
-    <category term="SSL" scheme="https://blog.mbrjun.cn/tags/SSL/"/>
+    <category term="SSL" scheme="https://www.mbrjun.cn/tags/SSL/"/>
     
-    <category term="免费SSL" scheme="https://blog.mbrjun.cn/tags/%E5%85%8D%E8%B4%B9SSL/"/>
+    <category term="免费SSL" scheme="https://www.mbrjun.cn/tags/%E5%85%8D%E8%B4%B9SSL/"/>
     
-    <category term="zerossl" scheme="https://blog.mbrjun.cn/tags/zerossl/"/>
+    <category term="zerossl" scheme="https://www.mbrjun.cn/tags/zerossl/"/>
     
   </entry>
   
   <entry>
     <title>白嫖 IBM LinuxOne VPS</title>
-    <link href="https://blog.mbrjun.cn/archives/434/"/>
-    <id>https://blog.mbrjun.cn/archives/434/</id>
+    <link href="https://www.mbrjun.cn/archives/434/"/>
+    <id>https://www.mbrjun.cn/archives/434/</id>
     <published>2022-04-18T03:05:00.000Z</published>
     <updated>2022-05-04T02:22:14.000Z</updated>
     
@@ -528,35 +528,35 @@
     
     
     
-    <category term="教程" scheme="https://blog.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="服务器" scheme="https://blog.mbrjun.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="https://www.mbrjun.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
-    <category term="VPS" scheme="https://blog.mbrjun.cn/tags/VPS/"/>
+    <category term="VPS" scheme="https://www.mbrjun.cn/tags/VPS/"/>
     
-    <category term="宝塔" scheme="https://blog.mbrjun.cn/tags/%E5%AE%9D%E5%A1%94/"/>
+    <category term="宝塔" scheme="https://www.mbrjun.cn/tags/%E5%AE%9D%E5%A1%94/"/>
     
-    <category term="S390X" scheme="https://blog.mbrjun.cn/tags/S390X/"/>
+    <category term="S390X" scheme="https://www.mbrjun.cn/tags/S390X/"/>
     
-    <category term="RHEL" scheme="https://blog.mbrjun.cn/tags/RHEL/"/>
+    <category term="RHEL" scheme="https://www.mbrjun.cn/tags/RHEL/"/>
     
-    <category term="LinuxOne" scheme="https://blog.mbrjun.cn/tags/LinuxOne/"/>
+    <category term="LinuxOne" scheme="https://www.mbrjun.cn/tags/LinuxOne/"/>
     
-    <category term="MC服" scheme="https://blog.mbrjun.cn/tags/MC%E6%9C%8D/"/>
+    <category term="MC服" scheme="https://www.mbrjun.cn/tags/MC%E6%9C%8D/"/>
     
-    <category term="LNMP" scheme="https://blog.mbrjun.cn/tags/LNMP/"/>
+    <category term="LNMP" scheme="https://www.mbrjun.cn/tags/LNMP/"/>
     
-    <category term="LAMP" scheme="https://blog.mbrjun.cn/tags/LAMP/"/>
+    <category term="LAMP" scheme="https://www.mbrjun.cn/tags/LAMP/"/>
     
-    <category term="大型机" scheme="https://blog.mbrjun.cn/tags/%E5%A4%A7%E5%9E%8B%E6%9C%BA/"/>
+    <category term="大型机" scheme="https://www.mbrjun.cn/tags/%E5%A4%A7%E5%9E%8B%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>Typecho TTFB、加载速度优化教程</title>
-    <link href="https://blog.mbrjun.cn/archives/432/"/>
-    <id>https://blog.mbrjun.cn/archives/432/</id>
+    <link href="https://www.mbrjun.cn/archives/432/"/>
+    <id>https://www.mbrjun.cn/archives/432/</id>
     <published>2022-04-15T07:35:00.000Z</published>
     <updated>2022-04-27T16:39:56.000Z</updated>
     
@@ -567,33 +567,33 @@
     
     
     
-    <category term="教程" scheme="https://blog.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="网站" scheme="https://blog.mbrjun.cn/tags/%E7%BD%91%E7%AB%99/"/>
+    <category term="网站" scheme="https://www.mbrjun.cn/tags/%E7%BD%91%E7%AB%99/"/>
     
-    <category term="typecho" scheme="https://blog.mbrjun.cn/tags/typecho/"/>
+    <category term="typecho" scheme="https://www.mbrjun.cn/tags/typecho/"/>
     
-    <category term="优化" scheme="https://blog.mbrjun.cn/tags/%E4%BC%98%E5%8C%96/"/>
+    <category term="优化" scheme="https://www.mbrjun.cn/tags/%E4%BC%98%E5%8C%96/"/>
     
-    <category term="Mysql" scheme="https://blog.mbrjun.cn/tags/Mysql/"/>
+    <category term="Mysql" scheme="https://www.mbrjun.cn/tags/Mysql/"/>
     
-    <category term="Nginx" scheme="https://blog.mbrjun.cn/tags/Nginx/"/>
+    <category term="Nginx" scheme="https://www.mbrjun.cn/tags/Nginx/"/>
     
-    <category term="建站" scheme="https://blog.mbrjun.cn/tags/%E5%BB%BA%E7%AB%99/"/>
+    <category term="建站" scheme="https://www.mbrjun.cn/tags/%E5%BB%BA%E7%AB%99/"/>
     
-    <category term="博客" scheme="https://blog.mbrjun.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="博客" scheme="https://www.mbrjun.cn/tags/%E5%8D%9A%E5%AE%A2/"/>
     
-    <category term="加速" scheme="https://blog.mbrjun.cn/tags/%E5%8A%A0%E9%80%9F/"/>
+    <category term="加速" scheme="https://www.mbrjun.cn/tags/%E5%8A%A0%E9%80%9F/"/>
     
-    <category term="FTTB" scheme="https://blog.mbrjun.cn/tags/FTTB/"/>
+    <category term="FTTB" scheme="https://www.mbrjun.cn/tags/FTTB/"/>
     
   </entry>
   
   <entry>
     <title>Linux 开启 TCP BBR</title>
-    <link href="https://blog.mbrjun.cn/archives/431/"/>
-    <id>https://blog.mbrjun.cn/archives/431/</id>
+    <link href="https://www.mbrjun.cn/archives/431/"/>
+    <id>https://www.mbrjun.cn/archives/431/</id>
     <published>2022-04-11T12:05:35.000Z</published>
     <updated>2022-04-11T12:05:35.000Z</updated>
     
@@ -605,29 +605,29 @@
     
     
     
-    <category term="网络" scheme="https://blog.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/"/>
+    <category term="网络" scheme="https://www.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="Linux" scheme="https://blog.mbrjun.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.mbrjun.cn/tags/Linux/"/>
     
-    <category term="TCP" scheme="https://blog.mbrjun.cn/tags/TCP/"/>
+    <category term="TCP" scheme="https://www.mbrjun.cn/tags/TCP/"/>
     
-    <category term="Google" scheme="https://blog.mbrjun.cn/tags/Google/"/>
+    <category term="Google" scheme="https://www.mbrjun.cn/tags/Google/"/>
     
-    <category term="BBR" scheme="https://blog.mbrjun.cn/tags/BBR/"/>
+    <category term="BBR" scheme="https://www.mbrjun.cn/tags/BBR/"/>
     
-    <category term="拥塞控制" scheme="https://blog.mbrjun.cn/tags/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/"/>
+    <category term="拥塞控制" scheme="https://www.mbrjun.cn/tags/%E6%8B%A5%E5%A1%9E%E6%8E%A7%E5%88%B6/"/>
     
-    <category term="TCP BBR" scheme="https://blog.mbrjun.cn/tags/TCP-BBR/"/>
+    <category term="TCP BBR" scheme="https://www.mbrjun.cn/tags/TCP-BBR/"/>
     
-    <category term="cubic" scheme="https://blog.mbrjun.cn/tags/cubic/"/>
+    <category term="cubic" scheme="https://www.mbrjun.cn/tags/cubic/"/>
     
   </entry>
   
   <entry>
     <title>解决 OpenWrt ZeroTier 报错 Error relocating</title>
-    <link href="https://blog.mbrjun.cn/archives/430/"/>
-    <id>https://blog.mbrjun.cn/archives/430/</id>
+    <link href="https://www.mbrjun.cn/archives/430/"/>
+    <id>https://www.mbrjun.cn/archives/430/</id>
     <published>2022-04-10T06:46:00.000Z</published>
     <updated>2022-04-27T16:26:03.000Z</updated>
     
@@ -639,14 +639,14 @@
     
     
     
-    <category term="网络" scheme="https://blog.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/"/>
+    <category term="网络" scheme="https://www.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="OpenWrt" scheme="https://blog.mbrjun.cn/tags/OpenWrt/"/>
+    <category term="OpenWrt" scheme="https://www.mbrjun.cn/tags/OpenWrt/"/>
     
-    <category term="ZeroTier" scheme="https://blog.mbrjun.cn/tags/ZeroTier/"/>
+    <category term="ZeroTier" scheme="https://www.mbrjun.cn/tags/ZeroTier/"/>
     
-    <category term="异地组网" scheme="https://blog.mbrjun.cn/tags/%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91/"/>
+    <category term="异地组网" scheme="https://www.mbrjun.cn/tags/%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91/"/>
     
   </entry>
   

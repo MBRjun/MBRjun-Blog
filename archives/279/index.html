@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"说到这个问题之前，首先我们需要先了解一下change buffer\n\n当需要更新一个数据页时，如果数据页在内存中就直接更新，而如果这个数据页还没有在内存中的话，在不影响数据一致性的前提下，InooDB 会将这些更新操作缓存在 change buffer 中，这样就不需要从磁盘中读入这个数据页了。在下次查询需要访问这个数据页的时候，将数据页读入内存，然后执行 change buffer 中与这个页有关的操作。通过这种方式就能保证这个数据逻辑的正确性。\n需要说明的是，虽然名字叫作 change buffer，实际上它是可以持久化的数据。也就是说，change buffer 在内存中有拷贝，也会被写入到磁盘上。\n将 change buffer 中的操作应用到原数据页，得到最新结果的过程称为 merge。除了访问这个数据页会触发 merge 外，系统有后台线程会定期 merge。在数据库正常关闭（shutdown）的过程中，也会执行 merge 操作。\n显然，如果能够将更新操作先记录在 change buffer，减少读磁盘，语句的执行速度会得到明显的提升。而且，数据读入内存是需要占用 buffer pool 的，所以这种方式还能够避免占用内存，提高内存利用率。\n那么，什么条件下可以使用 change buffer 呢？\n对于唯一索引来说，所有的更新操作都要先判断这个操作是否违反唯一性约束。比如，要插入 (4,400) 这个记录，就要先判断现在表中是否已经存在 k&#x3D;4 的记录，而这必须要将数据页读入内存才能判断。如果都已经读入到内存了，那直接更新内存会更快，就没必要使用 change buffer 了。\n因此，唯一索引的更新就不能使用 change buffer，实际上也只有普通索引可以使用。\nchange buffer 用的是 buffer pool 里的内存，因此不能无限增大。change buffer 的大小，可以通过参数 innodb_change_buffer_max_size 来动态设置。这个参数设置为 50 的时候，表示 change buffer 的大小最多只能占用 buffer pool 的 50%。\n因为 merge 的时候是真正进行数据更新的时刻，而 change buffer 的主要目的就是将记录的变更动作缓存下来，所以在一个数据页做 merge 之前，change buffer 记录的变更越多（也就是这个页面上要更新的次数越多），收益就越大。\n因此，对于写多读少的业务来说，页面在写完以后马上被访问到的概率比较小，此时 change buffer 的使用效果最好。这种业务模型常见的就是账单类、日志类的系统。\n回到我们开头的问题，普通索引和唯一索引应该怎么选择。其实，这两类索引在查询能力上是没差别的，主要考虑的是对更新性能的影响。所以，我建议你尽量选择普通索引。\n查看原文\n","dateCreated":"2020-09-09T21:21:00+08:00","dateModified":"2020-10-12T18:19:39+08:00","datePublished":"2020-09-09T21:21:00+08:00","description":"说到这个问题之前，首先我们需要先了解一下change buffer","headline":"普通索引与唯一索引的选择问题","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/279/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/279/","keywords":"Mysql, 索引, 数据库"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"说到这个问题之前，首先我们需要先了解一下change buffer\n\n当需要更新一个数据页时，如果数据页在内存中就直接更新，而如果这个数据页还没有在内存中的话，在不影响数据一致性的前提下，InooDB 会将这些更新操作缓存在 change buffer 中，这样就不需要从磁盘中读入这个数据页了。在下次查询需要访问这个数据页的时候，将数据页读入内存，然后执行 change buffer 中与这个页有关的操作。通过这种方式就能保证这个数据逻辑的正确性。\n需要说明的是，虽然名字叫作 change buffer，实际上它是可以持久化的数据。也就是说，change buffer 在内存中有拷贝，也会被写入到磁盘上。\n将 change buffer 中的操作应用到原数据页，得到最新结果的过程称为 merge。除了访问这个数据页会触发 merge 外，系统有后台线程会定期 merge。在数据库正常关闭（shutdown）的过程中，也会执行 merge 操作。\n显然，如果能够将更新操作先记录在 change buffer，减少读磁盘，语句的执行速度会得到明显的提升。而且，数据读入内存是需要占用 buffer pool 的，所以这种方式还能够避免占用内存，提高内存利用率。\n那么，什么条件下可以使用 change buffer 呢？\n对于唯一索引来说，所有的更新操作都要先判断这个操作是否违反唯一性约束。比如，要插入 (4,400) 这个记录，就要先判断现在表中是否已经存在 k&#x3D;4 的记录，而这必须要将数据页读入内存才能判断。如果都已经读入到内存了，那直接更新内存会更快，就没必要使用 change buffer 了。\n因此，唯一索引的更新就不能使用 change buffer，实际上也只有普通索引可以使用。\nchange buffer 用的是 buffer pool 里的内存，因此不能无限增大。change buffer 的大小，可以通过参数 innodb_change_buffer_max_size 来动态设置。这个参数设置为 50 的时候，表示 change buffer 的大小最多只能占用 buffer pool 的 50%。\n因为 merge 的时候是真正进行数据更新的时刻，而 change buffer 的主要目的就是将记录的变更动作缓存下来，所以在一个数据页做 merge 之前，change buffer 记录的变更越多（也就是这个页面上要更新的次数越多），收益就越大。\n因此，对于写多读少的业务来说，页面在写完以后马上被访问到的概率比较小，此时 change buffer 的使用效果最好。这种业务模型常见的就是账单类、日志类的系统。\n回到我们开头的问题，普通索引和唯一索引应该怎么选择。其实，这两类索引在查询能力上是没差别的，主要考虑的是对更新性能的影响。所以，我建议你尽量选择普通索引。\n查看原文\n","dateCreated":"2020-09-09T21:21:00+08:00","dateModified":"2020-10-12T18:19:39+08:00","datePublished":"2020-09-09T21:21:00+08:00","description":"说到这个问题之前，首先我们需要先了解一下change buffer","headline":"普通索引与唯一索引的选择问题","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/279/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/279/","keywords":"Mysql, 索引, 数据库"}</script>
     <meta name="description" content="说到这个问题之前，首先我们需要先了解一下change buffer">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="普通索引与唯一索引的选择问题">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/279/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/279/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="说到这个问题之前，首先我们需要先了解一下change buffer">
 <meta property="og:locale" content="zh_CN">
@@ -49,7 +49,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -402,7 +402,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/279/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/279/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -415,7 +415,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/279/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/279/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -428,7 +428,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/279/&amp;title=普通索引与唯一索引的选择问题"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/279/&amp;title=普通索引与唯一索引的选择问题"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -441,7 +441,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/279/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/279/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -470,7 +470,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -546,7 +546,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/279/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/279/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -559,7 +559,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/279/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/279/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -572,7 +572,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/279/&amp;title=普通索引与唯一索引的选择问题"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/279/&amp;title=普通索引与唯一索引的选择问题"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -585,7 +585,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/279/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/279/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -619,7 +619,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/279/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/279/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -632,7 +632,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/279/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/279/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -645,7 +645,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/279/&amp;title=普通索引与唯一索引的选择问题"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/279/&amp;title=普通索引与唯一索引的选择问题"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -658,7 +658,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/279/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/279/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -714,7 +714,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

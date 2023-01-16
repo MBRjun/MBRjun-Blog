@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"由于 Google 的限制和一些其他原因，在 Android 上游玩原神私服并没有 iOS、Windows 这么容易\n\n\n\n准备材料\n一台能读写 &#x2F;system 分区的 Android 手机（或：一台安装了 Magisk 的 Android 手机） 有人搞出来免root端了，此条件不再必须\n私服客户端 v2.6 或者 v2.7\n一台私服服务器\nGrasscutter\nmitmproxy\nWi-Fi\n\n教程先把 Grasscutter 配置好，不同系统配置方法不一样，基本概括为以下几点\n\n下载 Gresscutter：https://github.com/Grasscutters/Grasscutter/releases\n下载 Java（JDK）\n运行 Gresscutter\n\n搭建Grasscutter可以去看 BLxcwg666 的教程\n安装好 Gresscutter 之后，服务器随便找个地方新建个 proxy.py，放下面的内容\n12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576####   Copyright (C) 2002-2022 MlgmXyysd All Rights Reserved.#######   Genshin Impact script for mitmproxy##   https://github.com/MlgmXyysd/##   *Original fiddler script from https://github.lunatic.moe/fiddlerscript##   Environment requirement:#     - mitmdump from mitmproxy##   @author MlgmXyysd#   @version 1.1###from mitmproxy import httpfrom proxy_config import USE_SSLfrom proxy_config import REMOTE_HOSTfrom proxy_config import REMOTE_PORTclass MlgmXyysd_Genshin_Impact_Proxy:    LIST_DOMAINS = [        &quot;api-os-takumi.mihoyo.com&quot;,        &quot;hk4e-api-os-static.mihoyo.com&quot;,        &quot;hk4e-sdk-os.mihoyo.com&quot;,        &quot;dispatchosglobal.yuanshen.com&quot;,        &quot;osusadispatch.yuanshen.com&quot;,        &quot;account.mihoyo.com&quot;,        &quot;log-upload-os.mihoyo.com&quot;,        &quot;dispatchcntest.yuanshen.com&quot;,        &quot;devlog-upload.mihoyo.com&quot;,        &quot;webstatic.mihoyo.com&quot;,        &quot;log-upload.mihoyo.com&quot;,        &quot;hk4e-sdk.mihoyo.com&quot;,        &quot;api-beta-sdk.mihoyo.com&quot;,        &quot;api-beta-sdk-os.mihoyo.com&quot;,        &quot;cnbeta01dispatch.yuanshen.com&quot;,        &quot;dispatchcnglobal.yuanshen.com&quot;,        &quot;cnbeta02dispatch.yuanshen.com&quot;,        &quot;sdk-os-static.mihoyo.com&quot;,        &quot;webstatic-sea.mihoyo.com&quot;,        &quot;webstatic-sea.hoyoverse.com&quot;,        &quot;hk4e-sdk-os-static.hoyoverse.com&quot;,        &quot;sdk-os-static.hoyoverse.com&quot;,        &quot;api-account-os.hoyoverse.com&quot;,        &quot;hk4e-sdk-os.hoyoverse.com&quot;,        &quot;overseauspider.yuanshen.com&quot;,        &quot;gameapi-account.mihoyo.com&quot;,        &quot;minor-api.mihoyo.com&quot;,        &quot;public-data-api.mihoyo.com&quot;,        &quot;uspider.yuanshen.com&quot;,        &quot;sdk-static.mihoyo.com&quot;,        &quot;abtest-api-data-sg.hoyoverse.com&quot;,        &quot;log-upload-os.hoyoverse.com&quot;    ]    def request(self, flow: http.HTTPFlow) -&gt; None:        if flow.request.host in self.LIST_DOMAINS:            if USE_SSL:                flow.request.scheme = &quot;https&quot;            else:                flow.request.scheme = &quot;http&quot;            flow.request.host = REMOTE_HOST            flow.request.port = REMOTE_PORTaddons = [\tMlgmXyysd_Genshin_Impact_Proxy()]\n\nCA 安装然后把 mitmproxy 的证书安装到手机里自带的证书是用户目录下的 .mitmproxy 里面的 mitmproxy-ca-cert.cer\n手机插数据线到电脑，或者用传输工具，把 mitmproxy-ca-cert.cer 拷贝到手机的存储里（ &#x2F;sdcard）然后进入手机上的 设置 &gt; 安全性和隐私 &gt; 加密与凭据 &gt; 安装证书 &gt; CA 证书（不同手机可能设置方法略有差异，可以尝试在设置内搜索 CA，或者百度一下）安装你刚刚传进去的 mitmproxy-ca-cert.cer\nmitmproxy然后进入 mitmproxy 安装目录，执行：\n1mitmweb -s proxy.py --ssl-insecure --set block_global=false --listen-port 1145 --certs &quot;Genshin Impact.pem&quot;\n\n注意：\n\nproxy.py 替换为上面你保存的 proxy.py 的路径\n监听端口随意 1-65535，选择一个不冲突的端口，如果冲突了后面可能会报错 WinError，不建议：7890 8080，容易被扫描到，记下这个端口\n后面可以用 –certs 引入自己的证书，不需要引入自己的证书可以直接删除该参数\n\n如果是自己的证书，CA 请使用 v3 版本（OpenSSL 默认 v1)，私钥请选择 RSA 2048，如果证书开头是 -----BEGIN RSA PRIVATE KEY-----，改成-----BEGIN PRIVATE KEY\n证书移动至 SYSTEM TRUST如果使用上面提供的修改版客户端，就不需要执行这个步骤了（如果有问题，你还是可以试试执行下这个步骤\n需要使用 Magisk\nMagisk 刷入 https://github.com/Magisk-Modules-Repo/movecert 模块，重启如果无法刷入，尝试使用兼容模式刷入\n\nMagisk 是啥？root 手机用的，还有很多其他功能需要解锁 Bootloader 才能安装 Magisk，Magisk 不同设备安装方法不同，网上搜一下吧\n\n代理配置进入你手机的 Wi-Fi 配置界面，点开你 Wi-Fi 的详细信息（，部分手机：点开编辑页面），找到设置代理，代理模式改为手动代理服务器设置为你私服的 IP，端口填写上面配置的端口，然后保存\n完成去 Google Play 下载 Genshin Impact下载文章开头的私服客户端，应该可以正常游玩了（注意：官网下的连不上私服）\n\n关于 Android 一些限制：原神不会信任 USER TRUST 的证书，必须安装到 SYSTEM TRUST，私服客户端忽略这个限制\n有问题可以底下评论反馈，文章会及时修改。\n","dateCreated":"2022-05-22T15:14:00+08:00","dateModified":"2022-07-25T21:38:52+08:00","datePublished":"2022-05-22T15:14:00+08:00","description":"由于 Google 的限制和一些其他原因，在 Android 上游玩原神私服并没有 iOS、Windows 这么容易","headline":"原神私服 Android 游玩教程 (免 root)","image":["https://cos.mbrjun.cn/IMGS/2022/05/22/ws.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/454/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/454/","keywords":"原神, Grasscutter, mitmproxy, 私服, Genshin Impact, 原神私服","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/05/22/ws.jpg"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"由于 Google 的限制和一些其他原因，在 Android 上游玩原神私服并没有 iOS、Windows 这么容易\n\n\n\n准备材料\n一台能读写 &#x2F;system 分区的 Android 手机（或：一台安装了 Magisk 的 Android 手机） 有人搞出来免root端了，此条件不再必须\n私服客户端 v2.6 或者 v2.7\n一台私服服务器\nGrasscutter\nmitmproxy\nWi-Fi\n\n教程先把 Grasscutter 配置好，不同系统配置方法不一样，基本概括为以下几点\n\n下载 Gresscutter：https://github.com/Grasscutters/Grasscutter/releases\n下载 Java（JDK）\n运行 Gresscutter\n\n搭建Grasscutter可以去看 BLxcwg666 的教程\n安装好 Gresscutter 之后，服务器随便找个地方新建个 proxy.py，放下面的内容\n12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576####   Copyright (C) 2002-2022 MlgmXyysd All Rights Reserved.#######   Genshin Impact script for mitmproxy##   https://github.com/MlgmXyysd/##   *Original fiddler script from https://github.lunatic.moe/fiddlerscript##   Environment requirement:#     - mitmdump from mitmproxy##   @author MlgmXyysd#   @version 1.1###from mitmproxy import httpfrom proxy_config import USE_SSLfrom proxy_config import REMOTE_HOSTfrom proxy_config import REMOTE_PORTclass MlgmXyysd_Genshin_Impact_Proxy:    LIST_DOMAINS = [        &quot;api-os-takumi.mihoyo.com&quot;,        &quot;hk4e-api-os-static.mihoyo.com&quot;,        &quot;hk4e-sdk-os.mihoyo.com&quot;,        &quot;dispatchosglobal.yuanshen.com&quot;,        &quot;osusadispatch.yuanshen.com&quot;,        &quot;account.mihoyo.com&quot;,        &quot;log-upload-os.mihoyo.com&quot;,        &quot;dispatchcntest.yuanshen.com&quot;,        &quot;devlog-upload.mihoyo.com&quot;,        &quot;webstatic.mihoyo.com&quot;,        &quot;log-upload.mihoyo.com&quot;,        &quot;hk4e-sdk.mihoyo.com&quot;,        &quot;api-beta-sdk.mihoyo.com&quot;,        &quot;api-beta-sdk-os.mihoyo.com&quot;,        &quot;cnbeta01dispatch.yuanshen.com&quot;,        &quot;dispatchcnglobal.yuanshen.com&quot;,        &quot;cnbeta02dispatch.yuanshen.com&quot;,        &quot;sdk-os-static.mihoyo.com&quot;,        &quot;webstatic-sea.mihoyo.com&quot;,        &quot;webstatic-sea.hoyoverse.com&quot;,        &quot;hk4e-sdk-os-static.hoyoverse.com&quot;,        &quot;sdk-os-static.hoyoverse.com&quot;,        &quot;api-account-os.hoyoverse.com&quot;,        &quot;hk4e-sdk-os.hoyoverse.com&quot;,        &quot;overseauspider.yuanshen.com&quot;,        &quot;gameapi-account.mihoyo.com&quot;,        &quot;minor-api.mihoyo.com&quot;,        &quot;public-data-api.mihoyo.com&quot;,        &quot;uspider.yuanshen.com&quot;,        &quot;sdk-static.mihoyo.com&quot;,        &quot;abtest-api-data-sg.hoyoverse.com&quot;,        &quot;log-upload-os.hoyoverse.com&quot;    ]    def request(self, flow: http.HTTPFlow) -&gt; None:        if flow.request.host in self.LIST_DOMAINS:            if USE_SSL:                flow.request.scheme = &quot;https&quot;            else:                flow.request.scheme = &quot;http&quot;            flow.request.host = REMOTE_HOST            flow.request.port = REMOTE_PORTaddons = [\tMlgmXyysd_Genshin_Impact_Proxy()]\n\nCA 安装然后把 mitmproxy 的证书安装到手机里自带的证书是用户目录下的 .mitmproxy 里面的 mitmproxy-ca-cert.cer\n手机插数据线到电脑，或者用传输工具，把 mitmproxy-ca-cert.cer 拷贝到手机的存储里（ &#x2F;sdcard）然后进入手机上的 设置 &gt; 安全性和隐私 &gt; 加密与凭据 &gt; 安装证书 &gt; CA 证书（不同手机可能设置方法略有差异，可以尝试在设置内搜索 CA，或者百度一下）安装你刚刚传进去的 mitmproxy-ca-cert.cer\nmitmproxy然后进入 mitmproxy 安装目录，执行：\n1mitmweb -s proxy.py --ssl-insecure --set block_global=false --listen-port 1145 --certs &quot;Genshin Impact.pem&quot;\n\n注意：\n\nproxy.py 替换为上面你保存的 proxy.py 的路径\n监听端口随意 1-65535，选择一个不冲突的端口，如果冲突了后面可能会报错 WinError，不建议：7890 8080，容易被扫描到，记下这个端口\n后面可以用 –certs 引入自己的证书，不需要引入自己的证书可以直接删除该参数\n\n如果是自己的证书，CA 请使用 v3 版本（OpenSSL 默认 v1)，私钥请选择 RSA 2048，如果证书开头是 -----BEGIN RSA PRIVATE KEY-----，改成-----BEGIN PRIVATE KEY\n证书移动至 SYSTEM TRUST如果使用上面提供的修改版客户端，就不需要执行这个步骤了（如果有问题，你还是可以试试执行下这个步骤\n需要使用 Magisk\nMagisk 刷入 https://github.com/Magisk-Modules-Repo/movecert 模块，重启如果无法刷入，尝试使用兼容模式刷入\n\nMagisk 是啥？root 手机用的，还有很多其他功能需要解锁 Bootloader 才能安装 Magisk，Magisk 不同设备安装方法不同，网上搜一下吧\n\n代理配置进入你手机的 Wi-Fi 配置界面，点开你 Wi-Fi 的详细信息（，部分手机：点开编辑页面），找到设置代理，代理模式改为手动代理服务器设置为你私服的 IP，端口填写上面配置的端口，然后保存\n完成去 Google Play 下载 Genshin Impact下载文章开头的私服客户端，应该可以正常游玩了（注意：官网下的连不上私服）\n\n关于 Android 一些限制：原神不会信任 USER TRUST 的证书，必须安装到 SYSTEM TRUST，私服客户端忽略这个限制\n有问题可以底下评论反馈，文章会及时修改。\n","dateCreated":"2022-05-22T15:14:00+08:00","dateModified":"2022-07-25T21:38:52+08:00","datePublished":"2022-05-22T15:14:00+08:00","description":"由于 Google 的限制和一些其他原因，在 Android 上游玩原神私服并没有 iOS、Windows 这么容易","headline":"原神私服 Android 游玩教程 (免 root)","image":["https://cos.mbrjun.cn/IMGS/2022/05/22/ws.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/454/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/454/","keywords":"原神, Grasscutter, mitmproxy, 私服, Genshin Impact, 原神私服","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/05/22/ws.jpg"}</script>
     <meta name="description" content="由于 Google 的限制和一些其他原因，在 Android 上游玩原神私服并没有 iOS、Windows 这么容易">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="原神私服 Android 游玩教程 (免 root)">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/454/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/454/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="由于 Google 的限制和一些其他原因，在 Android 上游玩原神私服并没有 iOS、Windows 这么容易">
 <meta property="og:locale" content="zh_CN">
@@ -55,7 +55,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -439,7 +439,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/454/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/454/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -452,7 +452,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/454/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/454/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -465,7 +465,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/454/&amp;title=原神私服 Android 游玩教程 (免 root)"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/454/&amp;title=原神私服 Android 游玩教程 (免 root)"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -478,7 +478,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/454/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/454/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -507,7 +507,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -583,7 +583,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/454/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/454/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -596,7 +596,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/454/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/454/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -609,7 +609,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/454/&amp;title=原神私服 Android 游玩教程 (免 root)"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/454/&amp;title=原神私服 Android 游玩教程 (免 root)"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -622,7 +622,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/454/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/454/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -656,7 +656,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/454/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/454/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -669,7 +669,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/454/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/454/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -682,7 +682,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/454/&amp;title=原神私服 Android 游玩教程 (免 root)"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/454/&amp;title=原神私服 Android 游玩教程 (免 root)"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -695,7 +695,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/454/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/454/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -751,7 +751,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

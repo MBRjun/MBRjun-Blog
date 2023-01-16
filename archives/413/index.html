@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"“可预测的网络接口名”英文“Redictable Network Interface Names”，简称“可预测接口名”英文“Redictable Interface Names”从systemd v197 版本开始，systemd&#x2F;udev 为所有的网络接口自动分配可预测，稳定的网络接口名（如：enp4s0d1v7）。\n\n\n为什么要开发可预测接口名传统的接口命名方式是内核driver在探测到所有的接口之后，简单的按照数字编号分配作为eth的后缀的方式命名（如：eth0）。如果你的机器具有多个接口，每次重启系统，网卡的接口名都有可能变化。现在有一个物理网卡的接口名是 eth0，重启主机后，接口名就有可能变成 eth1\n在某些时候，网卡接口名不固定会出大问题，比如你正在配置链路聚合，但是你的多个网卡接口名每次重启都会变化，每次启动系统后，你都可能需要重新配置你的网络设置。又例如防火墙规则对不可预测的接口名非常敏感，接口名称改变会带来很大的安全隐患。\n为了解决接口名变化的问题，udev 曾支持通过 MAC 地址来绑定接口名，但是仍然存在一些问题。例如虚拟化环境的 MAC 地址就不是固定的。最大的问题是用户空间和内核空间在分配名字上存在竞争。所以这种支持很快就被去掉了。后来，“可预测的网络接口名”的出现彻底解决了这个问题。\n命名规则目前， systemd 有以下五种命名策略：\n\n传统的接口名  ethX 、wifiX……\n固件、BIOS提供的不可插拔的板载设备，接口名 enoX\n固件、BIOS提供的 PCIe 可热插拔设备，接口名 ensX\n根据硬件物理&#x2F;地理地址，接口名 enpXsYdZvM\n根据硬件物理地址(MAC)，接口名 enxFFFF0000AAAA\n\n最后一个策略不会被系统采用，除非用户手动选择，如果用户有自定义的 udev 规则，那么优先按照 udev 来执行。通过阅读相关文档和源码，我们可以了解具体的命名方式，我以的我一张双口洋垃圾网卡 NVIDIA Mellanox 342A 端口 2 的接口名来举例\n1234567enp4s0d1v7en - 前两个字母&quot;en&quot;说明这个接口是以太网接口  p - PCI Bus 号，&quot;p4&quot;意味着这是我机器上的第四张网卡    s - PCI Slot 号，大多数设备所有网卡都为 &quot;s0&quot;      d - 设备端口号，&quot;d0&quot;意味着这是我这张网卡的第二个口          第一个口呢？第一个口不存在该参数        v - SR-IOV 虚拟功能(VF)编号，&quot;v7&quot;意味着这是该网口的第八个 VF\n\n优点接口名不会因为系统重启、硬件更改、系统更新而改变，在生产环境中这很棒！\n缺点如果你的设备只有一个网口，你在对网口进行操作之前，你必须先查看网口的接口名，而不是使用 eth0\n如何启用&#x2F;禁用启用\n确保/etc/systemd/network/99-default.link没有指向/dev/null\n确保没有使用/etc/systemd/network/中自定义的命名规则文件（扩展名为.link的文件）。\n在/etc/default/grup配置文件中，参数GRUB_CMDLINE_LINUX_DEFAULT=&quot;&quot;中移除net.ifnames=0\nupdate-grub\n重启设备\n\n禁用\nln -s /dev/null /etc/systemd/network/99-default.link\n重启设备\n\n","dateCreated":"2022-02-16T21:58:45+08:00","dateModified":"2022-02-16T21:58:45+08:00","datePublished":"2022-02-16T21:58:45+08:00","description":"“可预测的网络接口名”英文“Redictable Network Interface Names”，简称“可预测接口名”英文“Redictable Interface Names”从systemd v197 版本开始，systemd&#x2F;udev 为所有的网络接口自动分配可预测，稳定的网络接口名（如：enp4s0d1v7）。","headline":"Linux systemd 可预测的网络接口名","image":["https://cos.mbrjun.cn/IMGS/2022/02/16/sy.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/413/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/413/","keywords":"Linux, 系统, 网络, 防火墙, 驱动, 软路由, 开源, 硬件, 内核, 编程","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/02/16/sy.png"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"“可预测的网络接口名”英文“Redictable Network Interface Names”，简称“可预测接口名”英文“Redictable Interface Names”从systemd v197 版本开始，systemd&#x2F;udev 为所有的网络接口自动分配可预测，稳定的网络接口名（如：enp4s0d1v7）。\n\n\n为什么要开发可预测接口名传统的接口命名方式是内核driver在探测到所有的接口之后，简单的按照数字编号分配作为eth的后缀的方式命名（如：eth0）。如果你的机器具有多个接口，每次重启系统，网卡的接口名都有可能变化。现在有一个物理网卡的接口名是 eth0，重启主机后，接口名就有可能变成 eth1\n在某些时候，网卡接口名不固定会出大问题，比如你正在配置链路聚合，但是你的多个网卡接口名每次重启都会变化，每次启动系统后，你都可能需要重新配置你的网络设置。又例如防火墙规则对不可预测的接口名非常敏感，接口名称改变会带来很大的安全隐患。\n为了解决接口名变化的问题，udev 曾支持通过 MAC 地址来绑定接口名，但是仍然存在一些问题。例如虚拟化环境的 MAC 地址就不是固定的。最大的问题是用户空间和内核空间在分配名字上存在竞争。所以这种支持很快就被去掉了。后来，“可预测的网络接口名”的出现彻底解决了这个问题。\n命名规则目前， systemd 有以下五种命名策略：\n\n传统的接口名  ethX 、wifiX……\n固件、BIOS提供的不可插拔的板载设备，接口名 enoX\n固件、BIOS提供的 PCIe 可热插拔设备，接口名 ensX\n根据硬件物理&#x2F;地理地址，接口名 enpXsYdZvM\n根据硬件物理地址(MAC)，接口名 enxFFFF0000AAAA\n\n最后一个策略不会被系统采用，除非用户手动选择，如果用户有自定义的 udev 规则，那么优先按照 udev 来执行。通过阅读相关文档和源码，我们可以了解具体的命名方式，我以的我一张双口洋垃圾网卡 NVIDIA Mellanox 342A 端口 2 的接口名来举例\n1234567enp4s0d1v7en - 前两个字母&quot;en&quot;说明这个接口是以太网接口  p - PCI Bus 号，&quot;p4&quot;意味着这是我机器上的第四张网卡    s - PCI Slot 号，大多数设备所有网卡都为 &quot;s0&quot;      d - 设备端口号，&quot;d0&quot;意味着这是我这张网卡的第二个口          第一个口呢？第一个口不存在该参数        v - SR-IOV 虚拟功能(VF)编号，&quot;v7&quot;意味着这是该网口的第八个 VF\n\n优点接口名不会因为系统重启、硬件更改、系统更新而改变，在生产环境中这很棒！\n缺点如果你的设备只有一个网口，你在对网口进行操作之前，你必须先查看网口的接口名，而不是使用 eth0\n如何启用&#x2F;禁用启用\n确保/etc/systemd/network/99-default.link没有指向/dev/null\n确保没有使用/etc/systemd/network/中自定义的命名规则文件（扩展名为.link的文件）。\n在/etc/default/grup配置文件中，参数GRUB_CMDLINE_LINUX_DEFAULT=&quot;&quot;中移除net.ifnames=0\nupdate-grub\n重启设备\n\n禁用\nln -s /dev/null /etc/systemd/network/99-default.link\n重启设备\n\n","dateCreated":"2022-02-16T21:58:45+08:00","dateModified":"2022-02-16T21:58:45+08:00","datePublished":"2022-02-16T21:58:45+08:00","description":"“可预测的网络接口名”英文“Redictable Network Interface Names”，简称“可预测接口名”英文“Redictable Interface Names”从systemd v197 版本开始，systemd&#x2F;udev 为所有的网络接口自动分配可预测，稳定的网络接口名（如：enp4s0d1v7）。","headline":"Linux systemd 可预测的网络接口名","image":["https://cos.mbrjun.cn/IMGS/2022/02/16/sy.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/413/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/413/","keywords":"Linux, 系统, 网络, 防火墙, 驱动, 软路由, 开源, 硬件, 内核, 编程","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/02/16/sy.png"}</script>
     <meta name="description" content="“可预测的网络接口名”英文“Redictable Network Interface Names”，简称“可预测接口名”英文“Redictable Interface Names”从systemd v197 版本开始，systemd&#x2F;udev 为所有的网络接口自动分配可预测，稳定的网络接口名（如：enp4s0d1v7）。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Linux systemd 可预测的网络接口名">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/413/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/413/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="“可预测的网络接口名”英文“Redictable Network Interface Names”，简称“可预测接口名”英文“Redictable Interface Names”从systemd v197 版本开始，systemd&#x2F;udev 为所有的网络接口自动分配可预测，稳定的网络接口名（如：enp4s0d1v7）。">
 <meta property="og:locale" content="zh_CN">
@@ -57,7 +57,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -426,7 +426,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/413/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/413/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -439,7 +439,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/413/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/413/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -452,7 +452,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/413/&amp;title=Linux systemd 可预测的网络接口名"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/413/&amp;title=Linux systemd 可预测的网络接口名"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -465,7 +465,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/413/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/413/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -494,7 +494,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -570,7 +570,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/413/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/413/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -583,7 +583,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/413/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/413/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -596,7 +596,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/413/&amp;title=Linux systemd 可预测的网络接口名"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/413/&amp;title=Linux systemd 可预测的网络接口名"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -609,7 +609,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/413/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/413/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -643,7 +643,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/413/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/413/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -656,7 +656,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/413/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/413/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -669,7 +669,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/413/&amp;title=Linux systemd 可预测的网络接口名"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/413/&amp;title=Linux systemd 可预测的网络接口名"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -682,7 +682,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/413/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/413/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -738,7 +738,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

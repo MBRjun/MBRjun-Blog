@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"PVE，全称 Proxmox Virtual Environment，是一个开源的服务器虚拟化环境Linux发行版。嗯……后面不会写了（\n\n\n前言该文章是进阶教程，内容基本上是通用教程的补充，针对的是iKuai、OpenWrt、Windows等特定虚拟机系统，阅读此文章前请先阅读通用教程：\nhttps://blog.mbrjun.cn/archives/412\niKuai 换 32 位如果你只有 iKuai 自动重启，那么试试把他换成 32 位建议分配 3GB RAM注意：kvm32 不支持 UEFI\niKuai 3.6.3 Bug爱快 3.6.3 有内核 Bug 导致频繁重启，更新这篇文章时刚出了 3.6.4，如果有用过的可以给我反馈下是否还有自动重启的问题解决方法是换 3.6.2顺便放下镜像：https://download.mbrjun.cn/tree/iKuai/\n更新：爱快 3.6.12 之后的版本修复了Bug,可以正常使用64位\nOpenWrt Shortcut-FEOpenWrt 的 SFE 加速有玄学 Bug，会莫名奇妙断网，然后触发系统自动检测重启，如果你在用这个功能就关了吧，开着对 x86-64 也没有什么提升\nWindows Kernel-Power目前未能确定故障原因，似乎是中断处理的问题，关闭内存气球和快速启动缓解\n\n暂时只收集了这么多，欢迎各位大佬反馈，如果是反馈其他系统 PVE 下的重启问题，建议附上 log\n","dateCreated":"2022-02-24T19:03:00+08:00","dateModified":"2022-05-02T16:06:16+08:00","datePublished":"2022-02-24T19:03:00+08:00","description":"PVE，全称 Proxmox Virtual Environment，是一个开源的服务器虚拟化环境Linux发行版。嗯……后面不会写了（","headline":"进阶 - 解决 PVE 下虚拟机自动重启","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/417/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/417/","keywords":"虚拟机, 软路由, PVE, 爱快, ikuai, 小主机, R86S"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"PVE，全称 Proxmox Virtual Environment，是一个开源的服务器虚拟化环境Linux发行版。嗯……后面不会写了（\n\n\n前言该文章是进阶教程，内容基本上是通用教程的补充，针对的是iKuai、OpenWrt、Windows等特定虚拟机系统，阅读此文章前请先阅读通用教程：\nhttps://www.mbrjun.cn/archives/412\niKuai 换 32 位如果你只有 iKuai 自动重启，那么试试把他换成 32 位建议分配 3GB RAM注意：kvm32 不支持 UEFI\niKuai 3.6.3 Bug爱快 3.6.3 有内核 Bug 导致频繁重启，更新这篇文章时刚出了 3.6.4，如果有用过的可以给我反馈下是否还有自动重启的问题解决方法是换 3.6.2顺便放下镜像：https://download.mbrjun.cn/tree/iKuai/\n更新：爱快 3.6.12 之后的版本修复了Bug,可以正常使用64位\nOpenWrt Shortcut-FEOpenWrt 的 SFE 加速有玄学 Bug，会莫名奇妙断网，然后触发系统自动检测重启，如果你在用这个功能就关了吧，开着对 x86-64 也没有什么提升\nWindows Kernel-Power目前未能确定故障原因，似乎是中断处理的问题，关闭内存气球和快速启动缓解\n\n暂时只收集了这么多，欢迎各位大佬反馈，如果是反馈其他系统 PVE 下的重启问题，建议附上 log\n","dateCreated":"2022-02-24T19:03:00+08:00","dateModified":"2022-05-02T16:06:16+08:00","datePublished":"2022-02-24T19:03:00+08:00","description":"PVE，全称 Proxmox Virtual Environment，是一个开源的服务器虚拟化环境Linux发行版。嗯……后面不会写了（","headline":"进阶 - 解决 PVE 下虚拟机自动重启","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/417/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/417/","keywords":"虚拟机, 软路由, PVE, 爱快, ikuai, 小主机, R86S"}</script>
     <meta name="description" content="PVE，全称 Proxmox Virtual Environment，是一个开源的服务器虚拟化环境Linux发行版。嗯……后面不会写了（">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="进阶 - 解决 PVE 下虚拟机自动重启">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/417/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/417/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="PVE，全称 Proxmox Virtual Environment，是一个开源的服务器虚拟化环境Linux发行版。嗯……后面不会写了（">
 <meta property="og:locale" content="zh_CN">
@@ -54,7 +54,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -332,7 +332,7 @@
 <span id="more"></span>
 
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>该文章是进阶教程，内容基本上是通用教程的补充，针对的是<strong>iKuai</strong>、<strong>OpenWrt</strong>、<strong>Windows</strong>等特定虚拟机系统，阅读此文章前请先阅读通用教程：</p>
-<p><a href="https://blog.mbrjun.cn/archives/412">https://blog.mbrjun.cn/archives/412</a></p>
+<p><a href="https://www.mbrjun.cn/archives/412">https://www.mbrjun.cn/archives/412</a></p>
 <h2 id="iKuai-换-32-位"><a href="#iKuai-换-32-位" class="headerlink" title="iKuai 换 32 位"></a>iKuai 换 32 位</h2><p>如果你只有 iKuai 自动重启，那么试试把他换成 32 位<br>建议分配 3GB RAM<br>注意：kvm32 不支持 UEFI<br><img src="https://cos.mbrjun.cn/IMGS/2022/02/24/ku.png"></p>
 <h2 id="iKuai-3-6-3-Bug"><a href="#iKuai-3-6-3-Bug" class="headerlink" title="iKuai 3.6.3 Bug"></a>iKuai 3.6.3 Bug</h2><p>爱快 3.6.3 有内核 Bug 导致频繁重启，更新这篇文章时刚出了 3.6.4，如果有用过的可以给我反馈下是否还有自动重启的问题<br>解决方法是换 3.6.2<br>顺便放下镜像：<a target="_blank" rel="noopener" href="https://download.mbrjun.cn/tree/iKuai/">https://download.mbrjun.cn/tree/iKuai/</a></p>
 <p>更新：爱快 3.6.12 之后的版本修复了Bug,可以正常使用64位</p>
@@ -405,7 +405,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/417/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/417/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -418,7 +418,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/417/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/417/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -431,7 +431,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/417/&amp;title=进阶 - 解决 PVE 下虚拟机自动重启"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/417/&amp;title=进阶 - 解决 PVE 下虚拟机自动重启"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -444,7 +444,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/417/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/417/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -473,7 +473,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -549,7 +549,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/417/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/417/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -562,7 +562,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/417/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/417/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -575,7 +575,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/417/&amp;title=进阶 - 解决 PVE 下虚拟机自动重启"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/417/&amp;title=进阶 - 解决 PVE 下虚拟机自动重启"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -588,7 +588,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/417/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/417/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -622,7 +622,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/417/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/417/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -635,7 +635,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/417/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/417/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -648,7 +648,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/417/&amp;title=进阶 - 解决 PVE 下虚拟机自动重启"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/417/&amp;title=进阶 - 解决 PVE 下虚拟机自动重启"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -661,7 +661,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/417/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/417/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -717,7 +717,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"很多人配置好 PVE 之后，发现自己的 PVE 主机没有 IPv6 地址，无法远程访问，排查了很久依然无法获取地址，这其实是因为 PVE 内置的安全策略导致的，必须开启 IPv6 相关报文转发才能正常通过 DHCPv6 或 SLAAC 获取 IPv6 地址\n\n\n按下面的操作修改配置文件后即可正常获取 IPv6。注意：本教程是让你的 PVE 主机 和 LXC 容器获取 IPv6 地址，如果你虚拟机和其他下连设备出现问题，请先确定是不是你自己的问题\n\n修改配置文件 nano /etc/sysctl.conf\n把文件内容替换为&#x2F;在末尾加上下面的内容\n\n123456net.ipv6.conf.all.accept_ra=2net.ipv6.conf.default.accept_ra=2net.ipv6.conf.vmbr0.accept_ra=2net.ipv6.conf.all.autoconf=2net.ipv6.conf.default.autoconf=2net.ipv6.conf.vmbr0.autoconf=2\n\n\n重启主机\n\n另外备注一下：LXC 容器 获取 IPv6 地址要设置成 SLAAC 才能获取地址(设置为 SLAAC 后既可以 DHCPv6 有状态，也可以 SLAAC 无状态，设置为 DHCP 只能拿到Link-Local 链路地址)LXC 容器修改完网络设置重启对应容器即可\n重启之后检查一下 PVE 主机和 LXC 容器有没有拿到地址\n1234567891011# ifconfigeth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500        inet 10.20.6.9  netmask 255.224.0.0  broadcast 10.31.255.255        inet6 2408:8210::18a9:1eff:fee2:600c  prefixlen 64  scopeid 0x0&lt;global&gt;        inet6 2408:8210::10:20:6:9  prefixlen 128  scopeid 0x0&lt;global&gt;        inet6 fe80::18a9:1eff:fee2:600c  prefixlen 64  scopeid 0x20&lt;link&gt;        ether 1a:a9:1e:e2:60:0c  txqueuelen 1000  (Ethernet)        RX packets 134  bytes 33534 (33.5 KB)        RX errors 0  dropped 0  overruns 0  frame 0        TX packets 126  bytes 24570 (24.5 KB)        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\n\n可以看到同时通过 DHCPv6 和 SLAAC 拿到了地址\n","dateCreated":"2022-03-03T02:04:01+08:00","dateModified":"2022-03-03T02:04:01+08:00","datePublished":"2022-03-03T02:04:01+08:00","description":"很多人配置好 PVE 之后，发现自己的 PVE 主机没有 IPv6 地址，无法远程访问，排查了很久依然无法获取地址，这其实是因为 PVE 内置的安全策略导致的，必须开启 IPv6 相关报文转发才能正常通过 DHCPv6 或 SLAAC 获取 IPv6 地址","headline":"PVE 主机及 LXC 容器开启 DHCPv6 客户端教程","image":["https://cos.mbrjun.cn/IMGS/2022/03/03/06.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/418/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/418/","keywords":"Linux, IPv6, 虚拟机, 软路由, PVE, DHCPv6, SLAAC, LXC","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/03/03/06.jpg"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"很多人配置好 PVE 之后，发现自己的 PVE 主机没有 IPv6 地址，无法远程访问，排查了很久依然无法获取地址，这其实是因为 PVE 内置的安全策略导致的，必须开启 IPv6 相关报文转发才能正常通过 DHCPv6 或 SLAAC 获取 IPv6 地址\n\n\n按下面的操作修改配置文件后即可正常获取 IPv6。注意：本教程是让你的 PVE 主机 和 LXC 容器获取 IPv6 地址，如果你虚拟机和其他下连设备出现问题，请先确定是不是你自己的问题\n\n修改配置文件 nano /etc/sysctl.conf\n把文件内容替换为&#x2F;在末尾加上下面的内容\n\n123456net.ipv6.conf.all.accept_ra=2net.ipv6.conf.default.accept_ra=2net.ipv6.conf.vmbr0.accept_ra=2net.ipv6.conf.all.autoconf=2net.ipv6.conf.default.autoconf=2net.ipv6.conf.vmbr0.autoconf=2\n\n\n重启主机\n\n另外备注一下：LXC 容器 获取 IPv6 地址要设置成 SLAAC 才能获取地址(设置为 SLAAC 后既可以 DHCPv6 有状态，也可以 SLAAC 无状态，设置为 DHCP 只能拿到Link-Local 链路地址)LXC 容器修改完网络设置重启对应容器即可\n重启之后检查一下 PVE 主机和 LXC 容器有没有拿到地址\n1234567891011# ifconfigeth0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500        inet 10.20.6.9  netmask 255.224.0.0  broadcast 10.31.255.255        inet6 2408:8210::18a9:1eff:fee2:600c  prefixlen 64  scopeid 0x0&lt;global&gt;        inet6 2408:8210::10:20:6:9  prefixlen 128  scopeid 0x0&lt;global&gt;        inet6 fe80::18a9:1eff:fee2:600c  prefixlen 64  scopeid 0x20&lt;link&gt;        ether 1a:a9:1e:e2:60:0c  txqueuelen 1000  (Ethernet)        RX packets 134  bytes 33534 (33.5 KB)        RX errors 0  dropped 0  overruns 0  frame 0        TX packets 126  bytes 24570 (24.5 KB)        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0\n\n可以看到同时通过 DHCPv6 和 SLAAC 拿到了地址\n","dateCreated":"2022-03-03T02:04:01+08:00","dateModified":"2022-03-03T02:04:01+08:00","datePublished":"2022-03-03T02:04:01+08:00","description":"很多人配置好 PVE 之后，发现自己的 PVE 主机没有 IPv6 地址，无法远程访问，排查了很久依然无法获取地址，这其实是因为 PVE 内置的安全策略导致的，必须开启 IPv6 相关报文转发才能正常通过 DHCPv6 或 SLAAC 获取 IPv6 地址","headline":"PVE 主机及 LXC 容器开启 DHCPv6 客户端教程","image":["https://cos.mbrjun.cn/IMGS/2022/03/03/06.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/418/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/418/","keywords":"Linux, IPv6, 虚拟机, 软路由, PVE, DHCPv6, SLAAC, LXC","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/03/03/06.jpg"}</script>
     <meta name="description" content="很多人配置好 PVE 之后，发现自己的 PVE 主机没有 IPv6 地址，无法远程访问，排查了很久依然无法获取地址，这其实是因为 PVE 内置的安全策略导致的，必须开启 IPv6 相关报文转发才能正常通过 DHCPv6 或 SLAAC 获取 IPv6 地址">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="PVE 主机及 LXC 容器开启 DHCPv6 客户端教程">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/418/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/418/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="很多人配置好 PVE 之后，发现自己的 PVE 主机没有 IPv6 地址，无法远程访问，排查了很久依然无法获取地址，这其实是因为 PVE 内置的安全策略导致的，必须开启 IPv6 相关报文转发才能正常通过 DHCPv6 或 SLAAC 获取 IPv6 地址">
 <meta property="og:locale" content="zh_CN">
@@ -55,7 +55,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -412,7 +412,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/418/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/418/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -425,7 +425,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/418/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/418/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -438,7 +438,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/418/&amp;title=PVE 主机及 LXC 容器开启 DHCPv6 客户端教程"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/418/&amp;title=PVE 主机及 LXC 容器开启 DHCPv6 客户端教程"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -451,7 +451,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/418/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/418/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -480,7 +480,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -556,7 +556,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/418/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/418/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -569,7 +569,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/418/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/418/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -582,7 +582,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/418/&amp;title=PVE 主机及 LXC 容器开启 DHCPv6 客户端教程"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/418/&amp;title=PVE 主机及 LXC 容器开启 DHCPv6 客户端教程"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -595,7 +595,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/418/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/418/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -629,7 +629,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/418/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/418/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -642,7 +642,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/418/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/418/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -655,7 +655,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/418/&amp;title=PVE 主机及 LXC 容器开启 DHCPv6 客户端教程"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/418/&amp;title=PVE 主机及 LXC 容器开启 DHCPv6 客户端教程"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -668,7 +668,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/418/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/418/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -724,7 +724,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

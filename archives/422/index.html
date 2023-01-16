@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"ESXi 安装到 TF 卡，正常情况下只是系统安装成功，并不能创建虚拟机，本文浇大家如何在把 ESXi 安装至 TF 卡并创建数据分区。VMware 不建议用户在 TF 卡中安装 ESXi，如果你仍然想这么做，风险自负\n\n\n准备\n一个 Windows 电脑\n一个 8 GB 以上大小的 U 盘\n永不放弃的决心\n\n教程\n下载 ESXi 的 ISO 镜像，Windows 双击打开应该会自动打开一个目录，里面有很多文件，这个目录我们叫他&lt;源目录&gt;\n\n准备一个 U 盘，我们先叫他&lt;安装磁盘&gt;然后将安装磁盘格式化为 FAT32你也可以格式化为 NTFS(但是不建议，迫不得已时使用，很少有主板支持 NTFS 引导)\n\n将源目录全部文件选中，然后在安装磁盘粘贴等待一段时间，安全弹出安装磁盘，然后把安装磁盘拔掉\n\n关闭你想要安装 ESXi 的服务器（后称&lt;服务器&gt;）\n\n安装磁盘插入服务器\n\n服务器开机，然后一直按 F7（不同服务器的引导菜单按键不一样，你可能需要在网络上查询，常见的按键有 ESC F2 F7 F8 F10 F12 Enter Del Dot）\n\n屏幕上应该会出现一个 “Please select boot device” 画面，按键盘的上下剪头将光标移动到”ESXi Installer”（如果没有该选项，则选择安装磁盘）\n\n在完成上一步 5 秒内按下 按下 Shift + O\n\n输入下面一行的内容（注意有空格） autoPartitionOSDataSize=4096完成后，按一下回车 \n\n然后等待安装程序加载，取决于服务器性能，你需要等待 3 分钟左右\n\n你应该已经进入安装系统的界面了，按一下回车继续 \n\n阅读条款，同意按 F11 \n\n屏幕上应该会列出已经连接的存储设备，按键盘的上下剪头来选择你想要安装 ESXi 系统的磁盘（也就是你的 U 盘或 TF 卡）&lt;目标磁盘&gt; \n\n你磁盘中如果有数据，则所有数据都会被清除！（按 ENTER 确认）\n\n输入密码，按 Tab确认你输入的密码，按回车 \n\n按 F11 开始安装取决于磁盘性能，你大约需要等待 30秒（SSD）到 30分钟（低性能U盘）\n\n进度条走完之后把安装磁盘拔掉，确认 \n\n基本系统安装完成\n\n按 F2 打开 DCUI，完成基本配置这些基本配置包括\n\nIP 地址\n子网掩码\n网关\nDNS\nDNS 搜索域\nFQDN\n开启 SSH\nIPv6\n管理网卡\n\n\n打开电脑的终端（Windows 中常用命令提示符、PowerShell 和 Windows Terminal） \n\n终端输入下面的命令来连接 ESXi 主机ssh root@&lt;host&gt;&lt;host&gt; 是你 ESXi 主机的 IP 地址或者 FQDN，自行替换\n\n你的电脑应该会弹出一个安全提示，输入 YES 回车即可\n\n确保你的设备除了目标磁盘，没有连接到任何其他磁盘（如果连接了其他磁盘，拔出并重启，否则直接继续操作）\n\n执行下面的命令\n12/etc/init.d/usbarbitrator stoppartedUtil getptbl /dev/disks/mpx.vmhba32:C0:T0:L0\n然后终端输出 “gpt” 和四组数字，在我的机器上，这四组数字是 “15545 255 63 249737216”\n\n打开计算器，计算 “ 第一组数字 * 第二组数字 * 第三组数字 - 1”，记住这组数字，我得到了 249,730,424\n\n如果你的目标磁盘 ＞100 GB，执行\npartedUtil setptbl /dev/disks/mpx.vmhba32:C0:T0:L0 gpt &quot;7 38000000 你计算出的数字 AA31E02A400F11DB9590000C2911D1B8 0&quot; \n如果你的目标磁盘 ＜100 GB，执行\npartedUtil setptbl /dev/disks/mpx.vmhba32:C0:T0:L0 gpt &quot;7 32000000 你计算出的数字 AA31E02A400F11DB9590000C2911D1B8 0&quot; \n\n重复第 4 - 13 步\n\n选择 “Install ESXi, preserve VMFS datastore”，回车\n\n重复第 15 - 17 步\n\nWindows 终端执行ssh-keygen -R &lt;host&gt;&lt;host&gt; 替换为 ESXi 主机 IP\n\n重复第 19 - 22 步，打开 SSH 并连接\n\n输入vmkfstools -C vmfs6 -S Data /dev/disks/mpx.vmhba32:C0:T0:L0:8格式化磁盘\n\n\n完成！Enjoy~\n","dateCreated":"2022-03-08T00:54:00+08:00","dateModified":"2022-05-26T09:50:01+08:00","datePublished":"2022-03-08T00:54:00+08:00","description":"ESXi 安装到 TF 卡，正常情况下只是系统安装成功，并不能创建虚拟机，本文浇大家如何在把 ESXi 安装至 TF 卡并创建数据分区。VMware 不建议用户在 TF 卡中安装 ESXi，如果你仍然想这么做，风险自负","headline":"U 盘 / TF 卡安装 ESXi 教程","image":["https://cos.mbrjun.cn/IMGS/2022/03/08/dc.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/422/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/422/","keywords":"服务器, Linux, 虚拟机, ESXi, 软路由, 小主机, R86S, 企业","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/03/08/dc.png"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"ESXi 安装到 TF 卡，正常情况下只是系统安装成功，并不能创建虚拟机，本文浇大家如何在把 ESXi 安装至 TF 卡并创建数据分区。VMware 不建议用户在 TF 卡中安装 ESXi，如果你仍然想这么做，风险自负\n\n\n准备\n一个 Windows 电脑\n一个 8 GB 以上大小的 U 盘\n永不放弃的决心\n\n教程\n下载 ESXi 的 ISO 镜像，Windows 双击打开应该会自动打开一个目录，里面有很多文件，这个目录我们叫他&lt;源目录&gt;\n\n准备一个 U 盘，我们先叫他&lt;安装磁盘&gt;然后将安装磁盘格式化为 FAT32你也可以格式化为 NTFS(但是不建议，迫不得已时使用，很少有主板支持 NTFS 引导)\n\n将源目录全部文件选中，然后在安装磁盘粘贴等待一段时间，安全弹出安装磁盘，然后把安装磁盘拔掉\n\n关闭你想要安装 ESXi 的服务器（后称&lt;服务器&gt;）\n\n安装磁盘插入服务器\n\n服务器开机，然后一直按 F7（不同服务器的引导菜单按键不一样，你可能需要在网络上查询，常见的按键有 ESC F2 F7 F8 F10 F12 Enter Del Dot）\n\n屏幕上应该会出现一个 “Please select boot device” 画面，按键盘的上下剪头将光标移动到”ESXi Installer”（如果没有该选项，则选择安装磁盘）\n\n在完成上一步 5 秒内按下 按下 Shift + O\n\n输入下面一行的内容（注意有空格） autoPartitionOSDataSize=4096完成后，按一下回车 \n\n然后等待安装程序加载，取决于服务器性能，你需要等待 3 分钟左右\n\n你应该已经进入安装系统的界面了，按一下回车继续 \n\n阅读条款，同意按 F11 \n\n屏幕上应该会列出已经连接的存储设备，按键盘的上下剪头来选择你想要安装 ESXi 系统的磁盘（也就是你的 U 盘或 TF 卡）&lt;目标磁盘&gt; \n\n你磁盘中如果有数据，则所有数据都会被清除！（按 ENTER 确认）\n\n输入密码，按 Tab确认你输入的密码，按回车 \n\n按 F11 开始安装取决于磁盘性能，你大约需要等待 30秒（SSD）到 30分钟（低性能U盘）\n\n进度条走完之后把安装磁盘拔掉，确认 \n\n基本系统安装完成\n\n按 F2 打开 DCUI，完成基本配置这些基本配置包括\n\nIP 地址\n子网掩码\n网关\nDNS\nDNS 搜索域\nFQDN\n开启 SSH\nIPv6\n管理网卡\n\n\n打开电脑的终端（Windows 中常用命令提示符、PowerShell 和 Windows Terminal） \n\n终端输入下面的命令来连接 ESXi 主机ssh root@&lt;host&gt;&lt;host&gt; 是你 ESXi 主机的 IP 地址或者 FQDN，自行替换\n\n你的电脑应该会弹出一个安全提示，输入 YES 回车即可\n\n确保你的设备除了目标磁盘，没有连接到任何其他磁盘（如果连接了其他磁盘，拔出并重启，否则直接继续操作）\n\n执行下面的命令\n12/etc/init.d/usbarbitrator stoppartedUtil getptbl /dev/disks/mpx.vmhba32:C0:T0:L0\n然后终端输出 “gpt” 和四组数字，在我的机器上，这四组数字是 “15545 255 63 249737216”\n\n打开计算器，计算 “ 第一组数字 * 第二组数字 * 第三组数字 - 1”，记住这组数字，我得到了 249,730,424\n\n如果你的目标磁盘 ＞100 GB，执行\npartedUtil setptbl /dev/disks/mpx.vmhba32:C0:T0:L0 gpt &quot;7 38000000 你计算出的数字 AA31E02A400F11DB9590000C2911D1B8 0&quot; \n如果你的目标磁盘 ＜100 GB，执行\npartedUtil setptbl /dev/disks/mpx.vmhba32:C0:T0:L0 gpt &quot;7 32000000 你计算出的数字 AA31E02A400F11DB9590000C2911D1B8 0&quot; \n\n重复第 4 - 13 步\n\n选择 “Install ESXi, preserve VMFS datastore”，回车\n\n重复第 15 - 17 步\n\nWindows 终端执行ssh-keygen -R &lt;host&gt;&lt;host&gt; 替换为 ESXi 主机 IP\n\n重复第 19 - 22 步，打开 SSH 并连接\n\n输入vmkfstools -C vmfs6 -S Data /dev/disks/mpx.vmhba32:C0:T0:L0:8格式化磁盘\n\n\n完成！Enjoy~\n","dateCreated":"2022-03-08T00:54:00+08:00","dateModified":"2022-05-26T09:50:01+08:00","datePublished":"2022-03-08T00:54:00+08:00","description":"ESXi 安装到 TF 卡，正常情况下只是系统安装成功，并不能创建虚拟机，本文浇大家如何在把 ESXi 安装至 TF 卡并创建数据分区。VMware 不建议用户在 TF 卡中安装 ESXi，如果你仍然想这么做，风险自负","headline":"U 盘 / TF 卡安装 ESXi 教程","image":["https://cos.mbrjun.cn/IMGS/2022/03/08/dc.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/422/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/422/","keywords":"服务器, Linux, 虚拟机, ESXi, 软路由, 小主机, R86S, 企业","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/03/08/dc.png"}</script>
     <meta name="description" content="ESXi 安装到 TF 卡，正常情况下只是系统安装成功，并不能创建虚拟机，本文浇大家如何在把 ESXi 安装至 TF 卡并创建数据分区。VMware 不建议用户在 TF 卡中安装 ESXi，如果你仍然想这么做，风险自负">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="U 盘 &#x2F; TF 卡安装 ESXi 教程">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/422/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/422/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="ESXi 安装到 TF 卡，正常情况下只是系统安装成功，并不能创建虚拟机，本文浇大家如何在把 ESXi 安装至 TF 卡并创建数据分区。VMware 不建议用户在 TF 卡中安装 ESXi，如果你仍然想这么做，风险自负">
 <meta property="og:locale" content="zh_CN">
@@ -66,7 +66,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -496,7 +496,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/422/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/422/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -509,7 +509,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/422/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/422/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -522,7 +522,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/422/&amp;title=U 盘 / TF 卡安装 ESXi 教程"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/422/&amp;title=U 盘 / TF 卡安装 ESXi 教程"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -535,7 +535,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/422/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/422/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -564,7 +564,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -640,7 +640,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/422/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/422/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -653,7 +653,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/422/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/422/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -666,7 +666,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/422/&amp;title=U 盘 / TF 卡安装 ESXi 教程"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/422/&amp;title=U 盘 / TF 卡安装 ESXi 教程"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -679,7 +679,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/422/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/422/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -713,7 +713,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/422/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/422/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -726,7 +726,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/422/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/422/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -739,7 +739,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/422/&amp;title=U 盘 / TF 卡安装 ESXi 教程"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/422/&amp;title=U 盘 / TF 卡安装 ESXi 教程"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -752,7 +752,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/422/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/422/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -808,7 +808,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

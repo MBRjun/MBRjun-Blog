@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"快速生成树协议（Rapid Spanning Tree Protocol ，RSTP） 用于在局域网中消除 L2 物理环路，RSTP 由 STP 改进而来，除了和传统的 STP 协议一样具有避免环路、动态管理冗余链路的功能外，RSTP 极大的缩短了拓扑收敛时间\n\n配置 RSTP 需要先安装 Open vSwitch (openvswitch, OvS) ，这是 Linux Bridge、Linux Bond 和 Linux vlan 的替代方案。Open vSwitch 支持物理交换机上的大多数功能，提供一些高级功能，如 RSTP、VXLAN、OpenFlow，并支持单个网桥上的多个 vlan。如果您需要这些功能，切换到 Open vSwitch 是有意义的。如果您没有安装 OvS，您需要先设置 OvS\n\n安装 Open vSwitch\n首先启用 Proxmox VE 的非订阅源 \n安装 OvS（下文提到 Open vSwitch 将全部使用 OvS 简称）(需要大约 6 MB 磁盘空间）\n\n1apt install -y openvswitch-switch\n\n配置 RSTP将 Linux Bridge 转换为 OvS Bridge[scode type&#x3D;”yellow” size&#x3D;””]OvS Bridge 的桥接成员必须是 OvS 端口、OvS Bond 或 OvS vlan；Linux Bridge 的桥接成员不得是 OvS 端口、OvS Bond 或 OvS vlan，如果您有多个桥接，您需要为所有使用到 OvS 设备的 Linux Bridge 转换为 OvS Bridge（即使这个桥接不需要 RSTP）[&#x2F;scode]\n修改 /etc/network/interfaces\n123456789101112131415auto enp2s0 // 为网桥成员添加 auto 标记iface enp2s0 inet manual         ovs_type OVSPort // 设置为 OvS 端口        ovs_bridge vmbr0 // 该接口属于 vmbr0 桥接auto vmbr0iface vmbr0 inet static // 静态 IPv4        address 10.20.6.12/11 // IP/CIDR        gateway 10.10.10.10 // 网关        ovs_type OVSBridge // 设置为 OvS 网桥        ovs_ports enp2s0 // 该桥接包含 enp2s0 接口        ovs_mtu 1500 // MTU，大于 1500 必须设置        ovs_options other_config:rstp-port-mcheck=true // 见下方 ovs_options 选项        up ovs-vsctl set Bridge $&#123;IFACE&#125; rstp-enable=true other_config:rstp-priority=57344 // 见下方桥接选项        post-up sleep 10 // 在启动继续之前休眠 10 秒左右等待 RSTP 收敛\n\novs_options 选项：\n\nother_config:rstp-path-cost=10GbE 的默认值为 2000，1GbE 的默认值为 20000\nother_config:rstp-port-admin-edge=如果已知它连接到运行 RSTP 的交换机，则设置为 False，以防止在未检测到 BDPU 时进入转发状态\nother_config:rstp-port-auto-edge=如果已知它连接到运行 RSTP 的交换机，则设置为 False，以防止在未检测到 BDPU 时进入转发状态\nother_config:rstp-port-mcheck=如果知道另一端使用 RSTP 而不是 STP，则设置为 True，将在链路检测时立即广播 BDPU\n\n桥接选项：\n\nup ovs-vsctl set Bridge $&#123;IFACE&#125; rstp_enable=true开启 RSTP\nother_config:rstp-priority=接受十六进制和十进制值。配置根桥优先级，值越低越有可能成为根桥。建议将此设置为最大值 0xFFFF（65536），以防止 Open vSwitch 成为根桥。默认值为 0x8000（32768），值必须是 4096 的倍数\nother_config:rstp-forward-delay=网桥在进入转发状态之前处于学习模式的时间量。范围是 4-30，默认 15\nother_config:rstp-max-age=范围是 6-40，默认 20\n\n配置好之后保存，新配置将在重启设备之后应用\n[scode type&#x3D;”yellow” size&#x3D;””]请不要在重启设备前重启网络服务，这会让您的服务器失去网络连接[&#x2F;scode]\n","dateCreated":"2022-06-11T20:56:00+08:00","dateModified":"2022-06-11T22:32:44+08:00","datePublished":"2022-06-11T20:56:00+08:00","description":"快速生成树协议（Rapid Spanning Tree Protocol ，RSTP） 用于在局域网中消除 L2 物理环路，RSTP 由 STP 改进而来，除了和传统的 STP 协议一样具有避免环路、动态管理冗余链路的功能外，RSTP 极大的缩短了拓扑收敛时间","headline":"Proxmox VE 配置 RSTP","image":["https://cos.mbrjun.cn/IMGS/2022/06/11/gx.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/459/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/459/","keywords":"PVE, 交换机, RSTP, STP, 生成树, 生成树协议, 快速生成树协议, OvS, Proxmox VE, Linux Bridge","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/06/11/gx.png"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"快速生成树协议（Rapid Spanning Tree Protocol ，RSTP） 用于在局域网中消除 L2 物理环路，RSTP 由 STP 改进而来，除了和传统的 STP 协议一样具有避免环路、动态管理冗余链路的功能外，RSTP 极大的缩短了拓扑收敛时间\n\n配置 RSTP 需要先安装 Open vSwitch (openvswitch, OvS) ，这是 Linux Bridge、Linux Bond 和 Linux vlan 的替代方案。Open vSwitch 支持物理交换机上的大多数功能，提供一些高级功能，如 RSTP、VXLAN、OpenFlow，并支持单个网桥上的多个 vlan。如果您需要这些功能，切换到 Open vSwitch 是有意义的。如果您没有安装 OvS，您需要先设置 OvS\n\n安装 Open vSwitch\n首先启用 Proxmox VE 的非订阅源 \n安装 OvS（下文提到 Open vSwitch 将全部使用 OvS 简称）(需要大约 6 MB 磁盘空间）\n\n1apt install -y openvswitch-switch\n\n配置 RSTP将 Linux Bridge 转换为 OvS Bridge[scode type&#x3D;”yellow” size&#x3D;””]OvS Bridge 的桥接成员必须是 OvS 端口、OvS Bond 或 OvS vlan；Linux Bridge 的桥接成员不得是 OvS 端口、OvS Bond 或 OvS vlan，如果您有多个桥接，您需要为所有使用到 OvS 设备的 Linux Bridge 转换为 OvS Bridge（即使这个桥接不需要 RSTP）[&#x2F;scode]\n修改 /etc/network/interfaces\n123456789101112131415auto enp2s0 // 为网桥成员添加 auto 标记iface enp2s0 inet manual         ovs_type OVSPort // 设置为 OvS 端口        ovs_bridge vmbr0 // 该接口属于 vmbr0 桥接auto vmbr0iface vmbr0 inet static // 静态 IPv4        address 10.20.6.12/11 // IP/CIDR        gateway 10.10.10.10 // 网关        ovs_type OVSBridge // 设置为 OvS 网桥        ovs_ports enp2s0 // 该桥接包含 enp2s0 接口        ovs_mtu 1500 // MTU，大于 1500 必须设置        ovs_options other_config:rstp-port-mcheck=true // 见下方 ovs_options 选项        up ovs-vsctl set Bridge $&#123;IFACE&#125; rstp-enable=true other_config:rstp-priority=57344 // 见下方桥接选项        post-up sleep 10 // 在启动继续之前休眠 10 秒左右等待 RSTP 收敛\n\novs_options 选项：\n\nother_config:rstp-path-cost=10GbE 的默认值为 2000，1GbE 的默认值为 20000\nother_config:rstp-port-admin-edge=如果已知它连接到运行 RSTP 的交换机，则设置为 False，以防止在未检测到 BDPU 时进入转发状态\nother_config:rstp-port-auto-edge=如果已知它连接到运行 RSTP 的交换机，则设置为 False，以防止在未检测到 BDPU 时进入转发状态\nother_config:rstp-port-mcheck=如果知道另一端使用 RSTP 而不是 STP，则设置为 True，将在链路检测时立即广播 BDPU\n\n桥接选项：\n\nup ovs-vsctl set Bridge $&#123;IFACE&#125; rstp_enable=true开启 RSTP\nother_config:rstp-priority=接受十六进制和十进制值。配置根桥优先级，值越低越有可能成为根桥。建议将此设置为最大值 0xFFFF（65536），以防止 Open vSwitch 成为根桥。默认值为 0x8000（32768），值必须是 4096 的倍数\nother_config:rstp-forward-delay=网桥在进入转发状态之前处于学习模式的时间量。范围是 4-30，默认 15\nother_config:rstp-max-age=范围是 6-40，默认 20\n\n配置好之后保存，新配置将在重启设备之后应用\n[scode type&#x3D;”yellow” size&#x3D;””]请不要在重启设备前重启网络服务，这会让您的服务器失去网络连接[&#x2F;scode]\n","dateCreated":"2022-06-11T20:56:00+08:00","dateModified":"2022-06-11T22:32:44+08:00","datePublished":"2022-06-11T20:56:00+08:00","description":"快速生成树协议（Rapid Spanning Tree Protocol ，RSTP） 用于在局域网中消除 L2 物理环路，RSTP 由 STP 改进而来，除了和传统的 STP 协议一样具有避免环路、动态管理冗余链路的功能外，RSTP 极大的缩短了拓扑收敛时间","headline":"Proxmox VE 配置 RSTP","image":["https://cos.mbrjun.cn/IMGS/2022/06/11/gx.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/459/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/459/","keywords":"PVE, 交换机, RSTP, STP, 生成树, 生成树协议, 快速生成树协议, OvS, Proxmox VE, Linux Bridge","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/06/11/gx.png"}</script>
     <meta name="description" content="快速生成树协议（Rapid Spanning Tree Protocol ，RSTP） 用于在局域网中消除 L2 物理环路，RSTP 由 STP 改进而来，除了和传统的 STP 协议一样具有避免环路、动态管理冗余链路的功能外，RSTP 极大的缩短了拓扑收敛时间">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Proxmox VE 配置 RSTP">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/459/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/459/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="快速生成树协议（Rapid Spanning Tree Protocol ，RSTP） 用于在局域网中消除 L2 物理环路，RSTP 由 STP 改进而来，除了和传统的 STP 协议一样具有避免环路、动态管理冗余链路的功能外，RSTP 极大的缩短了拓扑收敛时间">
 <meta property="og:locale" content="zh_CN">
@@ -59,7 +59,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -428,7 +428,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/459/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/459/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -441,7 +441,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/459/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/459/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -454,7 +454,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/459/&amp;title=Proxmox VE 配置 RSTP"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/459/&amp;title=Proxmox VE 配置 RSTP"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -467,7 +467,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/459/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/459/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -496,7 +496,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -572,7 +572,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/459/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/459/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -585,7 +585,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/459/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/459/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -598,7 +598,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/459/&amp;title=Proxmox VE 配置 RSTP"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/459/&amp;title=Proxmox VE 配置 RSTP"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -611,7 +611,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/459/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/459/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -645,7 +645,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/459/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/459/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -658,7 +658,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/459/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/459/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -671,7 +671,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/459/&amp;title=Proxmox VE 配置 RSTP"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/459/&amp;title=Proxmox VE 配置 RSTP"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -684,7 +684,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/459/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/459/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -740,7 +740,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

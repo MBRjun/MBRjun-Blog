@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"PVE 在集群模式下，某些情况（比如：主机卡死了）下配置 PVE 虚拟机，需要修改虚拟机配置文件，但是 PVE 集群模式下修改配置和逻辑和独立节点模式不同，下面是 PVE 集群模式下修改配置文件的教程\n\n\n正常状态 Quorate: Yes集群具有法定数目的：是（集群内所有主机在线）\n一般情况下，只要集群所有机器都跑着，就属于这个状态，卡死了一般也在这个状态这种情况修改配置文件最简单，方法也很多\n修改本机配置无论独立节点和集群模式，本机的配置都存储于 &#x2F;etc&#x2F;pve 目录下，可以直接进行编辑修改例：&#x2F;etc&#x2F;pve&#x2F;lxc：LXC 容器配置文件目录例：&#x2F;etc&#x2F;pve&#x2F;qemu-server：虚拟机配置文件目录\n修改其他机器设置首先连接到集群中任意一台机器，然后打开 &#x2F;etc&#x2F;pve&#x2F;nodes&#x2F;机器名 目录，这个目录就是对应机器的配置文件例：&#x2F;etc&#x2F;pve&#x2F;nodes&#x2F;PVESVR&#x2F;qemu-server：”PVESVR”的虚拟机配置文件目录修改完成后，重启对应主机来同步配置文件（如果能做到，请使用关机-开机代替重启），这种方法也能修改当前主机配置，如果使用这种方法修改当前主机配置，则不需要重启（因为 &#x2F;dev&#x2F;pve 链接到 &#x2F;dev&#x2F;pve&#x2F;nodes&#x2F;&lt;当前主机&gt;）\n异常状态 Quorate: No集群具有法定数目的：否（集群内任意主机离线）\n如果有主机离线，就会进入这个状态。这个状态下修改配置文件很麻烦，所以请再看看这台机子能不能连上集群。在这个状态下，集群内所有主机配置文件目录的权限是 440(r–r—–)，即只读，你也无法使用 chmod 修改权限，这是因为 &#x2F;etc&#x2F;pve 是 pve-cluster 程序接手的一个目录，用 fuse(&#x2F;dev&#x2F;fuse) 挂载。如果你想要修改，就只能把你的机器设置为独立节点模式（即退出集群）：\n1234567systemctl stop pve-cluster.servicesystemctl stop corosync.servicepmxcfs -lrm /etc/pve/corosync.confrm -rf /etc/corosync/*killall pmxcfssystemctl start pve-cluster.service\n\n然后应该能正常修改配置文件目录 &#x2F;etc&#x2F;pve 了\n","dateCreated":"2022-03-21T18:58:44+08:00","dateModified":"2022-03-21T18:58:44+08:00","datePublished":"2022-03-21T18:58:44+08:00","description":"PVE 在集群模式下，某些情况（比如：主机卡死了）下配置 PVE 虚拟机，需要修改虚拟机配置文件，但是 PVE 集群模式下修改配置和逻辑和独立节点模式不同，下面是 PVE 集群模式下修改配置文件的教程","headline":"PVE 集群模式下修改配置文件","image":["https://cos.mbrjun.cn/IMGS/2022/03/21/cl.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/423/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/423/","keywords":"VMware, 虚拟机, 虚拟化, ESXi, PVE, 企业级, R86S, 集群","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/03/21/cl.png"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"PVE 在集群模式下，某些情况（比如：主机卡死了）下配置 PVE 虚拟机，需要修改虚拟机配置文件，但是 PVE 集群模式下修改配置和逻辑和独立节点模式不同，下面是 PVE 集群模式下修改配置文件的教程\n\n\n正常状态 Quorate: Yes集群具有法定数目的：是（集群内所有主机在线）\n一般情况下，只要集群所有机器都跑着，就属于这个状态，卡死了一般也在这个状态这种情况修改配置文件最简单，方法也很多\n修改本机配置无论独立节点和集群模式，本机的配置都存储于 &#x2F;etc&#x2F;pve 目录下，可以直接进行编辑修改例：&#x2F;etc&#x2F;pve&#x2F;lxc：LXC 容器配置文件目录例：&#x2F;etc&#x2F;pve&#x2F;qemu-server：虚拟机配置文件目录\n修改其他机器设置首先连接到集群中任意一台机器，然后打开 &#x2F;etc&#x2F;pve&#x2F;nodes&#x2F;机器名 目录，这个目录就是对应机器的配置文件例：&#x2F;etc&#x2F;pve&#x2F;nodes&#x2F;PVESVR&#x2F;qemu-server：”PVESVR”的虚拟机配置文件目录修改完成后，重启对应主机来同步配置文件（如果能做到，请使用关机-开机代替重启），这种方法也能修改当前主机配置，如果使用这种方法修改当前主机配置，则不需要重启（因为 &#x2F;dev&#x2F;pve 链接到 &#x2F;dev&#x2F;pve&#x2F;nodes&#x2F;&lt;当前主机&gt;）\n异常状态 Quorate: No集群具有法定数目的：否（集群内任意主机离线）\n如果有主机离线，就会进入这个状态。这个状态下修改配置文件很麻烦，所以请再看看这台机子能不能连上集群。在这个状态下，集群内所有主机配置文件目录的权限是 440(r–r—–)，即只读，你也无法使用 chmod 修改权限，这是因为 &#x2F;etc&#x2F;pve 是 pve-cluster 程序接手的一个目录，用 fuse(&#x2F;dev&#x2F;fuse) 挂载。如果你想要修改，就只能把你的机器设置为独立节点模式（即退出集群）：\n1234567systemctl stop pve-cluster.servicesystemctl stop corosync.servicepmxcfs -lrm /etc/pve/corosync.confrm -rf /etc/corosync/*killall pmxcfssystemctl start pve-cluster.service\n\n然后应该能正常修改配置文件目录 &#x2F;etc&#x2F;pve 了\n","dateCreated":"2022-03-21T18:58:44+08:00","dateModified":"2022-03-21T18:58:44+08:00","datePublished":"2022-03-21T18:58:44+08:00","description":"PVE 在集群模式下，某些情况（比如：主机卡死了）下配置 PVE 虚拟机，需要修改虚拟机配置文件，但是 PVE 集群模式下修改配置和逻辑和独立节点模式不同，下面是 PVE 集群模式下修改配置文件的教程","headline":"PVE 集群模式下修改配置文件","image":["https://cos.mbrjun.cn/IMGS/2022/03/21/cl.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/423/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/423/","keywords":"VMware, 虚拟机, 虚拟化, ESXi, PVE, 企业级, R86S, 集群","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/03/21/cl.png"}</script>
     <meta name="description" content="PVE 在集群模式下，某些情况（比如：主机卡死了）下配置 PVE 虚拟机，需要修改虚拟机配置文件，但是 PVE 集群模式下修改配置和逻辑和独立节点模式不同，下面是 PVE 集群模式下修改配置文件的教程">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="PVE 集群模式下修改配置文件">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/423/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/423/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="PVE 在集群模式下，某些情况（比如：主机卡死了）下配置 PVE 虚拟机，需要修改虚拟机配置文件，但是 PVE 集群模式下修改配置和逻辑和独立节点模式不同，下面是 PVE 集群模式下修改配置文件的教程">
 <meta property="og:locale" content="zh_CN">
@@ -55,7 +55,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -406,7 +406,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/423/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/423/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -419,7 +419,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/423/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/423/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -432,7 +432,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/423/&amp;title=PVE 集群模式下修改配置文件"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/423/&amp;title=PVE 集群模式下修改配置文件"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -445,7 +445,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/423/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/423/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -474,7 +474,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -550,7 +550,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/423/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/423/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -563,7 +563,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/423/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/423/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -576,7 +576,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/423/&amp;title=PVE 集群模式下修改配置文件"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/423/&amp;title=PVE 集群模式下修改配置文件"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -589,7 +589,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/423/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/423/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -623,7 +623,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/423/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/423/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -636,7 +636,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/423/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/423/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -649,7 +649,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/423/&amp;title=PVE 集群模式下修改配置文件"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/423/&amp;title=PVE 集群模式下修改配置文件"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -662,7 +662,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/423/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/423/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -718,7 +718,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"Zygote 是 init 进程启动时创建的，通过 fork（复制进程）的形式来创建应用程序进程和 SystemServer 进程。并且，Zygote 进程在启动的时候创建 DVM 或者 ART，因此通过fork创建的应用程序进程和SystemServer进程可以在内部获取一个DVM或者ART的实例副本。\n\n\n\n\n首先，Android 应用跑的的是虚拟机，虚拟机中 Java 代码的不同才造成了应用的区别，而对于基础的运行环境，要求却是一样的。\n其次，Zygote 在初始化时就会创建虚拟机，同时把需要的系统类库和资源文件加载的内存中。而 Zygote 在 fork 出子进程后，这个子进程也会得到一个已经加载好基础资源的虚拟机。\n这样，接下来只需要装载 APK 相关的资源就可以运行了，可以做到提升效率\n\n放一个进程树\n123456789├─ /system/bin/init second_stage // init│  ├─ zygote // 32-Bit Zygote│  │  ├─ moe.mbr.32bit // 程序包名│  │  │  ├─ moe.mbr.32bit // 子进程│  ├─ zygote64 // 64-Bit Zygote│  │  ├─ systemserver // SystemServer│  │  │  ├─ systemserver // 子进程│  │  ├─ com.android.chrome // 程序包名│  │  │  ├─ com.android.chrome // 子进程\n\n\nZygote 在 init 进程中以 service 方式启动，根据 ro.zygote 引入启动脚本，安卓 5.0 开始，Zygote 有了 32&#x2F;64 位的分别，在 Android 12，ro.zygote 取值有四种：\n\ninit.zygote32.rc\ninit.zygote32_64.rc\ninit.zygote64.rc\ninit.zygote64_32.rc\n\ninit.zygote64_32.rc创建 zygote 和 zygote_secondary 服务\n123456service zygote /system/bin/app_process64 -Xzygote /system/bin --zygote --start-system-server --socket-name=zygote    class main    ......service zygote_secondary /system/bin/app_process32 -Xzygote /system/bin --zygote --socket-name=zygote_secondary    class main    ......\n\n预加载系统类和资源为了加快应用程序的启动，Android会把系统常用的Java类和一部分Framework的资源放在Zygote进程中进行预加载。这些预加载的类和资源在所有经zygote进程fork出的子进程中是共享的。\n123456789101112131415161718192021222324252627282930static void preload(TimingsTraceLog bootTimingsTraceLog) &#123;    ......    // 设置软引用保护，避免被GC回收掉    beginIcuCachePinning();    ......    // 加载系统类    preloadClasses();    ......    // 加载系统资源    preloadResources();    ......    //     nativePreloadAppProcessHALs();    ......    // 加载OpenGL资源    preloadOpenGL();    // 加载一些共享so库，其实就三个：android、compiler_rt、jnigraphics    preloadSharedLibraries();    // 加载字体资源    preloadTextResources();    ......    // 加载webview相关资源    WebViewFactory.prepareWebViewInZygote();    // 取消软引用保护    endIcuCachePinning();    // 初始化JCA安全相关的参数    warmUpJcaProviders();    Log.d(TAG, &quot;end preload&quot;);    sPreloadComplete = true;&#125;\n\n\n\n\ntitle: 浅谈 Android Zygotedate: 2022-05-10 23:31:43updated: 2022-05-10 23:31:43categories: 汐统tags:\n\n虚拟机\nAndroid,Zygote,Java,Magisk,Zygisk,Riru\n\n\nZygote 是 init 进程启动时创建的，通过 fork（复制进程）的形式来创建应用程序进程和 SystemServer 进程。并且，Zygote 进程在启动的时候创建 DVM 或者 ART，因此通过fork创建的应用程序进程和SystemServer进程可以在内部获取一个DVM或者ART的实例副本。\n\n首先，Android 应用跑的的是虚拟机，虚拟机中 Java 代码的不同才造成了应用的区别，而对于基础的运行环境，要求却是一样的。\n其次，Zygote 在初始化时就会创建虚拟机，同时把需要的系统类库和资源文件加载的内存中。而 Zygote 在 fork 出子进程后，这个子进程也会得到一个已经加载好基础资源的虚拟机。\n这样，接下来只需要装载 APK 相关的资源就可以运行了，可以做到提升效率\n\n放一个进程树\n123456789├─ /system/bin/init second_stage // init│  ├─ zygote // 32-Bit Zygote│  │  ├─ moe.mbr.32bit // 程序包名│  │  │  ├─ moe.mbr.32bit // 子进程│  ├─ zygote64 // 64-Bit Zygote│  │  ├─ systemserver // SystemServer│  │  │  ├─ systemserver // 子进程│  │  ├─ com.android.chrome // 程序包名│  │  │  ├─ com.android.chrome // 子进程\n\n\nZygote 在 init 进程中以 service 方式启动，根据 ro.zygote 引入启动脚本，安卓 5.0 开始，Zygote 有了 32&#x2F;64 位的分别，在 Android 12，ro.zygote 取值有四种：\n\ninit.zygote32.rc\ninit.zygote32_64.rc\ninit.zygote64.rc\ninit.zygote64_32.rc\n\ninit.zygote64_32.rc创建 zygote 和 zygote_secondary 服务\n123456service zygote /system/bin/app_process64 -Xzygote /system/bin --zygote --start-system-server --socket-name=zygote    class main    ......service zygote_secondary /system/bin/app_process32 -Xzygote /system/bin --zygote --socket-name=zygote_secondary    class main    ......\n\n预加载系统类和资源为了加快应用程序的启动，Android会把系统常用的Java类和一部分Framework的资源放在Zygote进程中进行预加载。这些预加载的类和资源在所有经zygote进程fork出的子进程中是共享的。\n123456789101112131415161718192021222324252627282930static void preload(TimingsTraceLog bootTimingsTraceLog) &#123;    ......    // 设置软引用保护，避免被GC回收掉    beginIcuCachePinning();    ......    // 加载系统类    preloadClasses();    ......    // 加载系统资源    preloadResources();    ......    //     nativePreloadAppProcessHALs();    ......    // 加载OpenGL资源    preloadOpenGL();    // 加载一些共享so库，其实就三个：android、compiler_rt、jnigraphics    preloadSharedLibraries();    // 加载字体资源    preloadTextResources();    ......    // 加载webview相关资源    WebViewFactory.prepareWebViewInZygote();    // 取消软引用保护    endIcuCachePinning();    // 初始化JCA安全相关的参数    warmUpJcaProviders();    Log.d(TAG, &quot;end preload&quot;);    sPreloadComplete = true;&#125;\n\n\n\n\ntitle: 浅谈 Android Zygotedate: 2022-05-10 23:31:43updated: 2022-05-10 23:31:43categories: Androidtags:\n\n虚拟机\nAndroid,Zygote,Java,Magisk,Zygisk,Riru\n\n\nZygote 是 init 进程启动时创建的，通过 fork（复制进程）的形式来创建应用程序进程和 SystemServer 进程。并且，Zygote 进程在启动的时候创建 DVM 或者 ART，因此通过fork创建的应用程序进程和SystemServer进程可以在内部获取一个DVM或者ART的实例副本。\n\n首先，Android 应用跑的的是虚拟机，虚拟机中 Java 代码的不同才造成了应用的区别，而对于基础的运行环境，要求却是一样的。\n其次，Zygote 在初始化时就会创建虚拟机，同时把需要的系统类库和资源文件加载的内存中。而 Zygote 在 fork 出子进程后，这个子进程也会得到一个已经加载好基础资源的虚拟机。\n这样，接下来只需要装载 APK 相关的资源就可以运行了，可以做到提升效率\n\n放一个进程树\n123456789├─ /system/bin/init second_stage // init│  ├─ zygote // 32-Bit Zygote│  │  ├─ moe.mbr.32bit // 程序包名│  │  │  ├─ moe.mbr.32bit // 子进程│  ├─ zygote64 // 64-Bit Zygote│  │  ├─ systemserver // SystemServer│  │  │  ├─ systemserver // 子进程│  │  ├─ com.android.chrome // 程序包名│  │  │  ├─ com.android.chrome // 子进程\n\n\nZygote 在 init 进程中以 service 方式启动，根据 ro.zygote 引入启动脚本，安卓 5.0 开始，Zygote 有了 32&#x2F;64 位的分别，在 Android 12，ro.zygote 取值有四种：\n\ninit.zygote32.rc\ninit.zygote32_64.rc\ninit.zygote64.rc\ninit.zygote64_32.rc\n\ninit.zygote64_32.rc创建 zygote 和 zygote_secondary 服务\n123456service zygote /system/bin/app_process64 -Xzygote /system/bin --zygote --start-system-server --socket-name=zygote    class main    ......service zygote_secondary /system/bin/app_process32 -Xzygote /system/bin --zygote --socket-name=zygote_secondary    class main    ......\n\n预加载系统类和资源为了加快应用程序的启动，Android会把系统常用的Java类和一部分Framework的资源放在Zygote进程中进行预加载。这些预加载的类和资源在所有经zygote进程fork出的子进程中是共享的。\n123456789101112131415161718192021222324252627282930static void preload(TimingsTraceLog bootTimingsTraceLog) &#123;    ......    // 设置软引用保护，避免被GC回收掉    beginIcuCachePinning();    ......    // 加载系统类    preloadClasses();    ......    // 加载系统资源    preloadResources();    ......    //     nativePreloadAppProcessHALs();    ......    // 加载OpenGL资源    preloadOpenGL();    // 加载一些共享so库，其实就三个：android、compiler_rt、jnigraphics    preloadSharedLibraries();    // 加载字体资源    preloadTextResources();    ......    // 加载webview相关资源    WebViewFactory.prepareWebViewInZygote();    // 取消软引用保护    endIcuCachePinning();    // 初始化JCA安全相关的参数    warmUpJcaProviders();    Log.d(TAG, &quot;end preload&quot;);    sPreloadComplete = true;&#125;\n\n\n\n","dateCreated":"2022-05-10T23:31:43+08:00","dateModified":"2022-05-10T23:31:43+08:00","datePublished":"2022-05-10T23:31:43+08:00","description":"Zygote 是 init 进程启动时创建的，通过 fork（复制进程）的形式来创建应用程序进程和 SystemServer 进程。并且，Zygote 进程在启动的时候创建 DVM 或者 ART，因此通过fork创建的应用程序进程和SystemServer进程可以在内部获取一个DVM或者ART的实例副本。","headline":"浅谈 Android Zygote","image":["https://cos.mbrjun.cn/IMGS/2021/06/06/g6.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/445/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/445/","keywords":"虚拟机, Android, Zygote, Java, Magisk, Zygisk, Riru","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2021/06/06/g6.png"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"Zygote 是 init 进程启动时创建的，通过 fork（复制进程）的形式来创建应用程序进程和 SystemServer 进程。并且，Zygote 进程在启动的时候创建 DVM 或者 ART，因此通过fork创建的应用程序进程和SystemServer进程可以在内部获取一个DVM或者ART的实例副本。\n\n\n\n\n首先，Android 应用跑的的是虚拟机，虚拟机中 Java 代码的不同才造成了应用的区别，而对于基础的运行环境，要求却是一样的。\n其次，Zygote 在初始化时就会创建虚拟机，同时把需要的系统类库和资源文件加载的内存中。而 Zygote 在 fork 出子进程后，这个子进程也会得到一个已经加载好基础资源的虚拟机。\n这样，接下来只需要装载 APK 相关的资源就可以运行了，可以做到提升效率\n\n放一个进程树\n123456789├─ /system/bin/init second_stage // init│  ├─ zygote // 32-Bit Zygote│  │  ├─ moe.mbr.32bit // 程序包名│  │  │  ├─ moe.mbr.32bit // 子进程│  ├─ zygote64 // 64-Bit Zygote│  │  ├─ systemserver // SystemServer│  │  │  ├─ systemserver // 子进程│  │  ├─ com.android.chrome // 程序包名│  │  │  ├─ com.android.chrome // 子进程\n\n\nZygote 在 init 进程中以 service 方式启动，根据 ro.zygote 引入启动脚本，安卓 5.0 开始，Zygote 有了 32&#x2F;64 位的分别，在 Android 12，ro.zygote 取值有四种：\n\ninit.zygote32.rc\ninit.zygote32_64.rc\ninit.zygote64.rc\ninit.zygote64_32.rc\n\ninit.zygote64_32.rc创建 zygote 和 zygote_secondary 服务\n123456service zygote /system/bin/app_process64 -Xzygote /system/bin --zygote --start-system-server --socket-name=zygote    class main    ......service zygote_secondary /system/bin/app_process32 -Xzygote /system/bin --zygote --socket-name=zygote_secondary    class main    ......\n\n预加载系统类和资源为了加快应用程序的启动，Android会把系统常用的Java类和一部分Framework的资源放在Zygote进程中进行预加载。这些预加载的类和资源在所有经zygote进程fork出的子进程中是共享的。\n123456789101112131415161718192021222324252627282930static void preload(TimingsTraceLog bootTimingsTraceLog) &#123;    ......    // 设置软引用保护，避免被GC回收掉    beginIcuCachePinning();    ......    // 加载系统类    preloadClasses();    ......    // 加载系统资源    preloadResources();    ......    //     nativePreloadAppProcessHALs();    ......    // 加载OpenGL资源    preloadOpenGL();    // 加载一些共享so库，其实就三个：android、compiler_rt、jnigraphics    preloadSharedLibraries();    // 加载字体资源    preloadTextResources();    ......    // 加载webview相关资源    WebViewFactory.prepareWebViewInZygote();    // 取消软引用保护    endIcuCachePinning();    // 初始化JCA安全相关的参数    warmUpJcaProviders();    Log.d(TAG, &quot;end preload&quot;);    sPreloadComplete = true;&#125;\n\n\n\n\ntitle: 浅谈 Android Zygotedate: 2022-05-10 23:31:43updated: 2022-05-10 23:31:43categories: 汐统tags:\n\n虚拟机\nAndroid,Zygote,Java,Magisk,Zygisk,Riru\n\n\nZygote 是 init 进程启动时创建的，通过 fork（复制进程）的形式来创建应用程序进程和 SystemServer 进程。并且，Zygote 进程在启动的时候创建 DVM 或者 ART，因此通过fork创建的应用程序进程和SystemServer进程可以在内部获取一个DVM或者ART的实例副本。\n\n首先，Android 应用跑的的是虚拟机，虚拟机中 Java 代码的不同才造成了应用的区别，而对于基础的运行环境，要求却是一样的。\n其次，Zygote 在初始化时就会创建虚拟机，同时把需要的系统类库和资源文件加载的内存中。而 Zygote 在 fork 出子进程后，这个子进程也会得到一个已经加载好基础资源的虚拟机。\n这样，接下来只需要装载 APK 相关的资源就可以运行了，可以做到提升效率\n\n放一个进程树\n123456789├─ /system/bin/init second_stage // init│  ├─ zygote // 32-Bit Zygote│  │  ├─ moe.mbr.32bit // 程序包名│  │  │  ├─ moe.mbr.32bit // 子进程│  ├─ zygote64 // 64-Bit Zygote│  │  ├─ systemserver // SystemServer│  │  │  ├─ systemserver // 子进程│  │  ├─ com.android.chrome // 程序包名│  │  │  ├─ com.android.chrome // 子进程\n\n\nZygote 在 init 进程中以 service 方式启动，根据 ro.zygote 引入启动脚本，安卓 5.0 开始，Zygote 有了 32&#x2F;64 位的分别，在 Android 12，ro.zygote 取值有四种：\n\ninit.zygote32.rc\ninit.zygote32_64.rc\ninit.zygote64.rc\ninit.zygote64_32.rc\n\ninit.zygote64_32.rc创建 zygote 和 zygote_secondary 服务\n123456service zygote /system/bin/app_process64 -Xzygote /system/bin --zygote --start-system-server --socket-name=zygote    class main    ......service zygote_secondary /system/bin/app_process32 -Xzygote /system/bin --zygote --socket-name=zygote_secondary    class main    ......\n\n预加载系统类和资源为了加快应用程序的启动，Android会把系统常用的Java类和一部分Framework的资源放在Zygote进程中进行预加载。这些预加载的类和资源在所有经zygote进程fork出的子进程中是共享的。\n123456789101112131415161718192021222324252627282930static void preload(TimingsTraceLog bootTimingsTraceLog) &#123;    ......    // 设置软引用保护，避免被GC回收掉    beginIcuCachePinning();    ......    // 加载系统类    preloadClasses();    ......    // 加载系统资源    preloadResources();    ......    //     nativePreloadAppProcessHALs();    ......    // 加载OpenGL资源    preloadOpenGL();    // 加载一些共享so库，其实就三个：android、compiler_rt、jnigraphics    preloadSharedLibraries();    // 加载字体资源    preloadTextResources();    ......    // 加载webview相关资源    WebViewFactory.prepareWebViewInZygote();    // 取消软引用保护    endIcuCachePinning();    // 初始化JCA安全相关的参数    warmUpJcaProviders();    Log.d(TAG, &quot;end preload&quot;);    sPreloadComplete = true;&#125;\n\n\n\n\ntitle: 浅谈 Android Zygotedate: 2022-05-10 23:31:43updated: 2022-05-10 23:31:43categories: Androidtags:\n\n虚拟机\nAndroid,Zygote,Java,Magisk,Zygisk,Riru\n\n\nZygote 是 init 进程启动时创建的，通过 fork（复制进程）的形式来创建应用程序进程和 SystemServer 进程。并且，Zygote 进程在启动的时候创建 DVM 或者 ART，因此通过fork创建的应用程序进程和SystemServer进程可以在内部获取一个DVM或者ART的实例副本。\n\n首先，Android 应用跑的的是虚拟机，虚拟机中 Java 代码的不同才造成了应用的区别，而对于基础的运行环境，要求却是一样的。\n其次，Zygote 在初始化时就会创建虚拟机，同时把需要的系统类库和资源文件加载的内存中。而 Zygote 在 fork 出子进程后，这个子进程也会得到一个已经加载好基础资源的虚拟机。\n这样，接下来只需要装载 APK 相关的资源就可以运行了，可以做到提升效率\n\n放一个进程树\n123456789├─ /system/bin/init second_stage // init│  ├─ zygote // 32-Bit Zygote│  │  ├─ moe.mbr.32bit // 程序包名│  │  │  ├─ moe.mbr.32bit // 子进程│  ├─ zygote64 // 64-Bit Zygote│  │  ├─ systemserver // SystemServer│  │  │  ├─ systemserver // 子进程│  │  ├─ com.android.chrome // 程序包名│  │  │  ├─ com.android.chrome // 子进程\n\n\nZygote 在 init 进程中以 service 方式启动，根据 ro.zygote 引入启动脚本，安卓 5.0 开始，Zygote 有了 32&#x2F;64 位的分别，在 Android 12，ro.zygote 取值有四种：\n\ninit.zygote32.rc\ninit.zygote32_64.rc\ninit.zygote64.rc\ninit.zygote64_32.rc\n\ninit.zygote64_32.rc创建 zygote 和 zygote_secondary 服务\n123456service zygote /system/bin/app_process64 -Xzygote /system/bin --zygote --start-system-server --socket-name=zygote    class main    ......service zygote_secondary /system/bin/app_process32 -Xzygote /system/bin --zygote --socket-name=zygote_secondary    class main    ......\n\n预加载系统类和资源为了加快应用程序的启动，Android会把系统常用的Java类和一部分Framework的资源放在Zygote进程中进行预加载。这些预加载的类和资源在所有经zygote进程fork出的子进程中是共享的。\n123456789101112131415161718192021222324252627282930static void preload(TimingsTraceLog bootTimingsTraceLog) &#123;    ......    // 设置软引用保护，避免被GC回收掉    beginIcuCachePinning();    ......    // 加载系统类    preloadClasses();    ......    // 加载系统资源    preloadResources();    ......    //     nativePreloadAppProcessHALs();    ......    // 加载OpenGL资源    preloadOpenGL();    // 加载一些共享so库，其实就三个：android、compiler_rt、jnigraphics    preloadSharedLibraries();    // 加载字体资源    preloadTextResources();    ......    // 加载webview相关资源    WebViewFactory.prepareWebViewInZygote();    // 取消软引用保护    endIcuCachePinning();    // 初始化JCA安全相关的参数    warmUpJcaProviders();    Log.d(TAG, &quot;end preload&quot;);    sPreloadComplete = true;&#125;\n\n\n\n","dateCreated":"2022-05-10T23:31:43+08:00","dateModified":"2022-05-10T23:31:43+08:00","datePublished":"2022-05-10T23:31:43+08:00","description":"Zygote 是 init 进程启动时创建的，通过 fork（复制进程）的形式来创建应用程序进程和 SystemServer 进程。并且，Zygote 进程在启动的时候创建 DVM 或者 ART，因此通过fork创建的应用程序进程和SystemServer进程可以在内部获取一个DVM或者ART的实例副本。","headline":"浅谈 Android Zygote","image":["https://cos.mbrjun.cn/IMGS/2021/06/06/g6.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/445/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/445/","keywords":"虚拟机, Android, Zygote, Java, Magisk, Zygisk, Riru","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2021/06/06/g6.png"}</script>
     <meta name="description" content="Zygote 是 init 进程启动时创建的，通过 fork（复制进程）的形式来创建应用程序进程和 SystemServer 进程。并且，Zygote 进程在启动的时候创建 DVM 或者 ART，因此通过fork创建的应用程序进程和SystemServer进程可以在内部获取一个DVM或者ART的实例副本。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="浅谈 Android Zygote">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/445/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/445/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="Zygote 是 init 进程启动时创建的，通过 fork（复制进程）的形式来创建应用程序进程和 SystemServer 进程。并且，Zygote 进程在启动的时候创建 DVM 或者 ART，因此通过fork创建的应用程序进程和SystemServer进程可以在内部获取一个DVM或者ART的实例副本。">
 <meta property="og:locale" content="zh_CN">
@@ -54,7 +54,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -485,7 +485,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/445/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/445/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -498,7 +498,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/445/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/445/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -511,7 +511,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/445/&amp;title=浅谈 Android Zygote"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/445/&amp;title=浅谈 Android Zygote"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -524,7 +524,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/445/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/445/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -553,7 +553,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -629,7 +629,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/445/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/445/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -642,7 +642,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/445/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/445/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -655,7 +655,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/445/&amp;title=浅谈 Android Zygote"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/445/&amp;title=浅谈 Android Zygote"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -668,7 +668,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/445/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/445/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -702,7 +702,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/445/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/445/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -715,7 +715,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/445/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/445/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -728,7 +728,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/445/&amp;title=浅谈 Android Zygote"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/445/&amp;title=浅谈 Android Zygote"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -741,7 +741,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/445/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/445/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -797,7 +797,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

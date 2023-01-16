@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"MikroTik官方推出了一款很奇特的产品CCR2004-1G-2XS-PCIe ，看着像一张显卡，其实是一张25G SFP28的网卡，还是一款PCIe的路由器，把路由器藏在一张PCIe卡上。对于这样的独特应用，我的理解也是模糊的。\n\n官方介绍：把CCR2004做成PCIe卡安装到服务器，是为了节省机柜的空间。而对于这样的设计，在服务器上使用结合了一张2x 25G PCIe以太网适配器和一个功能齐全的路由器，会让人印象非常深刻。\n\n\n默认情况下，PCIe网卡将显示为四个虚拟以太网接口：25G SFP28作为两个直通模式接口显示，另外两个虚拟的以太网PCIe接口和一个千兆以太网桥接，用于管理访问。用户可以自由配置所有的接口和设置，因为内置了完整的RouterOS功能。\n\nCCR2004-1G-2XS-PCIe也可以作为一个网卡工作，即直通模式。基本上，FastForward与FastPath模式也可以传递硬件链路状态。并且网卡可以使用巨帧线速转发(总线100Gbps)，能确保在大多数服务器设置中，CCR网卡不会成为传输瓶颈。在独立路由器模式下，能处理的网络应用包括:防火墙、用户管理、家庭媒体和文件服务器的访问控制，甚至一些数据中心的流量控制等，而不需要再安装一台独立的路由器。\n处理器仍然采用， AL32400 4核心, ARMv8处理器，4G内存，128M NAND存储，从资料看CPU频率是2G，之前的CCR2004两款频率都是1.7G，理论上塞进服务器的空间狭小，应该降低功耗才对，但这款居然把频率提上去了，让真正的CCR2004路由器感觉凉凉的，估计MikroTik认为服务器里面的散热更凉快。\n当然CCR2004-1G-2XS-PCIe在启动时存在一些局限，CCR2004-1G-2XS-PCIe需要一点启动时间。如果主机操作系统在CCR卡之前启动，将不会出现在可用的设备中。应该在BIOS中增加PCIe设备上电后的初始化延迟，或者在主机系统里重新初始化PCIe设备。安装MikroTik提供的信息，支持的服务器系统为Linux或者FreeBSD。\n如下是官方给出在Linux上设置重新初始化，设备id为：0000:03:00.0\n123echo &quot;1&quot; &gt; /sys/bus/pci/devices/0000\\:03\\:00.0/removesleep 2echo &quot;1&quot; &gt; /sys/bus/pci/rescan\n\n官方很期待这个非传统设备的独特使用案例:一个高速网卡结合一个强大路由器，利用RouterOS强大的功能释放服务器的潜力!\n\n\n\n产品代码\nCCR2004-1G-2XS-PCIe\n\n\n\nCPU\nAL32400 2 GHz\n\n\nCPU 构架\nARM 64bit\n\n\nCPU 核心\n4\n\n\nRAM\n4GB\n\n\nRAM 类型\nDDR4\n\n\nROM\n128 MB, NAND\n\n\n1G 以太网电口\n1\n\n\n25G SFP28\n2\n\n\nRouterOS 许可\nlevel 6\n\n\n尺寸\n170 x 69 x 18 mm\n\n\n工作温度\n-20°C to +60°C\n\n\n最大功率\n25W\n\n\n售价199USD，大概1200RMB，估计没有内置的交换芯片，硬件设计框架图还需要等官方公布资料在看看.对于IDC来说，一个机柜的空间是有限的，作为采购方租用一个机柜成本固定的情况下，希望放置更多的设备，如果把路由器塞进一台服务器的PCIe中，好像也就节约了1U的空间。但如果你只租用2U-4U的空间，安装1-3台服务器，可能这个PCIe路由器到也能为你节约可观的机柜成本。\n如果真的安装到了PC主机或者服务器里，当服务器重启，PCIe网卡没有正常启动会如何？使用中出现驱动问题，导致网络中断，又会怎么？各种问题场景都可能出现，也可能在IDC上架时，搬运过程中PCIe接口松动，又会导致现场人员拆机处理。作为商业运营的数据中心，稳定压倒一切，多使用一个U位安装路由器更安心，不至于抠一个U位的成本。当然你有DIY的精神另当别论，DIY的目就是在有限的资源下，效益最大化！写着写着感觉MikroTik的产品一直都是这个DIY的定位。\n当然我没有体验过CCR2004-1G-2XS-PCIe产品，也不能过多评价，现在认知仅供参考，以后有机会体验后评价。\nFrom http://www.irouteros.com/?p=2562\n","dateCreated":"2022-02-20T13:19:04+08:00","dateModified":"2022-02-20T13:19:04+08:00","datePublished":"2022-02-20T13:19:04+08:00","description":"MikroTik官方推出了一款很奇特的产品CCR2004-1G-2XS-PCIe ，看着像一张显卡，其实是一张25G SFP28的网卡，还是一款PCIe的路由器，把路由器藏在一张PCIe卡上。对于这样的独特应用，我的理解也是模糊的。","headline":"【25G硬路由】MikroTik CCR2004-1G-2XS-PCIe","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/416/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/416/","keywords":"宽带, 网卡, ROS, 路由器, MikroTik, 万兆, 千兆, 企业级, 交换机, DIY"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"MikroTik官方推出了一款很奇特的产品CCR2004-1G-2XS-PCIe ，看着像一张显卡，其实是一张25G SFP28的网卡，还是一款PCIe的路由器，把路由器藏在一张PCIe卡上。对于这样的独特应用，我的理解也是模糊的。\n\n官方介绍：把CCR2004做成PCIe卡安装到服务器，是为了节省机柜的空间。而对于这样的设计，在服务器上使用结合了一张2x 25G PCIe以太网适配器和一个功能齐全的路由器，会让人印象非常深刻。\n\n\n默认情况下，PCIe网卡将显示为四个虚拟以太网接口：25G SFP28作为两个直通模式接口显示，另外两个虚拟的以太网PCIe接口和一个千兆以太网桥接，用于管理访问。用户可以自由配置所有的接口和设置，因为内置了完整的RouterOS功能。\n\nCCR2004-1G-2XS-PCIe也可以作为一个网卡工作，即直通模式。基本上，FastForward与FastPath模式也可以传递硬件链路状态。并且网卡可以使用巨帧线速转发(总线100Gbps)，能确保在大多数服务器设置中，CCR网卡不会成为传输瓶颈。在独立路由器模式下，能处理的网络应用包括:防火墙、用户管理、家庭媒体和文件服务器的访问控制，甚至一些数据中心的流量控制等，而不需要再安装一台独立的路由器。\n处理器仍然采用， AL32400 4核心, ARMv8处理器，4G内存，128M NAND存储，从资料看CPU频率是2G，之前的CCR2004两款频率都是1.7G，理论上塞进服务器的空间狭小，应该降低功耗才对，但这款居然把频率提上去了，让真正的CCR2004路由器感觉凉凉的，估计MikroTik认为服务器里面的散热更凉快。\n当然CCR2004-1G-2XS-PCIe在启动时存在一些局限，CCR2004-1G-2XS-PCIe需要一点启动时间。如果主机操作系统在CCR卡之前启动，将不会出现在可用的设备中。应该在BIOS中增加PCIe设备上电后的初始化延迟，或者在主机系统里重新初始化PCIe设备。安装MikroTik提供的信息，支持的服务器系统为Linux或者FreeBSD。\n如下是官方给出在Linux上设置重新初始化，设备id为：0000:03:00.0\n123echo &quot;1&quot; &gt; /sys/bus/pci/devices/0000\\:03\\:00.0/removesleep 2echo &quot;1&quot; &gt; /sys/bus/pci/rescan\n\n官方很期待这个非传统设备的独特使用案例:一个高速网卡结合一个强大路由器，利用RouterOS强大的功能释放服务器的潜力!\n\n\n\n产品代码\nCCR2004-1G-2XS-PCIe\n\n\n\nCPU\nAL32400 2 GHz\n\n\nCPU 构架\nARM 64bit\n\n\nCPU 核心\n4\n\n\nRAM\n4GB\n\n\nRAM 类型\nDDR4\n\n\nROM\n128 MB, NAND\n\n\n1G 以太网电口\n1\n\n\n25G SFP28\n2\n\n\nRouterOS 许可\nlevel 6\n\n\n尺寸\n170 x 69 x 18 mm\n\n\n工作温度\n-20°C to +60°C\n\n\n最大功率\n25W\n\n\n售价199USD，大概1200RMB，估计没有内置的交换芯片，硬件设计框架图还需要等官方公布资料在看看.对于IDC来说，一个机柜的空间是有限的，作为采购方租用一个机柜成本固定的情况下，希望放置更多的设备，如果把路由器塞进一台服务器的PCIe中，好像也就节约了1U的空间。但如果你只租用2U-4U的空间，安装1-3台服务器，可能这个PCIe路由器到也能为你节约可观的机柜成本。\n如果真的安装到了PC主机或者服务器里，当服务器重启，PCIe网卡没有正常启动会如何？使用中出现驱动问题，导致网络中断，又会怎么？各种问题场景都可能出现，也可能在IDC上架时，搬运过程中PCIe接口松动，又会导致现场人员拆机处理。作为商业运营的数据中心，稳定压倒一切，多使用一个U位安装路由器更安心，不至于抠一个U位的成本。当然你有DIY的精神另当别论，DIY的目就是在有限的资源下，效益最大化！写着写着感觉MikroTik的产品一直都是这个DIY的定位。\n当然我没有体验过CCR2004-1G-2XS-PCIe产品，也不能过多评价，现在认知仅供参考，以后有机会体验后评价。\nFrom http://www.irouteros.com/?p=2562\n","dateCreated":"2022-02-20T13:19:04+08:00","dateModified":"2022-02-20T13:19:04+08:00","datePublished":"2022-02-20T13:19:04+08:00","description":"MikroTik官方推出了一款很奇特的产品CCR2004-1G-2XS-PCIe ，看着像一张显卡，其实是一张25G SFP28的网卡，还是一款PCIe的路由器，把路由器藏在一张PCIe卡上。对于这样的独特应用，我的理解也是模糊的。","headline":"【25G硬路由】MikroTik CCR2004-1G-2XS-PCIe","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/416/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/416/","keywords":"宽带, 网卡, ROS, 路由器, MikroTik, 万兆, 千兆, 企业级, 交换机, DIY"}</script>
     <meta name="description" content="MikroTik官方推出了一款很奇特的产品CCR2004-1G-2XS-PCIe ，看着像一张显卡，其实是一张25G SFP28的网卡，还是一款PCIe的路由器，把路由器藏在一张PCIe卡上。对于这样的独特应用，我的理解也是模糊的。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="【25G硬路由】MikroTik CCR2004-1G-2XS-PCIe">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/416/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/416/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="MikroTik官方推出了一款很奇特的产品CCR2004-1G-2XS-PCIe ，看着像一张显卡，其实是一张25G SFP28的网卡，还是一款PCIe的路由器，把路由器藏在一张PCIe卡上。对于这样的独特应用，我的理解也是模糊的。">
 <meta property="og:locale" content="zh_CN">
@@ -57,7 +57,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -470,7 +470,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/416/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/416/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -483,7 +483,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/416/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/416/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -496,7 +496,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/416/&amp;title=【25G硬路由】MikroTik CCR2004-1G-2XS-PCIe"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/416/&amp;title=【25G硬路由】MikroTik CCR2004-1G-2XS-PCIe"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -509,7 +509,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/416/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/416/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -538,7 +538,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -614,7 +614,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/416/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/416/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -627,7 +627,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/416/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/416/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -640,7 +640,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/416/&amp;title=【25G硬路由】MikroTik CCR2004-1G-2XS-PCIe"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/416/&amp;title=【25G硬路由】MikroTik CCR2004-1G-2XS-PCIe"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -653,7 +653,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/416/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/416/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -687,7 +687,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/416/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/416/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -700,7 +700,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/416/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/416/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -713,7 +713,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/416/&amp;title=【25G硬路由】MikroTik CCR2004-1G-2XS-PCIe"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/416/&amp;title=【25G硬路由】MikroTik CCR2004-1G-2XS-PCIe"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -726,7 +726,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/416/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/416/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -782,7 +782,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

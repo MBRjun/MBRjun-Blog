@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"本文主要适用于从老版本升级上来的 Typecho，做一下数据库优化提高查表速度，顺便让 blog 支持一下 Emoji\n\n\n\n数据表引擎1.2 以上版本一律建议 InnoDB，新版本 InnoDB 查表效率比 MyISAM 强很多，在我的机器上，查表能快 10ms 左右旧版本 InnoDB 反而会比 MyISAM 慢\nInnoDB vs MyISAM\n\n\nInnoDB\nMyISAM\n\n\n\n支持事务处理等\n不支持事务处理等\n\n\n不加锁读取\n\n\n\n支持外键\n不支持外键\n\n\n支持行锁\n不支持行锁\n\n\n不支持FULLTEXT类型的索引\n支持FULLTEXT类型的索引\n\n\n不保存表的具体行数，扫描表来计算有多少行\n保存表的具体行数，不带where时，直接返回保存的行数。\n\n\nDELETE表时，是一行一行地删除\nDELETE表时，先drop表，然后重建表\n\n\nInnoDB把数据和索引存放在表空间里面\nMyISAM表被存放在三个文件，frm文件存放表格定义\n\n\n跨平台可直接拷贝使用\n跨平台很难直接拷贝。\n\n\nInnoDB中必须包含AUTO_INCREMENT类型字段的索引表格很难被压缩\nMyISAM中可以使用AUTO_INCREMENT类型字段建立联合索引，表格可以被压缩。\n\n\n转换方法将 MyISAM 转换为 InnoDB 的方法：\n可以使用下面的命令，或者使用 PHPMyAdmin 等工具\n1ALTER TABLE `blog_metas` ENGINE = InnoDB\n\n将 blog_metas 替换为你 Typecho 的数据表，分别将每个数据表都转换为 InnoDB，转换完成后修改配置文件 config.inc.php，开启 InnoDB\n123456789101112//config db$db = new \\Typecho\\Db(&#x27;Pdo_Mysql&#x27;, &#x27;blog_&#x27;);$db-&gt;addServer(array (  &#x27;host&#x27; =&gt; &#x27;127.0.0.1&#x27;,  &#x27;port&#x27; =&gt; 3306,  &#x27;user&#x27; =&gt; &#x27;MBRjun&#x27;,  &#x27;password&#x27; =&gt; &#x27;DATABASE PASSWORD&#x27;,  &#x27;charset&#x27; =&gt; &#x27;utf8mb4&#x27;,  &#x27;database&#x27; =&gt; &#x27;mbrjun&#x27;,  &#x27;engine&#x27; =&gt; &#x27;InnoDB&#x27;,), \\Typecho\\Db::READ | \\Typecho\\Db::WRITE);\\Typecho\\Db::set($db);\n\n将 engine 修改为 InnoDB\n排序规则 &amp; 字符集老版本默认的字符集是 utf8，这个字符集是不支持 ?emoji 和部分生僻字的，建议修改为 utf8mb4，同时将排序规则修改为 utf8mb4_0900_ai_ci\n修改字符集的命令：\n1ALTER TABLE blog_metas CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci\n\nPHPMyAdmin：\n","dateCreated":"2022-05-06T01:01:00+08:00","dateModified":"2022-05-07T00:41:15+08:00","datePublished":"2022-05-06T01:01:00+08:00","description":"本文主要适用于从老版本升级上来的 Typecho，做一下数据库优化提高查表速度，顺便让 blog 支持一下 Emoji","headline":"Typecho 数据库优化","image":["https://cos.mbrjun.cn/IMGS/2022/05/06/ei.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/440/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/440/","keywords":"服务器, typecho, 优化, Mysql, 数据库, UTF8, emoji, InnoDB","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/05/06/ei.jpg"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"本文主要适用于从老版本升级上来的 Typecho，做一下数据库优化提高查表速度，顺便让 blog 支持一下 Emoji\n\n\n\n数据表引擎1.2 以上版本一律建议 InnoDB，新版本 InnoDB 查表效率比 MyISAM 强很多，在我的机器上，查表能快 10ms 左右旧版本 InnoDB 反而会比 MyISAM 慢\nInnoDB vs MyISAM\n\n\nInnoDB\nMyISAM\n\n\n\n支持事务处理等\n不支持事务处理等\n\n\n不加锁读取\n\n\n\n支持外键\n不支持外键\n\n\n支持行锁\n不支持行锁\n\n\n不支持FULLTEXT类型的索引\n支持FULLTEXT类型的索引\n\n\n不保存表的具体行数，扫描表来计算有多少行\n保存表的具体行数，不带where时，直接返回保存的行数。\n\n\nDELETE表时，是一行一行地删除\nDELETE表时，先drop表，然后重建表\n\n\nInnoDB把数据和索引存放在表空间里面\nMyISAM表被存放在三个文件，frm文件存放表格定义\n\n\n跨平台可直接拷贝使用\n跨平台很难直接拷贝。\n\n\nInnoDB中必须包含AUTO_INCREMENT类型字段的索引表格很难被压缩\nMyISAM中可以使用AUTO_INCREMENT类型字段建立联合索引，表格可以被压缩。\n\n\n转换方法将 MyISAM 转换为 InnoDB 的方法：\n可以使用下面的命令，或者使用 PHPMyAdmin 等工具\n1ALTER TABLE `blog_metas` ENGINE = InnoDB\n\n将 blog_metas 替换为你 Typecho 的数据表，分别将每个数据表都转换为 InnoDB，转换完成后修改配置文件 config.inc.php，开启 InnoDB\n123456789101112//config db$db = new \\Typecho\\Db(&#x27;Pdo_Mysql&#x27;, &#x27;blog_&#x27;);$db-&gt;addServer(array (  &#x27;host&#x27; =&gt; &#x27;127.0.0.1&#x27;,  &#x27;port&#x27; =&gt; 3306,  &#x27;user&#x27; =&gt; &#x27;MBRjun&#x27;,  &#x27;password&#x27; =&gt; &#x27;DATABASE PASSWORD&#x27;,  &#x27;charset&#x27; =&gt; &#x27;utf8mb4&#x27;,  &#x27;database&#x27; =&gt; &#x27;mbrjun&#x27;,  &#x27;engine&#x27; =&gt; &#x27;InnoDB&#x27;,), \\Typecho\\Db::READ | \\Typecho\\Db::WRITE);\\Typecho\\Db::set($db);\n\n将 engine 修改为 InnoDB\n排序规则 &amp; 字符集老版本默认的字符集是 utf8，这个字符集是不支持 ?emoji 和部分生僻字的，建议修改为 utf8mb4，同时将排序规则修改为 utf8mb4_0900_ai_ci\n修改字符集的命令：\n1ALTER TABLE blog_metas CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci\n\nPHPMyAdmin：\n","dateCreated":"2022-05-06T01:01:00+08:00","dateModified":"2022-05-07T00:41:15+08:00","datePublished":"2022-05-06T01:01:00+08:00","description":"本文主要适用于从老版本升级上来的 Typecho，做一下数据库优化提高查表速度，顺便让 blog 支持一下 Emoji","headline":"Typecho 数据库优化","image":["https://cos.mbrjun.cn/IMGS/2022/05/06/ei.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/440/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/440/","keywords":"服务器, typecho, 优化, Mysql, 数据库, UTF8, emoji, InnoDB","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/05/06/ei.jpg"}</script>
     <meta name="description" content="本文主要适用于从老版本升级上来的 Typecho，做一下数据库优化提高查表速度，顺便让 blog 支持一下 Emoji">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Typecho 数据库优化">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/440/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/440/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="本文主要适用于从老版本升级上来的 Typecho，做一下数据库优化提高查表速度，顺便让 blog 支持一下 Emoji">
 <meta property="og:locale" content="zh_CN">
@@ -57,7 +57,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -462,7 +462,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/440/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/440/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -475,7 +475,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/440/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/440/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -488,7 +488,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/440/&amp;title=Typecho 数据库优化"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/440/&amp;title=Typecho 数据库优化"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -501,7 +501,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/440/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/440/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -530,7 +530,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -606,7 +606,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/440/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/440/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -619,7 +619,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/440/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/440/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -632,7 +632,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/440/&amp;title=Typecho 数据库优化"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/440/&amp;title=Typecho 数据库优化"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -645,7 +645,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/440/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/440/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -679,7 +679,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/440/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/440/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -692,7 +692,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/440/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/440/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -705,7 +705,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/440/&amp;title=Typecho 数据库优化"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/440/&amp;title=Typecho 数据库优化"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -718,7 +718,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/440/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/440/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -774,7 +774,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

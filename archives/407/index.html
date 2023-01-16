@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"使用全锥形 NAT 可以有效提升游戏体验\n\n测试NAT类型可以选择下面的工具：NAT类型测试工具：点击下载（大陆屏蔽）\n\n自带测试Windows 10可以尝试在设置-游戏中测试Windows 11可以尝试在 Xbox 主机小帮手中测试\n\n使用扔的工具测试出的结果会是四类NAT之一：完全圆锥型NAT （Full cone NAT），即一对一（one-to-one）NAT\n\n一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。\n任意外部主机都能经由发送数据包给 eAddr:ePort 到达 iAddr:iPort。\n\n受限圆锥型NAT （（Address-）Restricted cone NAT）\n\n一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。\n唯 iAddr:iPort 曾经发送数据包到外部主机（nAddr:any），外部主机才能经由发送数据包给 eAddr:ePort 到达 iAddr:iPort。（注：any 指外部主机源端口不受限制。）\n\n端口受限圆锥型NAT （Port-Restricted cone NAT）类似受限制锥形NAT（Restricted cone NAT ），但是还有端口限制。\n\n一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。\n在受限圆锥型NAT 基础上增加了外部主机源端口必须是固定的。\n\n对称NAT （Symmetric NAT）\n\n每一个来自相同内部 IP 与端口，到一个特定目的地 IP 和端口的请求，都映射到一个独特的外部 IP 和端口。同一内部 IP 与端口发到不同的目的地和端口的信息包，都使用不同的映射\n只有曾经收到过内部主机数据的外部主机，才能够把数据包发回\n\n此部分内容转自维基百科，点击查看（大陆可能不能访问）\n完全圆锥型NAT （Full cone NAT）简称全锥形，最宽松对称NAT （Symmetric NAT）最严格\n\n如果你的测试结果非全锥形，你需要检查路由器配置和电脑防火墙\n路由器配置如果你的路由器提供了类似设置，你需要把他打开如果不支持，你需要尝试设置 DMZ如果无DMZ，你需要尝试设置端口转发端口转发配置：外部区域&#x3D;wan 内部区域&#x3D;lan 内部主机&#x3D;你的主机 协议&#x3D;TCP+UDP\n防火墙配置由于Windows有防火墙，测试时你可以关掉请打开 控制面板\\系统和安全\\Windows Defender 防火墙，选择 启用或关闭 Windows Defender 防火墙，选择关闭\n拨号配置可以尝试下电脑插网线到光猫，然后让电脑拨号\n","dateCreated":"2021-09-04T16:51:50+08:00","dateModified":"2021-09-04T16:51:50+08:00","datePublished":"2021-09-04T16:51:50+08:00","description":"使用全锥形 NAT 可以有效提升游戏体验","headline":"在 Windows 使用全锥形(FullCone)NAT","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/407/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/407/","keywords":"NAT, 网络, 网络地址转换, 防火墙, OpenWrt"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"使用全锥形 NAT 可以有效提升游戏体验\n\n测试NAT类型可以选择下面的工具：NAT类型测试工具：点击下载（大陆屏蔽）\n\n自带测试Windows 10可以尝试在设置-游戏中测试Windows 11可以尝试在 Xbox 主机小帮手中测试\n\n使用扔的工具测试出的结果会是四类NAT之一：完全圆锥型NAT （Full cone NAT），即一对一（one-to-one）NAT\n\n一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。\n任意外部主机都能经由发送数据包给 eAddr:ePort 到达 iAddr:iPort。\n\n受限圆锥型NAT （（Address-）Restricted cone NAT）\n\n一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。\n唯 iAddr:iPort 曾经发送数据包到外部主机（nAddr:any），外部主机才能经由发送数据包给 eAddr:ePort 到达 iAddr:iPort。（注：any 指外部主机源端口不受限制。）\n\n端口受限圆锥型NAT （Port-Restricted cone NAT）类似受限制锥形NAT（Restricted cone NAT ），但是还有端口限制。\n\n一旦内部地址（iAddr:iPort）映射到外部地址（eAddr:ePort），所有发自 iAddr:iPort 的数据包都经由 eAddr:ePort 向外发送。\n在受限圆锥型NAT 基础上增加了外部主机源端口必须是固定的。\n\n对称NAT （Symmetric NAT）\n\n每一个来自相同内部 IP 与端口，到一个特定目的地 IP 和端口的请求，都映射到一个独特的外部 IP 和端口。同一内部 IP 与端口发到不同的目的地和端口的信息包，都使用不同的映射\n只有曾经收到过内部主机数据的外部主机，才能够把数据包发回\n\n此部分内容转自维基百科，点击查看（大陆可能不能访问）\n完全圆锥型NAT （Full cone NAT）简称全锥形，最宽松对称NAT （Symmetric NAT）最严格\n\n如果你的测试结果非全锥形，你需要检查路由器配置和电脑防火墙\n路由器配置如果你的路由器提供了类似设置，你需要把他打开如果不支持，你需要尝试设置 DMZ如果无DMZ，你需要尝试设置端口转发端口转发配置：外部区域&#x3D;wan 内部区域&#x3D;lan 内部主机&#x3D;你的主机 协议&#x3D;TCP+UDP\n防火墙配置由于Windows有防火墙，测试时你可以关掉请打开 控制面板\\系统和安全\\Windows Defender 防火墙，选择 启用或关闭 Windows Defender 防火墙，选择关闭\n拨号配置可以尝试下电脑插网线到光猫，然后让电脑拨号\n","dateCreated":"2021-09-04T16:51:50+08:00","dateModified":"2021-09-04T16:51:50+08:00","datePublished":"2021-09-04T16:51:50+08:00","description":"使用全锥形 NAT 可以有效提升游戏体验","headline":"在 Windows 使用全锥形(FullCone)NAT","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/407/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/407/","keywords":"NAT, 网络, 网络地址转换, 防火墙, OpenWrt"}</script>
     <meta name="description" content="使用全锥形 NAT 可以有效提升游戏体验">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="在 Windows 使用全锥形(FullCone)NAT">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/407/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/407/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="使用全锥形 NAT 可以有效提升游戏体验">
 <meta property="og:locale" content="zh_CN">
@@ -52,7 +52,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -424,7 +424,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/407/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/407/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -437,7 +437,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/407/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/407/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -450,7 +450,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/407/&amp;title=在 Windows 使用全锥形(FullCone)NAT"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/407/&amp;title=在 Windows 使用全锥形(FullCone)NAT"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -463,7 +463,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/407/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/407/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -492,7 +492,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -568,7 +568,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/407/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/407/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -581,7 +581,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/407/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/407/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -594,7 +594,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/407/&amp;title=在 Windows 使用全锥形(FullCone)NAT"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/407/&amp;title=在 Windows 使用全锥形(FullCone)NAT"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -607,7 +607,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/407/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/407/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -641,7 +641,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/407/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/407/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -654,7 +654,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/407/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/407/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -667,7 +667,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/407/&amp;title=在 Windows 使用全锥形(FullCone)NAT"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/407/&amp;title=在 Windows 使用全锥形(FullCone)NAT"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -680,7 +680,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/407/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/407/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -736,7 +736,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

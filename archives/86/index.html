@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"如图，某天在访问宝塔面板时出现了400错误，应该如何解决呢？\n\n出现400错误的原因是web服务器没找到站点，可能是宝塔服务没生效，在命令行输入：bt查看状态发现宝塔服务正常运行，但是进入站点依然出现400，我们尝试命令行启动命令行启动后发现了错误，我们分析这个错误的关键信息：\n\nFile “C:\\Program Files\\python\\lib\\site-packages\\flask\\app.py”, line 943, in run run_simple(host, port, self, **options)File “C:\\Program Files\\python\\lib\\site-packages\\werkzeug\\serving.py”, line 814, in run_simple inner()File “C:\\Program Files\\python\\lib\\site-packages\\werkzeug\\serving.py”, line 774, in inner fd&#x3D;fd)File “C:\\Program Files\\python\\lib\\site-packages\\werkzeug\\serving.py”, line 660, in make_server passthrough_errors, ssl_context, fd&#x3D;fd)File “C:\\Program Files\\python\\lib\\site-packages\\werkzeug\\serving.py”, line 577, in init self.address_family), handler)#从这些报错中可以发现：域名&#x2F;端口出了问题OSError: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。我们搜索这个错误发现是端口被占用了，果断打开资源管理器查看端口侦听状态![  ][4]发现是IIS在占用，我们进入IIS管理器，修改端口即可![  ][5]\n\n","dateCreated":"2020-06-01T14:48:00+08:00","dateModified":"2022-04-30T13:31:12+08:00","datePublished":"2020-06-01T14:48:00+08:00","description":"如图，某天在访问宝塔面板时出现了400错误，应该如何解决呢？","headline":"宝塔面板400修复教程","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/86/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/86/","keywords":"服务器, 宝塔, bt.cn, 虚拟主机, 网站面板, 400"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"如图，某天在访问宝塔面板时出现了400错误，应该如何解决呢？\n\n出现400错误的原因是web服务器没找到站点，可能是宝塔服务没生效，在命令行输入：bt查看状态发现宝塔服务正常运行，但是进入站点依然出现400，我们尝试命令行启动命令行启动后发现了错误，我们分析这个错误的关键信息：\n\nFile “C:\\Program Files\\python\\lib\\site-packages\\flask\\app.py”, line 943, in run run_simple(host, port, self, **options)File “C:\\Program Files\\python\\lib\\site-packages\\werkzeug\\serving.py”, line 814, in run_simple inner()File “C:\\Program Files\\python\\lib\\site-packages\\werkzeug\\serving.py”, line 774, in inner fd&#x3D;fd)File “C:\\Program Files\\python\\lib\\site-packages\\werkzeug\\serving.py”, line 660, in make_server passthrough_errors, ssl_context, fd&#x3D;fd)File “C:\\Program Files\\python\\lib\\site-packages\\werkzeug\\serving.py”, line 577, in init self.address_family), handler)#从这些报错中可以发现：域名&#x2F;端口出了问题OSError: [WinError 10013] 以一种访问权限不允许的方式做了一个访问套接字的尝试。我们搜索这个错误发现是端口被占用了，果断打开资源管理器查看端口侦听状态![  ][4]发现是IIS在占用，我们进入IIS管理器，修改端口即可![  ][5]\n\n","dateCreated":"2020-06-01T14:48:00+08:00","dateModified":"2022-04-30T13:31:12+08:00","datePublished":"2020-06-01T14:48:00+08:00","description":"如图，某天在访问宝塔面板时出现了400错误，应该如何解决呢？","headline":"宝塔面板400修复教程","image":[],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/86/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/86/","keywords":"服务器, 宝塔, bt.cn, 虚拟主机, 网站面板, 400"}</script>
     <meta name="description" content="如图，某天在访问宝塔面板时出现了400错误，应该如何解决呢？">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="宝塔面板400修复教程">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/86/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/86/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="如图，某天在访问宝塔面板时出现了400错误，应该如何解决呢？">
 <meta property="og:locale" content="zh_CN">
@@ -50,7 +50,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -395,7 +395,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/86/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/86/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -408,7 +408,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/86/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/86/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -421,7 +421,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/86/&amp;title=宝塔面板400修复教程"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/86/&amp;title=宝塔面板400修复教程"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -434,7 +434,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/86/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/86/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -463,7 +463,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -539,7 +539,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/86/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/86/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -552,7 +552,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/86/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/86/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -565,7 +565,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/86/&amp;title=宝塔面板400修复教程"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/86/&amp;title=宝塔面板400修复教程"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -578,7 +578,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/86/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/86/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -612,7 +612,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/86/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/86/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -625,7 +625,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/86/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/86/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -638,7 +638,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/86/&amp;title=宝塔面板400修复教程"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/86/&amp;title=宝塔面板400修复教程"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -651,7 +651,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/86/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/86/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -707,7 +707,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

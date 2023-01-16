@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"写一篇白嫖 IBM LinuxOne 的教程\n\n开头提醒一下：这个 VPS 是 S390X 架构的，兼容性不如 x86-64，能安装的软件不多，这个机子比较适合建站，LNMP、LAMP、宝塔之类的都可以跑，性能和并发也是挺强的，做编译机也是很好的挖矿的话大概率是不行的，__而且条款也不允许__，高技术力的可以试试自己编译 xmrig 测试也不建议你用这个东西搭建代理工具，易封号，但是这个机子确实能搭也可以开 Minecraft 服务器，但是延迟会比较高\n\n准备\n一个邮箱，推荐 GMail，国内可以 Outlook，不推荐 iCloud、QQ\n英文基础，看不懂英文请使用浏览器翻译插件\nLinux 基础\n\n教程先进官网注册，需要填写一些基本信息，地区写中国就可以了，如果是美国要验证地址和电话，申请理由可以写“Building Android”“Machine Learning”“develop website”之类的，如果描述不太清楚可能审核不通过注册账户有概率出现人工审核，一般是由于你开了代理或者邮箱不好，注册好了邮箱会收到一封邮件，点击邮件里链接验证，验证好了会受到另一封邮件，里面有账户的过期时间然后去创建实例，系统一般选择 RHEL（CentOS 的妈）或 Ubuntu，配置直接选择 2 核 4 GB 就可以创建好了去生成一下 SSH 密钥，这台机子默认没启用密码登录\n1ssh-keygen -t rsa\n\n\n把 SSH 密钥拷到 LinuxOne 机器上，然后就可以用这个密钥连接了，账号名是 linux1，登陆成功会有下面的消息\n1234567891011121314&gt;___ ____  __  __      _     _                   ___  _   _ _____|_ _| __ )|  \\/  |    | |   (_)_ __  _   ___  __/ _ \\| \\ | | ____| | ||  _ \\| |\\/| |    | |   | | &#x27;_ \\| | | \\ \\/ / | | |  \\| |  _| | || |_) | |  | |    | |___| | | | | |_| |&gt;  &lt;| |_| | |\\  | |___|___|____/|_|  |_|    |_____|_|_| |_|\\__,_/_/\\_\\\\___/|_| \\_|_____|=================================================================================Welcome to the IBM LinuxONE Community Cloud!This server is for authorized users only. All activity is logged and monitored.Individuals using this server must abide to the Terms and Conditions listed here:https://www.ibm.com/community/z/ibm-linuxone-community-cloud-terms-and-conditions/Your access will be revoked for any non-compliance.==================================================================================\n\nSSH 开启密码登录1vim /etc/ssh/sshd_config\n\n\n12[ESC]:wq[Enter]systemctl restart sshd\n\n机器测试测试一些基本、常用的程序和功能\nuname -a12# uname -aLinux MBR390 3.10.0-1160.59.1.el7.s390x #1 SMP Wed Feb 16 07:14:49 EST 2022 s390x s390x s390x GNU/Linux\n\nDocker能装，但是要注意容器是否提供 S390x 架构\n1WARNING: The requested image&#x27;s platform (linux/amd64) does not match the detected host platform (linux/s390x) and no specific platform was requested\n\nLNMP&#x2F;LAMP能装，用包管理器，yum 或 apt\ncpuinfo5.2 GHz，960MB 四级缓存\n1234567891011121314151617181920212223$ cat /proc/cpuinfovendor_id       : IBM/S390# processors    : 2bogomips per cpu: 3241.00max thread id   : 0features        : esan3 zarch stfle msa ldisp eimm dfp edat etf3eh highgprs te vx vxd vxe gs vxe2 vxp sort dflt siefacilities      : 0 1 2 3 4 6 7 8 9 10 12 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 30 31 32 33 34 35 36 37 38 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 57 58 59 60 61 73 74 75 76 77 80 81 82 128 129 130 131 133 134 135 146 147 148 150 151 152 155 156 168cache0          : level=1 type=Data scope=Private size=128K line_size=256 associativity=8cache1          : level=1 type=Instruction scope=Private size=128K line_size=256 associativity=8cache2          : level=2 type=Data scope=Private size=4096K line_size=256 associativity=8cache3          : level=2 type=Instruction scope=Private size=4096K line_size=256 associativity=8cache4          : level=3 type=Unified scope=Shared size=262144K line_size=256 associativity=32cache5          : level=4 type=Unified scope=Shared size=983040K line_size=256 associativity=60processor 0: version = FF,  identification = 0418E8,  machine = 8561processor 1: version = FF,  identification = 0418E8,  machine = 8561cpu number      : 0cpu MHz dynamic : 5200cpu MHz static  : 5200cpu number      : 1cpu MHz dynamic : 5200cpu MHz static  : 5200\n\nneofetch123456789101112131415161718RHEL       .MMM..:MMMMMMM                  root@MBR390          MMMMMMMMMMMMMMMMMM               -----------          MMMMMMMMMMMMMMMMMMMM.            OS: Red Hat Enterprise Linux Server 7.9 (Maipo) s390x         MMMMMMMMMMMMMMMMMMMMMM            Kernel: 3.10.0-1160.59.1.el7.s390x        ,MMMMMMMMMMMMMMMMMMMMMM:           Uptime: 7 hours, 30 mins        MMMMMMMMMMMMMMMMMMMMMMMM           Packages: 471 (rpm)  .MMMM&#x27;  MMMMMMMMMMMMMMMMMMMMMM           Shell: bash 4.2.46 MMMMMM    `MMMMMMMMMMMMMMMMMMMM.          Terminal: /dev/pts/0MMMMMMMM      MMMMMMMMMMMMMMMMMM .         CPU: 8561 (2)MMMMMMMMM.       `MMMMMMMMMMMMM&#x27; MM.       Memory: 1150MiB / 3847MiBMMMMMMMMMMM.                     MMMM`MMMMMMMMMMMMM.                 ,MMMMM. `MMMMMMMMMMMMMMMMM.          ,MMMMMMMM.    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM:         MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM            `MMMMMMMMMMMMMMMMMMMMMMMM:                ``MMMMMMMMMMMMMMMMM&#x27;\n\n宝塔可以用，但是不能用官方的方法，安装方法如下\nRHEL123456789101112131415161718# 复制所有命令粘贴到终端sudo suiptables -P INPUT ACCEPTiptables -P FORWARD ACCEPTiptables -P OUTPUT ACCEPTiptables -Fiptables-saveyum install -y wget curl &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh ed8484becbtpip install geventbtpip install flaskbtpip install gevent-websocketbtpip install psutilcd /tmpcurl https://raw.githubusercontent.com/MBRjun/btpanel-v7.7.0/main/install/install_panel.sh --output install_panel.shbash install_panel.shsed -i &quot;s|if (bind_user == &#x27;True&#x27;) &#123;|if (bind_user == &#x27;REMOVED&#x27;) &#123;|g&quot; /www/server/panel/BTPanel/static/js/index.jsbtpip install requestsrm install_panel.sh\n\nUbuntu1234567891011121314151617# 复制所有命令粘贴到终端sudo suiptables -P INPUT ACCEPTiptables -P FORWARD ACCEPTiptables -P OUTPUT ACCEPTiptables -Fiptables-savewget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh ed8484becbtpip install geventbtpip install flaskbtpip install gevent-websocketbtpip install psutilwget https://raw.githubusercontent.com/MBRjun/btpanel-v7.7.0/main/install/install_panel.shbash install_panel.shsed -i &quot;s|if (bind_user == &#x27;True&#x27;) &#123;|if (bind_user == &#x27;REMOVED&#x27;) &#123;|g&quot; /www/server/panel/BTPanel/static/js/index.jsbtpip install requestsrm install_panel.sh\n\nSpeedTest123456789#二进制版本不支持 S390x，请使用包管理器curl -s https://install.speedtest.net/app/cli/install.rpm.sh | sudo bashsudo yum install speedtestspeedtest    Latency:    17.57 ms   (0.14 ms jitter)   Download:   1.15 Gbps (data used: 1.75 GB )     Upload:     0.50 Gbps (data used: 0.71 GB )Packet Loss:     0.0%\n","dateCreated":"2022-04-18T11:05:00+08:00","dateModified":"2022-05-04T10:22:14+08:00","datePublished":"2022-04-18T11:05:00+08:00","description":"写一篇白嫖 IBM LinuxOne 的教程","headline":"白嫖 IBM LinuxOne VPS","image":["https://cos.mbrjun.cn/IMGS/2022/04/18/dh.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/434/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/434/","keywords":"服务器, VPS, 宝塔, S390X, RHEL, LinuxOne, MC服, LNMP, LAMP, 大型机","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/04/18/dh.jpg"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"写一篇白嫖 IBM LinuxOne 的教程\n\n开头提醒一下：这个 VPS 是 S390X 架构的，兼容性不如 x86-64，能安装的软件不多，这个机子比较适合建站，LNMP、LAMP、宝塔之类的都可以跑，性能和并发也是挺强的，做编译机也是很好的挖矿的话大概率是不行的，__而且条款也不允许__，高技术力的可以试试自己编译 xmrig 测试也不建议你用这个东西搭建代理工具，易封号，但是这个机子确实能搭也可以开 Minecraft 服务器，但是延迟会比较高\n\n准备\n一个邮箱，推荐 GMail，国内可以 Outlook，不推荐 iCloud、QQ\n英文基础，看不懂英文请使用浏览器翻译插件\nLinux 基础\n\n教程先进官网注册，需要填写一些基本信息，地区写中国就可以了，如果是美国要验证地址和电话，申请理由可以写“Building Android”“Machine Learning”“develop website”之类的，如果描述不太清楚可能审核不通过注册账户有概率出现人工审核，一般是由于你开了代理或者邮箱不好，注册好了邮箱会收到一封邮件，点击邮件里链接验证，验证好了会受到另一封邮件，里面有账户的过期时间然后去创建实例，系统一般选择 RHEL（CentOS 的妈）或 Ubuntu，配置直接选择 2 核 4 GB 就可以创建好了去生成一下 SSH 密钥，这台机子默认没启用密码登录\n1ssh-keygen -t rsa\n\n\n把 SSH 密钥拷到 LinuxOne 机器上，然后就可以用这个密钥连接了，账号名是 linux1，登陆成功会有下面的消息\n1234567891011121314&gt;___ ____  __  __      _     _                   ___  _   _ _____|_ _| __ )|  \\/  |    | |   (_)_ __  _   ___  __/ _ \\| \\ | | ____| | ||  _ \\| |\\/| |    | |   | | &#x27;_ \\| | | \\ \\/ / | | |  \\| |  _| | || |_) | |  | |    | |___| | | | | |_| |&gt;  &lt;| |_| | |\\  | |___|___|____/|_|  |_|    |_____|_|_| |_|\\__,_/_/\\_\\\\___/|_| \\_|_____|=================================================================================Welcome to the IBM LinuxONE Community Cloud!This server is for authorized users only. All activity is logged and monitored.Individuals using this server must abide to the Terms and Conditions listed here:https://www.ibm.com/community/z/ibm-linuxone-community-cloud-terms-and-conditions/Your access will be revoked for any non-compliance.==================================================================================\n\nSSH 开启密码登录1vim /etc/ssh/sshd_config\n\n\n12[ESC]:wq[Enter]systemctl restart sshd\n\n机器测试测试一些基本、常用的程序和功能\nuname -a12# uname -aLinux MBR390 3.10.0-1160.59.1.el7.s390x #1 SMP Wed Feb 16 07:14:49 EST 2022 s390x s390x s390x GNU/Linux\n\nDocker能装，但是要注意容器是否提供 S390x 架构\n1WARNING: The requested image&#x27;s platform (linux/amd64) does not match the detected host platform (linux/s390x) and no specific platform was requested\n\nLNMP&#x2F;LAMP能装，用包管理器，yum 或 apt\ncpuinfo5.2 GHz，960MB 四级缓存\n1234567891011121314151617181920212223$ cat /proc/cpuinfovendor_id       : IBM/S390# processors    : 2bogomips per cpu: 3241.00max thread id   : 0features        : esan3 zarch stfle msa ldisp eimm dfp edat etf3eh highgprs te vx vxd vxe gs vxe2 vxp sort dflt siefacilities      : 0 1 2 3 4 6 7 8 9 10 12 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 30 31 32 33 34 35 36 37 38 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 57 58 59 60 61 73 74 75 76 77 80 81 82 128 129 130 131 133 134 135 146 147 148 150 151 152 155 156 168cache0          : level=1 type=Data scope=Private size=128K line_size=256 associativity=8cache1          : level=1 type=Instruction scope=Private size=128K line_size=256 associativity=8cache2          : level=2 type=Data scope=Private size=4096K line_size=256 associativity=8cache3          : level=2 type=Instruction scope=Private size=4096K line_size=256 associativity=8cache4          : level=3 type=Unified scope=Shared size=262144K line_size=256 associativity=32cache5          : level=4 type=Unified scope=Shared size=983040K line_size=256 associativity=60processor 0: version = FF,  identification = 0418E8,  machine = 8561processor 1: version = FF,  identification = 0418E8,  machine = 8561cpu number      : 0cpu MHz dynamic : 5200cpu MHz static  : 5200cpu number      : 1cpu MHz dynamic : 5200cpu MHz static  : 5200\n\nneofetch123456789101112131415161718RHEL       .MMM..:MMMMMMM                  root@MBR390          MMMMMMMMMMMMMMMMMM               -----------          MMMMMMMMMMMMMMMMMMMM.            OS: Red Hat Enterprise Linux Server 7.9 (Maipo) s390x         MMMMMMMMMMMMMMMMMMMMMM            Kernel: 3.10.0-1160.59.1.el7.s390x        ,MMMMMMMMMMMMMMMMMMMMMM:           Uptime: 7 hours, 30 mins        MMMMMMMMMMMMMMMMMMMMMMMM           Packages: 471 (rpm)  .MMMM&#x27;  MMMMMMMMMMMMMMMMMMMMMM           Shell: bash 4.2.46 MMMMMM    `MMMMMMMMMMMMMMMMMMMM.          Terminal: /dev/pts/0MMMMMMMM      MMMMMMMMMMMMMMMMMM .         CPU: 8561 (2)MMMMMMMMM.       `MMMMMMMMMMMMM&#x27; MM.       Memory: 1150MiB / 3847MiBMMMMMMMMMMM.                     MMMM`MMMMMMMMMMMMM.                 ,MMMMM. `MMMMMMMMMMMMMMMMM.          ,MMMMMMMM.    MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM:         MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM            `MMMMMMMMMMMMMMMMMMMMMMMM:                ``MMMMMMMMMMMMMMMMM&#x27;\n\n宝塔可以用，但是不能用官方的方法，安装方法如下\nRHEL123456789101112131415161718# 复制所有命令粘贴到终端sudo suiptables -P INPUT ACCEPTiptables -P FORWARD ACCEPTiptables -P OUTPUT ACCEPTiptables -Fiptables-saveyum install -y wget curl &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh ed8484becbtpip install geventbtpip install flaskbtpip install gevent-websocketbtpip install psutilcd /tmpcurl https://raw.githubusercontent.com/MBRjun/btpanel-v7.7.0/main/install/install_panel.sh --output install_panel.shbash install_panel.shsed -i &quot;s|if (bind_user == &#x27;True&#x27;) &#123;|if (bind_user == &#x27;REMOVED&#x27;) &#123;|g&quot; /www/server/panel/BTPanel/static/js/index.jsbtpip install requestsrm install_panel.sh\n\nUbuntu1234567891011121314151617# 复制所有命令粘贴到终端sudo suiptables -P INPUT ACCEPTiptables -P FORWARD ACCEPTiptables -P OUTPUT ACCEPTiptables -Fiptables-savewget -O install.sh http://download.bt.cn/install/install-ubuntu_6.0.sh &amp;&amp; sudo bash install.sh ed8484becbtpip install geventbtpip install flaskbtpip install gevent-websocketbtpip install psutilwget https://raw.githubusercontent.com/MBRjun/btpanel-v7.7.0/main/install/install_panel.shbash install_panel.shsed -i &quot;s|if (bind_user == &#x27;True&#x27;) &#123;|if (bind_user == &#x27;REMOVED&#x27;) &#123;|g&quot; /www/server/panel/BTPanel/static/js/index.jsbtpip install requestsrm install_panel.sh\n\nSpeedTest123456789#二进制版本不支持 S390x，请使用包管理器curl -s https://install.speedtest.net/app/cli/install.rpm.sh | sudo bashsudo yum install speedtestspeedtest    Latency:    17.57 ms   (0.14 ms jitter)   Download:   1.15 Gbps (data used: 1.75 GB )     Upload:     0.50 Gbps (data used: 0.71 GB )Packet Loss:     0.0%\n","dateCreated":"2022-04-18T11:05:00+08:00","dateModified":"2022-05-04T10:22:14+08:00","datePublished":"2022-04-18T11:05:00+08:00","description":"写一篇白嫖 IBM LinuxOne 的教程","headline":"白嫖 IBM LinuxOne VPS","image":["https://cos.mbrjun.cn/IMGS/2022/04/18/dh.jpg"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/434/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/434/","keywords":"服务器, VPS, 宝塔, S390X, RHEL, LinuxOne, MC服, LNMP, LAMP, 大型机","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/04/18/dh.jpg"}</script>
     <meta name="description" content="写一篇白嫖 IBM LinuxOne 的教程">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="白嫖 IBM LinuxOne VPS">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/434/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/434/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="写一篇白嫖 IBM LinuxOne 的教程">
 <meta property="og:locale" content="zh_CN">
@@ -62,7 +62,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -440,7 +440,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/434/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/434/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -453,7 +453,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/434/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/434/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -466,7 +466,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/434/&amp;title=白嫖 IBM LinuxOne VPS"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/434/&amp;title=白嫖 IBM LinuxOne VPS"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -479,7 +479,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/434/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/434/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -508,7 +508,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -584,7 +584,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/434/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/434/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -597,7 +597,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/434/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/434/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -610,7 +610,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/434/&amp;title=白嫖 IBM LinuxOne VPS"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/434/&amp;title=白嫖 IBM LinuxOne VPS"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -623,7 +623,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/434/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/434/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -657,7 +657,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/434/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/434/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -670,7 +670,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/434/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/434/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -683,7 +683,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/434/&amp;title=白嫖 IBM LinuxOne VPS"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/434/&amp;title=白嫖 IBM LinuxOne VPS"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -696,7 +696,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/434/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/434/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -752,7 +752,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 

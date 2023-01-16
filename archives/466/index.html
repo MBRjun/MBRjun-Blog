@@ -19,11 +19,11 @@
             <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
         
     
-    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"昨天 Linux 6.0-rc1 内核发布了，写一个编译安装教程喵\n\n\n\n本文以 Arch Linux 演示编译过程，其他发行版可能编译方法略有不同\n\n安装依赖1pacman -Sy base-devel xmlto kmod inetutils bc libelf git cpio perl tar xz\n\n获取源码下载解压 Linux 内核的压缩包，当然也可以直接 git clone\n123456wget https://git.kernel.org/torvalds/t/linux-6.0-rc1.tar.gzmkdir linuxcd linux7z x ../linux-6.0-rc1.tar.gz # install p7zip first7z x linux-6.0-rc1.tarcd linux-6.0-rc1\n\n\n然后配置权限并确保内核树绝对干净\n12chmod +x ./scripts/*make clean &amp;&amp; make mrproper\n\n配置获取当前内核的配置\n1zcat /proc/config.gz &gt; .config\n\n之后执行 make menuconfig 命令，进行编译配置不推荐使用 root 用户编译\n\n配置好之后保存，返回 Shell\n编译使用下面的命令开始编译\n1make -j$(nproc)\n\n编译内核模块\n1make modules\n\n编译完成后内核存储在 arch/x86_64/boot/bzImage\n安装我自己编译了一个 Linux 6.0，如果你不能自己编译，也可以点击下方链接获取https://download.mbrjun.cn/%E5%88%B7%E6%9C%BA%E5%8C%85/Linux/Linux-6/6.0/6.0.0/rc1/\n如果是自己编译进入编译目录，输入下面的命令安装模块\n1sudo make modules_install\n\n然后安装内核并创建 initramfs\n1sudo cp -v bzImage /boot/vmlinuz-linux-mbrjun\n\n上面的命令中，linux-mbrjun是我内核的名称，你也可以自定义名称，重命名建议以 vmlinuz 开头\n然后需要编辑 /etc/mkinitcpio.d/linux-mbrjun.preset，输入下面的内容：\n123456ALL_config=&quot;/etc/mkinitcpio.conf&quot;ALL_kver=&quot;/boot/vmlinuz-linux-mbrjun&quot;PRESETS=(&#x27;default&#x27; &#x27;fallback&#x27;)default_image=&quot;/boot/initramfs-linux-mbrjun.img&quot;fallback_image=&quot;/boot/initramfs-linux-mbrjun-fallback.img&quot;fallback_options=&quot;-S autodetect&quot;\n\n注意：如果上面修改了内核名称，此处也要修改\n执行 mkinitcpio -p linux-mbrjun，生成 initramfs\n然后重新生成 grub 配置文件：grub-mkconfig -o /boot/grub/grub.cfg\n使用编译好的 Linux是的，我懒得造 pacman 安装包，请你手动安装先把两个 initramfs 开头的文件 和 一个 vmlinuz 开头的文件拷贝到 &#x2F;boot\n然后将 7z 压缩包内的文件解压到 /lib/modules，解压出来的文件夹需要改名为 6.0.0-rc1-MBRjun\n然后重新生成 grub 配置文件：grub-mkconfig -o /boot/grub/grub.cfg\n使用重启设备，开机时选择你的新内核\n","dateCreated":"2022-08-15T13:02:00+08:00","dateModified":"2022-08-16T15:01:19+08:00","datePublished":"2022-08-15T13:02:00+08:00","description":"昨天 Linux 6.0-rc1 内核发布了，写一个编译安装教程喵","headline":"Linux 6.0 内核编译教程","image":["https://cos.mbrjun.cn/IMGS/2022/08/nb.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.mbrjun.cn/archives/466/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://blog.mbrjun.cn/archives/466/","keywords":"Linux, CentOS, 内核, Arch, Ubuntu, make, Linux6.0, Linux6, deepin","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/08/nb.png"}</script>
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"},"articleBody":"昨天 Linux 6.0-rc1 内核发布了，写一个编译安装教程喵\n\n\n\n本文以 Arch Linux 演示编译过程，其他发行版可能编译方法略有不同\n\n安装依赖1pacman -Sy base-devel xmlto kmod inetutils bc libelf git cpio perl tar xz\n\n获取源码下载解压 Linux 内核的压缩包，当然也可以直接 git clone\n123456wget https://git.kernel.org/torvalds/t/linux-6.0-rc1.tar.gzmkdir linuxcd linux7z x ../linux-6.0-rc1.tar.gz # install p7zip first7z x linux-6.0-rc1.tarcd linux-6.0-rc1\n\n\n然后配置权限并确保内核树绝对干净\n12chmod +x ./scripts/*make clean &amp;&amp; make mrproper\n\n配置获取当前内核的配置\n1zcat /proc/config.gz &gt; .config\n\n之后执行 make menuconfig 命令，进行编译配置不推荐使用 root 用户编译\n\n配置好之后保存，返回 Shell\n编译使用下面的命令开始编译\n1make -j$(nproc)\n\n编译内核模块\n1make modules\n\n编译完成后内核存储在 arch/x86_64/boot/bzImage\n安装我自己编译了一个 Linux 6.0，如果你不能自己编译，也可以点击下方链接获取https://download.mbrjun.cn/%E5%88%B7%E6%9C%BA%E5%8C%85/Linux/Linux-6/6.0/6.0.0/rc1/\n如果是自己编译进入编译目录，输入下面的命令安装模块\n1sudo make modules_install\n\n然后安装内核并创建 initramfs\n1sudo cp -v bzImage /boot/vmlinuz-linux-mbrjun\n\n上面的命令中，linux-mbrjun是我内核的名称，你也可以自定义名称，重命名建议以 vmlinuz 开头\n然后需要编辑 /etc/mkinitcpio.d/linux-mbrjun.preset，输入下面的内容：\n123456ALL_config=&quot;/etc/mkinitcpio.conf&quot;ALL_kver=&quot;/boot/vmlinuz-linux-mbrjun&quot;PRESETS=(&#x27;default&#x27; &#x27;fallback&#x27;)default_image=&quot;/boot/initramfs-linux-mbrjun.img&quot;fallback_image=&quot;/boot/initramfs-linux-mbrjun-fallback.img&quot;fallback_options=&quot;-S autodetect&quot;\n\n注意：如果上面修改了内核名称，此处也要修改\n执行 mkinitcpio -p linux-mbrjun，生成 initramfs\n然后重新生成 grub 配置文件：grub-mkconfig -o /boot/grub/grub.cfg\n使用编译好的 Linux是的，我懒得造 pacman 安装包，请你手动安装先把两个 initramfs 开头的文件 和 一个 vmlinuz 开头的文件拷贝到 &#x2F;boot\n然后将 7z 压缩包内的文件解压到 /lib/modules，解压出来的文件夹需要改名为 6.0.0-rc1-MBRjun\n然后重新生成 grub 配置文件：grub-mkconfig -o /boot/grub/grub.cfg\n使用重启设备，开机时选择你的新内核\n","dateCreated":"2022-08-15T13:02:00+08:00","dateModified":"2022-08-16T15:01:19+08:00","datePublished":"2022-08-15T13:02:00+08:00","description":"昨天 Linux 6.0-rc1 内核发布了，写一个编译安装教程喵","headline":"Linux 6.0 内核编译教程","image":["https://cos.mbrjun.cn/IMGS/2022/08/nb.png"],"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.mbrjun.cn/archives/466/"},"publisher":{"@type":"Organization","name":"MBRjun","sameAs":["https://github.com/MBRjun","https://twitter.com/MBRjun","mailto:mbrjun@foxmail.com"],"image":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg","logo":{"@type":"ImageObject","url":"https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg"}},"url":"https://www.mbrjun.cn/archives/466/","keywords":"Linux, CentOS, 内核, Arch, Ubuntu, make, Linux6.0, Linux6, deepin","thumbnailUrl":"https://cos.mbrjun.cn/IMGS/2022/08/nb.png"}</script>
     <meta name="description" content="昨天 Linux 6.0-rc1 内核发布了，写一个编译安装教程喵">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Linux 6.0 内核编译教程">
-<meta property="og:url" content="https://blog.mbrjun.cn/archives/466/index.html">
+<meta property="og:url" content="https://www.mbrjun.cn/archives/466/index.html">
 <meta property="og:site_name" content="MBRjun-Blog">
 <meta property="og:description" content="昨天 Linux 6.0-rc1 内核发布了，写一个编译安装教程喵">
 <meta property="og:locale" content="zh_CN">
@@ -60,7 +60,7 @@
     
     <!--STYLES-->
     
-<link rel="stylesheet" href="/assets/css/style-pr51if19cqzldsqgpbypuhgq58s6wziu7utvcfdjkdo6gyibffqfat8btwvo.min.css">
+<link rel="stylesheet" href="/assets/css/style-de8dxj6d63kcm6bzln1binw7nl4ubbuimd0cxbsfhyw9jdapc16ripiwb76d.min.css">
 
     <!--STYLES END-->
     
@@ -445,7 +445,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/466/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/466/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -458,7 +458,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/466/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/466/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -471,7 +471,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/466/&amp;title=Linux 6.0 内核编译教程"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/466/&amp;title=Linux 6.0 内核编译教程"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -484,7 +484,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/466/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/466/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -513,7 +513,7 @@
         <script src="https://giscus.mbrjun.cn/client.js"
             data-repo="MBRjun/MBRjun-Blog"
             data-repo-id="R_kgDOIbI33Q"
-            data-category="blog.mbrjun.cn"
+            data-category="Blog"
             data-category-id="DIC_kwDOIbI33c4CTUTq"
             data-mapping="title"
             data-strict="1"
@@ -589,7 +589,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/466/"
+                    target="new" href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/466/"
                     title="分享到 Twitter"
                     aria-label="分享到 Twitter"
                 >
@@ -602,7 +602,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/466/"
+                    target="new" href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/466/"
                     title="分享到 Weibo"
                     aria-label="分享到 Weibo"
                 >
@@ -615,7 +615,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/466/&amp;title=Linux 6.0 内核编译教程"
+                    target="new" href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/466/&amp;title=Linux 6.0 内核编译教程"
                     title="分享到 QQ"
                     aria-label="分享到 QQ"
                 >
@@ -628,7 +628,7 @@
             <li class="post-action hide-xs">
                 <a
                     class="post-action-btn btn btn--default"
-                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/466/"
+                    target="new" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/466/"
                     title="分享到 Qzone"
                     aria-label="分享到 Qzone"
                 >
@@ -662,7 +662,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="https://twitter.com/intent/tweet?text=https://blog.mbrjun.cn/archives/466/"
+                        href="https://twitter.com/intent/tweet?text=https://www.mbrjun.cn/archives/466/"
                         aria-label="分享到 Twitter"
                     >
                         <i class="fab fa-twitter" aria-hidden="true"></i><span>分享到 Twitter</span>
@@ -675,7 +675,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://service.weibo.com/share/share.php?&amp;title=https://blog.mbrjun.cn/archives/466/"
+                        href="http://service.weibo.com/share/share.php?&amp;title=https://www.mbrjun.cn/archives/466/"
                         aria-label="分享到 Weibo"
                     >
                         <i class="fab fa-weibo" aria-hidden="true"></i><span>分享到 Weibo</span>
@@ -688,7 +688,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://blog.mbrjun.cn/archives/466/&amp;title=Linux 6.0 内核编译教程"
+                        href="http://connect.qq.com/widget/shareqq/index.html?url=https://www.mbrjun.cn/archives/466/&amp;title=Linux 6.0 内核编译教程"
                         aria-label="分享到 QQ"
                     >
                         <i class="fab fa-qq" aria-hidden="true"></i><span>分享到 QQ</span>
@@ -701,7 +701,7 @@
                     <a
                         class="share-option-btn"
                         target="new"
-                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://blog.mbrjun.cn/archives/466/"
+                        href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://www.mbrjun.cn/archives/466/"
                         aria-label="分享到 Qzone"
                     >
                         <i class="fa fa-star" aria-hidden="true"></i><span>分享到 Qzone</span>
@@ -757,7 +757,7 @@
 <div id="cover" style="background-image:url('https://cos.mbrjun.cn/IMGS/2022/12/25/xc.webp');"></div>
         <!--SCRIPTS-->
 
-<script src="/assets/js/script-cuomlfqc9nxez8tmotidldnl1sydy76edchqn0jniw0xt9bsuigfhz6i8wh4.min.js"></script>
+<script src="/assets/js/script-854mwqwoy0bvz17elglngotpae2nrlv1i28vzcovplxbh7usmiyv1ih1zb3a.min.js"></script>
 
 <!--SCRIPTS END-->
 
