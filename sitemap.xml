@@ -11,6 +11,15 @@
   </url>
   
   <url>
+    <loc>https://www.mbrjun.cn/archives/470/</loc>
+    
+    <lastmod>2023-01-17</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.mbrjun.cn/about/index.html</loc>
     
     <lastmod>2023-01-17</lastmod>
@@ -3343,6 +3352,13 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/git/</loc>
+    <lastmod>2023-01-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/%E4%B8%8B%E8%BD%BD/</loc>
     <lastmod>2023-01-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
