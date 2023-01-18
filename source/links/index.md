@@ -195,6 +195,11 @@ date: 2022-12-28 22:38:12
 </div>
 
 ---
+### 本站信息
+title: ``MBRjun-Blog``
+description: ``我们生活在大地上，但我们的梦想超越天空``
+icon: ``https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg``
+url: ``https://www.mbrjun.cn/``
 
 ### 申请友链
 请[在 GitHub 修改此页面](https://github.com/MBRjun/MBRjun-Blog/edit/main/source/links/index.md)，然后创建 Pull Request
