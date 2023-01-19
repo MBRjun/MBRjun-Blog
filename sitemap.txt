@@ -3,6 +3,7 @@ https://www.mbrjun.cn/all-archives/index.html
 https://www.mbrjun.cn/all-categories/index.html
 https://www.mbrjun.cn/all-tags/index.html
 https://www.mbrjun.cn/links/index.html
+https://www.mbrjun.cn/archives/471/
 https://www.mbrjun.cn/archives/470/
 https://www.mbrjun.cn/archives/469/
 https://www.mbrjun.cn/archives/255/
@@ -447,6 +448,8 @@ https://www.mbrjun.cn/tags/%E7%96%AB%E6%83%85/
 https://www.mbrjun.cn/tags/S-MIME/
 https://www.mbrjun.cn/tags/git/
 https://www.mbrjun.cn/tags/%E4%B8%8B%E8%BD%BD/
+https://www.mbrjun.cn/tags/iOS/
+https://www.mbrjun.cn/tags/Apple/
 https://www.mbrjun.cn/tags/MC-%E8%BD%AF%E4%BB%B6-%E4%B8%8B%E8%BD%BD-Minecraft/
 https://www.mbrjun.cn/tags/%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81/
 https://www.mbrjun.cn/tags/%E8%93%9D%E5%B1%8F/
@@ -470,3 +473,4 @@ https://www.mbrjun.cn/categories/%E4%BB%A3%E7%A0%81/
 https://www.mbrjun.cn/categories/%E6%B8%B8%E6%88%8F/
 https://www.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/
 https://www.mbrjun.cn/categories/%E7%96%AB%E6%83%85/
+https://www.mbrjun.cn/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/
