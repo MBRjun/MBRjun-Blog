@@ -1,9 +1,11 @@
-name: Generate HTML
+name: Production
 
 on:
   repository_dispatch:
   workflow_dispatch:
   push:
+    branches:
+      - main
 
 env:
   TZ: Asia/Shanghai
