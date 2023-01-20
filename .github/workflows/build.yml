@@ -52,9 +52,3 @@ jobs:
         publish_dir: ./public
         user_name: 'github-actions[bot]'
         user_email: 'github-actions[bot]@users.noreply.github.com'
-
-    - name: Delete workflow runs
-      uses: Mattraks/delete-workflow-runs@v2.0.3
-      with:
-        retain_days: 1
-        keep_minimum_runs: 5

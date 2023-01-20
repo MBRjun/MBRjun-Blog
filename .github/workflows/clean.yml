@@ -1,0 +1,15 @@
+name: Delete workflow runs
+
+on:
+  schedule:
+    - cron: "0 18 * * *"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Delete workflow runs
+      uses: Mattraks/delete-workflow-runs@v2.0.3
+      with:
+        retain_days: 1
+        keep_minimum_runs: 2
