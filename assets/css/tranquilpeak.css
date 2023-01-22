@@ -246,10 +246,10 @@ blockquote {
       position: absolute;
       top: 15px;
       right: 15px;
-      color: #9eabb3;
+      color: #5e686e;
       cursor: pointer; }
       #about #about-card #about-btn-close:hover {
-        color: #738691; }
+        color: #3b4145; }
     #about #about-card #about-card-picture {
       margin-bottom: 15px; }
     #about #about-card #about-card-name {
@@ -442,7 +442,7 @@ blockquote {
   z-index: -1; }
 
 #footer {
-  color: #9eabb3;
+  color: #5e686e;
   font-size: 1.5rem;
   text-align: center;
   margin-top: 70px;
@@ -1375,7 +1375,7 @@ blockquote {
     .archive .archive-posts .archive-post .archive-post-title:hover {
       text-decoration: underline; }
   .archive .archive-posts .archive-post .archive-post-date {
-    color: #9eabb3; }
+    color: #5e686e; }
   .archive .archive-posts .archive-post::before {
     font-family: 'Font Awesome 5 Free';
     font-weight: 600;
@@ -1405,17 +1405,17 @@ blockquote {
 
 .btn--disabled,
 .btn--disabled:hover {
-  color: #bbc4c9 !important;
-  border: 1px solid #bbc4c9;
+  color: #76828a !important;
+  border: 1px solid #76828a;
   cursor: not-allowed;
   text-decoration: none; }
 
 .btn--default {
-  color: #9eabb3 !important;
-  border: 1px solid #9eabb3; }
+  color: #5e686e !important;
+  border: 1px solid #5e686e; }
   .btn--default:hover {
-    color: #738691 !important;
-    border: 1px solid #738691; }
+    color: #3b4145 !important;
+    border: 1px solid #3b4145; }
 
 .btn--success {
   color: #4dc657 !important;
@@ -1450,7 +1450,7 @@ blockquote {
   display: block;
   font-family: "Merriweather", serif;
   font-size: 1.3rem;
-  color: #81929d;
+  color: #474e53;
   text-align: center;
   font-style: italic;
   padding-right: 10px;
@@ -1812,7 +1812,7 @@ a.fancybox {
   margin: 0 0 -5px; }
 
 .media-meta {
-  color: #9eabb3; }
+  color: #5e686e; }
 
 .media-content {
   color: #5d686f; }
@@ -1895,7 +1895,7 @@ a.fancybox {
     .pagination-bar .pagination .pagination-number {
       float: right;
       font-size: 1.3rem;
-      color: #9eabb3; }
+      color: #5e686e; }
 
 .post {
   position: relative;
@@ -1913,9 +1913,9 @@ a.fancybox {
     font-family: "Open Sans", sans-serif;
     font-size: 1.3rem;
     font-weight: 400;
-    color: #9eabb3; }
+    color: #5e686e; }
     .post .post-meta a {
-      color: #9eabb3; }
+      color: #5e686e; }
   .post .post-content {
     text-rendering: optimizelegibility;
     letter-spacing: -0.3px;
@@ -2189,10 +2189,10 @@ a.fancybox {
   .postShorten .postShorten-meta {
     line-height: 1.5em; }
     .postShorten .postShorten-meta a {
-      color: #9eabb3; }
+      color: #5e686e; }
   .postShorten .postShorten-meta,
   .postShorten .postShorten-readingtime {
-    color: #9eabb3; }
+    color: #5e686e; }
   .postShorten .postShorten-excerpt_link {
     margin-top: -15px; }
   .postShorten .postShorten-meta,
@@ -2359,12 +2359,12 @@ a.tag,
 
 a.tag--default,
 .tag--default {
-  color: #9eabb3 !important;
-  border: 1px solid #9eabb3; }
+  color: #5e686e !important;
+  border: 1px solid #5e686e; }
   a.tag--default:hover,
   .tag--default:hover {
-    color: #738691 !important;
-    border: 1px solid #738691;
+    color: #3b4145 !important;
+    border: 1px solid #3b4145;
     text-decoration: none; }
 
 a.tag--success,
@@ -2471,7 +2471,7 @@ a.tag--small,
   color: #5d686f !important; }
 
 .text-color-light {
-  color: #9eabb3 !important; }
+  color: #5e686e !important; }
 
 .text-color-link {
   color: #349ef3 !important; }
