@@ -115,11 +115,11 @@ dl {
 
 a, a:hover, a:active, a:visited {
   cursor: pointer;
-  color: #349ef3;
+  color: #1277d9;
   text-decoration: none; }
 
 a:hover {
-  color: #349ef3;
+  color: #1277d9;
   text-decoration: underline; }
 
 table {
@@ -246,10 +246,10 @@ blockquote {
       position: absolute;
       top: 15px;
       right: 15px;
-      color: #5e686e;
+      color: #727583;
       cursor: pointer; }
       #about #about-card #about-btn-close:hover {
-        color: #3b4145; }
+        color: #4e505a; }
     #about #about-card #about-card-picture {
       margin-bottom: 15px; }
     #about #about-card #about-card-name {
@@ -442,7 +442,7 @@ blockquote {
   z-index: -1; }
 
 #footer {
-  color: #5e686e;
+  color: #727583;
   font-size: 1.5rem;
   text-align: center;
   margin-top: 70px;
@@ -457,7 +457,7 @@ blockquote {
   position: fixed;
   top: 0;
   border: 1px solid #eef2f8;
-  color: #88909a;
+  color: #727583;
   z-index: 20;
   transition: transform .25s ease-in-out;
   -webkit-transition: -webkit-transform .25s ease-in-out;
@@ -475,7 +475,7 @@ blockquote {
     display: block;
     width: 30px;
     height: 30px;
-    color: #88909a; }
+    color: #727583; }
     #header .header-right-picture .header-picture {
       display: block;
       width: 30px;
@@ -485,17 +485,17 @@ blockquote {
     position: absolute;
     top: 12.5px;
     right: 20px;
-    color: #88909a; }
+    color: #727583; }
   #header .header-title {
     text-align: center;
     font-size: 1.6rem;
     line-height: 55px;
     margin: 0; }
     #header .header-title .header-title-link {
-      color: #88909a;
+      color: #727583;
       font-weight: normal; }
       #header .header-title .header-title-link:hover, #header .header-title .header-title-link:active {
-        color: #6e7681;
+        color: #5a5d68;
         text-decoration: none; }
   #header.header-up {
     -webkit-transform: translate3d(0, -55px, 0);
@@ -1334,11 +1334,11 @@ blockquote {
       font-weight: 600;
       font-size: 2rem; }
   .alert.info {
-    border-color: #349ef3;
-    background-color: #e6f3fe; }
+    border-color: #1277d9;
+    background-color: #afd4f8; }
     .alert.info:not(.no-icon):before {
       content: "\f05a";
-      color: #349ef3; }
+      color: #1277d9; }
   .alert.success {
     border-color: #4dc657;
     background-color: #effaf0;
@@ -1375,7 +1375,7 @@ blockquote {
     .archive .archive-posts .archive-post .archive-post-title:hover {
       text-decoration: underline; }
   .archive .archive-posts .archive-post .archive-post-date {
-    color: #5e686e; }
+    color: #727583; }
   .archive .archive-posts .archive-post::before {
     font-family: 'Font Awesome 5 Free';
     font-weight: 600;
@@ -1405,17 +1405,17 @@ blockquote {
 
 .btn--disabled,
 .btn--disabled:hover {
-  color: #76828a !important;
-  border: 1px solid #76828a;
+  color: #8d8f9b !important;
+  border: 1px solid #8d8f9b;
   cursor: not-allowed;
   text-decoration: none; }
 
 .btn--default {
-  color: #5e686e !important;
-  border: 1px solid #5e686e; }
+  color: #727583 !important;
+  border: 1px solid #727583; }
   .btn--default:hover {
-    color: #3b4145 !important;
-    border: 1px solid #3b4145; }
+    color: #4e505a !important;
+    border: 1px solid #4e505a; }
 
 .btn--success {
   color: #4dc657 !important;
@@ -1425,11 +1425,11 @@ blockquote {
     border: 1px solid #309639; }
 
 .btn--primary {
-  color: #349ef3 !important;
-  border: 1px solid #349ef3; }
+  color: #1277d9 !important;
+  border: 1px solid #1277d9; }
   .btn--primary:hover {
-    color: #0c78ce !important;
-    border: 1px solid #0c78ce; }
+    color: #0c5092 !important;
+    border: 1px solid #0c5092; }
 
 .btn--danger {
   color: #f5311d !important;
@@ -1450,7 +1450,7 @@ blockquote {
   display: block;
   font-family: "Merriweather", serif;
   font-size: 1.3rem;
-  color: #474e53;
+  color: #5a5d68;
   text-align: center;
   font-style: italic;
   padding-right: 10px;
@@ -1670,7 +1670,7 @@ figure.highlight,
   .highlight-text.cyan {
     background-color: #ccffff; }
   .highlight-text.primary {
-    background-color: #ddeffd; }
+    background-color: #a6cff8; }
   .highlight-text.success {
     background-color: #d4f1d7; }
   .highlight-text.warning {
@@ -1812,7 +1812,7 @@ a.fancybox {
   margin: 0 0 -5px; }
 
 .media-meta {
-  color: #5e686e; }
+  color: #727583; }
 
 .media-content {
   color: #5d686f; }
@@ -1895,7 +1895,7 @@ a.fancybox {
     .pagination-bar .pagination .pagination-number {
       float: right;
       font-size: 1.3rem;
-      color: #5e686e; }
+      color: #727583; }
 
 .post {
   position: relative;
@@ -1913,9 +1913,9 @@ a.fancybox {
     font-family: "Open Sans", sans-serif;
     font-size: 1.3rem;
     font-weight: 400;
-    color: #5e686e; }
+    color: #727583; }
     .post .post-meta a {
-      color: #5e686e; }
+      color: #727583; }
   .post .post-content {
     text-rendering: optimizelegibility;
     letter-spacing: -0.3px;
@@ -2189,10 +2189,10 @@ a.fancybox {
   .postShorten .postShorten-meta {
     line-height: 1.5em; }
     .postShorten .postShorten-meta a {
-      color: #5e686e; }
+      color: #727583; }
   .postShorten .postShorten-meta,
   .postShorten .postShorten-readingtime {
-    color: #5e686e; }
+    color: #727583; }
   .postShorten .postShorten-excerpt_link {
     margin-top: -15px; }
   .postShorten .postShorten-meta,
@@ -2359,12 +2359,12 @@ a.tag,
 
 a.tag--default,
 .tag--default {
-  color: #5e686e !important;
-  border: 1px solid #5e686e; }
+  color: #727583 !important;
+  border: 1px solid #727583; }
   a.tag--default:hover,
   .tag--default:hover {
-    color: #3b4145 !important;
-    border: 1px solid #3b4145;
+    color: #4e505a !important;
+    border: 1px solid #4e505a;
     text-decoration: none; }
 
 a.tag--success,
@@ -2379,12 +2379,12 @@ a.tag--success,
 
 a.tag--primary,
 .tag--primary {
-  color: #349ef3 !important;
-  border: 1px solid #349ef3; }
+  color: #1277d9 !important;
+  border: 1px solid #1277d9; }
   a.tag--primary:hover,
   .tag--primary:hover {
-    color: #0c78ce !important;
-    border: 1px solid #0c78ce;
+    color: #0c5092 !important;
+    border: 1px solid #0c5092;
     text-decoration: none; }
 
 a.tag--danger,
@@ -2471,10 +2471,10 @@ a.tag--small,
   color: #5d686f !important; }
 
 .text-color-light {
-  color: #5e686e !important; }
+  color: #727583 !important; }
 
 .text-color-link {
-  color: #349ef3 !important; }
+  color: #1277d9 !important; }
 
 .font-merryweather {
   font-family: "Merriweather", serif; }
@@ -2669,7 +2669,7 @@ code {
   background-color: #f7f8f8; }
 
 .codeblock--tabbed figcaption .tab.active {
-  background: #349ef3;
+  background: #1277d9;
   color: white; }
 
 figure.highlight,
