@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://www.mbrjun.cn/links/index.html</loc>
-    
-    <lastmod>2023-01-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mbrjun.cn/about/index.html</loc>
     
     <lastmod>2023-01-25</lastmod>
@@ -39,6 +30,15 @@
   
   <url>
     <loc>https://www.mbrjun.cn/all-tags/index.html</loc>
+    
+    <lastmod>2023-01-25</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/links/index.html</loc>
     
     <lastmod>2023-01-25</lastmod>
     
@@ -1743,34 +1743,6 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/win10/</loc>
-    <lastmod>2023-01-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
-    <lastmod>2023-01-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/PC/</loc>
-    <lastmod>2023-01-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/%E7%94%B5%E8%84%91/</loc>
-    <lastmod>2023-01-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mbrjun.cn/tags/Python/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -1800,6 +1772,34 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/Unravel/</loc>
+    <lastmod>2023-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/win10/</loc>
+    <lastmod>2023-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
+    <lastmod>2023-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/PC/</loc>
+    <lastmod>2023-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/%E7%94%B5%E8%84%91/</loc>
     <lastmod>2023-01-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
