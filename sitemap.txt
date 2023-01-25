@@ -1,8 +1,8 @@
-https://www.mbrjun.cn/about/index.html
-https://www.mbrjun.cn/all-archives/index.html
 https://www.mbrjun.cn/all-categories/index.html
 https://www.mbrjun.cn/all-tags/index.html
 https://www.mbrjun.cn/links/index.html
+https://www.mbrjun.cn/about/index.html
+https://www.mbrjun.cn/all-archives/index.html
 https://www.mbrjun.cn/archives/471/
 https://www.mbrjun.cn/archives/470/
 https://www.mbrjun.cn/archives/469/
