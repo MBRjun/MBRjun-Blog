@@ -16,6 +16,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: Init
+      run: |
+        sudo hostnamectl hostname Azure-GitHub-Actions
     - name: Checkout
       uses: actions/checkout@main
       with:
