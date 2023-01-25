@@ -3,7 +3,7 @@ nodepm=npm
 SHELL=/bin/bash
 #nodepm=yarn
 
-.PHONY: world init git modify submodules packages hexo ci generate g clean
+.PHONY: world check genver init git modify submodules-build submodules-scripts submodules packages hexo ci clean substash
 
 world: hexo
 
@@ -18,20 +18,40 @@ check:
 		echo -e "\033[41;37m[CHECK  ]\033[0m Unsupported Node.js version detected.\n\033[32m[CHECK  ]\033[0m You are using $(shell node -v) but the program requires v18 or v19.\n\033[32m[CHECK  ]\033[0m Upgrade/Downgrade Node.js to v18/v19, or use nvm to select version." && exit 2;\
 	fi
 
+genver: git
+	@echo -e "\033[32m[GENVER ]\033[0m Generating build info...\c"
+	@cp modify/genver.default modify/genver
+	@sed -i 's/HEAD/$(shell git rev-parse HEAD)/g' modify/genver
+	@sed -i 's/user/$(shell whoami)/g' modify/genver
+	@sed -i 's/host/$(shell hostnamectl hostname)/g' modify/genver
+	@sed -i 's/kver/$(shell uname -r)/g' modify/genver
+	@sed -i 's/cn-date/$(shell TZ=UTC+8 date "+%Y-%m-%d")/g' modify/genver
+	@echo -e "ok"
+	@cat modify/genver
+
 init: check
 	@echo -e "\033[32m[GIT    ]\033[0m Updating submodules... " && git submodule update --init --recursive
 
 git: init
 	@echo -e "\033[32m[GIT    ]\033[0m \c" && git pull --ff-only
 
-modify: git
+modify: git substash
 	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/_config.yml" && cp modify/theme.yml themes/tranquilpeak/_config.yml
 	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/languages/zh-cn.yml" && cp modify/zh-cn.yml themes/tranquilpeak/languages/zh-cn.yml
 	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/layout/_partial/footer.ejs" && cp modify/footer.ejs themes/tranquilpeak/layout/_partial/footer.ejs
 	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/layout/_partial/post.ejs" && cp modify/post.ejs themes/tranquilpeak/layout/_partial/post.ejs
 
-submodules: packages modify
+submodules-build: packages modify
 	@echo -e "\033[32m[PACKAGE]\033[0m submodules: $(nodepm) run grunt -- buildProd" && cd themes/tranquilpeak/ && $(nodepm) run grunt -- buildProd
+
+submodules-scripts: submodules-build genver
+	@echo -e "\033[32m[GENVER ]\033[0m Writing build info and query string into source...\c"
+	@sed -i '186c <script src="/assets/js/script.min.js?v=$(shell git rev-parse HEAD)"></script>' themes/tranquilpeak/layout/_partial/head.ejs
+	@sed -i '183c <link rel="stylesheet" href="/assets/css/style.min.css?v=$(shell git rev-parse HEAD)">' themes/tranquilpeak/layout/_partial/head.ejs
+	@cat modify/genver >> themes/tranquilpeak/layout/_partial/script.ejs
+	@echo -e "ok"
+
+submodules: submodules-scripts
 
 packages: init
 	@echo -e "\033[32m[PACKAGE]\033[0m MBRjun-Blog: $(nodepm) install" && $(nodepm) install
@@ -43,11 +63,10 @@ hexo: submodules
 
 ci: hexo
 
-generate: hexo
-
-g: hexo
-
 clean: 
-	"\033[32m[CLEAN  ]\033[0m node_modules/" && rm -rf node_modules/
-	"\033[32m[CLEAN  ]\033[0m themes/tranquilpeak/" && rm -rf themes/tranquilpeak/
-	"\033[32m[CLEAN  ]\033[0m public/" && rm -rf public/
+	@echo -e "\033[32m[CLEAN  ]\033[0m node_modules/" && rm -rf node_modules/
+	@echo -e "\033[32m[CLEAN  ]\033[0m themes/tranquilpeak/" && rm -rf themes/tranquilpeak/
+	@echo -e "\033[32m[CLEAN  ]\033[0m public/" && rm -rf public/
+
+substash: 
+	@echo -e "\033[32m[S-STASH]\033[0m \c" && cd themes/tranquilpeak && git stash
