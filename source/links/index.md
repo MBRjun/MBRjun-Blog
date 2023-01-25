@@ -135,7 +135,7 @@ date: 2022-12-28 22:38:12
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/du.jpg" />
                <div class="card-header">
                   <div>
-                     <a href="https://blog.cyznb.eu.org/">BLxcwg666 's Blog</a>
+                     <a href="https://blog.cyznb.moe/">BLxcwg666's Blog</a>
                   </div>
                   <div class="info">BLxcwg666  / 小陈网管的博客</div>
                </div>
