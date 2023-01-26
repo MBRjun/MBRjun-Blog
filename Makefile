@@ -25,7 +25,7 @@ genver: git
 	@sed -i 's/user/$(shell whoami)/g' modify/genver
 	@sed -i 's/host/$(shell hostnamectl hostname)/g' modify/genver
 	@sed -i 's/kver/$(shell uname -r)/g' modify/genver
-	@sed -i 's/cn-date/$(shell TZ=UTC+8 date "+%Y-%m-%d")/g' modify/genver
+	@sed -i 's/cn-date/$(shell TZ=Asia/Hong_Kong date "+%Y-%m-%d")/g' modify/genver
 	@echo -e "ok"
 	@cat modify/genver
 
