@@ -118,3 +118,14 @@ theme: tranquilpeak
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+html_minifier:
+  exclude: links/index.html
+  collapseBooleanAttributes: true
+  collapseWhitespace: true
+  removeComments: false
+  removeEmptyAttributes: true
+  removeScriptTypeAttributes: true
+  removeStyleLinkTypeAttributes: true
+  minifyJS: false
+  minifyCSS: false
