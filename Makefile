@@ -3,7 +3,7 @@ nodepm=npm
 SHELL=/bin/bash
 #nodepm=yarn
 
-.PHONY: world check genver init git modify submodules-build submodules-scripts submodules packages hexo ci clean substash
+.PHONY: world check genver init git modify submodules-build submodules-scripts submodules packages hexo cimod ci clean substash
 
 world: hexo
 
@@ -27,7 +27,6 @@ genver: git
 	@sed -i 's/kver/$(shell uname -r)/g' modify/genver
 	@sed -i 's/cn-date/$(shell TZ=Asia/Hong_Kong date "+%Y-%m-%d")/g' modify/genver
 	@echo -e "ok"
-	@cat modify/genver
 
 init: check
 	@echo -e "\033[32m[GIT    ]\033[0m Updating submodules... " && git submodule update --init --recursive
@@ -50,6 +49,7 @@ submodules-scripts: submodules-build genver
 	@sed -i '183c <link rel="stylesheet" href="/assets/css/style.min.css?v=$(shell git rev-parse HEAD)">' themes/tranquilpeak/layout/_partial/head.ejs
 	@cat modify/genver >> themes/tranquilpeak/layout/_partial/script.ejs
 	@echo -e "ok"
+	@cat modify/genver
 
 submodules: submodules-scripts
 
@@ -61,7 +61,12 @@ hexo: submodules
 	@echo -e "\033[32m[HEXO   ]\033[0m \c"
 	node_modules/hexo/bin/hexo generate
 
-ci: hexo
+cimod: genver
+	@echo -e "\033[32m[GENVER ]\033[0m Generating build info for CI...\c"
+	@sed -i 's/default/CI/g' modify/genver
+	@echo -e "ok"
+
+ci: cimod hexo
 
 clean: 
 	@echo -e "\033[32m[CLEAN  ]\033[0m node_modules/" && rm -rf node_modules/
