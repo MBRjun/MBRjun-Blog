@@ -1,8 +1,3 @@
-https://www.mbrjun.cn/about/index.html
-https://www.mbrjun.cn/all-archives/index.html
-https://www.mbrjun.cn/all-categories/index.html
-https://www.mbrjun.cn/all-tags/index.html
-https://www.mbrjun.cn/links/index.html
 https://www.mbrjun.cn/archives/471/
 https://www.mbrjun.cn/archives/470/
 https://www.mbrjun.cn/archives/469/
@@ -108,6 +103,11 @@ https://www.mbrjun.cn/archives/84/
 https://www.mbrjun.cn/archives/8/
 https://www.mbrjun.cn/archives/Kernel-Log/
 https://www.mbrjun.cn/archives/hello-world/
+https://www.mbrjun.cn/about/index.html
+https://www.mbrjun.cn/all-archives/index.html
+https://www.mbrjun.cn/all-categories/index.html
+https://www.mbrjun.cn/all-tags/index.html
+https://www.mbrjun.cn/links/index.html
 https://www.mbrjun.cn/
 https://www.mbrjun.cn/tags/Office/
 https://www.mbrjun.cn/tags/Microsoft365-%E6%AD%A3%E7%89%88-%E5%BE%AE%E8%BD%AF/
