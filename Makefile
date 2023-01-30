@@ -32,7 +32,11 @@ init: check
 	@echo -e "\033[32m[GIT    ]\033[0m Updating submodules... " && git submodule update --init --recursive
 
 git: init
-	@echo -e "\033[32m[GIT    ]\033[0m \c" && git pull --ff-only
+	@if [ $(shell git rev-parse --abbrev-ref HEAD) = "main" ]; then\
+		echo -e "\033[32m[GIT    ]\033[0m \c" && git pull --ff-only;\
+	else\
+		echo -e "\033[32m[GIT    ]\033[0m Not using branch main. Skip.";\
+	fi
 
 modify: git substash
 	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/_config.yml" && cp modify/theme.yml themes/tranquilpeak/_config.yml
