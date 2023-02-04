@@ -191,6 +191,15 @@ updated: 2020-04-13 14:16:05
                   <div class="info">心中有光，对立重伤</div>
                </div>
             </div></br>
+            <div class="card">
+               <img class="ava" src="https://bakayang.moe/images/logo.jpg" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://bakayang.moe">Yang-Blog</a>
+                  </div>
+                  <div class="info">一只笨蛋的Blog</div>
+               </div>
+            </div></br>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
