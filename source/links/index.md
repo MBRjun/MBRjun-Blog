@@ -17,7 +17,7 @@ updated: 2020-04-13 14:16:05
          .card {
          width: 45%;
          font-size: 1rem;
-         padding: 10px 20px;
+         padding: 10px 8px;
          border-radius: 4px;
          transition-duration: 0.15s;
          margin-bottom: 1rem;
@@ -37,10 +37,10 @@ updated: 2020-04-13 14:16:05
          border:none;
          }
          .card .ava {
-         width: 3rem!important;
-         height: 3rem!important;
+         width: 3.5rem!important;
+         height: 3.5rem!important;
          margin:0!important;
-         margin-right: 1em!important;
+         margin-right: 2em!important;
          border-radius:4px;
          }
          .card .card-header {
@@ -77,7 +77,7 @@ updated: 2020-04-13 14:16:05
                   </div>
                   <div class="info">Bmyjacks-Blog</div>
                </div>
-            </div></br>
+            </div>
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2020/09/06/xc.png" />
                <div class="card-header">
@@ -86,7 +86,7 @@ updated: 2020-04-13 14:16:05
                   </div>
                   <div class="info">一个人 一座城 一生梦</div>
                </div>
-            </div></br>
+            </div>
             <div class="card">
                <img class="ava" src="https://npm.elemecdn.com/perorepe-cdn/v1/bigger-photos/avatar.webp" />
                <div class="card-header">
@@ -95,7 +95,7 @@ updated: 2020-04-13 14:16:05
                   </div>
                   <div class="info">梦中做梦，做了个白日梦</div>
                </div>
-            </div></br>
+            </div>
             <div class="card">
                <img class="ava" src="https://avatar.mbrjun.cn/avatar/e554da26e947151c678f1f2a8f78e72b" />
                <div class="card-header">
@@ -104,7 +104,7 @@ updated: 2020-04-13 14:16:05
                   </div>
                   <div class="info">不因何事去制作 只因兴趣而创造</div>
                </div>
-            </div></br>
+            </div>
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/04/24/wl.jpg" />
                <div class="card-header">
@@ -113,7 +113,7 @@ updated: 2020-04-13 14:16:05
                   </div>
                   <div class="info">May all the beauty be blessed.——《Moon Halo》</div>
                </div>
-            </div></br>
+            </div>
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/04/30/7e.jpg" />
                <div class="card-header">
@@ -122,7 +122,7 @@ updated: 2020-04-13 14:16:05
                   </div>
                   <div class="info">Life is full of the unexpected.</div>
                </div>
-            </div></br>
+            </div>
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/05/04/avatar.jpg" />
                <div class="card-header">
@@ -131,7 +131,7 @@ updated: 2020-04-13 14:16:05
                   </div>
                   <div class="info">人生五十年 如梦亦如幻</div>
                </div>
-            </div></br>
+            </div>
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/du.jpg" />
                <div class="card-header">
@@ -140,7 +140,7 @@ updated: 2020-04-13 14:16:05
                   </div>
                   <div class="info">BLxcwg666  / 小陈网管的博客</div>
                </div>
-            </div></br>
+            </div>
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/rv.jpg" />
                <div class="card-header">
@@ -149,30 +149,34 @@ updated: 2020-04-13 14:16:05
                   </div>
                   <div class="info">啊呜布洛咕</div>
                </div>
-            </div></br>
+            </div>
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/st.jpg" />
                <div class="card-header">
                   <div>
                      <a href="https://sorabs.cc/">BsBlog</a>
                   </div>
+                  <div class="info">bs在摸鱼还是睡觉呢zzz</div>
                </div>
-            </div></br>
+            </div>
             <div class="card">
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/02/04/961e3f30-9244-4034-830b-aff22a833c02.jpg" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.awa.moe/">氷上の湖精</a>
                   </div>
+                  <div class="info">IN PURSUIT OF FREEDOM</div>
                </div>
-            </div></br>
+            </div>
             <div class="card">
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/02/04/bcd6a17d-acab-4c77-94a2-685e8882e63c.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.arisa.moe/">秋葉亜里沙</a>
                   </div>
                   <div class="info">Arisa 的个人博客</div>
                </div>
-            </div></br>
+            </div>
             <div class="card">
                <img class="ava" src="https://q1.qlogo.cn/g?b=qq&nk=3526514925&s=640" />
                <div class="card-header">
@@ -181,7 +185,7 @@ updated: 2020-04-13 14:16:05
                   </div>
                   <div class="info">一刀斩的博客</div>
                </div>
-            </div></br>
+            </div>
             <div class="card">
                <img class="ava" src="https://cos.zyglq.cn/static/web-logo.jpg" />
                <div class="card-header">
@@ -190,13 +194,13 @@ updated: 2020-04-13 14:16:05
                   </div>
                   <div class="info">心中有光，对立重伤</div>
                </div>
-            </div></br>
+            </div>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
                <div class="card">
                   ...
-               </div></br>
+               </div>
                请参考 https://github.com/MBRjun/MBRjun-Blog/pull/4/commits/b637e43bb43e6cc661e0c78a16242ed43ed74f00
             -->
          </div>
