@@ -2,6 +2,7 @@
 title: 友情链接
 date: 2020-04-13 14:16:05
 updated: 2020-04-13 14:16:05
+description: 我的朋友们！
 ---
 <div class="post-body">
    <div id="links">
@@ -136,7 +137,7 @@ updated: 2020-04-13 14:16:05
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/du.jpg" />
                <div class="card-header">
                   <div>
-                     <a href="https://blog.cyznb.moe/">BLxcwg666's Blog</a>
+                     <a href="https://blog.blxcnya.cn/">BLxcwg666's Blog</a>
                   </div>
                   <div class="info">BLxcwg666  / 小陈网管的博客</div>
                </div>
@@ -145,7 +146,7 @@ updated: 2020-04-13 14:16:05
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/rv.jpg" />
                <div class="card-header">
                   <div>
-                     <a href="https://blog.awbugl.top">Awblogu</a>
+                     <a href="https://blog.awbugl.top/">Awblogu</a>
                   </div>
                   <div class="info">啊呜布洛咕</div>
                </div>
