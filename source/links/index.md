@@ -207,7 +207,7 @@ description: 我的朋友们！
             </div>
             <!--
                在上方添加你的网站
-               像其他网站一样，添加一段 HTML 代码`
+               像其他网站一样，添加一段 HTML 代码
                <div class="card">
                   ...
                </div>
