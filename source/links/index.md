@@ -196,9 +196,18 @@ description: 我的朋友们！
                   <div class="info">心中有光，对立重伤</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/02/05/6e2fd027-7539-470d-adca-3a4be5eca290.jpg" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://bakayang.moe">Yang-Blog</a>
+                  </div>
+                  <div class="info">一只笨蛋的Blog</div>
+               </div>
+            </div>
             <!--
                在上方添加你的网站
-               像其他网站一样，添加一段 HTML 代码
+               像其他网站一样，添加一段 HTML 代码`
                <div class="card">
                   ...
                </div>
