@@ -103,7 +103,6 @@ https://www.mbrjun.cn/archives/84/
 https://www.mbrjun.cn/archives/8/
 https://www.mbrjun.cn/archives/Kernel-Log/
 https://www.mbrjun.cn/archives/hello-world/
-https://www.mbrjun.cn/404.html
 https://www.mbrjun.cn/about/index.html
 https://www.mbrjun.cn/all-archives/index.html
 https://www.mbrjun.cn/all-categories/index.html
