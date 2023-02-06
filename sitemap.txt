@@ -1,3 +1,4 @@
+https://www.mbrjun.cn/archives/472/
 https://www.mbrjun.cn/archives/471/
 https://www.mbrjun.cn/archives/470/
 https://www.mbrjun.cn/archives/469/
@@ -450,6 +451,9 @@ https://www.mbrjun.cn/tags/git/
 https://www.mbrjun.cn/tags/%E4%B8%8B%E8%BD%BD/
 https://www.mbrjun.cn/tags/iOS/
 https://www.mbrjun.cn/tags/Apple/
+https://www.mbrjun.cn/tags/DNS/
+https://www.mbrjun.cn/tags/HTTP-3/
+https://www.mbrjun.cn/tags/QUIC/
 https://www.mbrjun.cn/tags/MC-%E8%BD%AF%E4%BB%B6-%E4%B8%8B%E8%BD%BD-Minecraft/
 https://www.mbrjun.cn/tags/%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81/
 https://www.mbrjun.cn/tags/%E8%93%9D%E5%B1%8F/
