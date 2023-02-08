@@ -49,7 +49,7 @@ submodules-build: packages modify
 
 submodules-scripts: submodules-build genver
 	@echo -e "\033[32m[GENVER ]\033[0m Writing build info and query string into source...\c"
-	@sed -i '186c <script src="/assets/js/script.min.js?v=$(shell git rev-parse HEAD)"></script>' themes/tranquilpeak/layout/_partial/head.ejs
+	@sed -i '186c <script async defer src="/assets/js/script.min.js?v=$(shell git rev-parse HEAD)"></script>' themes/tranquilpeak/layout/_partial/head.ejs
 	@sed -i '183c <link rel="stylesheet" href="/assets/css/style.min.css?v=$(shell git rev-parse HEAD)">' themes/tranquilpeak/layout/_partial/head.ejs
 	@cat modify/genver >> themes/tranquilpeak/layout/_partial/script.ejs
 	@echo -e "ok"
