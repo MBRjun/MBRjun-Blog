@@ -2,6 +2,7 @@
 title: MBRjun Kernel Log
 date: 2020-04-13 14:16:05
 updated: 2020-04-13 14:16:05
+hidden: true
 ---
 
 ## Fri, Nov 25 2022
