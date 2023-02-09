@@ -10,7 +10,7 @@ hidden: true
     - 请不要频繁刷新页面    
 
 ---
-## MBRjun-Blog 服务器外网流量
+## Blog 服务器外网流量
 ![ ](https://delta.mbrjun.cn/bj01.png)
 ![ ](https://delta.mbrjun.cn/bj01-d.png)
 ![ ](https://delta.mbrjun.cn/bj01-h.png)
@@ -20,6 +20,10 @@ hidden: true
 ![ ](https://delta.mbrjun.cn/stat-d.png)
 ![ ](https://delta.mbrjun.cn/stat-h.png)
 
+## DNS 服务器外网流量
+![ ](https://delta.mbrjun.cn/hk01.png)
+![ ](https://delta.mbrjun.cn/hk01-d.png)
+![ ](https://delta.mbrjun.cn/hk01-h.png)
 
 ---
 
