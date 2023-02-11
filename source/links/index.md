@@ -205,6 +205,15 @@ description: 我的朋友们！
                   <div class="info">一只笨蛋的Blog</div>
                </div>
             </div>
+             <div class="card">
+               <img class="ava" src="https://avatars.githubusercontent.com/u/61108540" />
+               <div class="card-header">
+                  <div>
+                     <a href="[https://bakayang.moe](https://huige233.github.io/vuepress-theme)">huige233's blog</a>
+                  </div>
+                  <div class="info">Everyone can be the light in the darkness.</div>
+               </div>
+            </div>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
