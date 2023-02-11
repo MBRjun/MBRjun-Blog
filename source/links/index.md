@@ -205,11 +205,11 @@ description: 我的朋友们！
                   <div class="info">一只笨蛋的Blog</div>
                </div>
             </div>
-             <div class="card">
-               <img class="ava" src="https://avatars.githubusercontent.com/u/61108540" />
+            <div class="card">
+            <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/02/11/5d653ff0-3ed9-4b4c-ab38-016ef22307f3.jpg" />
                <div class="card-header">
                   <div>
-                     <a href="[https://bakayang.moe](https://huige233.github.io/vuepress-theme)">huige233's blog</a>
+                     <a href="https://huige233.github.io/)">huige233's blog</a>
                   </div>
                   <div class="info">Everyone can be the light in the darkness.</div>
                </div>
