@@ -38,3 +38,6 @@ hidden: true
 Kernel Log 的永久链接将更改为 /Kernel-Log/YYYY/MM/DD/  
 
 旧的 Kernel Log 将会在一段时间内被拆分  
+
+## 一模
+3 月 20 日  
