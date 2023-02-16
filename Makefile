@@ -23,7 +23,7 @@ genver: git
 	@cp modify/genver.default modify/genver
 	@sed -i 's/HEAD/$(shell git rev-parse HEAD)/g' modify/genver
 	@sed -i 's/user/$(shell whoami)/g' modify/genver
-	@sed -i 's/host/$(shell hostnamectl hostname)/g' modify/genver
+	@sed -i 's/host/$(shell cat /etc/hostname)/g' modify/genver
 	@sed -i 's/kver/$(shell uname -r)/g' modify/genver
 	@sed -i 's/cn-date/$(shell TZ=Asia/Hong_Kong date "+%Y-%m-%d")/g' modify/genver
 	@echo -e "ok"
