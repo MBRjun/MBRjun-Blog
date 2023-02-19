@@ -129,3 +129,10 @@ html_minifier:
   removeStyleLinkTypeAttributes: true
   minifyJS: false
   minifyCSS: false
+
+hide_posts:
+  enable: true
+  filter: hidden
+  public_generators: [sitemap, feed]
+  noindex: true
+  
