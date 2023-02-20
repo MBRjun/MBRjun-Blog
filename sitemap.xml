@@ -1001,15 +1001,6 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/Kernel-Log/index.html</loc>
-    
-    <lastmod>2020-04-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mbrjun.cn/about/index.html</loc>
     
     <lastmod>2020-04-13</lastmod>
@@ -1038,6 +1029,33 @@
   
   <url>
     <loc>https://www.mbrjun.cn/all-tags/index.html</loc>
+    
+    <lastmod>2020-04-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/forbidden/index.html</loc>
+    
+    <lastmod>2020-04-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/404.html</loc>
+    
+    <lastmod>2020-04-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/maintenance/index.html</loc>
     
     <lastmod>2020-04-13</lastmod>
     
