@@ -8,6 +8,8 @@ https://www.mbrjun.cn/Kernel-Log/2023/index.html
 https://www.mbrjun.cn/archives/255/
 https://www.mbrjun.cn/archives/468/
 https://www.mbrjun.cn/archives/467/
+https://www.mbrjun.cn/Kernel-Log/2022/11/25/index.html
+https://www.mbrjun.cn/Kernel-Log/2022/11/index.html
 https://www.mbrjun.cn/archives/466/
 https://www.mbrjun.cn/archives/454/
 https://www.mbrjun.cn/archives/465/
@@ -46,6 +48,7 @@ https://www.mbrjun.cn/archives/416/
 https://www.mbrjun.cn/archives/415/
 https://www.mbrjun.cn/archives/413/
 https://www.mbrjun.cn/archives/410/
+https://www.mbrjun.cn/Kernel-Log/2022/index.html
 https://www.mbrjun.cn/archives/408/
 https://www.mbrjun.cn/archives/306/
 https://www.mbrjun.cn/archives/404/
