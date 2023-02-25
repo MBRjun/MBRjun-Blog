@@ -1,3 +1,4 @@
+https://www.mbrjun.cn/archives/473/
 https://www.mbrjun.cn/Kernel-Log/2023/02/24/index.html
 https://www.mbrjun.cn/Kernel-Log/2023/02/13/index.html
 https://www.mbrjun.cn/archives/472/
@@ -464,6 +465,8 @@ https://www.mbrjun.cn/tags/Apple/
 https://www.mbrjun.cn/tags/DNS/
 https://www.mbrjun.cn/tags/HTTP-3/
 https://www.mbrjun.cn/tags/QUIC/
+https://www.mbrjun.cn/tags/vnstat/
+https://www.mbrjun.cn/tags/centos/
 https://www.mbrjun.cn/tags/MC-%E8%BD%AF%E4%BB%B6-%E4%B8%8B%E8%BD%BD-Minecraft/
 https://www.mbrjun.cn/tags/%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81/
 https://www.mbrjun.cn/tags/%E8%93%9D%E5%B1%8F/
@@ -488,3 +491,4 @@ https://www.mbrjun.cn/categories/%E6%B8%B8%E6%88%8F/
 https://www.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/
 https://www.mbrjun.cn/categories/%E7%96%AB%E6%83%85/
 https://www.mbrjun.cn/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/
+https://www.mbrjun.cn/categories/Linux/
