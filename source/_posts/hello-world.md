@@ -39,3 +39,19 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+
+## 字体渲染测试
+
+### 中国智造，惠及全球。
+#### 中国智造，惠及全球。
+中国智造，惠及全球。
+*中国智造，惠及全球。*
+**中国智造，惠及全球。**
+***中国智造，惠及全球。***
+
+### I can eat glass, it does not hurt me.
+#### I can eat glass, it does not hurt me.
+I can eat glass, it does not hurt me.
+*I can eat glass, it does not hurt me.*
+**I can eat glass, it does not hurt me.**
+***I can eat glass, it does not hurt me.***
