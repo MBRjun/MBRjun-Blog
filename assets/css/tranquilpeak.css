@@ -1,48 +1,34 @@
 @charset "UTF-8";
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Google Sans Display';
   font-style: normal;
   font-weight: 400;
-  src: local("Open Sans"), local("OpenSans"), url(../fonts/open-sans.ttf) format("truetype"); }
+  src: local("Google Sans Display Regular"), url(../fonts/GoogleSansDisplay-LR.woff2) format("woff2");
+  font-display: swap; }
 
 @font-face {
-  font-family: 'Open Sans';
+  font-family: 'Google Sans Display';
   font-style: normal;
   font-weight: 700;
-  src: local("Open Sans Bold"), local("OpenSans-Bold"), url(../fonts/open-sans-bold.ttf) format("truetype"); }
+  src: local("Google Sans Display Bold"), url(../fonts/GoogleSansDisplay-BR.woff2) format("woff2");
+  font-display: swap; }
 
 @font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 300;
-  src: local("Merriweather Light"), local("Merriweather-Light"), url(../fonts/merriweather-light.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Merriweather"), url(../fonts/merriweather.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Merriweather';
-  font-style: normal;
-  font-weight: 700;
-  src: local("Merriweather Bold"), local("Merriweather-Bold"), url(../fonts/merriweather-bold.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Merriweather';
+  font-family: 'Google Sans Display';
   font-style: italic;
   font-weight: 300;
-  src: local("Merriweather Light Italic"), local("Merriweather-LightItalic"), url(../fonts/merriweather-light-italic.ttf) format("truetype"); }
+  src: local("Google Sans Display Italic"), url(../fonts/GoogleSansDisplay-LI.woff2) format("woff2");
+  font-display: swap; }
 
 @font-face {
-  font-family: 'Merriweather';
+  font-family: 'Google Sans Display';
   font-style: italic;
   font-weight: 700;
-  src: local("Merriweather Bold Italic"), local("Merriweather-BoldItalic"), url(../fonts/merriweather-bold-italic.ttf) format("truetype"); }
+  src: local("Google Sans Display Bold Italic"), url(../fonts/GoogleSansDisplay-BI.woff2) format("woff2");
+  font-display: swap; }
 
 html {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Google Sans Display";
   font-size: 10px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -56,7 +42,7 @@ body {
   margin: 0;
   padding: 0;
   background: white;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Google Sans Display";
   font-size: 1.6rem;
   line-height: 1.9em;
   letter-spacing: 0.01em;
@@ -72,7 +58,7 @@ h4,
 h5,
 h6 {
   letter-spacing: -0.04em;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Google Sans Display";
   font-weight: 700;
   line-height: 1.45em;
   color: #4a4a4a; }
@@ -640,7 +626,7 @@ blockquote {
       transform: translate3d(75px, 0, 0); } }
 
 #sidebar {
-  font-family: "Open Sans", sans-serif;
+  font-family: "Google Sans Display";
   height: 100%;
   position: fixed;
   top: 0;
@@ -1448,7 +1434,7 @@ blockquote {
 
 .caption {
   display: block;
-  font-family: "Merriweather", serif;
+  font-family: "Google Sans Display";
   font-size: 1.3rem;
   color: #5a5d68;
   text-align: center;
@@ -1700,7 +1686,7 @@ figure.highlight,
     position: absolute;
     bottom: 0;
     width: calc(100% - (1.5em) * 2);
-    font-family: "Open Sans";
+    font-family: "Google Sans Display";
     font-style: italic;
     background: rgba(0, 0, 0, 0.75);
     font-size: 1.3rem;
@@ -1910,7 +1896,7 @@ a.fancybox {
       text-decoration: none; }
   .post .post-meta {
     line-height: 1.5em;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Google Sans Display";
     font-size: 1.3rem;
     font-weight: 400;
     color: #727583; }
@@ -1919,7 +1905,7 @@ a.fancybox {
   .post .post-content {
     text-rendering: optimizelegibility;
     letter-spacing: -0.3px;
-    font-family: "Merriweather", serif;
+    font-family: "Google Sans Display";
     color: #5d686f;
     margin-top: 20px;
     font-weight: 400;
@@ -2050,7 +2036,7 @@ a.fancybox {
         text-decoration: none; }
     .post-header-cover .post-header .post-meta {
       max-width: 900px;
-      font-family: "Open Sans", sans-serif;
+      font-family: "Google Sans Display";
       font-size: 1.6rem;
       color: white !important;
       font-weight: 400;
@@ -2198,14 +2184,14 @@ a.fancybox {
   .postShorten .postShorten-meta,
   .postShorten .postShorten-readingtime,
   .postShorten .postShorten-excerpt_link {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Google Sans Display";
     font-size: 1.3rem;
     font-weight: 400; }
   .postShorten .postShorten-excerpt,
   .postShorten .postShorten-content {
     text-rendering: optimizelegibility;
     letter-spacing: -0.3px;
-    font-family: "Merriweather", serif;
+    font-family: "Google Sans Display";
     color: #5d686f;
     font-weight: 400;
     overflow: hidden;
@@ -2477,7 +2463,7 @@ a.tag--small,
   color: #1277d9 !important; }
 
 .font-merryweather {
-  font-family: "Merriweather", serif; }
+  font-family: "Google Sans Display"; }
 
 .tooltip, [data-tooltip] {
   position: relative;
