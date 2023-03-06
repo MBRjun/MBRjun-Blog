@@ -1,3 +1,4 @@
+https://www.mbrjun.cn/archives/474/
 https://www.mbrjun.cn/archives/473/
 https://www.mbrjun.cn/Kernel-Log/2023/02/24/index.html
 https://www.mbrjun.cn/Kernel-Log/2023/02/13/index.html
@@ -121,8 +122,6 @@ https://www.mbrjun.cn/maintenance/index.html
 https://www.mbrjun.cn/links/index.html
 https://www.mbrjun.cn/stat/index.html
 https://www.mbrjun.cn/
-https://www.mbrjun.cn/tags/COVID-19/
-https://www.mbrjun.cn/tags/%E7%96%AB%E6%83%85/
 https://www.mbrjun.cn/tags/%E5%AE%BD%E5%B8%A6/
 https://www.mbrjun.cn/tags/TCP/
 https://www.mbrjun.cn/tags/Office/
@@ -457,6 +456,8 @@ https://www.mbrjun.cn/tags/deepin/
 https://www.mbrjun.cn/tags/zstd/
 https://www.mbrjun.cn/tags/%E5%8E%8B%E7%BC%A9/
 https://www.mbrjun.cn/tags/%E7%AE%97%E6%B3%95/
+https://www.mbrjun.cn/tags/COVID-19/
+https://www.mbrjun.cn/tags/%E7%96%AB%E6%83%85/
 https://www.mbrjun.cn/tags/S-MIME/
 https://www.mbrjun.cn/tags/git/
 https://www.mbrjun.cn/tags/%E4%B8%8B%E8%BD%BD/
@@ -467,6 +468,9 @@ https://www.mbrjun.cn/tags/HTTP-3/
 https://www.mbrjun.cn/tags/QUIC/
 https://www.mbrjun.cn/tags/vnstat/
 https://www.mbrjun.cn/tags/centos/
+https://www.mbrjun.cn/tags/%E6%B5%81%E6%84%9F/
+https://www.mbrjun.cn/tags/%E7%94%B2%E6%B5%81/
+https://www.mbrjun.cn/tags/H1N1/
 https://www.mbrjun.cn/tags/MC-%E8%BD%AF%E4%BB%B6-%E4%B8%8B%E8%BD%BD-Minecraft/
 https://www.mbrjun.cn/tags/%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81/
 https://www.mbrjun.cn/tags/%E8%93%9D%E5%B1%8F/
@@ -480,7 +484,6 @@ https://www.mbrjun.cn/tags/400/
 https://www.mbrjun.cn/tags/%E6%9B%B4%E6%96%B0/
 https://www.mbrjun.cn/tags/HSTS/
 https://www.mbrjun.cn/tags/HTML/
-https://www.mbrjun.cn/categories/%E7%96%AB%E6%83%85/
 https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/
 https://www.mbrjun.cn/categories/%E5%B7%A5%E5%85%B7/
 https://www.mbrjun.cn/categories/%E8%BD%AF%E4%BB%B6/
@@ -490,5 +493,6 @@ https://www.mbrjun.cn/categories/%E7%94%9F%E6%B4%BB%E6%97%A5%E8%AE%B0/
 https://www.mbrjun.cn/categories/%E4%BB%A3%E7%A0%81/
 https://www.mbrjun.cn/categories/%E6%B8%B8%E6%88%8F/
 https://www.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/
+https://www.mbrjun.cn/categories/%E7%96%AB%E6%83%85/
 https://www.mbrjun.cn/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/
 https://www.mbrjun.cn/categories/Linux/
