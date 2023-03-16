@@ -1,7 +1,7 @@
 {
   "name": "MBRjun-Blog",
   "version": "1.0.0",
-  "private": false,
+  "private": true,
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
@@ -26,6 +26,7 @@
     "hexo-renderer-marked": "^6.0.0",
     "hexo-renderer-pug": "^3.0.0",
     "hexo-renderer-stylus": "^2.1.0",
-    "hexo-server": "^3.0.0"
+    "hexo-server": "^3.0.0",
+    "hexo-webp-polyfill": "^1.0.0"
   }
 }

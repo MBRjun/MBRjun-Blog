@@ -135,4 +135,6 @@ hide_posts:
   filter: hidden
   public_generators: [sitemap, feed]
   noindex: true
-  
+
+webp_polyfill:
+  enable: true
