@@ -938,14 +938,14 @@ hexo-util@^2.0.0, hexo-util@^2.1.0, hexo-util@^2.7.0:
     prismjs "^1.17.1"
     strip-indent "^3.0.0"
 
-hexo-webp-polyfill@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/hexo-webp-polyfill/-/hexo-webp-polyfill-1.0.1.tgz#084b8eb70ded71904b82c6a4e940442757056a2e"
-  integrity sha512-0dl50fRgAEjkiLOBJmoTVHc+wgmSV1pFQYnLoQ+RY29SahKufob0TREvxuTmLarZM3z1gDvhu2v8Lmr638hCjg==
+hexo-webp-polyfill@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/hexo-webp-polyfill/-/hexo-webp-polyfill-1.0.2.tgz#526c54a1e5179d676356f0b11d4e98037032a5dd"
+  integrity sha512-82ppUUb1VrfWE5X5cm/xYrDAV+TzSsdHXGNl9JkiAdsJ0wsM3ABb776ZYx6QN1kGT3kLeiqAsCPFMFtK4dpF6A==
   dependencies:
     cheerio "^1.0.0-rc.12"
     uglify-js "^3.17.4"
-    webp-hero "^0.0.2"
+    webp-hero "0.0.2"
 
 hexo@^6.3.0:
   version "6.3.0"
@@ -2004,9 +2004,9 @@ webidl-conversions@^7.0.0:
   resolved "https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-7.0.0.tgz"
   integrity sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==
 
-webp-hero@^0.0.2:
+webp-hero@0.0.2:
   version "0.0.2"
-  resolved "https://registry.npmjs.org/webp-hero/-/webp-hero-0.0.2.tgz"
+  resolved "https://registry.yarnpkg.com/webp-hero/-/webp-hero-0.0.2.tgz#7adf20435ecfca73c764a3ad532a4304f15db52d"
   integrity sha512-XDN8k2DZerXAawblkGKbcRXAz3WjY6Id5fTmrsOvblzFg5jELfoDCOxRDHD3zIGJo3OPEjLRsVS6Kzl36HxjqA==
 
 whatwg-encoding@^2.0.0:
