@@ -4,6 +4,39 @@
   
     
     <entry>
+      <title>npm 抑制 deprecated 警告</title>
+      <link href="/archives/475/"/>
+      <url>/archives/475/</url>
+      
+        <content type="html"><![CDATA[<p>Suppress <code>npm WARN deprecated</code> messages in <code>npm install</code>.</p><p>我们在给项目安装依赖的时候，经常出现 <code>npm WARN deprecated</code> 警告，介绍几种 <code>npm</code> 隐藏弃用警告的方法（教程也适用于 <code>yarn</code> 和 <code>pnpm</code> 等 Node.js 包管理器）</p><span id="more"></span><hr><p>如果一个 npm 包的维护者强烈希望用户将他的包升级到一个新版本，或者维护者不再维护这个包，那么他就可能将他的包（部分版本或所有版本）标记为<strong>弃用（deprecate）</strong><br>被标记为弃用的包在安装时会发出警告：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">npm WARN deprecated uuid@3.4.0: Please upgrade to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.<br></code></pre></td></tr></table></figure><p>如果你的项目直接依赖那个包，你可能会升级那个包来避免出现警告；<br>但如果那个包被间接依赖，你通常什么也做不了，只能等待包维护者处理，出现这种情况，您可能会想要隐藏弃用警告  </p><hr><p><strong>有这几种常见的方法来抑制 deprecated 警告：</strong>  </p><ul><li><a href="#%E8%AE%BE%E7%BD%AE-log-level">设置 Log Level</a><ul><li>优点：简单，而且可以直接对所有包生效</li><li>缺点：会同时隐藏项目中其他的警告，出错时不易调试</li></ul></li><li><a href="#%E4%BF%AE%E6%94%B9%E9%94%81%E6%96%87%E4%BB%B6">修改锁文件（lock-file）</a><ul><li>优点：只隐藏<strong>弃用</strong>警告，而且可以指定隐藏哪个包的警告</li><li>缺点：需要项目有锁文件</li></ul></li></ul><hr><h2 id="设置-Log-Level"><a href="#设置-Log-Level" class="headerlink" title="设置 Log Level"></a>设置 Log Level</h2><h3 id="方法一：一次性设置（只对本次安装生效）"><a href="#方法一：一次性设置（只对本次安装生效）" class="headerlink" title="方法一：一次性设置（只对本次安装生效）"></a>方法一：一次性设置（只对本次安装生效）</h3><p>使用 <code>--loglevel=error</code> 参数，如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">npm i --loglevel=error<br></code></pre></td></tr></table></figure><p>也可以使用环境变量 <code>npm_config_loglevel=error</code>（需要注意，都是小写的），如：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">npm_config_loglevel=error npm i<br></code></pre></td></tr></table></figure><h3 id="方法二：对一个项目生效"><a href="#方法二：对一个项目生效" class="headerlink" title="方法二：对一个项目生效"></a>方法二：对一个项目生效</h3><p>编辑项目 rc（run-command） 文件 <code>.npmrc</code>（也可能是 <code>.yarnrc</code>，取决于你使用的 Node.js 包管理器）文件（如果不存在，可以新建），设置 <code>loglevel</code>，例：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">loglevel=error<br></code></pre></td></tr></table></figure><h3 id="方法三：全局生效"><a href="#方法三：全局生效" class="headerlink" title="方法三：全局生效"></a>方法三：全局生效</h3><p>编辑 <code>~/.bashrc</code> 文件（不同 shell 的 rc 文件名可能不同，你可能需要自行搜索你的 shell 的 rc 文件，在此就不细说，cmd.exe 不支持）<br>添加一行 <code>export</code> 命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> npm_config_loglevel=error<br></code></pre></td></tr></table></figure><p>此方法重启 shell 才会生效</p><hr><h2 id="修改锁文件"><a href="#修改锁文件" class="headerlink" title="修改锁文件"></a>修改锁文件</h2><ol><li><p>首先需要确认你的项目是否开启了锁文件，查看项目 rc（run-command） 文件 <code>.npmrc</code>（也可能是 <code>.yarnrc</code>，取决于你使用的 Node.js 包管理器）文件：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">package-lock=false<br></code></pre></td></tr></table></figure><p>如果项目没有 rc 文件，或 package-lock 不为 false，则说明<strong>锁文件在项目中启用</strong><br>如果出现了 <code>package-lock=false</code>，那么我们需要将 <code>false</code> 改为 <code>true</code></p></li><li><p>运行一次 <code>npm i</code><br>如果锁文件不存在&#x2F;数据不全，此操作会自动补全锁文件的数据  </p></li><li><p>查找锁文件<br>不同 Node.js 包管理器锁文件名称也不一样，可参考：</p><table><thead><tr><th>包管理器</th><th>锁文件</th></tr></thead><tbody><tr><td><code>npm</code></td><td><code>package-lock.json</code></td></tr><tr><td><code>yarn</code></td><td><code>yarn.lock</code></td></tr><tr><td><code>pnpm</code></td><td><code>pnpm-lock.yaml</code></td></tr></tbody></table></li><li><p>修改锁文件<br>搜索 <code>deprecate</code> 关键字：<br><img src="https://cos.mbrjun.cn/IMGS/2023/03/19/9b34fbc0-1738-4435-b4c0-29342c84d99d.png" alt="带有 deprecate 关键字的行"><br>我们可以看到所有被标记为弃用的包<br>若要隐藏一个包的弃用警告，将包名下带有 deprecate 关键字的行移除即可（如果是 <code>json</code> 格式，你可能还需要移除末尾逗号）</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> JS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> npm </tag>
+            
+            <tag> nodejs </tag>
+            
+            <tag> yarn </tag>
+            
+            <tag> pnpm </tag>
+            
+            <tag> js </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>甲型 H1N1 流感阳性</title>
       <link href="/archives/474/"/>
       <url>/archives/474/</url>

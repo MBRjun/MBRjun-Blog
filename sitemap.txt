@@ -1,3 +1,4 @@
+https://www.mbrjun.cn/archives/475/
 https://www.mbrjun.cn/archives/474/
 https://www.mbrjun.cn/archives/473/
 https://www.mbrjun.cn/Kernel-Log/2023/02/24/index.html
@@ -230,15 +231,15 @@ https://www.mbrjun.cn/tags/%E6%8A%A5%E9%94%99/
 https://www.mbrjun.cn/tags/%E7%BD%91%E7%9B%98%E4%B8%8B%E8%BD%BD%E5%99%A8/
 https://www.mbrjun.cn/tags/Panduanbox/
 https://www.mbrjun.cn/tags/%E7%BD%91%E7%9B%98/
+https://www.mbrjun.cn/tags/win10/
+https://www.mbrjun.cn/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/
+https://www.mbrjun.cn/tags/PC/
+https://www.mbrjun.cn/tags/%E7%94%B5%E8%84%91/
 https://www.mbrjun.cn/tags/Python/
 https://www.mbrjun.cn/tags/%E5%9B%BE%E7%89%87%E5%94%B1%E6%AD%8C/
 https://www.mbrjun.cn/tags/AI/
 https://www.mbrjun.cn/tags/%E6%8D%A2%E8%84%B8/
 https://www.mbrjun.cn/tags/Unravel/
-https://www.mbrjun.cn/tags/win10/
-https://www.mbrjun.cn/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/
-https://www.mbrjun.cn/tags/PC/
-https://www.mbrjun.cn/tags/%E7%94%B5%E8%84%91/
 https://www.mbrjun.cn/tags/Mysql/
 https://www.mbrjun.cn/tags/%E7%B4%A2%E5%BC%95/
 https://www.mbrjun.cn/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/
@@ -471,6 +472,11 @@ https://www.mbrjun.cn/tags/centos/
 https://www.mbrjun.cn/tags/%E6%B5%81%E6%84%9F/
 https://www.mbrjun.cn/tags/%E7%94%B2%E6%B5%81/
 https://www.mbrjun.cn/tags/H1N1/
+https://www.mbrjun.cn/tags/npm/
+https://www.mbrjun.cn/tags/nodejs/
+https://www.mbrjun.cn/tags/yarn/
+https://www.mbrjun.cn/tags/pnpm/
+https://www.mbrjun.cn/tags/js/
 https://www.mbrjun.cn/tags/MC-%E8%BD%AF%E4%BB%B6-%E4%B8%8B%E8%BD%BD-Minecraft/
 https://www.mbrjun.cn/tags/%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81/
 https://www.mbrjun.cn/tags/%E8%93%9D%E5%B1%8F/
@@ -496,3 +502,4 @@ https://www.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/
 https://www.mbrjun.cn/categories/%E7%96%AB%E6%83%85/
 https://www.mbrjun.cn/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/
 https://www.mbrjun.cn/categories/Linux/
+https://www.mbrjun.cn/categories/JS/
