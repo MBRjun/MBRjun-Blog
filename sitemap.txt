@@ -75,7 +75,6 @@ https://www.mbrjun.cn/archives/358/
 https://www.mbrjun.cn/archives/345/
 https://www.mbrjun.cn/archives/334/
 https://www.mbrjun.cn/archives/327/
-https://www.mbrjun.cn/archives/322/
 https://www.mbrjun.cn/archives/279/
 https://www.mbrjun.cn/archives/315/
 https://www.mbrjun.cn/archives/314/
@@ -274,8 +273,6 @@ https://www.mbrjun.cn/tags/XCJM/
 https://www.mbrjun.cn/tags/%E5%AE%89%E5%8D%93-Android-wearos-%E7%A8%8B%E5%BA%8F%E7%8C%BF-Android-Studio/
 https://www.mbrjun.cn/tags/Flash/
 https://www.mbrjun.cn/tags/2345/
-https://www.mbrjun.cn/tags/web-dev/
-https://www.mbrjun.cn/tags/%E7%BD%91%E7%AB%99%E5%BC%80%E5%8F%91/
 https://www.mbrjun.cn/tags/Winserver/
 https://www.mbrjun.cn/tags/%E6%BF%80%E6%B4%BB/
 https://www.mbrjun.cn/tags/KMS/
