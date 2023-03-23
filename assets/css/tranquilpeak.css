@@ -517,7 +517,7 @@ blockquote {
 #main {
   display: block;
   min-height: 100%;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.85);
   transition: transform .25s ease-in-out;
   -webkit-transition: -webkit-transform .25s ease-in-out; }
   #main.hasCover.hasCoverCaption, #main.hasCover.hasCoverMetaOut {
@@ -630,7 +630,7 @@ blockquote {
   height: 100%;
   position: fixed;
   top: 0;
-  background: rgba(17, 26, 35, 0);
+  background: rgba(17, 26, 35, 0.75);
   overflow: auto;
   z-index: 20;
   transition: transform .25s ease-in-out;

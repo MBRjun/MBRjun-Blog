@@ -259,8 +259,6 @@ https://www.mbrjun.cn/tags/%E5%B9%BF%E5%91%8A/
 https://www.mbrjun.cn/tags/%E8%B0%B7%E6%AD%8C/
 https://www.mbrjun.cn/tags/%E6%81%B0%E9%A5%AD/
 https://www.mbrjun.cn/tags/%E6%84%9F%E8%B0%A2/
-https://www.mbrjun.cn/tags/%E5%8F%A3%E5%BD%93/
-https://www.mbrjun.cn/tags/%F0%AA%A0%BD/
 https://www.mbrjun.cn/tags/Intel/
 https://www.mbrjun.cn/tags/CPU/
 https://www.mbrjun.cn/tags/i5/
@@ -269,6 +267,8 @@ https://www.mbrjun.cn/tags/AMD/
 https://www.mbrjun.cn/tags/%E8%B7%AF%E8%BE%B9%E5%B0%8F%E4%BD%9C%E5%9D%8A/
 https://www.mbrjun.cn/tags/%E8%A3%85%E9%80%BC/
 https://www.mbrjun.cn/tags/REG/
+https://www.mbrjun.cn/tags/%E5%8F%A3%E5%BD%93/
+https://www.mbrjun.cn/tags/%F0%AA%A0%BD/
 https://www.mbrjun.cn/tags/XCJM/
 https://www.mbrjun.cn/tags/%E5%AE%89%E5%8D%93-Android-wearos-%E7%A8%8B%E5%BA%8F%E7%8C%BF-Android-Studio/
 https://www.mbrjun.cn/tags/Flash/
