@@ -125,7 +125,7 @@ header:
 
 # Your biography and your job is editable in each languages files in `languages` folder
 author:
-    email: mbrjun@foxmail.com
+    email: neko@mbr.moe
     location: 地球
     # Your profile picture located in folder `source/_images/` (development)
     # or in `source/assets/images/` (production)
