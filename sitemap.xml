@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.mbrjun.cn/archives/476/</loc>
+    
+    <lastmod>2023-04-05</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.mbrjun.cn/archives/475/</loc>
     
     <lastmod>2023-03-19</lastmod>
@@ -1130,13 +1139,6 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/%E5%9F%9F%E5%90%8D/</loc>
-    <lastmod>2023-04-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mbrjun.cn/tags/Microsoft365-%E6%AD%A3%E7%89%88-%E5%BE%AE%E8%BD%AF/</loc>
     <lastmod>2023-04-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -1509,6 +1511,13 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/%E4%BC%98%E5%8C%96/</loc>
+    <lastmod>2023-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/%E5%9F%9F%E5%90%8D/</loc>
     <lastmod>2023-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3553,6 +3562,20 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/js/</loc>
+    <lastmod>2023-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/Office365/</loc>
+    <lastmod>2023-04-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/%E9%82%AE%E7%AE%B1/</loc>
     <lastmod>2023-04-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
