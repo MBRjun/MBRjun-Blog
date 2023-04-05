@@ -1,3 +1,4 @@
+https://www.mbrjun.cn/archives/477/
 https://www.mbrjun.cn/archives/476/
 https://www.mbrjun.cn/archives/475/
 https://www.mbrjun.cn/archives/474/
@@ -474,6 +475,8 @@ https://www.mbrjun.cn/tags/pnpm/
 https://www.mbrjun.cn/tags/js/
 https://www.mbrjun.cn/tags/Office365/
 https://www.mbrjun.cn/tags/%E9%82%AE%E7%AE%B1/
+https://www.mbrjun.cn/tags/Microsoft365/
+https://www.mbrjun.cn/tags/OfficeE5/
 https://www.mbrjun.cn/tags/MC-%E8%BD%AF%E4%BB%B6-%E4%B8%8B%E8%BD%BD-Minecraft/
 https://www.mbrjun.cn/tags/%E9%94%99%E8%AF%AF%E4%BB%A3%E7%A0%81/
 https://www.mbrjun.cn/tags/%E8%93%9D%E5%B1%8F/
@@ -500,3 +503,4 @@ https://www.mbrjun.cn/categories/%E7%96%AB%E6%83%85/
 https://www.mbrjun.cn/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/
 https://www.mbrjun.cn/categories/Linux/
 https://www.mbrjun.cn/categories/JS/
+https://www.mbrjun.cn/categories/%E6%97%A5%E5%B8%B8/
