@@ -137,9 +137,9 @@ description: 我的朋友们！
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/du.jpg" />
                <div class="card-header">
                   <div>
-                     <a href="https://blog.blxcnya.cn/">BLxcwg666's Blog</a>
+                     <a href="https://blog.xcnya.cn/">BLxcwg666's Blog</a>
                   </div>
-                  <div class="info">BLxcwg666  / 小陈网管的博客</div>
+                  <div class="info">一只可爱的绒布球猫猫的博客喵~</div>
                </div>
             </div>
             <div class="card">
