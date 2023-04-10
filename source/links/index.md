@@ -128,9 +128,9 @@ description: 我的朋友们！
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/05/04/avatar.jpg" />
                <div class="card-header">
                   <div>
-                     <a href="https://lolicon.akulak.icu/">Akula<>Blog</a>
+                     <a href="https://blog.akula.moe/">Akula::Blog</a>
                   </div>
-                  <div class="info">人生五十年 如梦亦如幻</div>
+                  <div class="info">悟已往之不谏，知来者之可追</div>
                </div>
             </div>
             <div class="card">
