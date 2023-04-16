@@ -173,6 +173,15 @@
   </url>
   
   <url>
+    <loc>https://www.mbrjun.cn/archives/480/</loc>
+    
+    <lastmod>2022-11-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.mbrjun.cn/Kernel-Log/2022/11/index.html</loc>
     
     <lastmod>2022-10-31</lastmod>
@@ -3638,6 +3647,13 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/Windows/</loc>
+    <lastmod>2023-04-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/dot-NET/</loc>
     <lastmod>2023-04-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
