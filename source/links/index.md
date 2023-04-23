@@ -215,10 +215,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
-               <img
-                    class="ava"
-                    src="https://new.gbclstudio.cn/fav.jpg" 
-               />
+            <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/04/23/24615ecb-86e9-4178-aefb-f1c1152d12bf.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://new.gbclstudio.cn">拜瑞の博客</a>
