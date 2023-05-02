@@ -225,6 +225,17 @@ description: 我的朋友们！
                   </div>
                </div>
             </div>
+            <div class="card">
+              <img class="ava" src="https://i0.hdslb.com/bfs/face/fdf541600f120a2af1d910ac857364d0e2442a36.jpg" />
+              <div class="card-header">
+                 <div>
+                    <a href="https://9941y.top">Sh1zuku的小屋</a>
+                 </div>
+                 <div class="info">
+                    唯爱与科技不可辜负
+                 </div>
+               </div>
+            </div>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
