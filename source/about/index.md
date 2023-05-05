@@ -27,4 +27,5 @@ description: MBRjun's README page.
 ## 还在打的
 - ~~阿卡伊~~ Arcaea（v3.5.3）
 - ~~根申冲击~~ 原神（v1.1）
-- Minecraft（v1.14）
+- Minecraft （v1.14）
+- maimai（舞萌DX 2022 1.30-H/maimai DX FESTiVAL+）
