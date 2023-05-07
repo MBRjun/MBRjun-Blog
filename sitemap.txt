@@ -506,6 +506,7 @@ https://www.mbrjun.cn/tags/400/
 https://www.mbrjun.cn/tags/%E6%9B%B4%E6%96%B0/
 https://www.mbrjun.cn/tags/HSTS/
 https://www.mbrjun.cn/tags/HTML/
+https://www.mbrjun.cn/categories/%E6%97%A5%E5%B8%B8/
 https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/
 https://www.mbrjun.cn/categories/%E5%B7%A5%E5%85%B7/
 https://www.mbrjun.cn/categories/%E8%BD%AF%E4%BB%B6/
@@ -519,5 +520,4 @@ https://www.mbrjun.cn/categories/%E7%96%AB%E6%83%85/
 https://www.mbrjun.cn/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/
 https://www.mbrjun.cn/categories/Linux/
 https://www.mbrjun.cn/categories/JS/
-https://www.mbrjun.cn/categories/%E6%97%A5%E5%B8%B8/
 https://www.mbrjun.cn/categories/%E5%8C%96%E5%AD%A6/
