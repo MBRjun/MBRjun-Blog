@@ -28,4 +28,4 @@ description: MBRjun's README page.
 - ~~阿卡伊~~ Arcaea（v3.5.3）
 - ~~根申冲击~~ 原神（v1.1）
 - Minecraft （v1.14）
-- maimai（舞萌DX 2022 1.30-H/maimai DX FESTiVAL+）
+- maimai（CH1.30-H/DX1.35-A）
