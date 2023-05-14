@@ -220,11 +220,18 @@ description: 我的朋友们！
                   <div>
                      <a href="https://new.gbclstudio.cn">拜瑞の博客</a>
                   </div>
-                  <div class="info">
-                     星海无垠而班驳，坚心不灭而璀璨
-                  </div>
+                  <div class="info">星海无垠而班驳，坚心不灭而璀璨</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://api.lfhsheng.com/avatar" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://blog.lfhsheng.com">泠风寒声の小窝</a>
+                  </div>
+                  <div class="info">沉浸在Touch Fish的海洋中无法自拔</div>
+               </div>
+            </div></br>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
