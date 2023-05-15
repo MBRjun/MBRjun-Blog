@@ -225,6 +225,17 @@ description: 我的朋友们！
                   </div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://blog.sakurakooi.cyou/images/sakurakooi.webp" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://blog.sakurakooi.cyou/">SakuraKooi's Blog</a>
+                  </div>
+                  <div class="info">
+                     梦是幽蓝色彩 灵魂如雪纯白
+                  </div>
+               </div>
+            </div>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
