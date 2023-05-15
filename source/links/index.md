@@ -226,7 +226,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
-            <img class="ava" src="https://blog-api.lihaoyu.cn/avatar" />
+            <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/05/15/2b915e23-5d1d-4c44-a343-9e730fb0a11f.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://lihaoyu.cn">大蛋糕的烘焙坊</a>
