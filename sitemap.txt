@@ -1,5 +1,7 @@
+https://www.mbrjun.cn/Kernel-Log/2023/05/15/index.html
 https://www.mbrjun.cn/archives/486/
 https://www.mbrjun.cn/archives/485/
+https://www.mbrjun.cn/Kernel-Log/2023/05/index.html
 https://www.mbrjun.cn/archives/484/
 https://www.mbrjun.cn/archives/483/
 https://www.mbrjun.cn/archives/482/
@@ -131,6 +133,7 @@ https://www.mbrjun.cn/404.html
 https://www.mbrjun.cn/maintenance/index.html
 https://www.mbrjun.cn/links/index.html
 https://www.mbrjun.cn/stat/index.html
+https://www.mbrjun.cn/stat/mai/index.html
 https://www.mbrjun.cn/
 https://www.mbrjun.cn/tags/%E5%AE%BD%E5%B8%A6/
 https://www.mbrjun.cn/tags/TCP/
