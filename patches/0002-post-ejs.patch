@@ -1,0 +1,23 @@
+--- themes/tranquilpeak/layout/_partial/post.ejs
++++ themes/tranquilpeak/layout/_partial/post.ejs
+@@ -52,6 +52,22 @@
+             <% } %>
+         <% } %>
++        <script src="https://giscus.mbrjun.cn/client.js"
++            data-repo="MBRjun/MBRjun-Blog"
++            data-repo-id="R_kgDOIbI33Q"
++            data-category="Blog"
++            data-category-id="DIC_kwDOIbI33c4CTUTq"
++            data-mapping="title"
++            data-strict="1"
++            data-reactions-enabled="1"
++            data-emit-metadata="0"
++            data-input-position="top"
++            data-theme="light_tritanopia"
++            data-lang="zh-CN"
++            data-loading="lazy"
++            crossorigin="anonymous"
++            async>
++        </script>
+     </div>
+ </article>
