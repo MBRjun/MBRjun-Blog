@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.mbrjun.cn/archives/mai-2023-INTERNET-OVERDOSE-EXP-1/</loc>
+    
+    <lastmod>2023-05-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.mbrjun.cn/stat/mai/index.html</loc>
     
     <lastmod>2023-05-28</lastmod>
@@ -3996,6 +4005,13 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://www.mbrjun.cn/tags/maimai-%E3%81%A7%E3%82%89%E3%81%A3%E3%81%8F%E3%81%99/</loc>
+    <lastmod>2023-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -4098,6 +4114,13 @@
   
   <url>
     <loc>https://www.mbrjun.cn/categories/%E5%8C%96%E5%AD%A6/</loc>
+    <lastmod>2023-05-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/categories/maimai/</loc>
     <lastmod>2023-05-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

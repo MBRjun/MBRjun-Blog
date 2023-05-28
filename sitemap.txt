@@ -1,3 +1,4 @@
+https://www.mbrjun.cn/archives/mai-2023-INTERNET-OVERDOSE-EXP-1/
 https://www.mbrjun.cn/stat/mai/index.html
 https://www.mbrjun.cn/archives/485/
 https://www.mbrjun.cn/archives/488/
@@ -529,6 +530,7 @@ https://www.mbrjun.cn/tags/400/
 https://www.mbrjun.cn/tags/%E6%9B%B4%E6%96%B0/
 https://www.mbrjun.cn/tags/HSTS/
 https://www.mbrjun.cn/tags/HTML/
+https://www.mbrjun.cn/tags/maimai-%E3%81%A7%E3%82%89%E3%81%A3%E3%81%8F%E3%81%99/
 https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/
 https://www.mbrjun.cn/categories/%E5%B7%A5%E5%85%B7/
 https://www.mbrjun.cn/categories/%E8%BD%AF%E4%BB%B6/
@@ -544,3 +546,4 @@ https://www.mbrjun.cn/categories/Linux/
 https://www.mbrjun.cn/categories/JS/
 https://www.mbrjun.cn/categories/%E6%97%A5%E5%B8%B8/
 https://www.mbrjun.cn/categories/%E5%8C%96%E5%AD%A6/
+https://www.mbrjun.cn/categories/maimai/
