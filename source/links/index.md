@@ -205,6 +205,15 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
+               <img class="ava" src="https://pic.imgdb.cn/item/648550181ddac507cc316c5a.jpg" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://www.frostleaf.dev">霜叶小屋</a>
+                  </div>
+                  <div class="info">“轻击键盘，静候回音。“</div>
+               </div>
+            </div>
+            <div class="card">
                <img class="ava" src="https://cos.zyglq.cn/static/web-logo.jpg" />
                <div class="card-header">
                   <div>
