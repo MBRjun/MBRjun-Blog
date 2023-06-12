@@ -141,3 +141,6 @@ hide_posts:
 
 webp_polyfill:
   enable: true
+  force: false
+  minify: true
+  html5: true
