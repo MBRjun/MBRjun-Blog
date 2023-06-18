@@ -35,3 +35,19 @@ Proxmox VE 8.0 已于 2023 年 6 月 22 日发布，PVE 8.0 使用 Linux 6.2 内
 ![Upgrade to Proxmox VE 7.4](https://cos.mbrjun.cn/IMGS/2023/06/17/35267825-2bd1-4c47-ba1a-f0da940bd969.webp)
 
 无需重启，然后输入 ``pveversion`` 命令，检查版本是否已更新到 7.4-15 或更新版本  
+
+### 更新前检查
+运行命令 ``pve7to8 --full`` 来自动检查是否能升级 Proxmox VE 8.0  
+
+{% tabbed_codeblock %}
+    <!-- tab txt -->
+        = SUMMARY =
+        TOTAL:    34
+        PASSED:   27
+        SKIPPED:  3
+        WARNINGS: 4
+        FAILURES: 0
+
+        ATTENTION: Please check the output for detailed information!
+    <!-- endtab -->
+{% endtabbed_codeblock %}
