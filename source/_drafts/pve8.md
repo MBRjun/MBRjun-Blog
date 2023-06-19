@@ -51,3 +51,41 @@ Proxmox VE 8.0 已于 2023 年 6 月 22 日发布，PVE 8.0 使用 Linux 6.2 内
         ATTENTION: Please check the output for detailed information!
     <!-- endtab -->
 {% endtabbed_codeblock %}
+
+### 开始更新
+
+**我们需要先添加 Debian 12 和 Proxmox 8 存储库**：  
+
+{% tabbed_codeblock %}
+    <!-- tab sh -->
+        sed -i 's/bullseye/bookworm/g' /etc/apt/sources.list
+    <!-- endtab -->
+{% endtabbed_codeblock %}
+
+如果你是一个企业订阅用户，继续执行：
+
+{% tabbed_codeblock %}
+    <!-- tab sh -->
+        echo "deb https://enterprise.proxmox.com/debian/pve bookworm pve-enterprise" > /etc/apt/sources.list.d/pve-enterprise.list
+        echo "deb https://enterprise.proxmox.com/debian/ceph-quincy bookworm enterprise" > /etc/apt/sources.list.d/ceph.list
+    <!-- endtab -->
+{% endtabbed_codeblock %}
+
+否则请使用：
+
+{% tabbed_codeblock %}
+    <!-- tab sh -->
+        echo "deb http://download.proxmox.com/debian/ceph-quincy bookworm no-subscription" > /etc/apt/sources.list.d/ceph.list
+        sed -i -e 's/bullseye/bookworm/g' /etc/apt/sources.list.d/pve-install-repo.list 
+    <!-- endtab -->
+{% endtabbed_codeblock %}
+
+完成后，使用 ``apt update`` 刷新软件源，**然后运行 ``apt dist-upgrade`` 更新**  
+
+{% tabbed_codeblock %}
+    <!-- tab txt -->
+        1174 upgraded, 199 newly installed, 15 to remove and 0 not upgraded.
+        Need to get 1,441 MB of archives.
+        After this operation, 1,917 MB of additional disk space will be used.
+    <!-- endtab -->
+{% endtabbed_codeblock %}
