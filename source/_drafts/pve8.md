@@ -89,3 +89,24 @@ Proxmox VE 8.0 已于 2023 年 6 月 22 日发布，PVE 8.0 使用 Linux 6.2 内
         After this operation, 1,917 MB of additional disk space will be used.
     <!-- endtab -->
 {% endtabbed_codeblock %}
+
+## 配置文件修改
+
+{% tabbed_codeblock %}
+    <!-- tab txt -->
+        Configuration file '/etc/issue'
+        ==> Modified (by you or by a script) since installation.
+        ==> Package distributor has shipped an updated version.
+        What would you like to do about it ?  Your options are:
+            Y or I  : install the package maintainer's version
+            N or O  : keep your currently-installed version
+            D     : show the differences between the versions
+            Z     : start a shell to examine the situation
+        The default action is to keep your current version.
+        *** issue (Y/I/N/O/D/Z) [default=N] ?
+    <!-- endtab -->
+{% endtabbed_codeblock %}
+
+- ``/etc/issue`` 建议使用 N
+- ``/etc/lvm/lvm.conf`` 建议使用 Y
+- ``/etc/default/grub`` 建议使用 N
