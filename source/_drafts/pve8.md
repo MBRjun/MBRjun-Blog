@@ -110,3 +110,12 @@ Proxmox VE 8.0 已于 2023 年 6 月 22 日发布，PVE 8.0 使用 Linux 6.2 内
 - ``/etc/issue`` 建议使用 N
 - ``/etc/lvm/lvm.conf`` 建议使用 Y
 - ``/etc/default/grub`` 建议使用 N
+
+## 错误处理
+如果在更新过程中出现了错误（例如：SSH 连接中断、电源故障），导致更新中断，则可能需要使用下面的命令恢复：  
+
+{% tabbed_codeblock %}
+    <!-- tab sh -->
+        apt -f install
+    <!-- endtab -->
+{% endtabbed_codeblock %}
