@@ -20,6 +20,8 @@ Proxmox VE 8.0 已于 2023 年 6 月 22 日发布，PVE 8.0 使用 Linux 6.2 内
 - ISO 安装新增 TUI
 - 2FA 安全性提高
 - 原生的深色模式
+- BtrFS 性能提升
+- 核心软件包（``libc6``、``OpenSSL``、``OpenSSH``、``python3``等）更新  
 
 ## 更新教程
 
