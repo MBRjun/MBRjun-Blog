@@ -92,6 +92,11 @@ Proxmox VE 8.0 已于 2023 年 6 月 22 日发布，PVE 8.0 使用 Linux 6.2 内
     <!-- endtab -->
 {% endtabbed_codeblock %}
 
+## 更新内容
+更新时，系统会发送一封邮件到管理员邮箱，其中包含了更新的内容  
+
+![apt-listchanges](https://cos.mbrjun.cn/IMGS/2023/06/24/c59cc0b2-a320-4a07-80be-4fba93b73413.webp)
+
 ## 配置文件修改
 
 {% tabbed_codeblock %}
