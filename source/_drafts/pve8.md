@@ -54,6 +54,13 @@ Proxmox VE 8.0 已于 2023 年 6 月 22 日发布，PVE 8.0 使用 Linux 6.2 内
     <!-- endtab -->
 {% endtabbed_codeblock %}
 
+### cgroup2 迁移
+{% tabbed_codeblock %}
+    <!-- tab sh -->
+        sed -i 's/lxc.cgroup./lxc.cgroup2./g' /etc/pve/lxc/*.conf
+    <!-- endtab -->
+{% endtabbed_codeblock %}
+
 ### 开始更新
 
 **我们需要先添加 Debian 12 和 Proxmox 8 存储库**：  
