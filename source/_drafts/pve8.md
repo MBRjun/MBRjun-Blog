@@ -10,7 +10,7 @@ tags:
 - 虚拟化
 - 软路由
 - ESXi
-thumbnailImage: 
+thumbnailImage: https://cos.mbrjun.cn/IMGS/2023/06/26/ece403b9-6549-4a37-b1ba-c1754edb72dd.webp
 ---
 Proxmox VE 8.0 已于 2023 年 6 月 22 日发布，PVE 8.0 使用 Linux 6.2 内核和最新的 Debian 12 Bookworm 底层系统
 <!-- more -->
