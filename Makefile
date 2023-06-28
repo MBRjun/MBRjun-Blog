@@ -20,12 +20,12 @@ check:
 
 genver: git
 	@echo -e "\033[32m[GENVER ]\033[0m Generating build info...\c"
-	@cp modify/genver.default modify/genver
-	@sed -i 's/HEAD/$(shell git rev-parse HEAD)/g' modify/genver
-	@sed -i 's/user/$(shell whoami)/g' modify/genver
-	@sed -i 's/host/$(shell cat /etc/hostname)/g' modify/genver
-	@sed -i 's/kver/$(shell uname -r)/g' modify/genver
-	@sed -i 's/cn-date/$(shell TZ=Asia/Hong_Kong date "+%Y-%m-%d")/g' modify/genver
+	@cp patches/genver.default patches/genver
+	@sed -i 's/HEAD/$(shell git rev-parse HEAD)/g' patches/genver
+	@sed -i 's/user/$(shell whoami)/g' patches/genver
+	@sed -i 's/host/$(shell cat /etc/hostname)/g' patches/genver
+	@sed -i 's/kver/$(shell uname -r)/g' patches/genver
+	@sed -i 's/cn-date/$(shell TZ=Asia/Hong_Kong date "+%Y-%m-%d")/g' patches/genver
 	@echo -e "ok"
 
 init: check
@@ -39,10 +39,10 @@ git: init
 	fi
 
 modify: git substash
-	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/_config.yml" && cp modify/theme.yml themes/tranquilpeak/_config.yml
-	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/languages/zh-cn.yml" && cp modify/zh-cn.yml themes/tranquilpeak/languages/zh-cn.yml
-	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/layout/_partial/footer.ejs" && cp modify/footer.ejs themes/tranquilpeak/layout/_partial/footer.ejs
-	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/layout/_partial/post.ejs" && cp modify/post.ejs themes/tranquilpeak/layout/_partial/post.ejs
+	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/_config.yml" && patch -p0 --verbose < patches/0001-theme-config.patch
+	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/languages/zh-cn.yml" && patch -p0 --verbose < patches/0004-author-info.patch
+	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/layout/_partial/footer.ejs" && patch -p0 --verbose < patches/0003-footer-ejs.patch
+	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/layout/_partial/post.ejs" && patch -p0 --verbose < patches/0002-post-ejs.patch
 
 submodules-build: packages modify
 	@echo -e "\033[32m[PACKAGE]\033[0m submodules: $(nodepm) run grunt -- buildProd" && cd themes/tranquilpeak/ && $(nodepm) run grunt -- buildProd
@@ -51,9 +51,9 @@ submodules-scripts: submodules-build genver
 	@echo -e "\033[32m[GENVER ]\033[0m Writing build info and query string into source...\c"
 	@sed -i '186c <script async defer src="/assets/js/script.min.js?v=$(shell git rev-parse HEAD)"></script>' themes/tranquilpeak/layout/_partial/head.ejs
 	@sed -i '183c <link rel="stylesheet" href="/assets/css/style.min.css?v=$(shell git rev-parse HEAD)">' themes/tranquilpeak/layout/_partial/head.ejs
-	@cat modify/genver >> themes/tranquilpeak/layout/_partial/script.ejs
+	@cat patches/genver >> themes/tranquilpeak/layout/_partial/script.ejs
 	@echo -e "ok"
-	@cat modify/genver
+	@cat patches/genver
 
 submodules: submodules-scripts
 
@@ -67,7 +67,7 @@ hexo: submodules
 
 cimod: genver
 	@echo -e "\033[32m[GENVER ]\033[0m Generating build info for CI...\c"
-	@sed -i 's/default/CI/g' modify/genver
+	@sed -i 's/default/CI/g' patches/genver
 	@echo -e "ok"
 
 ci: cimod hexo

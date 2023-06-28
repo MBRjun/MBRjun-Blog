@@ -70,7 +70,7 @@ description: 我的朋友们！
       </style>
       <div class="links-content">
          <div class="link-navigation">
-            <div class="card">
+            <!-- <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2020/09/06/bm.jpg" />
                <div class="card-header">
                   <div>
@@ -79,6 +79,19 @@ description: 我的朋友们！
                   <div class="info">Bmyjacks-Blog</div>
                </div>
             </div>
+            友链移除原因：站长忘记续费域名，域名已被他人重新注册，网站目前为非法内容
+            Domain Name: bmyjacks.cn
+            ROID: 20230331s10001s51840336-cn
+            Domain Status: ok
+            Registrant: 郭忠奇
+            Registrant Contact Email: smart.juming@gmail.com
+            Sponsoring Registrar: 中企动力科技股份有限公司
+            Name Server: dm2.dns.com
+            Name Server: dm1.dns.com
+            Registration Time: 2023-03-31 04:06:38
+            Expiration Time: 2024-03-31 04:06:38
+            DNSSEC: unsigned
+            -->
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2020/09/06/xc.png" />
                <div class="card-header">
@@ -97,7 +110,7 @@ description: 我的朋友们！
                   <div class="info">梦中做梦，做了个白日梦</div>
                </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                <img class="ava" src="https://avatar.mbrjun.cn/avatar/e554da26e947151c678f1f2a8f78e72b" />
                <div class="card-header">
                   <div>
@@ -106,6 +119,8 @@ description: 我的朋友们！
                   <div class="info">不因何事去制作 只因兴趣而创造</div>
                </div>
             </div>
+            友链移除原因：无法访问
+            -->
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/04/24/wl.jpg" />
                <div class="card-header">
@@ -133,7 +148,7 @@ description: 我的朋友们！
                   <div class="info">悟已往之不谏，知来者之可追</div>
                </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/du.jpg" />
                <div class="card-header">
                   <div>
@@ -142,6 +157,8 @@ description: 我的朋友们！
                   <div class="info">一只可爱的绒布球猫猫的博客喵~</div>
                </div>
             </div>
+            友链移除原因：无法访问（CloudFlare 防火墙阻止了测试请求）
+            -->
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/rv.jpg" />
                <div class="card-header">
@@ -205,7 +222,7 @@ description: 我的朋友们！
                   <div class="info">一只笨蛋的Blog</div>
                </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
             <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/02/11/5d653ff0-3ed9-4b4c-ab38-016ef22307f3.jpg" />
                <div class="card-header">
                   <div>
@@ -214,15 +231,15 @@ description: 我的朋友们！
                   <div class="info">Everyone can be the light in the darkness.</div>
                </div>
             </div>
+            友链移除原因：无法访问（GitHub Pages 404）
+            -->
             <div class="card">
             <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/04/23/24615ecb-86e9-4178-aefb-f1c1152d12bf.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://new.gbclstudio.cn">拜瑞の博客</a>
                   </div>
-                  <div class="info">
-                     星海无垠而班驳，坚心不灭而璀璨
-                  </div>
+                  <div class="info">星海无垠而班驳，坚心不灭而璀璨</div>
                </div>
             </div>
             <div class="card">
@@ -231,9 +248,16 @@ description: 我的朋友们！
                  <div>
                     <a href="https://9941y.top">Sh1zuku的小屋</a>
                  </div>
-                 <div class="info">
-                    唯爱与科技不可辜负
-                 </div>
+                 <div class="info">唯爱与科技不可辜负</div>
+               </div>
+            </div>
+            <div> 
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/05/15/2b915e23-5d1d-4c44-a343-9e730fb0a11f.webp" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://lihaoyu.cn">大蛋糕的烘焙坊</a>
+                  </div>
+                  <div class="info">也许我们会分别，但我们将永远不会忘记彼此</div>
                </div>
             </div>
             <!--

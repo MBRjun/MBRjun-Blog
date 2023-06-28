@@ -8,14 +8,17 @@ subtitle: ''
 description: '我们生活在大地上，但我们的梦想超越天空'
 keywords:
   - MBRjun
-  - 技术
   - Linux
   - 服务器
   - 软路由
   - PVE
   - 原神
-  - 博客
-  - B站
+  - maimai
+  - JavaScript
+  - Windows
+  - Microsoft
+  - git
+  - Node.JS
 author: MBRjun
 language: zh-cn
 timezone: 'Asia/Shanghai'
@@ -138,3 +141,6 @@ hide_posts:
 
 webp_polyfill:
   enable: true
+  force: false
+  minify: true
+  html5: true

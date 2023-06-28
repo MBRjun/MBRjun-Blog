@@ -1,0 +1,144 @@
+--- themes/tranquilpeak/_config.yml
++++ themes/tranquilpeak/_config.yml
+@@ -49,10 +49,18 @@
+-        search:
+-            title: global.search
+-            url: "#search"
+-            icon: fa fa-search
+-            # `open-algolia-search` classes are used to open algolia search modal
+-            class: open-algolia-search
+-        about:
+-            title: global.about
+-            url: "#about"
+-            icon: fa fa-question
++#        search:
++#            title: global.search
++#            url: "#search"
++#            icon: fa fa-search
++#            # `open-algolia-search` classes are used to open algolia search modal
++#            class: open-algolia-search
++#        about:
++#            title: global.about
++#            url: "#about"
++#            icon: fa fa-question
++        link:
++            title: 友情链接
++            url: /links
++            icon: fa fa-link
++        travelling:
++            title: 开往
++            url: https://www.travellings.cn/go.html
++            icon: fa fa-paper-plane
+@@ -62 +70 @@
+-            url: https://github.com/
++            url: https://github.com/MBRjun
+@@ -64,4 +72,4 @@
+-        stack_overflow:
+-            title: global.stack_overflow
+-            url: http://stackoverflow.com/users
+-            icon: fab fa-stack-overflow
++#        stack_overflow:
++#            title: global.stack_overflow
++#            url: http://stackoverflow.com/users
++#            icon: fab fa-stack-overflow
+@@ -70 +78 @@
+-            url: https://twitter.com/
++            url: https://twitter.com/MBRjun
+@@ -72,12 +80,12 @@
+-        facebook:
+-            title: global.facebook
+-            url: https://facebook.com/
+-            icon: fab fa-facebook
+-        google_plus:
+-            title: global.google_plus
+-            url: https://plus.google.com/
+-            icon: fab fa-google-plus
+-        linked_in:
+-            title: global.linkedin
+-            url: https://www.linkedin.com/profile/
+-            icon: fab fa-linkedin
++#        facebook:
++#            title: global.facebook
++#            url: https://facebook.com/
++#            icon: fab fa-facebook
++#        google_plus:
++#            title: global.google_plus
++#            url: https://plus.google.com/
++#            icon: fab fa-google-plus
++#        linked_in:
++#            title: global.linkedin
++#            url: https://www.linkedin.com/profile/
++#            icon: fab fa-linkedin
+@@ -86 +94 @@
+-            url: mailto
++            url: mailto:mbrjun@foxmail.com
+@@ -109 +117 @@
+-        url: /#about
++        url: /about
+@@ -120,2 +128,2 @@
+-    email:
+-    location:
++    email: neko@mbr.moe
++    location: 地球
+@@ -126 +134 @@
+-    picture:
++    picture: https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg
+@@ -128 +136 @@
+-    twitter:
++    twitter: MBRjun
+@@ -153 +161 @@
+-sidebar_behavior: 1
++sidebar_behavior: 2
+@@ -156 +164 @@
+-clear_reading: true
++clear_reading: false
+@@ -175 +183 @@
+-cover_image: cover.jpg
++cover_image: https://cos.mbrjun.cn/IMGS/2023/03/23/4419f34e-9353-4b44-a6dd-ebb1db958fc5.webp
+@@ -177 +185 @@
+-favicon:
++favicon: https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg
+@@ -272,9 +280,9 @@
+-    facebook:
+-        icon: "fab fa-facebook"
+-        url: "https://www.facebook.com/sharer/sharer.php?u={{post.permalink}}"
+-    twitter:
+-        icon: "fab fa-twitter"
+-        url: "https://twitter.com/intent/tweet?text={{post.permalink}}"
+-    google_plus:
+-        icon: "fab fa-google-plus"
+-        url: "https://plus.google.com/share?url={{post.permalink}}"
++  #facebook:
++  #      icon: "fab fa-facebook"
++  #      url: "https://www.facebook.com/sharer/sharer.php?u={{post.permalink}}"
++  twitter:
++       icon: "fab fa-twitter"
++       url: "https://twitter.com/intent/tweet?text={{post.permalink}}"
++  #  google_plus:
++  #      icon: "fab fa-google-plus"
++  #      url: "https://plus.google.com/share?url={{post.permalink}}"
+@@ -289,12 +297,12 @@
+-#    weibo:
+-#        title: "Weibo"
+-#        icon: "fab fa-weibo"
+-#        url: "http://service.weibo.com/share/share.php?&title={{post.permalink}}"
+-#    qq:
+-#        title: "QQ"
+-#        icon: "fab fa-qq"
+-#        url: "http://connect.qq.com/widget/shareqq/index.html?url={{post.permalink}}&title={{post.title}}"
+-#    qzone:
+-#        title: "Qzone"
+-#        icon: "fa fa-star"
+-#        url: "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{post.permalink}}"
++  weibo:
++      title: "Weibo"
++      icon: "fab fa-weibo"
++      url: "http://service.weibo.com/share/share.php?&title={{post.permalink}}"
++  qq:
++      title: "QQ"
++      icon: "fab fa-qq"
++      url: "http://connect.qq.com/widget/shareqq/index.html?url={{post.permalink}}&title={{post.title}}"
++  qzone:
++      title: "Qzone"
++      icon: "fa fa-star"
++      url: "http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url={{post.permalink}}"
