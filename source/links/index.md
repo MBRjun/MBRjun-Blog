@@ -243,7 +243,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
-              <img class="ava" src="https://i0.hdslb.com/bfs/face/fdf541600f120a2af1d910ac857364d0e2442a36.jpg" />
+              <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/06/28/a4669177-86f9-4a56-ae63-8237fc55e94e.webp" />
               <div class="card-header">
                  <div>
                     <a href="https://9941y.top">Sh1zuku的小屋</a>
