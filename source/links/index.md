@@ -239,20 +239,25 @@ description: 我的朋友们！
                   <div>
                      <a href="https://new.gbclstudio.cn">拜瑞の博客</a>
                   </div>
-                  <div class="info">
-                     星海无垠而班驳，坚心不灭而璀璨
-                  </div>
+                  <div class="info">星海无垠而班驳，坚心不灭而璀璨</div>
                </div>
             </div>
             <div class="card">
-            <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/05/15/2b915e23-5d1d-4c44-a343-9e730fb0a11f.webp" />
+              <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/06/28/a4669177-86f9-4a56-ae63-8237fc55e94e.webp" />
+              <div class="card-header">
+                 <div>
+                    <a href="https://9941y.top">Sh1zuku的小屋</a>
+                 </div>
+                 <div class="info">唯爱与科技不可辜负</div>
+               </div>
+            </div>
+            <div> 
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/05/15/2b915e23-5d1d-4c44-a343-9e730fb0a11f.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://lihaoyu.cn">晓雨杂记</a>
                   </div>
-                  <div class="info">
-                     于风雨中 承载所有的回忆
-                  </div>
+                  <div class="info">也许我们会分别，但我们将永远不会忘记彼此</div>
                </div>
             </div>
             <!--
