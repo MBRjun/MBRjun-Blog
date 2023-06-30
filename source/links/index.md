@@ -251,7 +251,7 @@ description: 我的朋友们！
                  <div class="info">唯爱与科技不可辜负</div>
                </div>
             </div>
-            <div> 
+            <div class="card"> 
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/05/15/2b915e23-5d1d-4c44-a343-9e730fb0a11f.webp" />
                <div class="card-header">
                   <div>
