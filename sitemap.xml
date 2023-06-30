@@ -2631,20 +2631,6 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/%E5%8E%9F%E7%A5%9E/</loc>
-    <lastmod>2023-06-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/1-5/</loc>
-    <lastmod>2023-06-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mbrjun.cn/tags/%E9%97%B9%E6%8C%BA%E5%A4%A7/</loc>
     <lastmod>2023-06-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -2681,6 +2667,20 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/%E9%80%9A%E7%9F%A5%E6%A0%8F/</loc>
+    <lastmod>2023-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/%E5%8E%9F%E7%A5%9E/</loc>
+    <lastmod>2023-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/1-5/</loc>
     <lastmod>2023-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
