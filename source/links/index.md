@@ -148,7 +148,7 @@ description: 我的朋友们！
                   <div class="info">悟已往之不谏，知来者之可追</div>
                </div>
             </div>
-            <!-- <div class="card">
+            <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/du.jpg" />
                <div class="card-header">
                   <div>
@@ -157,8 +157,6 @@ description: 我的朋友们！
                   <div class="info">一只可爱的绒布球猫猫的博客喵~</div>
                </div>
             </div>
-            友链移除原因：无法访问（CloudFlare 防火墙阻止了测试请求）
-            -->
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/rv.jpg" />
                <div class="card-header">
