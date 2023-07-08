@@ -105,7 +105,7 @@ description: 我的朋友们！
                <img class="ava" src="https://npm.elemecdn.com/perorepe-cdn/v1/bigger-photos/avatar.webp" />
                <div class="card-header">
                   <div>
-                     <a href="https://blog.slqwq.cn/">Hajeekn's Blog</a>
+                     <a href="https://hajeekn.js.cool/">Hajeekn's Blog</a>
                   </div>
                   <div class="info">梦中做梦，做了个白日梦</div>
                </div>
