@@ -265,7 +265,7 @@ description: 我的朋友们！
                      <a href="https://hiyase.github.io">冷曦的喵喵小屋</a>
                   </div>
                   <div class="info">愿每个人都被温柔以待</div>
-                  </div>
+               </div>
             </div>
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/08/8a50e41c-c1dd-4b70-8a99-404bdc830488.webp" />
@@ -274,6 +274,14 @@ description: 我的朋友们！
                      <a href="https://blog.sakurakooi.cyou/">SakuraKooi's Blog</a>
                   </div>
                   <div class="info">梦是幽蓝色彩 灵魂如雪纯白</div>
+               </div>
+            </div>
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/15/899315c3-1a0c-443c-8aae-5a2a455214b3.webp" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://cannon.org.cn">LeZi的猫窝</a>
+                  </div>
+                  <div class="info">世界上本没有博客，直到有了程序员</div>
                </div>
             </div>
             <!--
