@@ -258,6 +258,15 @@ description: 我的朋友们！
                   <div class="info">也许我们会分别，但我们将永远不会忘记彼此</div>
                </div>
             </div>
+            <div class="card"> 
+               <img class="ava" src="https://zxfly.site/img/1.jpg" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://zxfly.site">Zhuang Xfly</a>
+                  </div>
+                  <div class="info">一位来自河北的高中生的博客</div>
+               </div>
+            </div>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
