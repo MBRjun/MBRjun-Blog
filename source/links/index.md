@@ -259,10 +259,10 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card"> 
-               <img class="ava" src="https://hiyase.github.io/friends/img/hiyase.github.io.jpeg" />
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/10/3b548d8e-c94f-401f-b058-44e76d5fc7c1.webp" />
                <div class="card-header">
                   <div>
-                     <a href="hiyase.github.io/">冷曦的喵喵小屋</a>
+                     <a href="https://hiyase.github.io">冷曦的喵喵小屋</a>
                   </div>
                   <div class="info">愿每个人都被温柔以待</div>
                </div>
