@@ -258,6 +258,17 @@ description: 我的朋友们！
                   <div class="info">也许我们会分别，但我们将永远不会忘记彼此</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/08/8a50e41c-c1dd-4b70-8a99-404bdc830488.webp" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://blog.sakurakooi.cyou/">SakuraKooi's Blog</a>
+                  </div>
+                  <div class="info">
+                     梦是幽蓝色彩 灵魂如雪纯白
+                  </div>
+               </div>
+            </div>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
