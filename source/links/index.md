@@ -226,7 +226,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
-               <img class="ava" src="https://blog.sakurakooi.cyou/images/sakurakooi.webp" />
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/08/8a50e41c-c1dd-4b70-8a99-404bdc830488.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.sakurakooi.cyou/">SakuraKooi's Blog</a>
