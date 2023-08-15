@@ -259,7 +259,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card"> 
-               <img class="ava" src="https://cannon.org.cn/logo.jpg" />
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/15/899315c3-1a0c-443c-8aae-5a2a455214b3.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://cannon.org.cn">LeZi的猫窝</a>
