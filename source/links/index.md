@@ -276,6 +276,7 @@ description: 我的朋友们！
                   <div class="info">梦是幽蓝色彩 灵魂如雪纯白</div>
                </div>
             </div>
+            <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/15/899315c3-1a0c-443c-8aae-5a2a455214b3.webp" />
                <div class="card-header">
                   <div>
