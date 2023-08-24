@@ -224,7 +224,7 @@ camel-case@^4.0.0, camel-case@^4.1.2:
     pascal-case "^3.1.2"
     tslib "^2.0.3"
 
-chalk@^4.0.0, chalk@^4.0.2, chalk@^4.1.2:
+chalk@^4, chalk@^4.0.0, chalk@^4.0.2:
   version "4.1.2"
   resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -837,12 +837,12 @@ hexo-generator-tag@^2.0.0:
   dependencies:
     hexo-pagination "3.0.0"
 
-hexo-hide-posts@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.npmjs.org/hexo-hide-posts/-/hexo-hide-posts-0.2.0.tgz"
-  integrity sha512-euTftMGCSYkhn/ARVuOv+XQIMNTUy5vCiutaY0qcN92NdZTfPG/wKCkeR3yE7LpMs/Y0aTuEp9F5NUVP/Dt6nA==
+hexo-hide-posts@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/hexo-hide-posts/-/hexo-hide-posts-0.3.1.tgz#b25645a2fcea35f714089955ac5e9607bfcdd390"
+  integrity sha512-0A7rxDcFftdt3NAfNkL29R2BuNFAXgwW5oHwl8vxsULILQW9cwsifZRzRyHIO5YcS6boSrikE17/ILtSMM0UJA==
   dependencies:
-    chalk "^4.1.2"
+    chalk "^4"
 
 hexo-html-minifier@^1.0.0:
   version "1.0.0"
