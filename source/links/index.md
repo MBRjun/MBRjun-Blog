@@ -286,7 +286,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
-               <img class="ava" src="https://blog.rkmiao.eu.org/images/profile.webp" />
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/29/d25711c5-649f-4cbe-8684-e985e561e899.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.rkmiao.eu.org">Ricky8955555's Blog</a>
