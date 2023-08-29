@@ -276,12 +276,22 @@ description: 我的朋友们！
                   <div class="info">梦是幽蓝色彩 灵魂如雪纯白</div>
                </div>
             </div>
+            <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/15/899315c3-1a0c-443c-8aae-5a2a455214b3.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://cannon.org.cn">LeZi的猫窝</a>
                   </div>
                   <div class="info">世界上本没有博客，直到有了程序员</div>
+               </div>
+            </div>
+            <div class="card">
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/29/d25711c5-649f-4cbe-8684-e985e561e899.webp" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://blog.rkmiao.eu.org">Ricky8955555's Blog</a>
+                  </div>
+                  <div class="info">Ricky 的各种日常捏</div>
                </div>
             </div>
             <!--
