@@ -9,9 +9,7 @@ https://www.mbrjun.cn/stat/mai/index.html
 https://www.mbrjun.cn/archives/485/
 https://www.mbrjun.cn/archives/488/
 https://www.mbrjun.cn/archives/487/
-https://www.mbrjun.cn/Kernel-Log/2023/05/15/index.html
 https://www.mbrjun.cn/archives/486/
-https://www.mbrjun.cn/Kernel-Log/2023/05/index.html
 https://www.mbrjun.cn/archives/484/
 https://www.mbrjun.cn/archives/483/
 https://www.mbrjun.cn/archives/482/
@@ -25,18 +23,12 @@ https://www.mbrjun.cn/archives/476/
 https://www.mbrjun.cn/archives/475/
 https://www.mbrjun.cn/archives/474/
 https://www.mbrjun.cn/archives/473/
-https://www.mbrjun.cn/Kernel-Log/2023/02/24/index.html
-https://www.mbrjun.cn/Kernel-Log/2023/02/13/index.html
 https://www.mbrjun.cn/archives/472/
-https://www.mbrjun.cn/Kernel-Log/2023/02/index.html
 https://www.mbrjun.cn/archives/470/
 https://www.mbrjun.cn/archives/469/
-https://www.mbrjun.cn/Kernel-Log/2023/index.html
 https://www.mbrjun.cn/archives/255/
 https://www.mbrjun.cn/archives/468/
-https://www.mbrjun.cn/Kernel-Log/2022/11/25/index.html
 https://www.mbrjun.cn/archives/480/
-https://www.mbrjun.cn/Kernel-Log/2022/11/index.html
 https://www.mbrjun.cn/archives/466/
 https://www.mbrjun.cn/archives/454/
 https://www.mbrjun.cn/archives/465/
@@ -75,7 +67,6 @@ https://www.mbrjun.cn/archives/416/
 https://www.mbrjun.cn/archives/415/
 https://www.mbrjun.cn/archives/413/
 https://www.mbrjun.cn/archives/410/
-https://www.mbrjun.cn/Kernel-Log/2022/index.html
 https://www.mbrjun.cn/archives/408/
 https://www.mbrjun.cn/archives/306/
 https://www.mbrjun.cn/archives/404/
@@ -138,7 +129,6 @@ https://www.mbrjun.cn/about/index.html
 https://www.mbrjun.cn/all-archives/index.html
 https://www.mbrjun.cn/all-categories/index.html
 https://www.mbrjun.cn/all-tags/index.html
-https://www.mbrjun.cn/forbidden/index.html
 https://www.mbrjun.cn/404.html
 https://www.mbrjun.cn/maintenance/index.html
 https://www.mbrjun.cn/links/index.html
