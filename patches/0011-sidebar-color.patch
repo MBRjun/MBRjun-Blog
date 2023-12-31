@@ -1,0 +1,19 @@
+--- themes/tranquilpeak/source/_css/utils/_variables.scss
++++ themes/tranquilpeakb/source/_css/utils/_variables.scss
+@@ -147,14 +147,14 @@ $sidebar: (
+     'md-screen-width':  75px,
+     'lg-screen-width':  250px,
+     'xlg-screen-width': 500px,
+-    'background':       rgba(17, 26, 35, 0),
++    'background':       rgba(17, 26, 35, 0.75),
+     'color':            #ebebeb
+ );
+ 
+ // Main
+ $main: (
+     'padding-top':      15px,
+-    'background-color': #fff
++    'background-color': rgba(255,255,255,0.85)
+ );
+ 
+ // Components settings

@@ -1,10 +1,5 @@
 --- themes/tranquilpeak/languages/zh-cn.yml
 +++ themes/tranquilpeak/languages/zh-cn.yml
-@@ -1,2 +1,2 @@
--# 在所有地方显示的 date 格式化
--date_format: "YYYY 年 MM 月 DD 日"
-+# 在所有地方显示的日期格式
-+date_format: "YYYY 年 M 月 D 日"
 @@ -76 +76 @@
 -    bio: ""
 +    bio: "我们生活在大地上，但我们的梦想超越天空"

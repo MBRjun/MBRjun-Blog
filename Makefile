@@ -39,10 +39,20 @@ git: init
 	fi
 
 modify: git substash
-	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/_config.yml" && patch -p0 --verbose < patches/0001-theme-config.patch
-	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/languages/zh-cn.yml" && patch -p0 --verbose < patches/0004-author-info.patch
-	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/layout/_partial/footer.ejs" && patch -p0 --verbose < patches/0003-footer-ejs.patch
-	@echo -e "\033[32m[MODIFY ]\033[0m themes/tranquilpeak/layout/_partial/post.ejs" && patch -p0 --verbose < patches/0002-post-ejs.patch
+	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(1/12)" && patch -p0 --verbose < patches/0001-*
+	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(2/12)" && patch -p0 --verbose < patches/0002-*
+	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(3/12)" && patch -p0 --verbose < patches/0003-*
+	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(4/12)" && patch -p0 --verbose < patches/0004-*
+	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(5/12)" && patch -p0 --verbose < patches/0005-*
+	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(6/12)" && patch -p0 --verbose < patches/0006-*
+	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(7/12)" && patch -p0 --verbose < patches/0007-*
+	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(8/12)" && patch -p0 --verbose < patches/0008-*
+	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(9/12)" && patch -p0 --verbose < patches/0009-*
+	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(10/12)" && patch -p0 --verbose < patches/0010-*
+	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(11/12)" && patch -p0 --verbose < patches/0011-*
+	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(12/12)" && patch -p0 --verbose < patches/0011-*
+	@echo -e "\033[32m[MODIFY ]\033[0m Cleaning theme fonts" && rm -f themes/tranquilpeak/source/_fonts/*
+	@echo -e "\033[32m[MODIFY ]\033[0m Copying fonts binary" && cp patches/binary/fonts/* themes/tranquilpeak/source/_fonts/
 
 submodules-build: packages modify
 	@echo -e "\033[32m[PACKAGE]\033[0m submodules: $(nodepm) run grunt -- buildProd" && cd themes/tranquilpeak/ && $(nodepm) run grunt -- buildProd

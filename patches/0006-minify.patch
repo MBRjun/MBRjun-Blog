@@ -1,0 +1,65 @@
+--- themes/tranquilpeak/layout/_partial/head.ejs
++++ themes/tranquilpeak/layout/_partial/head.ejs
+@@ -180,11 +180,12 @@ var feeds = [];
+         <% }) %>
+     <% } %>
+     <!--STYLES-->
+-    <%- css('assets/css/all.css') %>
+-    <%- css('assets/css/jquery.fancybox.css') %>
+-    <%- css('assets/css/thumbs.css') %>
+-    <%- css('assets/css/tranquilpeak.css') %>
++
+     <!--STYLES END-->
++    <!--SCRIPTS-->
++
++    <!--SCRIPTS END-->
++
+     <%- partial('google-analytics') %>
+     <%- partial('baidu-analytics') %>
+ 
+--- themes/tranquilpeak/layout/_partial/script.ejs
++++ themes/tranquilpeak/layout/_partial/script.ejs
+@@ -1,10 +1,3 @@
+-<!--SCRIPTS-->
+-<%- js('assets/js/jquery.js') %>
+-<%- js('assets/js/jquery.fancybox.js') %>
+-<%- js('assets/js/thumbs.js') %>
+-<%- js('assets/js/tranquilpeak.js') %>
+-<!--SCRIPTS END-->
+-
+ <% if (post.comments) { %>
+     <% if (theme.disqus_shortname) { %>
+         <script>
+--- themes/tranquilpeak/tasks/config/cssmin.js
++++ themes/tranquilpeak/tasks/config/cssmin.js
+@@ -9,7 +9,7 @@ module.exports = function(grunt) {
+         cwd: 'source/assets/css',
+         src: ['style.css'],
+         dest: 'source/assets/css',
+-        ext: '-' + randToken.generate(60).toLocaleLowerCase() + '.min.css'
++        ext: '.min.css'
+       }]
+     }
+   });
+--- themes/tranquilpeak/tasks/config/sails-linker.js
++++ themes/tranquilpeak/tasks/config/sails-linker.js
+@@ -31,7 +31,7 @@ module.exports = function(grunt) {
+         appRoot: 'source/'
+       },
+       files: {
+-        'layout/_partial/script.ejs': 'source/assets/js/*.min.js'
++        'layout/_partial/head.ejs': 'source/assets/js/*.min.js'
+       }
+     },
+     prodCss: {
+--- themes/tranquilpeak/tasks/config/uglify.js
++++ themes/tranquilpeak/tasks/config/uglify.js
+@@ -3,7 +3,7 @@ var randToken = require('rand-token');
+ module.exports = function(grunt) {
+   var website = {};
+   var token = randToken.generate(60).toLocaleLowerCase();
+-  website['source/assets/js/script-' + token + '.min.js'] = ['source/assets/js/script.js'];
++  website['source/assets/js/script.min.js'] = ['source/assets/js/script.js'];
+   grunt.config.set('uglify', {
+     // Minify `script.js` file into `script.min.js`
+     prod: {

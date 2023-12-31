@@ -1,0 +1,27 @@
+--- themes/tranquilpeak/source/_css/utils/_variables.scss
++++ themes/tranquilpeak/source/_css/utils/_variables.scss
+@@ -49,13 +49,13 @@ $font-size: (
+ $colors: (
+     'success': #4dc657,
+     'danger':  #f5311d,
+-    'primary': #349ef3,
++    'primary': #1277d9,
+     'purple':  #cf6ae0,
+     'base':    $font-color-base,
+     'warning':  #f5aa0a,
+-    'light':   #9eabb3,
++    'light':   #727583,
+      // use for tag `a`
+-    'link':    #349ef3
++    'link':    #1277d9
+ );
+ 
+ // Z-indexes
+@@ -140,7 +140,7 @@ $about: (
+ $header:(
+     'height':     55px,
+     'background': #fff,
+-    'color':      #88909a,
++    'color':      #727583,
+     'border':     1px solid #eef2f8
+ );

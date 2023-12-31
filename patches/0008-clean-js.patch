@@ -1,0 +1,42 @@
+--- themes/tranquilpeak/tasks/config/copy.js
++++ themes/tranquilpeak/tasks/config/copy.js
+@@ -5,8 +5,8 @@ var fontsDestFolder = './source/assets/fonts/';
+ var fancyboxPath = './node_modules/@fancyapps/fancybox';
+ var fontAwesomePath = './node_modules/@fortawesome/fontawesome-free';
+ var jqueryPath = './node_modules/jquery';
+-var gitmentPath = './node_modules/gitment';
+-var gitalkPath = './node_modules/gitalk';
++/*var gitmentPath = './node_modules/gitment';
++var gitalkPath = './node_modules/gitalk';*/
+ 
+ module.exports = function(grunt) {
+   grunt.config.set('copy', {
+@@ -57,7 +57,7 @@ module.exports = function(grunt) {
+           dest: jsDestFolder + 'jquery.js'
+         },
+         // gitment
+-        {
++        /*{
+           src: gitmentPath + '/dist/gitment.browser.js',
+           dest: jsDestFolder + 'gitment.js'
+         },
+@@ -73,15 +73,15 @@ module.exports = function(grunt) {
+         {
+           src: gitalkPath + '/dist/gitalk.css',
+           dest: cssDestFolder + 'gitalk.css'
+-        },
++        },*/
+         {
+           src: './node_modules/moment/min/moment-with-locales.js',
+           dest: jsDestFolder + 'moment-with-locales.js'
+-        },
+-        {
++        }
++        /*{
+           src: './node_modules/algoliasearch/dist/algoliasearch.umd.js',
+           dest: jsDestFolder + 'algoliasearch.js'
+-        }
++        }*/
+       ]
+     }
+   });

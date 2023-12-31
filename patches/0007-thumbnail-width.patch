@@ -1,0 +1,41 @@
+--- themes/tranquilpeak/source/_css/components/_postShorten.scss
++++ themes/tranquilpeak/source/_css/components/_postShorten.scss
+@@ -99,7 +99,7 @@
+             img {
+                 display:    block;
+                 width:      $post-thumbnail-image-width;
+-                height:     $post-thumbnail-image-width;
++                height:     $post-thumbnail-image-height;
+                 object-fit: cover;
+                 overflow:   hidden;
+             }
+@@ -117,7 +117,7 @@
+             img {
+                 display:    block;
+                 width:      $post-thumbnail-image-width;
+-                height:     $post-thumbnail-image-width;
++                height:     $post-thumbnail-image-height;
+                 object-fit: cover;
+                 overflow:   hidden;
+             }
+--- themes/tranquilpeak/source/_css/utils/_variables.scss
++++ themes/tranquilpeak/source/_css/utils/_variables.scss
+@@ -216,7 +216,7 @@ $image-gallery-photos-margin: 2px;
+ 
+ // Main content
+ $main-content: (
+-    'max-width':          750px,
++    'max-width':          900px,
+     'padding-right-left': 20px,
+ );
+ 
+@@ -243,7 +243,8 @@ $pagination-height: 60px;
+ 
+ // Post thumbnail image
+ // Width and height of post's thumbnail image
+-$post-thumbnail-image-width: 140px;
++$post-thumbnail-image-width: 200px;
++$post-thumbnail-image-height: 140px;
+ $post-bottom-thumbnail-image-max-height: 250px;
+ 
+ // Tooltip

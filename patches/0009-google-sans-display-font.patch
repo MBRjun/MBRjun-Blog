@@ -1,0 +1,113 @@
+--- themes/tranquilpeak/source/_css/components/_text.scss
++++ themes/tranquilpeak/source/_css/components/_text.scss
+@@ -98,5 +98,5 @@
+ }
+ 
+ .font-merryweather {
+-    font-family: $merriweather-serif;
++    font-family: $googlesansdisplay;
+ }
+\ No newline at end of file
+--- themes/tranquilpeak/source/_css/utils/_fonts.scss
++++ themes/tranquilpeak/source/_css/utils/_fonts.scss
+@@ -1,48 +1,31 @@
+ @font-face {
+-    font-family: 'Open Sans';
++    font-family: 'Google Sans Display';
+     font-style:  normal;
+     font-weight: 400;
+-    src:         local('Open Sans'), local('OpenSans'), url(../fonts/open-sans.ttf) format('truetype');
++    src:         local('Google Sans Display Regular'), url(../fonts/GoogleSansDisplay-LR.woff2) format('woff2');
++    font-display: swap;
+ }
+ 
+ @font-face {
+-    font-family: 'Open Sans';
++    font-family: 'Google Sans Display';
+     font-style:  normal;
+     font-weight: 700;
+-    src:         local('Open Sans Bold'), local('OpenSans-Bold'), url(../fonts/open-sans-bold.ttf) format('truetype');
++    src:         local('Google Sans Display Bold'), url(../fonts/GoogleSansDisplay-BR.woff2) format('woff2');
++    font-display: swap;
+ }
+ 
+ @font-face {
+-    font-family: 'Merriweather';
+-    font-style:  normal;
+-    font-weight: 300;
+-    src:         local('Merriweather Light'), local('Merriweather-Light'), url(../fonts/merriweather-light.ttf) format('truetype');
+-}
+-
+-@font-face {
+-    font-family: 'Merriweather';
+-    font-style:  normal;
+-    font-weight: 400;
+-    src:         local('Merriweather'), url(../fonts/merriweather.ttf) format('truetype');
+-}
+-
+-@font-face {
+-    font-family: 'Merriweather';
+-    font-style:  normal;
+-    font-weight: 700;
+-    src:         local('Merriweather Bold'), local('Merriweather-Bold'), url(../fonts/merriweather-bold.ttf) format('truetype');
+-}
+-
+-@font-face {
+-    font-family: 'Merriweather';
++    font-family: 'Google Sans Display';
+     font-style:  italic;
+     font-weight: 300;
+-    src:         local('Merriweather Light Italic'), local('Merriweather-LightItalic'), url(../fonts/merriweather-light-italic.ttf) format('truetype');
++    src:         local('Google Sans Display Italic'), url(../fonts/GoogleSansDisplay-LI.woff2) format('woff2');
++    font-display: swap;
+ }
+ 
+ @font-face {
+-    font-family: 'Merriweather';
++    font-family: 'Google Sans Display';
+     font-style:  italic;
+     font-weight: 700;
+-    src:         local('Merriweather Bold Italic'), local('Merriweather-BoldItalic'), url(../fonts/merriweather-bold-italic.ttf) format('truetype');
++    src:         local('Google Sans Display Bold Italic'), url(../fonts/GoogleSansDisplay-BI.woff2) format('woff2');
++    font-display: swap;
+ }
+--- themes/tranquilpeak/source/_css/utils/_variables.scss
++++ themes/tranquilpeak/source/_css/utils/_variables.scss
+@@ -2,27 +2,25 @@
+ // --------------------------------------------
+ 
+ // Font families
+-$open-sans:            'Open Sans';
+-$open-sans-sans-serif: 'Open Sans', sans-serif;
+-$merriweather-serif:   'Merriweather', serif;
++$googlesansdisplay:    'Google Sans Display';
+ $monospace:             Menlo, Consolas, monospace;
+ 
+-$font-family-base: $open-sans-sans-serif;
++$font-family-base: $googlesansdisplay;
+ 
+ $font-families: (
+    // base
+-   'headings':          $open-sans-sans-serif,
++   'headings':          $googlesansdisplay,
+    // components
+    'code':              $monospace,
+-   'caption':           $merriweather-serif,
+-   'image-gallery':     $open-sans,
+-   'post-header-cover': $merriweather-serif,
+-   'post-meta':         $open-sans-sans-serif,
+-   'post-content':      $merriweather-serif,
+-   'post-excerpt-link': $open-sans-sans-serif,
++   'caption':           $googlesansdisplay,
++   'image-gallery':     $googlesansdisplay,
++   'post-header-cover': $googlesansdisplay,
++   'post-meta':         $googlesansdisplay,
++   'post-content':      $googlesansdisplay,
++   'post-excerpt-link': $googlesansdisplay,
+    'highlight':         $monospace,
+    // layout
+-   'sidebar':           $open-sans-sans-serif
++   'sidebar':           $googlesansdisplay
+ );
+ 
+ // equal to 15px
