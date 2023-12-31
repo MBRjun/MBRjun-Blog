@@ -21,7 +21,9 @@ jobs:
         sudo hostnamectl hostname Azure-GitHub-Actions
     - name: Checkout
       uses: actions/checkout@main
-      
+      with:
+        submodules: 'true'
+
     - name: Install Node.js
       uses: actions/setup-node@v3
       with:

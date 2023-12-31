@@ -35,7 +35,7 @@ init: check
 
 git: init
 	@if [ $(shell git rev-parse --abbrev-ref HEAD) = "main" ]; then\
-		echo -e "\033[32m[GIT    ]\033[0m \c" && git pull --ff-only;\
+		echo -e "\033[32m[GIT    ]\033[0m \c" && git pull --ff-only || true;\
 	else\
 		echo -e "\033[32m[GIT    ]\033[0m Not using branch main. Skip.";\
 	fi
