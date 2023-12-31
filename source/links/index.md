@@ -101,7 +101,7 @@ description: 我的朋友们！
                   <div class="info">一个人 一座城 一生梦</div>
                </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                <img class="ava" src="https://npm.elemecdn.com/perorepe-cdn/v1/bigger-photos/avatar.webp" />
                <div class="card-header">
                   <div>
@@ -110,6 +110,8 @@ description: 我的朋友们！
                   <div class="info">梦中做梦，做了个白日梦</div>
                </div>
             </div>
+            友链移除原因：无法访问
+            -->
             <!-- <div class="card">
                <img class="ava" src="https://avatar.mbrjun.cn/avatar/e554da26e947151c678f1f2a8f78e72b" />
                <div class="card-header">
@@ -121,7 +123,7 @@ description: 我的朋友们！
             </div>
             友链移除原因：无法访问
             -->
-            <div class="card">
+            <!-- <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/04/24/wl.jpg" />
                <div class="card-header">
                   <div>
@@ -130,6 +132,8 @@ description: 我的朋友们！
                   <div class="info">May all the beauty be blessed.——《Moon Halo》</div>
                </div>
             </div>
+            友链移除原因：无法访问
+            -->
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/04/30/7e.jpg" />
                <div class="card-header">
@@ -139,7 +143,7 @@ description: 我的朋友们！
                   <div class="info">Life is full of the unexpected.</div>
                </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/05/04/avatar.jpg" />
                <div class="card-header">
                   <div>
@@ -148,6 +152,8 @@ description: 我的朋友们！
                   <div class="info">悟已往之不谏，知来者之可追</div>
                </div>
             </div>
+            友链移除原因：无法访问
+            -->
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/du.jpg" />
                <div class="card-header">
@@ -170,7 +176,7 @@ description: 我的朋友们！
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/st.jpg" />
                <div class="card-header">
                   <div>
-                     <a href="https://sorabs.cc/">BsBlog</a>
+                     <a href="https://blog.bsdayo.moe/">BsBlog</a>
                   </div>
                   <div class="info">bs在摸鱼还是睡觉呢zzz</div>
                </div>
@@ -197,9 +203,9 @@ description: 我的朋友们！
                <img class="ava" src="https://q1.qlogo.cn/g?b=qq&nk=3526514925&s=640" />
                <div class="card-header">
                   <div>
-                     <a href="https://blog.yidaozhan.top">一刀斩の小窝</a>
+                     <a href="https://blog.chyk.ink/">千雪的咖啡厅</a>
                   </div>
-                  <div class="info">一刀斩的博客</div>
+                  <div class="info">浩繁星空下的一场稚嫩的梦</div>
                </div>
             </div>
             <div class="card">
@@ -240,7 +246,7 @@ description: 我的朋友们！
                   <div class="info">星海无垠而班驳，坚心不灭而璀璨</div>
                </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/06/28/a4669177-86f9-4a56-ae63-8237fc55e94e.webp" />
               <div class="card-header">
                  <div>
@@ -249,6 +255,8 @@ description: 我的朋友们！
                  <div class="info">唯爱与科技不可辜负</div>
                </div>
             </div>
+            友链移除原因：无法访问
+            -->
             <div class="card"> 
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/05/15/2b915e23-5d1d-4c44-a343-9e730fb0a11f.webp" />
                <div class="card-header">
@@ -276,7 +284,7 @@ description: 我的朋友们！
                   <div class="info">梦是幽蓝色彩 灵魂如雪纯白</div>
                </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/15/899315c3-1a0c-443c-8aae-5a2a455214b3.webp" />
                <div class="card-header">
                   <div>
@@ -285,6 +293,8 @@ description: 我的朋友们！
                   <div class="info">世界上本没有博客，直到有了程序员</div>
                </div>
             </div>
+            友链移除原因：无法访问
+            -->
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/29/d25711c5-649f-4cbe-8684-e985e561e899.webp" />
                <div class="card-header">
