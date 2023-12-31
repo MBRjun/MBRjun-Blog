@@ -1136,7 +1136,7 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/all-archives/index.html</loc>
+    <loc>https://www.mbrjun.cn/all-categories/index.html</loc>
     
     <lastmod>2020-04-13</lastmod>
     
@@ -1145,7 +1145,7 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/all-categories/index.html</loc>
+    <loc>https://www.mbrjun.cn/all-archives/index.html</loc>
     
     <lastmod>2020-04-13</lastmod>
     
@@ -1206,55 +1206,6 @@
     <priority>1.0</priority>
   </url>
 
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/%E5%AE%BD%E5%B8%A6/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/TCP/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/Proxmox-VE/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/VPS/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/Hyper-V/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/Linux/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/GPU-PV/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
   
   <url>
     <loc>https://www.mbrjun.cn/tags/Office/</loc>
@@ -1425,6 +1376,13 @@
   </url>
   
   <url>
+    <loc>https://www.mbrjun.cn/tags/Linux/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.mbrjun.cn/tags/Cent/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -1579,6 +1537,13 @@
   </url>
   
   <url>
+    <loc>https://www.mbrjun.cn/tags/Hyper-V/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.mbrjun.cn/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -1635,27 +1600,6 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/CDN/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mbrjun.cn/tags/windows/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -1678,6 +1622,27 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/Microsoft/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/CDN/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/%E9%98%BF%E9%87%8C%E4%BA%91/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1754,13 +1719,6 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/%E4%BC%98%E5%8C%96-CDN-%E6%B5%81%E9%87%8F/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mbrjun.cn/tags/%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -1776,6 +1734,13 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/%E4%BF%AE%E6%94%B9%E5%99%A8/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/%E4%BC%98%E5%8C%96-CDN-%E6%B5%81%E9%87%8F/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2090,6 +2055,13 @@
   </url>
   
   <url>
+    <loc>https://www.mbrjun.cn/tags/TCP/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.mbrjun.cn/tags/%E5%8D%8F%E8%AE%AE/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -2293,27 +2265,6 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/Winserver/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/%E6%BF%80%E6%B4%BB/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/KMS/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mbrjun.cn/tags/PHP/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -2336,6 +2287,27 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/Winserver/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/%E6%BF%80%E6%B4%BB/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/KMS/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2475,20 +2447,6 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/RTX/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/Nvidia/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mbrjun.cn/tags/%E8%85%BE%E8%AE%AF/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -2518,6 +2476,20 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/RTX/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/Nvidia/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2742,6 +2714,13 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/OpenWrt/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/%E5%AE%BD%E5%B8%A6/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2993,6 +2972,13 @@
   </url>
   
   <url>
+    <loc>https://www.mbrjun.cn/tags/VPS/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.mbrjun.cn/tags/CVM/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -3015,6 +3001,34 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/%E5%BC%82%E5%9C%B0%E7%BB%84%E7%BD%91/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/HTTPS/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/0-RTT/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/TLS/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/TFO/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3049,28 +3063,21 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/HTTPS/</loc>
+    <loc>https://www.mbrjun.cn/tags/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/0-RTT/</loc>
+    <loc>https://www.mbrjun.cn/tags/%E5%8A%A0%E9%80%9F/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/TLS/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/TFO/</loc>
+    <loc>https://www.mbrjun.cn/tags/FTTB/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3133,27 +3140,6 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/%E5%8D%9A%E5%AE%A2/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/%E5%8A%A0%E9%80%9F/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/FTTB/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mbrjun.cn/tags/%E8%AF%81%E4%B9%A6/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -3210,13 +3196,6 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/Arcaea/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mbrjun.cn/tags/ECDSA/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -3253,6 +3232,13 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/Let-s-Encrypt/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/Arcaea/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3392,6 +3378,13 @@
   </url>
   
   <url>
+    <loc>https://www.mbrjun.cn/tags/Proxmox-VE/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.mbrjun.cn/tags/Linux-Bridge/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -3399,28 +3392,7 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/%E9%9F%B5%E5%BE%8B%E6%BA%90%E7%82%B9/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/%E5%AF%B9%E7%AB%8B/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/Arcaea4-0/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/lowiro/</loc>
+    <loc>https://www.mbrjun.cn/tags/%E5%AF%82%E9%9D%99%E4%B9%8B%E5%9F%8E/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3456,6 +3428,34 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/GPT/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/%E9%9F%B5%E5%BE%8B%E6%BA%90%E7%82%B9/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/%E5%AF%B9%E7%AB%8B/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/Arcaea4-0/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/lowiro/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3505,13 +3505,6 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/%E5%AF%82%E9%9D%99%E4%B9%8B%E5%9F%8E/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3777,27 +3770,6 @@
   </url>
   
   <url>
-    <loc>https://www.mbrjun.cn/tags/JavaScript/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/fetch/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.mbrjun.cn/tags/GFW/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mbrjun.cn/tags/%E4%B8%AD%E9%80%9A%E5%BF%AB%E9%80%92/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -3827,6 +3799,27 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/AmusementIC/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/JavaScript/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/fetch/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/GFW/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -3897,6 +3890,13 @@
   
   <url>
     <loc>https://www.mbrjun.cn/tags/Hypervisor/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/tags/GPU-PV/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -4003,13 +4003,6 @@
 
   
   <url>
-    <loc>https://www.mbrjun.cn/categories/Linux/</loc>
-    <lastmod>2023-12-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -4074,6 +4067,13 @@
   
   <url>
     <loc>https://www.mbrjun.cn/categories/%E7%96%AB%E6%83%85/</loc>
+    <lastmod>2023-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.mbrjun.cn/categories/Linux/</loc>
     <lastmod>2023-12-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
