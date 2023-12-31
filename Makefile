@@ -9,13 +9,15 @@ world: hexo
 
 check:
 	@if [ -z $(nodeversion) ]; then\
-		echo -e "\033[41;37m[CHECK  ]\033[0m Node.js was not detected.\n\033[32m[CHECK  ]\033[0m Install Node.js v18 or v19 first." && exit 2;\
+		echo -e "\033[41;37m[CHECK  ]\033[0m Node.js was not detected.\n\033[32m[CHECK  ]\033[0m Install Node.js v18 LTS or v20 first." && exit 2;\
 	elif [ $(nodeversion) = "18" ]; then\
 		echo -e "\033[32m[CHECK  ]\033[0m Node.js 18($(shell node -v)) detected";\
 	elif [ $(nodeversion) = "19" ]; then\
 		echo -e "\033[32m[CHECK  ]\033[0m Node.js 19($(shell node -v)) detected.";\
+	elif [ $(nodeversion) = "20" ]; then\
+		echo -e "\033[32m[CHECK  ]\033[0m Node.js 20($(shell node -v)) detected.";\
 	else\
-		echo -e "\033[41;37m[CHECK  ]\033[0m Unsupported Node.js version detected.\n\033[32m[CHECK  ]\033[0m You are using $(shell node -v) but the program requires v18 or v19.\n\033[32m[CHECK  ]\033[0m Upgrade/Downgrade Node.js to v18/v19, or use nvm to select version." && exit 2;\
+		echo -e "\033[41;37m[CHECK  ]\033[0m Unsupported Node.js version detected.\n\033[32m[CHECK  ]\033[0m You are using $(shell node -v) but the program requires v18 to v20.\n\033[32m[CHECK  ]\033[0m Upgrade/Downgrade Node.js, or use nvm to select version." && exit 2;\
 	fi
 
 genver: git
@@ -50,7 +52,7 @@ modify: git substash
 	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(9/12)" && patch -p0 --verbose < patches/0009-*
 	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(10/12)" && patch -p0 --verbose < patches/0010-*
 	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(11/12)" && patch -p0 --verbose < patches/0011-*
-	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(12/12)" && patch -p0 --verbose < patches/0011-*
+	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(12/12)" && patch -p0 --verbose < patches/0012-*
 	@echo -e "\033[32m[MODIFY ]\033[0m Cleaning theme fonts" && rm -f themes/tranquilpeak/source/_fonts/*
 	@echo -e "\033[32m[MODIFY ]\033[0m Copying fonts binary" && cp patches/binary/fonts/* themes/tranquilpeak/source/_fonts/
 
