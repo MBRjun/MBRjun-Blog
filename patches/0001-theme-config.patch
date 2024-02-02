@@ -71,7 +71,7 @@
 +#            icon: fab fa-linkedin
 @@ -86 +94 @@
 -            url: mailto
-+            url: mailto:mbrjun@foxmail.com
++            url: mailto:neko@mbr.moe
 @@ -109 +117 @@
 -        url: /#about
 +        url: /about
