@@ -155,12 +155,13 @@ description: 我的朋友们！
             友链移除原因：无法访问
             -->
             <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/du.jpg" />
+               <img class="ava" src="https://cos.nekorua.com/imgs/head1x2.webp" />
                <div class="card-header">
                   <div>
-                     <a href="https://blog.xcnya.cn/">BLxcwg666's Blog</a>
+                     <a href="https://blog.nekorua.com/">BLxcwg666 の Blog</a>
+                     <!--点不开带 rayid 找我 tg -->
                   </div>
-                  <div class="info">一只可爱的绒布球猫猫的博客喵~</div>
+                  <div class="info">静かで奥深い</div>
                </div>
             </div>
             <div class="card">
