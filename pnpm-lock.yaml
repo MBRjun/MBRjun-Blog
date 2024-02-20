@@ -30,8 +30,8 @@ dependencies:
     specifier: ^2.0.0
     version: 2.0.0
   hexo-hide-posts:
-    specifier: ^0.4.0
-    version: 0.4.0
+    specifier: ^0.4.2
+    version: 0.4.2
   hexo-html-minifier:
     specifier: ^1.0.0
     version: 1.0.0
@@ -861,8 +861,8 @@ packages:
       hexo-pagination: 3.0.0
     dev: false
 
-  /hexo-hide-posts@0.4.0:
-    resolution: {integrity: sha512-qSdCoNG2FRxX/7TKJHPINOK/KbfaqqMgT1LHNAYPN1P0MgL187b0A6sCduevoIMlN0i/xK0yNlS/UDRQwVdZGw==}
+  /hexo-hide-posts@0.4.2:
+    resolution: {integrity: sha512-2DdJLeWAKd4HS+j2hjyWVJlZ8aqHARH1Gufqi8ft8f1txLJvXbQg+x/6SlNB2IL/wR6FJvF1YywyD+waO1p8SQ==}
     dependencies:
       chalk: 4.1.2
     dev: false
