@@ -123,7 +123,7 @@ description: 我的朋友们！
             </div>
             友链移除原因：无法访问
             -->
-            <!-- <div class="card">
+            <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/04/24/wl.jpg" />
                <div class="card-header">
                   <div>
@@ -132,8 +132,6 @@ description: 我的朋友们！
                   <div class="info">May all the beauty be blessed.——《Moon Halo》</div>
                </div>
             </div>
-            友链移除原因：无法访问
-            -->
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/04/30/7e.jpg" />
                <div class="card-header">
