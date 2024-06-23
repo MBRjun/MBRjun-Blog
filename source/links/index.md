@@ -101,8 +101,8 @@ description: 我的朋友们！
                   <div class="info">一个人 一座城 一生梦</div>
                </div>
             </div>
-            <!-- <div class="card">
-               <img class="ava" src="https://npm.elemecdn.com/perorepe-cdn/v1/bigger-photos/avatar.webp" />
+            <div class="card">
+               <img class="ava" src="https://registry.npmmirror.com/@floatsheep/fsl-fim/1.0.9/files/avatar.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.hesiy.cn/">Hajeekn's Blog</a>
@@ -110,8 +110,6 @@ description: 我的朋友们！
                   <div class="info">梦中做梦，做了个白日梦</div>
                </div>
             </div>
-            友链移除原因：无法访问
-            -->
             <!-- <div class="card">
                <img class="ava" src="https://avatar.mbrjun.cn/avatar/e554da26e947151c678f1f2a8f78e72b" />
                <div class="card-header">
