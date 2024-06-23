@@ -301,6 +301,15 @@ description: 我的朋友们！
                   <div class="info">Ricky 的各种日常捏</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://library.gxres.net/images/icons/avatar.webp" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://blog.gxres.net">Restent's Notebook</a>
+                  </div>
+                  <div class="info">静寂に問う 答えを求めて</div>
+               </div>
+            </div>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
