@@ -965,10 +965,10 @@ hexo-webp-polyfill@^2.0.1:
     uglify-js "^3.17.4"
     webp-hero "0.0.2"
 
-hexo@^7.2.0:
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/hexo/-/hexo-7.2.0.tgz#0c2b0eeb3f16c557638b6dbd5956a425460d7d0f"
-  integrity sha512-RYIzl7jfG0i2jH/k5IZg4C1anyHfmKHNUsBKIn9LU0V3iQ0WQrwuOLFDJwaZDenqmzHYJhAVCGAkrBDfF/IlVg==
+hexo@^7.3.0:
+  version "7.3.0"
+  resolved "https://registry.yarnpkg.com/hexo/-/hexo-7.3.0.tgz#a9a487874c5ed71c22e91e32dd5d825709a1474f"
+  integrity sha512-dOe8mzBKrvjubW5oBmyhcnQDpC+M2xmAMLae5K+o+SkHxyvAhShkS2VQZoTsOLIJKY6xilv7dzCjCvE7ol/NHQ==
   dependencies:
     abbrev "^2.0.0"
     archy "^1.0.0"
