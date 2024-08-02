@@ -299,7 +299,7 @@ description: 我的朋友们！
                   <div class="info">Ricky 的各种日常捏</div>
                </div>
             </div>
-             <div class="card">
+            <div class="card">
                <img class="ava" src="https://bu.dusays.com/2023/12/23/65867c3357bb6.jpg" />
                <div class="card-header">
                   <div>
