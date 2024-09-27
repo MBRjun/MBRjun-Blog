@@ -716,8 +716,8 @@ packages:
   micro-memoize@4.1.2:
     resolution: {integrity: sha512-+HzcV2H+rbSJzApgkj0NdTakkC+bnyeiUxgT6/m7mjcz1CmM22KYFKp+EVj1sWe4UYcnriJr5uqHQD/gMHLD+g==}
 
-  micromatch@4.0.5:
-    resolution: {integrity: sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==}
+  micromatch@4.0.8:
+    resolution: {integrity: sha512-PXwfBhYu0hBCPw8Dn0E+WDYb7af3dSLVWKi3HGv84IdF4TyFoC0ysxFd0Goxw7nSv4T/PzEJQxsYsEiFCKo2BA==}
     engines: {node: '>=8.6'}
 
   mime-db@1.52.0:
@@ -1625,7 +1625,7 @@ snapshots:
   hexo-generator-sitemap@3.0.1(chokidar@3.5.3):
     dependencies:
       hexo-util: 2.7.0
-      micromatch: 4.0.5
+      micromatch: 4.0.8
       nunjucks: 3.2.4(chokidar@3.5.3)
     transitivePeerDependencies:
       - chokidar
@@ -1641,7 +1641,7 @@ snapshots:
   hexo-html-minifier@1.0.0:
     dependencies:
       html-minifier: 4.0.0
-      micromatch: 4.0.5
+      micromatch: 4.0.8
 
   hexo-i18n@2.0.0:
     dependencies:
@@ -1743,7 +1743,7 @@ snapshots:
       hexo-util: 3.3.0
       js-yaml: 4.1.0
       js-yaml-js-types: 1.0.1(js-yaml@4.1.0)
-      micromatch: 4.0.5
+      micromatch: 4.0.8
       moize: 6.1.6
       moment: 2.29.4
       moment-timezone: 0.5.43
@@ -1938,7 +1938,7 @@ snapshots:
 
   micro-memoize@4.1.2: {}
 
-  micromatch@4.0.5:
+  micromatch@4.0.8:
     dependencies:
       braces: 3.0.3
       picomatch: 2.3.1
