@@ -300,6 +300,15 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2024/09/27/066e5445-1f3e-46a4-9bb3-cde563699f0e.webp" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://blog.gxres.net">Restent's Notebook</a>
+                  </div>
+                  <div class="info">静寂に問う 答えを求めて</div>
+               </div>
+            </div>
+            <div class="card">
                <img class="ava" src="https://bu.dusays.com/2023/12/23/65867c3357bb6.jpg" />
                <div class="card-header">
                   <div>
