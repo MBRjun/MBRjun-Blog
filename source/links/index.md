@@ -302,7 +302,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
-               <img class="ava" src="https://library.gxres.net/images/icons/avatar.webp" />
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2024/09/27/066e5445-1f3e-46a4-9bb3-cde563699f0e.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.gxres.net">Restent's Notebook</a>
