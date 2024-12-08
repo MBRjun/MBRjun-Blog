@@ -317,6 +317,15 @@ description: 我的朋友们！
                   <div class="info">Blogger / Technophile / Student</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://blog.sinzmise.top/images/icon.png" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://blog.sinzmise.top/">汐塔魔法屋</a>
+                  </div>
+                  <div class="info">种下一颗有故事的种子，让它带着魔法和奇迹生根发芽</div>
+               </div>
+            </div>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
