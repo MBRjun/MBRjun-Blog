@@ -317,6 +317,15 @@ description: 我的朋友们！
                   <div class="info">Blogger / Technophile / Student</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://shenao1100.github.io/imgs/avatar.jpg" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://shenao1100.github.io/">NTG的小窝</a>
+                  </div>
+                  <div class="info">喵，喵喵喵喵，喵喵喵喵！</div>
+               </div>
+            </div>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
