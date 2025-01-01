@@ -254,8 +254,8 @@ packages:
   constantinople@4.0.1:
     resolution: {integrity: sha512-vCrqcSIq4//Gx74TXXCGnHpulY1dskqLTFGDmhrGxzeXL8lF8kvXv6mpNWlJj1uD4DW23D4ljAqbY4RRaaUZIw==}
 
-  cross-spawn@7.0.3:
-    resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
+  cross-spawn@7.0.6:
+    resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
     engines: {node: '>= 8'}
 
   css-select@5.1.0:
@@ -1377,7 +1377,7 @@ snapshots:
       '@babel/parser': 7.23.0
       '@babel/types': 7.23.0
 
-  cross-spawn@7.0.3:
+  cross-spawn@7.0.6:
     dependencies:
       path-key: 3.1.1
       shebang-command: 2.0.0
@@ -1703,7 +1703,7 @@ snapshots:
     dependencies:
       bluebird: 3.7.2
       camel-case: 4.1.2
-      cross-spawn: 7.0.3
+      cross-spawn: 7.0.6
       deepmerge: 4.3.1
       highlight.js: 11.9.0
       htmlparser2: 7.2.0
@@ -1713,7 +1713,7 @@ snapshots:
   hexo-util@3.1.0:
     dependencies:
       camel-case: 4.1.2
-      cross-spawn: 7.0.3
+      cross-spawn: 7.0.6
       deepmerge: 4.3.1
       highlight.js: 11.9.0
       htmlparser2: 9.0.0
@@ -1723,7 +1723,7 @@ snapshots:
   hexo-util@3.3.0:
     dependencies:
       camel-case: 4.1.2
-      cross-spawn: 7.0.3
+      cross-spawn: 7.0.6
       deepmerge: 4.3.1
       highlight.js: 11.9.0
       htmlparser2: 9.0.0
