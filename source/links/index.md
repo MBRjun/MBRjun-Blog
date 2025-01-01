@@ -318,6 +318,15 @@ description: 我的朋友们！
                   <div class="info">Blogger / Technophile / Student</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://vxcode.top/assets/icon/logo2.png" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://vxcode.top/">文奚.技术驿站</a>
+                  </div>
+                  <div class="info">代码在手，天下我有</div>
+               </div>
+            </div>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
