@@ -121,7 +121,7 @@ description: 我的朋友们！
             </div>
             友链移除原因：无法访问
             -->
-            <div class="card">
+            <!-- <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/04/24/wl.jpg" />
                <div class="card-header">
                   <div>
@@ -129,7 +129,7 @@ description: 我的朋友们！
                   </div>
                   <div class="info">May all the beauty be blessed.——《Moon Halo》</div>
                </div>
-            </div>
+            </div> -->
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/04/30/7e.jpg" />
                <div class="card-header">
@@ -151,10 +151,10 @@ description: 我的朋友们！
             友链移除原因：无法访问
             -->
             <div class="card">
-               <img class="ava" src="https://cos.nekorua.com/imgs/head1x2.webp" />
+               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2025/01/01/22173bff-81d6-4694-aabd-82eea35a7c8e.webp" />
                <div class="card-header">
                   <div>
-                     <a href="https://blog.nekorua.com/">BLxcwg666 の Blog</a>
+                     <a href="https://blog.xcnya.cn/">BLxcwg666 の Blog</a>
                      <!--点不开带 rayid 找我 tg -->
                   </div>
                   <div class="info">静かで奥深い</div>
@@ -272,7 +272,7 @@ description: 我的朋友们！
                   <div class="info">愿每个人都被温柔以待</div>
                </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/08/8a50e41c-c1dd-4b70-8a99-404bdc830488.webp" />
                <div class="card-header">
                   <div>
@@ -281,6 +281,7 @@ description: 我的朋友们！
                   <div class="info">梦是幽蓝色彩 灵魂如雪纯白</div>
                </div>
             </div>
+            友链移除原因：无法访问（NXDOMAIN） -->
             <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/15/899315c3-1a0c-443c-8aae-5a2a455214b3.webp" />
                <div class="card-header">
@@ -294,7 +295,7 @@ description: 我的朋友们！
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/29/d25711c5-649f-4cbe-8684-e985e561e899.webp" />
                <div class="card-header">
                   <div>
-                     <a href="https://blog.rkmiao.eu.org">Ricky8955555's Blog</a>
+                     <a href="https://blog.rkk.moe">Ricky8955555's Blog</a>
                   </div>
                   <div class="info">Ricky 的各种日常捏</div>
                </div>
@@ -324,6 +325,12 @@ description: 我的朋友们！
                   ...
                </div>
                请参考 https://github.com/MBRjun/MBRjun-Blog/pull/4/commits/b637e43bb43e6cc661e0c78a16242ed43ed74f00
+               您需要提供不超过 100kB 的矩形头像，接受 WebP（强烈推荐）、JPEG、PNG、ICO，推荐使用 squoosh.app 在线压缩
+               请确保链接可以在以下测试点均可以正常访问，我们会定期检查并维护友链，如果连续无法访问，您的友链可能会被移除（移除友链操作均会事先通知，修复后，请重新创建 PR）
+               AS：4837 6939 17676 20473 45090 137908
+               如果无法添加 AS 白名单，请添加下面的 IP 进入白名单
+               IPv4：111.163.0.0/16 60.24.57.0/24 43.129.183.0/24 126.220.96.0/24 198.13.46.0/24
+               IPv6：2408:8210::/32 2400:2652:480:5200::/64 2406:840:ee4::/44 2001:470:18:444::/64
             -->
          </div>
       </div>
