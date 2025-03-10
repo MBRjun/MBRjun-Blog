@@ -214,7 +214,7 @@ description: 我的朋友们！
                   <div class="info">心中有光，对立重伤</div>
                </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/02/05/6e2fd027-7539-470d-adca-3a4be5eca290.jpg" />
                <div class="card-header">
                   <div>
@@ -223,6 +223,7 @@ description: 我的朋友们！
                   <div class="info">一只笨蛋的Blog</div>
                </div>
             </div>
+            友链移除原因：对方友链移除 -->
             <!-- <div class="card">
             <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/02/11/5d653ff0-3ed9-4b4c-ab38-016ef22307f3.jpg" />
                <div class="card-header">
@@ -327,7 +328,7 @@ description: 我的朋友们！
                   <div class="info">种下一颗有故事的种子，让它带着魔法和奇迹生根发芽</div>
                </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                <img class="ava" src="https://vxcode.top/assets/icon/logo2.png" />
                <div class="card-header">
                   <div>
@@ -336,6 +337,8 @@ description: 我的朋友们！
                   <div class="info">代码在手，天下我有</div>
                </div>
             </div>
+            友链移除原因：头像404
+            -->
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
