@@ -329,16 +329,15 @@ description: 我的朋友们！
                   <div class="info">探索更大的世界</div>
                </div>
             </div>
-            <!-- <div class="card">
-               <img class="ava" src="https://blog.sinzmise.top/images/icon.png" />
+            <div class="card">
+               <img class="ava" src="https://blog.storical.space/images/icon.png" />
                <div class="card-header">
                   <div>
-                     <a href="https://blog.sinzmise.top/">汐塔魔法屋</a>
+                     <a href="https://blog.storical.space/">汐塔魔法屋</a>
                   </div>
                   <div class="info">种下一颗有故事的种子，让它带着魔法和奇迹生根发芽</div>
                </div>
             </div>
-            友链移除原因：头像302到非图片资源 -->
             <!-- <div class="card">
                <img class="ava" src="https://vxcode.top/assets/icon/logo2.png" />
                <div class="card-header">
