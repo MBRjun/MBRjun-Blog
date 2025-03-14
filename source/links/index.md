@@ -319,6 +319,16 @@ description: 我的朋友们！
                   <div class="info">Blogger / Technophile / Student</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://img.cdn.loliloli.net/content/images/users/V3Q/av_1625277536.png" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://blog.moeworld.tech/">空域</a>
+                     <!-- Contact: sakura@moeworld.top -->
+                  </div>
+                  <div class="info">探索更大的世界</div>
+               </div>
+            </div>
             <!-- <div class="card">
                <img class="ava" src="https://blog.sinzmise.top/images/icon.png" />
                <div class="card-header">
