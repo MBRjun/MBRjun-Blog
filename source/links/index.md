@@ -320,6 +320,16 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
+               <img class="ava" src="https://img.cdn.loliloli.net/content/images/users/V3Q/av_1625277536.png" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://blog.moeworld.tech/">空域</a>
+                     <!-- Contact: sakura@moeworld.top -->
+                  </div>
+                  <div class="info">探索更大的世界</div>
+               </div>
+            </div>
+            <div class="card">
                <img class="ava" src="https://blog.storical.space/images/icon.png" />
                <div class="card-header">
                   <div>
@@ -369,4 +379,4 @@ description: 我的朋友们！
 |``url``|``https://www.mbrjun.cn/``|
 
 ### 申请友链
-请[在 GitHub 修改此页面](https://github.com/MBRjun/MBRjun-Blog/edit/main/source/links/index.md)，然后创建 Pull Request
+请在阅读[要求](https://www.mbrjun.cn/link-exchange-requirement/)后[在 Git 或 GitHub 修改此页面](https://github.com/MBRjun/MBRjun-Blog/edit/main/source/links/index.md)，然后创建 Pull Request 或向我发送 Patch
