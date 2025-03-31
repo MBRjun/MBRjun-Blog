@@ -338,6 +338,15 @@ description: 我的朋友们！
                   <div class="info">种下一颗有故事的种子，让它带着魔法和奇迹生根发芽</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://img.dao.js.cn/zb_users/upload/2021/10/202110151634246697912592.png-webp" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://www.dao.js.cn/">南蛮子懋和</a>
+                  </div>
+                  <div class="info">李懋和，俗名李栋梁。书法、国画爱好者，互联网安全与前端建设者。</div>
+               </div>
+            </div>            
             <!-- <div class="card">
                <img class="ava" src="https://vxcode.top/assets/icon/logo2.png" />
                <div class="card-header">
