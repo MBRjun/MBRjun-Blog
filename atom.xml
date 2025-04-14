@@ -6,7 +6,7 @@
   <link href="https://www.mbrjun.cn/atom.xml" rel="self"/>
   
   <link href="https://www.mbrjun.cn/"/>
-  <updated>2025-04-03T16:02:23.000Z</updated>
+  <updated>2025-04-14T11:41:02.000Z</updated>
   <id>https://www.mbrjun.cn/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>TLS 证书有效期将缩短至 47 天</title>
+    <link href="https://www.mbrjun.cn/archives/505/"/>
+    <id>https://www.mbrjun.cn/archives/505/</id>
+    <published>2025-04-14T11:41:02.000Z</published>
+    <updated>2025-04-14T11:41:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>根据 Apple 的提案，TLS 证书（也称为 SSL 证书）证书的最长有效期将逐步缩短至 47 天。随着此改变，证书自动化部署将会变得越来越重要，人工更新证书最终将被淘汰。  </p><span id="more"></span><p>由国际性电子认证机构（CA）与操作系统、浏览器厂商组成的CA&#x2F;B论坛（CA &#x2F; Browser Forum）投票通过由苹果公司（Apple）最早提出的 <a href="https://groups.google.com/a/groups.cabforum.org/g/servercert-wg/c/9768xgUUfhQ">SC-081v3</a> 号提案。  </p><p>提案指出，缩短证书有效期可以降低因信息陈旧带来的安全风险，并弥补证书撤销机制的不足。更短的有效期迫使组织采用自动化证书管理流程，提升整体管理水平和安全性，同时减少人工错误并更快响应潜在威胁。  </p><h2 id="有效期缩短计划"><a href="#有效期缩短计划" class="headerlink" title="有效期缩短计划"></a>有效期缩短计划</h2><p>TLS 服务器证书的最长有效期将<strong>分阶段</strong>逐步缩短，以确保现有服务能有时间适应改变。现在的状态及未来的计划如下：</p><table><thead><tr><th>日期</th><th>证书最长有效期</th></tr></thead><tbody><tr><td>2020-09-01 后</td><td>398 天</td></tr><tr><td>2026-03-15 后</td><td>200 天</td></tr><tr><td>2027-03-15 后</td><td>100 天</td></tr><tr><td>2029-03-15 后</td><td>47 天</td></tr></tbody></table><h2 id="历史上的有效期缩短"><a href="#历史上的有效期缩短" class="headerlink" title="历史上的有效期缩短"></a>历史上的有效期缩短</h2><p>2011 年，CA&#x2F;B 论坛将证书有效期从最初的 8-10 年缩短至 5 年；2015 年进一步缩短为 3 年；2018 年再次调整为 2 年。尽管 2019 年 CA&#x2F;B 论坛投票否决了将有效期缩短至一年的提议，但这一措施获得了苹果、谷歌、微软、Mozilla 和 Opera 等主要浏览器厂商的支持。随后，2020 年 2 月，苹果宣布拒绝接受有效期超过 398 天（约一年）的新证书，并在同年 9 月 1 日后严格执行此政策。此后，Google 和 Mozilla 也相继效仿，进一步推动了证书有效期缩短的趋势。  </p><h2 id="自动化续订的重要性"><a href="#自动化续订的重要性" class="headerlink" title="自动化续订的重要性"></a>自动化续订的重要性</h2><p>自动化续订对于缓解证书有效期缩短带来的问题至关重要。随着证书更新频率的增加，意外过期的风险也随之上升。自动化策略通过简化证书生命周期管理，覆盖从申请、颁发到续订和吊销的每个阶段，减少了人工干预的需求。这种方法不仅提高了效率，还增强了可靠性，尤其在管理大量 SSL 证书时，能够有效防止证书过期，确保安全性和业务连续性。</p><h2 id="不应继续人工预订"><a href="#不应继续人工预订" class="headerlink" title="不应继续人工预订"></a>不应继续人工预订</h2><p>证书有效期开始缩短后，手动管理证书流程本身就不切实际，而证书有效期缩短至最长 47 天将加剧现有问题。简而言之，IT 部门根本无法应对。随着 TLS 证书数量不断增加，有效管理这些证书将变得越来越困难。假设未来使用最长有效期 47 天的证书，一年将至少要续订 8 次，如果服务器证书大规模部署，使用手动续费，每次操作都可能需要几十分钟的时间。随着需要续订次数增加，需要的人力成本将成倍增加，发生人为错误的风险也将提高。在有效期缩短后，自动化部署每年可能只会多消耗几十 MB 流量，而人工部署每年很可能需要总共几个小时的时间。</p><h2 id="做好准备"><a href="#做好准备" class="headerlink" title="做好准备"></a>做好准备</h2><p>仍在手动续费并管理证书的用户应当尽早考虑自动化部署，现在就进行自动化部署可以立刻享受到其带来的优势以及管理成本的降低。提前做好测试部署也可以有更充足的时间应对意外。如果认为修改不支持自动续订的遗留系统需要更长时间，您也可以考虑在缩短有效期的截止时间前 1 个月再次购买最后一张 1 年有效期的证书。  </p><p>目前，有很多优秀的证书自动化管理工具可以全自动完成证书的购买、续订、部署等过程，例如本站正在使用 <a href="https://acme.sh/">acme.sh</a> 来自动签发证书。您还可以考虑 CertBot 或其他工具。  </p><h2 id="本站"><a href="#本站" class="headerlink" title="本站"></a>本站</h2><p>本站目前使用 <a href="https://pki.goog/">GTS</a> 颁发的证书，有效期均为 90 天。  </p><p>一旦相关工具链对短周期证书完成适配，本站将尽可能早的切换到 30 天或更短有效期的短周期证书。  </p><p>本站的证书自动申请使用 <a href="https://acme.sh/">acme.sh</a>，服务器自动部署采用 NFS、rsync 配合自有工具实现，CDN 和云加速自动部署将会使用自维护的 CI&#x2F;CD 实现。  </p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;根据 Apple 的提案，TLS 证书（也称为 SSL 证书）证书的最长有效期将逐步缩短至 47 天。随着此改变，证书自动化部署将会变得越来越重要，人工更新证书最终将被淘汰。  &lt;/p&gt;</summary>
+    
+    
+    
+    <category term="网络" scheme="https://www.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="TLS" scheme="https://www.mbrjun.cn/tags/TLS/"/>
+    
+    <category term="证书" scheme="https://www.mbrjun.cn/tags/%E8%AF%81%E4%B9%A6/"/>
+    
+    <category term="SSL" scheme="https://www.mbrjun.cn/tags/SSL/"/>
+    
+    <category term="CA" scheme="https://www.mbrjun.cn/tags/CA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>IPv6 配置常见问题 Linux 篇 Ⅰ</title>
+    <link href="https://www.mbrjun.cn/archives/504/"/>
+    <id>https://www.mbrjun.cn/archives/504/</id>
+    <published>2025-04-12T11:41:02.000Z</published>
+    <updated>2025-04-12T11:41:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>随着 IPv4 资源枯竭和 IPv6 的发展，越来越多的人开始为自己的网络部署 IPv6，本文章总结一下自己和朋友踩过的坑。 </p><p>本文章仅提及标准 Linux 和 OpenWrt 上的 IPv6 配置 ，不包含 Android 等特殊操作系统。其他操作系统的配置我后续将在其他文章单独讨论。</p><span id="more"></span><h2 id="ndisc-router-discovery-failed-to-add-default-route"><a href="#ndisc-router-discovery-failed-to-add-default-route" class="headerlink" title="ndisc_router_discovery failed to add default route"></a>ndisc_router_discovery failed to add default route</h2><p>是一个内核报错信息，完整的是 <code>ICMPv6: RA: ndisc_router_discovery failed to add default route</code>  </p><p>一般此问题多在配置<strong>静态 IPv6</strong> 的机器出现。  </p><p>错误的原因是：已经设置了静态网关，但是 RA 没有关闭。</p><h4 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">net.ipv6.conf.INTERFACE.accept_ra=0<br></code></pre></td></tr></table></figure><p><em>INTERFACE</em> 替换为网络接口，也可以使用 all 和 default 设置所有接口或默认值<br>添加至 <code>/etc/sysctl.conf</code>，运行 <code>sysctl -p</code> 保存</p><hr><h2 id="开启-IP-转发后-IPv6-地址丢失"><a href="#开启-IP-转发后-IPv6-地址丢失" class="headerlink" title="开启 IP 转发后 IPv6 地址丢失"></a>开启 IP 转发后 IPv6 地址丢失</h2><p>开启 IP 转发后默认禁止接收 RA，可以通过以下方式恢复  </p><h4 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">net.ipv6.conf.all.accept_ra=2<br>net.ipv6.conf.default.accept_ra=2<br></code></pre></td></tr></table></figure><p>添加至 <code>/etc/sysctl.conf</code>，运行 <code>sysctl -p</code> 保存</p><hr><h2 id="IPv6-DUID-不固定"><a href="#IPv6-DUID-不固定" class="headerlink" title="IPv6 DUID 不固定"></a>IPv6 DUID 不固定</h2><p>路由器上已经为 Linux 主机设置了静态 DHCPv6 分配，但是主机重启后无法获取 IPv6 或获取的地址不一致，检查发现是 DUID 改变。</p><p>大概率是 <code>ifupdown2</code> 的问题，检查一下系统是不是在用 <code>ifupdown2</code>（一般来说，Proxmox 的系统默认就使用 <code>ifupdown2</code>，其他情况可以通过检测系统是否有 <code>ifreload</code> 命令来判断）  </p><h4 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="解决方案"></a>解决方案</h4><p><a href="https://github.com/CumulusNetworks/ifupdown2/pull/326">CumulusNetworks&#x2F;ifupdown2 #326</a>  </p><p>尝试打我写的这个 <a href="https://github.com/CumulusNetworks/ifupdown2/pull/326.patch">Patch</a>。  </p><hr><h2 id="RA-hop-limit-过低"><a href="#RA-hop-limit-过低" class="headerlink" title="RA hop limit 过低"></a>RA hop limit 过低</h2><p>具体表现有：<code>ping</code> IPv6 提示 <code>Time exceeded: Hop limit</code>，curl 等网络工具直接提示 <code>Couldn&#39;t connect to server</code> 和 <code>No route to host</code>  </p><p>原因是 IPv6 RA 中的 hop limit 过低。  </p><p>有朋友向我反馈：他家的某（通信设备大厂）品牌路由器有这个问题，在抓包分析下发现路由器随机发送 hop limit 为 5-12 的 RA，导致网络故障  </p><p><img src="https://cos.mbrjun.cn/IMGS/2025/04/14/62dfa3a6-fcb3-4855-bac7-e3028988ce69.webp" alt="RA with hop limit 5"></p><p>截至 2025，大多数路由器（尤其是家用路由器）的 IPv6 配置功能不全，功能相对全的大概只有新版本的 OpenWrt 和 ROS 了。大多数路由器无法手动设置 IPv6 的 hop limit，所以我们通过<strong>设置 Linux 最低接受的 hop limit</strong> 来解决问题。  </p><h4 id="解决方案-3"><a href="#解决方案-3" class="headerlink" title="解决方案"></a>解决方案</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">net.ipv6.conf.INTERFACE.accept_ra_min_hop_limit=64<br></code></pre></td></tr></table></figure><p><em>INTERFACE</em> 替换为网络接口，也可以使用 all 和 default 设置所有接口或默认值<br>最后的数字即为最小 hop limit。一般设置为 64 即可</p><p>添加至 <code>/etc/sysctl.conf</code>，运行 <code>sysctl -p</code> 保存  </p><div class="alert warning"><p><strong>反对盲目蛮干！</strong><br><img src="https://cos.mbrjun.cn/IMGS/2025/04/14/81a5f63e-d46d-4d61-aa2a-1efc559e6ce3.webp" alt="ra min hop limit not set"></p></div><hr><h2 id="IPv6-配置中继后-LAN-设备还是没有地址"><a href="#IPv6-配置中继后-LAN-设备还是没有地址" class="headerlink" title="IPv6 配置中继后 LAN 设备还是没有地址"></a>IPv6 配置中继后 LAN 设备还是没有地址</h2><p>检查下 wan6 口的 master 有没有勾上（部分老版本 wrt 可能使用 wan 而不是 wan6 作为接口名）  </p><p><img src="https://cos.mbrjun.cn/IMGS/2025/04/14/6a27826c-783d-4b71-bd39-50e44ddfbc6e.webp" alt="IPv6 relay master"></p><h4 id="解决方案-4"><a href="#解决方案-4" class="headerlink" title="解决方案"></a>解决方案</h4><ul><li>勾上主接口<br>部分老版本 wrt 图形化找不到这个设置，修改 <code>/etc/config/dhcp</code><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">config dhcp wan6<br>  option dhcpv6 relay<br>  option ra relay<br>  option ndp relay<br>  option master 1<br></code></pre></td></tr></table></figure>在 wan6 添加 master 配置</li><li>另外，如果你的 OpenWrt 有 ULA 前缀 这个设置，把他清空并保存。</li></ul>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;随着 IPv4 资源枯竭和 IPv6 的发展，越来越多的人开始为自己的网络部署 IPv6，本文章总结一下自己和朋友踩过的坑。 &lt;/p&gt;
+&lt;p&gt;本文章仅提及标准 Linux 和 OpenWrt 上的 IPv6 配置 ，不包含 Android 等特殊操作系统。其他操作系统的配置我后续将在其他文章单独讨论。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="网络" scheme="https://www.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/"/>
+    
+    
+    <category term="Linux" scheme="https://www.mbrjun.cn/tags/Linux/"/>
+    
+    <category term="IPv6" scheme="https://www.mbrjun.cn/tags/IPv6/"/>
+    
+  </entry>
   
   <entry>
     <title>Nginx 反代缓存的基础配置</title>
@@ -492,61 +543,6 @@
     <category term="fetch" scheme="https://www.mbrjun.cn/tags/fetch/"/>
     
     <category term="GFW" scheme="https://www.mbrjun.cn/tags/GFW/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>入坑 maimai！</title>
-    <link href="https://www.mbrjun.cn/archives/485/"/>
-    <id>https://www.mbrjun.cn/archives/485/</id>
-    <published>2023-05-07T15:40:11.000Z</published>
-    <updated>2023-05-25T16:34:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>入坑 maimai でらっくす 啦（<br>4 月 29 日去摸了一下舞萌 DX 2022，5 月 13 日游到日本去摸了一下最新最热 maimai でらっくす FESTiVAL+  </p><span id="more"></span><p><img src="https://cos.mbrjun.cn/IMGS/2023/05/25/0cff3d76-b17e-434e-897f-2ca9dd537567.webp" alt="maimai INTERNET OVERDOSE EXPERT 10+ AAA 96.5669%"><br><img src="https://cos.mbrjun.cn/IMGS/2023/05/09/5b63ff96-34b9-4b8f-98bc-b346a34f1da0.webp" alt="maimai"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;入坑 maimai でらっくす 啦（&lt;br&gt;4 月 29 日去摸了一下舞萌 DX 2022，5 月 13 日游到日本去摸了一下最新最热 maimai でらっくす FESTiVAL+  &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常" scheme="https://www.mbrjun.cn/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-    <category term="maimai" scheme="https://www.mbrjun.cn/tags/maimai/"/>
-    
-    <category term="maimaiDX" scheme="https://www.mbrjun.cn/tags/maimaiDX/"/>
-    
-    <category term="舞萌" scheme="https://www.mbrjun.cn/tags/%E8%88%9E%E8%90%8C/"/>
-    
-    <category term="舞萌DX" scheme="https://www.mbrjun.cn/tags/%E8%88%9E%E8%90%8CDX/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Minecraft 或将停止在中国大陆的服务</title>
-    <link href="https://www.mbrjun.cn/archives/484/"/>
-    <id>https://www.mbrjun.cn/archives/484/</id>
-    <published>2023-04-30T09:09:22.000Z</published>
-    <updated>2023-04-30T09:09:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><strong>本文中提到的所有 Minecraft 均指的是由 Microsoft Corporation 运营的一款游戏，与网易公司代理的游戏《我的世界》无关联</strong>  </p><p>近日部分中国玩家在自己的 Xbox 上打开 Minecraft 时收到了一条通知：「在您所在的地区内，我们即将无法支持此设备。」<br>Minecraft For Windows&#x2F;Xbox 现在也已经无法从中国大陆购买，这可能代表着 Minecraft 即将停止在中国大陆的服务  </p><span id="more"></span><hr><p>部分中国玩家在自己的 Xbox 上打开 Minecraft 时收到了这样的通知：</p><p><img src="https://cos.mbrjun.cn/IMGS/2023/04/30/1106cfa7-194e-41b4-a74f-835d8a302138.webp" alt="Xbox Minecraft End Support Warning in China"></p><p>该通知提到：最终版本发布后，您的地区<strong>无法再联网购买内容，但仍可下载已购项目或本地游玩</strong>，设备上的 <strong>Realm 服务器在 2023 年 9 月 30 日之后会停服</strong>  </p><p>目前只有 Xbox 用户收到此通知，Windows 玩家则未收到这个通知，但是这段提示已经可以在 Minecraft For Windows 的数据文件中找到：  </p><p><img src="https://cos.mbrjun.cn/IMGS/2023/04/30/6e0ee316-5b12-4af2-8593-f1697e1b07bb.webp" alt="Minecraft For Windows assets end support warning"></p><p>现在尝试在官网购买 Minecraft，如果你的 IP 地址在中国境内，付款时则会出现报错，无法购买（修改为繁体中文或其他语言可以购买），在官网查询 Minecraft 相关信息时，也出现了 502 报错：  </p><p><img src="https://cos.mbrjun.cn/IMGS/2023/04/30/1486e443-f8e8-4b25-90f8-811e6e45a409.webp" alt="Minecraft Official Website 502 Error in China"><br><img src="https://cos.mbrjun.cn/IMGS/2023/05/10/53e9b34c-dda2-496f-8e3c-b3a086dd2c08.webp" alt="Buy Minecraft in China"></p><p>Microsoft Store 目前也无法购买 Minecraft，但是已经购买 Minecraft 的玩家仍然可以下载，<strong>如果你担心未来无法正常更新 Minecraft，建议将 Microsoft 账户地区设置为中国大陆以外的地区</strong>  </p><p>虽然 Microsoft 尚未发出官方通知，但是根据 Xbox 上的提示以及游戏数据中的文字可以推测，国际版的 Minecraft 可能无法再在中国大陆更新了。  </p><p>此前，Microsoft&#x2F;Mojang 运营的 Minecraft 虽然可以在中国下载，但是未按照国家相关要求添加防沉迷等保护措施，而网易代理的《我的世界》遵守了这一规定，这可能是 Minecraft 发出此通知的一个原因。  </p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;&lt;strong&gt;本文中提到的所有 Minecraft 均指的是由 Microsoft Corporation 运营的一款游戏，与网易公司代理的游戏《我的世界》无关联&lt;/strong&gt;  &lt;/p&gt;
-&lt;p&gt;近日部分中国玩家在自己的 Xbox 上打开 Minecraft 时收到了一条通知：「在您所在的地区内，我们即将无法支持此设备。」&lt;br&gt;Minecraft For Windows&amp;#x2F;Xbox 现在也已经无法从中国大陆购买，这可能代表着 Minecraft 即将停止在中国大陆的服务  &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="游戏" scheme="https://www.mbrjun.cn/categories/%E6%B8%B8%E6%88%8F/"/>
-    
-    
-    <category term="Minecraft" scheme="https://www.mbrjun.cn/tags/Minecraft/"/>
-    
-    <category term="我的世界" scheme="https://www.mbrjun.cn/tags/%E6%88%91%E7%9A%84%E4%B8%96%E7%95%8C/"/>
-    
-    <category term="微软" scheme="https://www.mbrjun.cn/tags/%E5%BE%AE%E8%BD%AF/"/>
-    
-    <category term="Microsoft" scheme="https://www.mbrjun.cn/tags/Microsoft/"/>
     
   </entry>
   
