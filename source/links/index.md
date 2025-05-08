@@ -338,6 +338,15 @@ description: 我的朋友们！
                   <div class="info">种下一颗有故事的种子，让它带着魔法和奇迹生根发芽</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://jeffz.page/images/logo.webp" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://jeffz.page/">JeffZ Blog</a>
+                  </div>
+                  <div class="info">JeffZ的个人博客</div>
+               </div>
+            </div>
             <!-- <div class="card">
                <img class="ava" src="https://vxcode.top/assets/icon/logo2.png" />
                <div class="card-header">
