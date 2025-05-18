@@ -375,7 +375,8 @@ description: 我的朋友们！
 |---|---|
 |``title``|``MBRjun-Blog``|
 |``description``|``我们生活在大地上，但我们的梦想超越天空``|
-|``icon``|``https://lfs.libmbr.com/assets/pics/LG4v4avatar180px.webp``|
+|``icon(square, 5kiB)``|``https://lfs.libmbr.com/assets/pics/LG4v5Savatar180px.webp``|
+|``icon(rounded, alpha, 8kiB)``|``https://lfs.libmbr.com/assets/pics/LG4v5Ravatar180px.webp``|
 |``url``|``https://www.mbrjun.cn/``|
 
 ### 申请友链
