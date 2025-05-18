@@ -94,7 +94,7 @@
 +clear_reading: false
 @@ -175 +183 @@
 -cover_image: cover.jpg
-+cover_image: https://cos.mbrjun.cn/IMGS/2023/03/23/4419f34e-9353-4b44-a6dd-ebb1db958fc5.webp
++cover_image: https://lfs.libmbr.com/assets/2023/03/23/4419f34e-9353-4b44-a6dd-ebb1db958fc5.webp
 @@ -177 +185 @@
 -favicon:
 +favicon: https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg

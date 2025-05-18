@@ -71,7 +71,7 @@ description: 我的朋友们！
       <div class="links-content">
          <div class="link-navigation">
             <!-- <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2020/09/06/bm.jpg" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2020/09/06/bm.jpg" />
                <div class="card-header">
                   <div>
                      <a href="https://bmyjacks.cn/">Bmyjacks</a>
@@ -93,7 +93,7 @@ description: 我的朋友们！
             DNSSEC: unsigned
             -->
             <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2020/09/06/xc.png" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2020/09/06/xc.png" />
                <div class="card-header">
                   <div>
                      <a href="https://www.itxcjm.top">新城旧梦</a>
@@ -122,7 +122,7 @@ description: 我的朋友们！
             友链移除原因：无法访问
             -->
             <!-- <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/04/24/wl.jpg" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2022/04/24/wl.jpg" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.cnmobile.link/">LiangBurs' Blog</a>
@@ -131,7 +131,7 @@ description: 我的朋友们！
                </div>
             </div> -->
             <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/04/30/7e.jpg" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2022/04/30/7e.jpg" />
                <div class="card-header">
                   <div>
                      <a href="https://misakacastle.moe/">Misaka Castle</a>
@@ -140,7 +140,7 @@ description: 我的朋友们！
                </div>
             </div>
             <!-- <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/05/04/avatar.jpg" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2022/05/04/avatar.jpg" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.akula.moe/">Akula::Blog</a>
@@ -151,7 +151,7 @@ description: 我的朋友们！
             友链移除原因：无法访问
             -->
             <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2025/01/01/22173bff-81d6-4694-aabd-82eea35a7c8e.webp" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2025/01/01/22173bff-81d6-4694-aabd-82eea35a7c8e.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.xcnya.cn/">BLxcwg666 の Blog</a>
@@ -161,7 +161,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/rv.jpg" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2022/12/29/rv.jpg" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.awbugl.top/">Awblogu</a>
@@ -170,7 +170,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2022/12/29/st.jpg" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2022/12/29/st.jpg" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.bsdayo.moe/">BsBlog</a>
@@ -179,7 +179,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/02/04/961e3f30-9244-4034-830b-aff22a833c02.jpg" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2023/02/04/961e3f30-9244-4034-830b-aff22a833c02.jpg" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.awa.moe/">氷上の湖精</a>
@@ -188,7 +188,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/02/04/bcd6a17d-acab-4c77-94a2-685e8882e63c.webp" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2023/02/04/bcd6a17d-acab-4c77-94a2-685e8882e63c.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.arisa.moe/">秋葉亜里沙</a>
@@ -215,7 +215,7 @@ description: 我的朋友们！
                </div>
             </div>
             <!-- <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/02/05/6e2fd027-7539-470d-adca-3a4be5eca290.jpg" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2023/02/05/6e2fd027-7539-470d-adca-3a4be5eca290.jpg" />
                <div class="card-header">
                   <div>
                      <a href="https://bakayang.moe">Yang-Blog</a>
@@ -225,7 +225,7 @@ description: 我的朋友们！
             </div>
             友链移除原因：对方友链移除 -->
             <!-- <div class="card">
-            <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/02/11/5d653ff0-3ed9-4b4c-ab38-016ef22307f3.jpg" />
+            <img class="ava" src="https://lfs.libmbr.com/assets/2023/02/11/5d653ff0-3ed9-4b4c-ab38-016ef22307f3.jpg" />
                <div class="card-header">
                   <div>
                      <a href="https://huige233.github.io/)">huige233's blog</a>
@@ -236,7 +236,7 @@ description: 我的朋友们！
             友链移除原因：无法访问（GitHub Pages 404）
             -->
             <div class="card">
-            <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/04/23/24615ecb-86e9-4178-aefb-f1c1152d12bf.webp" />
+            <img class="ava" src="https://lfs.libmbr.com/assets/2023/04/23/24615ecb-86e9-4178-aefb-f1c1152d12bf.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://new.gbclstudio.cn">拜瑞の博客</a>
@@ -245,7 +245,7 @@ description: 我的朋友们！
                </div>
             </div>
             <!-- <div class="card">
-              <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/06/28/a4669177-86f9-4a56-ae63-8237fc55e94e.webp" />
+              <img class="ava" src="https://lfs.libmbr.com/assets/2023/06/28/a4669177-86f9-4a56-ae63-8237fc55e94e.webp" />
               <div class="card-header">
                  <div>
                     <a href="https://9941y.top">Sh1zuku的小屋</a>
@@ -256,7 +256,7 @@ description: 我的朋友们！
             友链移除原因：无法访问
             -->
             <div class="card"> 
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/05/15/2b915e23-5d1d-4c44-a343-9e730fb0a11f.webp" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2023/05/15/2b915e23-5d1d-4c44-a343-9e730fb0a11f.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://lihaoyu.cn">晓雨杂记</a>
@@ -265,7 +265,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card"> 
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/10/3b548d8e-c94f-401f-b058-44e76d5fc7c1.webp" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2023/08/10/3b548d8e-c94f-401f-b058-44e76d5fc7c1.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://hiyase.github.io">冷曦的喵喵小屋</a>
@@ -274,7 +274,7 @@ description: 我的朋友们！
                </div>
             </div>
             <!-- <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/08/8a50e41c-c1dd-4b70-8a99-404bdc830488.webp" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2023/08/08/8a50e41c-c1dd-4b70-8a99-404bdc830488.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.sakurakooi.cyou/">SakuraKooi's Blog</a>
@@ -284,7 +284,7 @@ description: 我的朋友们！
             </div>
             友链移除原因：无法访问（NXDOMAIN） -->
             <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/15/899315c3-1a0c-443c-8aae-5a2a455214b3.webp" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2023/08/15/899315c3-1a0c-443c-8aae-5a2a455214b3.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://leziblog.com">LeZi的猫窝</a>
@@ -293,7 +293,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2023/08/29/d25711c5-649f-4cbe-8684-e985e561e899.webp" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2023/08/29/d25711c5-649f-4cbe-8684-e985e561e899.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.rkk.moe">Ricky8955555's Blog</a>
@@ -302,7 +302,7 @@ description: 我的朋友们！
                </div>
             </div>
             <div class="card">
-               <img class="ava" src="https://cos.mbrjun.cn/IMGS/2024/09/27/066e5445-1f3e-46a4-9bb3-cde563699f0e.webp" />
+               <img class="ava" src="https://lfs.libmbr.com/assets/2024/09/27/066e5445-1f3e-46a4-9bb3-cde563699f0e.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.gxres.net">Restent's Notebook</a>
