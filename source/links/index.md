@@ -150,16 +150,17 @@ description: 我的朋友们！
             </div>
             友链移除原因：无法访问
             -->
-            <div class="card">
+            <!-- <div class="card">
                <img class="ava" src="https://lfs.libmbr.com/assets/2025/01/01/22173bff-81d6-4694-aabd-82eea35a7c8e.webp" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.xcnya.cn/">BLxcwg666 の Blog</a>
-                     <!--点不开带 rayid 找我 tg -->
                   </div>
                   <div class="info">静かで奥深い</div>
                </div>
             </div>
+            友链移除原因：查友链偶遇防火墙 规则严格强如怪物 拼尽全力无法战胜
+            -->
             <div class="card">
                <img class="ava" src="https://lfs.libmbr.com/assets/2022/12/29/rv.jpg" />
                <div class="card-header">
@@ -319,16 +320,18 @@ description: 我的朋友们！
                   <div class="info">Blogger / Technophile / Student</div>
                </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                <img class="ava" src="https://img.cdn.loliloli.net/content/images/users/V3Q/av_1625277536.png" />
                <div class="card-header">
                   <div>
                      <a href="https://blog.moeworld.tech/">空域</a>
-                     <!-- Contact: sakura@moeworld.top -->
                   </div>
                   <div class="info">探索更大的世界</div>
                </div>
             </div>
+            Contact: sakura@moeworld.top
+            友链移除原因：头像504
+            -->
             <div class="card">
                <img class="ava" src="https://blog.storical.space/images/icon.png" />
                <div class="card-header">
@@ -356,12 +359,7 @@ description: 我的朋友们！
                   ...
                </div>
                请参考 https://github.com/MBRjun/MBRjun-Blog/pull/4/commits/b637e43bb43e6cc661e0c78a16242ed43ed74f00
-               您需要提供不超过 100kB 的矩形头像，接受 WebP（强烈推荐）、JPEG、PNG、ICO，推荐使用 squoosh.app 在线压缩
-               请确保链接可以在以下测试点均可以正常访问，我们会定期检查并维护友链，如果连续无法访问，您的友链可能会被移除（移除友链操作均会事先通知，修复后，请重新创建 PR）
-               AS：4837 6939 17676 20473 45090 137908
-               如果无法添加 AS 白名单，请添加下面的 IP 进入白名单
-               IPv4：111.163.0.0/16 60.24.57.0/24 43.129.183.0/24 126.220.96.0/24 198.13.46.0/24
-               IPv6：2408:8210::/32 2400:2652:480:5200::/64 2406:840:ee4::/44 2001:470:18:444::/64
+               请确保在修改前已阅读 source/link-exchange-requirement/index.md
             -->
          </div>
       </div>
@@ -380,4 +378,6 @@ description: 我的朋友们！
 |``url``|``https://www.libmbr.com/``|
 
 ### 申请友链
-请在阅读[要求](/link-exchange-requirement/)后[在 Git 或 GitHub 修改此页面](https://github.com/MBRjun/MBRjun-Blog/edit/main/source/links/index.md)，然后创建 Pull Request 或向我发送 Patch
+目前不接受非熟人申请。  
+
+阅读[要求](/link-exchange-requirement/)后[在 Git 或 GitHub 修改此页面](https://github.com/MBRjun/MBRjun-Blog/edit/main/source/links/index.md)，然后创建 Pull Request 或向我发送 Patch
