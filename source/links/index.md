@@ -377,7 +377,7 @@ description: 我的朋友们！
 |``description``|``我们生活在大地上，但我们的梦想超越天空``|
 |``icon(square, 5kiB)``|``https://lfs.libmbr.com/assets/pics/LG4v5Savatar180px.webp``|
 |``icon(rounded, alpha, 8kiB)``|``https://lfs.libmbr.com/assets/pics/LG4v5Ravatar180px.webp``|
-|``url``|``https://www.mbrjun.cn/``|
+|``url``|``https://www.libmbr.com/``|
 
 ### 申请友链
-请在阅读[要求](https://www.mbrjun.cn/link-exchange-requirement/)后[在 Git 或 GitHub 修改此页面](https://github.com/MBRjun/MBRjun-Blog/edit/main/source/links/index.md)，然后创建 Pull Request 或向我发送 Patch
+请在阅读[要求](/link-exchange-requirement/)后[在 Git 或 GitHub 修改此页面](https://github.com/MBRjun/MBRjun-Blog/edit/main/source/links/index.md)，然后创建 Pull Request 或向我发送 Patch
