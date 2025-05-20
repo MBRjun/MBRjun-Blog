@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://www.mbrjun.cn/sitemap.xml
+Sitemap: https://www.libmbr.com/sitemap.xml
