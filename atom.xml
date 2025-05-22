@@ -3,11 +3,11 @@
   <title>MBRjun-Blog</title>
   
   
-  <link href="https://www.mbrjun.cn/atom.xml" rel="self"/>
+  <link href="https://www.libmbr.com/atom.xml" rel="self"/>
   
-  <link href="https://www.mbrjun.cn/"/>
+  <link href="https://www.libmbr.com/"/>
   <updated>2025-05-16T15:36:02.000Z</updated>
-  <id>https://www.mbrjun.cn/</id>
+  <id>https://www.libmbr.com/</id>
   
   <author>
     <name>MBRjun</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>PVE 宿主机配置有状态 DHCPv6</title>
-    <link href="https://www.mbrjun.cn/archives/506/"/>
-    <id>https://www.mbrjun.cn/archives/506/</id>
+    <link href="https://www.libmbr.com/archives/506/"/>
+    <id>https://www.libmbr.com/archives/506/</id>
     <published>2025-05-16T15:36:02.000Z</published>
     <updated>2025-05-16T15:36:02.000Z</updated>
     
@@ -30,23 +30,23 @@
     
     
     
-    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Linux" scheme="https://www.mbrjun.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
     
-    <category term="IPv6" scheme="https://www.mbrjun.cn/tags/IPv6/"/>
+    <category term="虚拟机" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
-    <category term="虚拟机" scheme="https://www.mbrjun.cn/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
     
-    <category term="PVE" scheme="https://www.mbrjun.cn/tags/PVE/"/>
+    <category term="PVE" scheme="https://www.libmbr.com/tags/PVE/"/>
     
   </entry>
   
   <entry>
     <title>TLS 证书有效期将缩短至 47 天</title>
-    <link href="https://www.mbrjun.cn/archives/505/"/>
-    <id>https://www.mbrjun.cn/archives/505/</id>
+    <link href="https://www.libmbr.com/archives/505/"/>
+    <id>https://www.libmbr.com/archives/505/</id>
     <published>2025-04-14T11:41:02.000Z</published>
     <updated>2025-04-14T11:41:02.000Z</updated>
     
@@ -57,23 +57,23 @@
     
     
     
-    <category term="网络" scheme="https://www.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/"/>
+    <category term="网络" scheme="https://www.libmbr.com/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="TLS" scheme="https://www.mbrjun.cn/tags/TLS/"/>
+    <category term="TLS" scheme="https://www.libmbr.com/tags/TLS/"/>
     
-    <category term="证书" scheme="https://www.mbrjun.cn/tags/%E8%AF%81%E4%B9%A6/"/>
+    <category term="证书" scheme="https://www.libmbr.com/tags/%E8%AF%81%E4%B9%A6/"/>
     
-    <category term="SSL" scheme="https://www.mbrjun.cn/tags/SSL/"/>
+    <category term="SSL" scheme="https://www.libmbr.com/tags/SSL/"/>
     
-    <category term="CA" scheme="https://www.mbrjun.cn/tags/CA/"/>
+    <category term="CA" scheme="https://www.libmbr.com/tags/CA/"/>
     
   </entry>
   
   <entry>
     <title>IPv6 配置常见问题 Linux 篇 Ⅰ</title>
-    <link href="https://www.mbrjun.cn/archives/504/"/>
-    <id>https://www.mbrjun.cn/archives/504/</id>
+    <link href="https://www.libmbr.com/archives/504/"/>
+    <id>https://www.libmbr.com/archives/504/</id>
     <published>2025-04-12T11:41:02.000Z</published>
     <updated>2025-04-12T11:41:02.000Z</updated>
     
@@ -85,19 +85,19 @@
     
     
     
-    <category term="网络" scheme="https://www.mbrjun.cn/categories/%E7%BD%91%E7%BB%9C/"/>
+    <category term="网络" scheme="https://www.libmbr.com/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="Linux" scheme="https://www.mbrjun.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
     
-    <category term="IPv6" scheme="https://www.mbrjun.cn/tags/IPv6/"/>
+    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
     
   </entry>
   
   <entry>
     <title>Nginx 反代缓存的基础配置</title>
-    <link href="https://www.mbrjun.cn/archives/503/"/>
-    <id>https://www.mbrjun.cn/archives/503/</id>
+    <link href="https://www.libmbr.com/archives/503/"/>
+    <id>https://www.libmbr.com/archives/503/</id>
     <published>2025-04-03T16:02:23.000Z</published>
     <updated>2025-04-03T16:02:23.000Z</updated>
     
@@ -108,19 +108,19 @@
     
     
     
-    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="CDN" scheme="https://www.mbrjun.cn/tags/CDN/"/>
+    <category term="CDN" scheme="https://www.libmbr.com/tags/CDN/"/>
     
-    <category term="Nginx" scheme="https://www.mbrjun.cn/tags/Nginx/"/>
+    <category term="Nginx" scheme="https://www.libmbr.com/tags/Nginx/"/>
     
   </entry>
   
   <entry>
     <title>腾讯云轻量手动配置 IPv6</title>
-    <link href="https://www.mbrjun.cn/archives/502/"/>
-    <id>https://www.mbrjun.cn/archives/502/</id>
+    <link href="https://www.libmbr.com/archives/502/"/>
+    <id>https://www.libmbr.com/archives/502/</id>
     <published>2025-03-10T16:02:23.000Z</published>
     <updated>2025-03-10T16:02:23.000Z</updated>
     
@@ -131,21 +131,21 @@
     
     
     
-    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="IPv6" scheme="https://www.mbrjun.cn/tags/IPv6/"/>
+    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
     
-    <category term="腾讯云" scheme="https://www.mbrjun.cn/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/"/>
+    <category term="腾讯云" scheme="https://www.libmbr.com/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/"/>
     
-    <category term="云服务器" scheme="https://www.mbrjun.cn/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="云服务器" scheme="https://www.libmbr.com/tags/%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>iPhone 强制锁 120Hz 高刷的方法</title>
-    <link href="https://www.mbrjun.cn/archives/501/"/>
-    <id>https://www.mbrjun.cn/archives/501/</id>
+    <link href="https://www.libmbr.com/archives/501/"/>
+    <id>https://www.libmbr.com/archives/501/</id>
     <published>2025-03-10T15:00:39.000Z</published>
     <updated>2025-03-10T15:00:39.000Z</updated>
     
@@ -156,21 +156,21 @@
     
     
     
-    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="苹果" scheme="https://www.mbrjun.cn/tags/%E8%8B%B9%E6%9E%9C/"/>
+    <category term="苹果" scheme="https://www.libmbr.com/tags/%E8%8B%B9%E6%9E%9C/"/>
     
-    <category term="iPhone" scheme="https://www.mbrjun.cn/tags/iPhone/"/>
+    <category term="iPhone" scheme="https://www.libmbr.com/tags/iPhone/"/>
     
-    <category term="Apple" scheme="https://www.mbrjun.cn/tags/Apple/"/>
+    <category term="Apple" scheme="https://www.libmbr.com/tags/Apple/"/>
     
   </entry>
   
   <entry>
     <title>大致是个 2024 年度总结</title>
-    <link href="https://www.mbrjun.cn/archives/500/"/>
-    <id>https://www.mbrjun.cn/archives/500/</id>
+    <link href="https://www.libmbr.com/archives/500/"/>
+    <id>https://www.libmbr.com/archives/500/</id>
     <published>2024-12-31T15:59:59.000Z</published>
     <updated>2024-12-31T15:59:59.000Z</updated>
     
@@ -181,23 +181,23 @@
     
     
     
-    <category term="日常" scheme="https://www.mbrjun.cn/categories/%E6%97%A5%E5%B8%B8/"/>
+    <category term="日常" scheme="https://www.libmbr.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-    <category term="2024" scheme="https://www.mbrjun.cn/tags/2024/"/>
+    <category term="2024" scheme="https://www.libmbr.com/tags/2024/"/>
     
-    <category term="跨年" scheme="https://www.mbrjun.cn/tags/%E8%B7%A8%E5%B9%B4/"/>
+    <category term="跨年" scheme="https://www.libmbr.com/tags/%E8%B7%A8%E5%B9%B4/"/>
     
-    <category term="2025" scheme="https://www.mbrjun.cn/tags/2025/"/>
+    <category term="2025" scheme="https://www.libmbr.com/tags/2025/"/>
     
-    <category term="年度总结" scheme="https://www.mbrjun.cn/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
+    <category term="年度总结" scheme="https://www.libmbr.com/tags/%E5%B9%B4%E5%BA%A6%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>Hyper-V / KVM 中 VM 的时间同步</title>
-    <link href="https://www.mbrjun.cn/archives/499/"/>
-    <id>https://www.mbrjun.cn/archives/499/</id>
+    <link href="https://www.libmbr.com/archives/499/"/>
+    <id>https://www.libmbr.com/archives/499/</id>
     <published>2024-10-18T00:00:00.000Z</published>
     <updated>2024-10-18T00:00:00.000Z</updated>
     
@@ -209,25 +209,25 @@
     
     
     
-    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Hyper-V" scheme="https://www.mbrjun.cn/tags/Hyper-V/"/>
+    <category term="Hyper-V" scheme="https://www.libmbr.com/tags/Hyper-V/"/>
     
-    <category term="时间同步" scheme="https://www.mbrjun.cn/tags/%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/"/>
+    <category term="时间同步" scheme="https://www.libmbr.com/tags/%E6%97%B6%E9%97%B4%E5%90%8C%E6%AD%A5/"/>
     
-    <category term="NTP" scheme="https://www.mbrjun.cn/tags/NTP/"/>
+    <category term="NTP" scheme="https://www.libmbr.com/tags/NTP/"/>
     
-    <category term="PTP" scheme="https://www.mbrjun.cn/tags/PTP/"/>
+    <category term="PTP" scheme="https://www.libmbr.com/tags/PTP/"/>
     
-    <category term="KVM" scheme="https://www.mbrjun.cn/tags/KVM/"/>
+    <category term="KVM" scheme="https://www.libmbr.com/tags/KVM/"/>
     
   </entry>
   
   <entry>
     <title>将 Exos 硬盘格式化为 4Kn</title>
-    <link href="https://www.mbrjun.cn/archives/498/"/>
-    <id>https://www.mbrjun.cn/archives/498/</id>
+    <link href="https://www.libmbr.com/archives/498/"/>
+    <id>https://www.libmbr.com/archives/498/</id>
     <published>2024-08-02T00:00:00.000Z</published>
     <updated>2024-08-02T00:00:00.000Z</updated>
     
@@ -238,23 +238,23 @@
     
     
     
-    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="希捷" scheme="https://www.mbrjun.cn/tags/%E5%B8%8C%E6%8D%B7/"/>
+    <category term="希捷" scheme="https://www.libmbr.com/tags/%E5%B8%8C%E6%8D%B7/"/>
     
-    <category term="Exos" scheme="https://www.mbrjun.cn/tags/Exos/"/>
+    <category term="Exos" scheme="https://www.libmbr.com/tags/Exos/"/>
     
-    <category term="机械硬盘" scheme="https://www.mbrjun.cn/tags/%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98/"/>
+    <category term="机械硬盘" scheme="https://www.libmbr.com/tags/%E6%9C%BA%E6%A2%B0%E7%A1%AC%E7%9B%98/"/>
     
-    <category term="HDD" scheme="https://www.mbrjun.cn/tags/HDD/"/>
+    <category term="HDD" scheme="https://www.libmbr.com/tags/HDD/"/>
     
   </entry>
   
   <entry>
     <title>将 Debian 的根目录 FS 切换为 ZFS</title>
-    <link href="https://www.mbrjun.cn/archives/497/"/>
-    <id>https://www.mbrjun.cn/archives/497/</id>
+    <link href="https://www.libmbr.com/archives/497/"/>
+    <id>https://www.libmbr.com/archives/497/</id>
     <published>2024-05-18T00:00:00.000Z</published>
     <updated>2024-05-18T00:00:00.000Z</updated>
     
@@ -265,19 +265,19 @@
     
     
     
-    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Linux" scheme="https://www.mbrjun.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
     
-    <category term="ZFS" scheme="https://www.mbrjun.cn/tags/ZFS/"/>
+    <category term="ZFS" scheme="https://www.libmbr.com/tags/ZFS/"/>
     
   </entry>
   
   <entry>
     <title>针对 LUKS 自动解锁的冷启动攻击</title>
-    <link href="https://www.mbrjun.cn/archives/496/"/>
-    <id>https://www.mbrjun.cn/archives/496/</id>
+    <link href="https://www.libmbr.com/archives/496/"/>
+    <id>https://www.libmbr.com/archives/496/</id>
     <published>2024-03-31T00:00:00.000Z</published>
     <updated>2024-03-31T00:00:00.000Z</updated>
     
@@ -289,21 +289,21 @@
     
     
     
-    <category term="安全" scheme="https://www.mbrjun.cn/categories/%E5%AE%89%E5%85%A8/"/>
+    <category term="安全" scheme="https://www.libmbr.com/categories/%E5%AE%89%E5%85%A8/"/>
     
     
-    <category term="LUKS" scheme="https://www.mbrjun.cn/tags/LUKS/"/>
+    <category term="LUKS" scheme="https://www.libmbr.com/tags/LUKS/"/>
     
-    <category term="BitLocker" scheme="https://www.mbrjun.cn/tags/BitLocker/"/>
+    <category term="BitLocker" scheme="https://www.libmbr.com/tags/BitLocker/"/>
     
-    <category term="冷启动攻击" scheme="https://www.mbrjun.cn/tags/%E5%86%B7%E5%90%AF%E5%8A%A8%E6%94%BB%E5%87%BB/"/>
+    <category term="冷启动攻击" scheme="https://www.libmbr.com/tags/%E5%86%B7%E5%90%AF%E5%8A%A8%E6%94%BB%E5%87%BB/"/>
     
   </entry>
   
   <entry>
     <title>2024 来啦！</title>
-    <link href="https://www.mbrjun.cn/archives/495/"/>
-    <id>https://www.mbrjun.cn/archives/495/</id>
+    <link href="https://www.libmbr.com/archives/495/"/>
+    <id>https://www.libmbr.com/archives/495/</id>
     <published>2024-01-01T00:00:00.000Z</published>
     <updated>2024-01-01T00:00:00.000Z</updated>
     
@@ -314,21 +314,21 @@
     
     
     
-    <category term="日常" scheme="https://www.mbrjun.cn/categories/%E6%97%A5%E5%B8%B8/"/>
+    <category term="日常" scheme="https://www.libmbr.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-    <category term="2024" scheme="https://www.mbrjun.cn/tags/2024/"/>
+    <category term="2024" scheme="https://www.libmbr.com/tags/2024/"/>
     
-    <category term="新年" scheme="https://www.mbrjun.cn/tags/%E6%96%B0%E5%B9%B4/"/>
+    <category term="新年" scheme="https://www.libmbr.com/tags/%E6%96%B0%E5%B9%B4/"/>
     
-    <category term="跨年" scheme="https://www.mbrjun.cn/tags/%E8%B7%A8%E5%B9%B4/"/>
+    <category term="跨年" scheme="https://www.libmbr.com/tags/%E8%B7%A8%E5%B9%B4/"/>
     
   </entry>
   
   <entry>
     <title>解决 Hyper-V 安装 Linux 黑屏</title>
-    <link href="https://www.mbrjun.cn/archives/494/"/>
-    <id>https://www.mbrjun.cn/archives/494/</id>
+    <link href="https://www.libmbr.com/archives/494/"/>
+    <id>https://www.libmbr.com/archives/494/</id>
     <published>2023-08-20T00:00:00.000Z</published>
     <updated>2023-08-20T00:00:00.000Z</updated>
     
@@ -342,19 +342,19 @@
     
     
     
-    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Linux" scheme="https://www.mbrjun.cn/tags/Linux/"/>
+    <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
     
-    <category term="Hyper-V" scheme="https://www.mbrjun.cn/tags/Hyper-V/"/>
+    <category term="Hyper-V" scheme="https://www.libmbr.com/tags/Hyper-V/"/>
     
   </entry>
   
   <entry>
     <title>为 Hyper-V 上的 Linux VM 配置 3D 加速</title>
-    <link href="https://www.mbrjun.cn/archives/493/"/>
-    <id>https://www.mbrjun.cn/archives/493/</id>
+    <link href="https://www.libmbr.com/archives/493/"/>
+    <id>https://www.libmbr.com/archives/493/</id>
     <published>2023-08-01T00:00:00.000Z</published>
     <updated>2023-08-01T00:00:00.000Z</updated>
     
@@ -365,21 +365,21 @@
     
     
     
-    <category term="教程" scheme="https://www.mbrjun.cn/categories/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="Hyper-V" scheme="https://www.mbrjun.cn/tags/Hyper-V/"/>
+    <category term="Hyper-V" scheme="https://www.libmbr.com/tags/Hyper-V/"/>
     
-    <category term="Hypervisor" scheme="https://www.mbrjun.cn/tags/Hypervisor/"/>
+    <category term="Hypervisor" scheme="https://www.libmbr.com/tags/Hypervisor/"/>
     
-    <category term="GPU-PV" scheme="https://www.mbrjun.cn/tags/GPU-PV/"/>
+    <category term="GPU-PV" scheme="https://www.libmbr.com/tags/GPU-PV/"/>
     
   </entry>
   
   <entry>
     <title>解决 AIDA64 报错 Hypervisor is present</title>
-    <link href="https://www.mbrjun.cn/archives/492/"/>
-    <id>https://www.mbrjun.cn/archives/492/</id>
+    <link href="https://www.libmbr.com/archives/492/"/>
+    <id>https://www.libmbr.com/archives/492/</id>
     <published>2023-07-04T00:00:00.000Z</published>
     <updated>2023-07-04T00:00:00.000Z</updated>
     
@@ -390,21 +390,21 @@
     
     
     
-    <category term="软件" scheme="https://www.mbrjun.cn/categories/%E8%BD%AF%E4%BB%B6/"/>
+    <category term="软件" scheme="https://www.libmbr.com/categories/%E8%BD%AF%E4%BB%B6/"/>
     
     
-    <category term="Windows" scheme="https://www.mbrjun.cn/tags/Windows/"/>
+    <category term="Windows" scheme="https://www.libmbr.com/tags/Windows/"/>
     
-    <category term="AIDA64" scheme="https://www.mbrjun.cn/tags/AIDA64/"/>
+    <category term="AIDA64" scheme="https://www.libmbr.com/tags/AIDA64/"/>
     
-    <category term="Hypervisor" scheme="https://www.mbrjun.cn/tags/Hypervisor/"/>
+    <category term="Hypervisor" scheme="https://www.libmbr.com/tags/Hypervisor/"/>
     
   </entry>
   
   <entry>
     <title>手动修复 Windows UEFI BCD</title>
-    <link href="https://www.mbrjun.cn/archives/491/"/>
-    <id>https://www.mbrjun.cn/archives/491/</id>
+    <link href="https://www.libmbr.com/archives/491/"/>
+    <id>https://www.libmbr.com/archives/491/</id>
     <published>2023-07-03T00:00:00.000Z</published>
     <updated>2023-07-03T00:00:00.000Z</updated>
     
@@ -415,23 +415,23 @@
     
     
     
-    <category term="操作系统" scheme="https://www.mbrjun.cn/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    <category term="操作系统" scheme="https://www.libmbr.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-    <category term="Windows" scheme="https://www.mbrjun.cn/tags/Windows/"/>
+    <category term="Windows" scheme="https://www.libmbr.com/tags/Windows/"/>
     
-    <category term="UEFI" scheme="https://www.mbrjun.cn/tags/UEFI/"/>
+    <category term="UEFI" scheme="https://www.libmbr.com/tags/UEFI/"/>
     
-    <category term="bootmgr" scheme="https://www.mbrjun.cn/tags/bootmgr/"/>
+    <category term="bootmgr" scheme="https://www.libmbr.com/tags/bootmgr/"/>
     
-    <category term="bcd" scheme="https://www.mbrjun.cn/tags/bcd/"/>
+    <category term="bcd" scheme="https://www.libmbr.com/tags/bcd/"/>
     
   </entry>
   
   <entry>
     <title>RTL8168 升级使用 PVE 8.0</title>
-    <link href="https://www.mbrjun.cn/archives/490/"/>
-    <id>https://www.mbrjun.cn/archives/490/</id>
+    <link href="https://www.libmbr.com/archives/490/"/>
+    <id>https://www.libmbr.com/archives/490/</id>
     <published>2023-06-27T16:42:50.000Z</published>
     <updated>2023-06-27T16:42:50.000Z</updated>
     
@@ -442,25 +442,25 @@
     
     
     
-    <category term="操作系统" scheme="https://www.mbrjun.cn/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    <category term="操作系统" scheme="https://www.libmbr.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-    <category term="服务器" scheme="https://www.mbrjun.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="https://www.libmbr.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
-    <category term="虚拟化" scheme="https://www.mbrjun.cn/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
+    <category term="虚拟化" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
     
-    <category term="PVE" scheme="https://www.mbrjun.cn/tags/PVE/"/>
+    <category term="PVE" scheme="https://www.libmbr.com/tags/PVE/"/>
     
-    <category term="Proxmox VE" scheme="https://www.mbrjun.cn/tags/Proxmox-VE/"/>
+    <category term="Proxmox VE" scheme="https://www.libmbr.com/tags/Proxmox-VE/"/>
     
-    <category term="RTL8168" scheme="https://www.mbrjun.cn/tags/RTL8168/"/>
+    <category term="RTL8168" scheme="https://www.libmbr.com/tags/RTL8168/"/>
     
   </entry>
   
   <entry>
     <title>Proxmox VE 8 发布/更新教程</title>
-    <link href="https://www.mbrjun.cn/archives/489/"/>
-    <id>https://www.mbrjun.cn/archives/489/</id>
+    <link href="https://www.libmbr.com/archives/489/"/>
+    <id>https://www.libmbr.com/archives/489/</id>
     <published>2023-06-23T16:00:00.000Z</published>
     <updated>2023-06-23T16:00:00.000Z</updated>
     
@@ -471,27 +471,27 @@
     
     
     
-    <category term="操作系统" scheme="https://www.mbrjun.cn/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
+    <category term="操作系统" scheme="https://www.libmbr.com/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"/>
     
     
-    <category term="服务器" scheme="https://www.mbrjun.cn/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <category term="服务器" scheme="https://www.libmbr.com/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
-    <category term="虚拟化" scheme="https://www.mbrjun.cn/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
+    <category term="虚拟化" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
     
-    <category term="ESXi" scheme="https://www.mbrjun.cn/tags/ESXi/"/>
+    <category term="ESXi" scheme="https://www.libmbr.com/tags/ESXi/"/>
     
-    <category term="软路由" scheme="https://www.mbrjun.cn/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/"/>
+    <category term="软路由" scheme="https://www.libmbr.com/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/"/>
     
-    <category term="PVE" scheme="https://www.mbrjun.cn/tags/PVE/"/>
+    <category term="PVE" scheme="https://www.libmbr.com/tags/PVE/"/>
     
-    <category term="Proxmox VE" scheme="https://www.mbrjun.cn/tags/Proxmox-VE/"/>
+    <category term="Proxmox VE" scheme="https://www.libmbr.com/tags/Proxmox-VE/"/>
     
   </entry>
   
   <entry>
     <title>Can A Few Make A Difference?</title>
-    <link href="https://www.mbrjun.cn/archives/488/"/>
-    <id>https://www.mbrjun.cn/archives/488/</id>
+    <link href="https://www.libmbr.com/archives/488/"/>
+    <id>https://www.libmbr.com/archives/488/</id>
     <published>2023-05-25T16:13:33.000Z</published>
     <updated>2023-05-25T16:13:33.000Z</updated>
     
@@ -504,23 +504,23 @@
     
     
     
-    <category term="日常" scheme="https://www.mbrjun.cn/categories/%E6%97%A5%E5%B8%B8/"/>
+    <category term="日常" scheme="https://www.libmbr.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-    <category term="Environment" scheme="https://www.mbrjun.cn/tags/Environment/"/>
+    <category term="Environment" scheme="https://www.libmbr.com/tags/Environment/"/>
     
-    <category term="flamingos" scheme="https://www.mbrjun.cn/tags/flamingos/"/>
+    <category term="flamingos" scheme="https://www.libmbr.com/tags/flamingos/"/>
     
-    <category term="Plastic Pollution" scheme="https://www.mbrjun.cn/tags/Plastic-Pollution/"/>
+    <category term="Plastic Pollution" scheme="https://www.libmbr.com/tags/Plastic-Pollution/"/>
     
-    <category term="Cloth Bags" scheme="https://www.mbrjun.cn/tags/Cloth-Bags/"/>
+    <category term="Cloth Bags" scheme="https://www.libmbr.com/tags/Cloth-Bags/"/>
     
   </entry>
   
   <entry>
     <title>中通快递送丢一张 AIME 卡</title>
-    <link href="https://www.mbrjun.cn/archives/487/"/>
-    <id>https://www.mbrjun.cn/archives/487/</id>
+    <link href="https://www.libmbr.com/archives/487/"/>
+    <id>https://www.libmbr.com/archives/487/</id>
     <published>2023-05-19T11:49:00.000Z</published>
     <updated>2023-05-19T11:49:00.000Z</updated>
     
@@ -531,20 +531,20 @@
     
     
     
-    <category term="日常" scheme="https://www.mbrjun.cn/categories/%E6%97%A5%E5%B8%B8/"/>
+    <category term="日常" scheme="https://www.libmbr.com/categories/%E6%97%A5%E5%B8%B8/"/>
     
     
-    <category term="maimai" scheme="https://www.mbrjun.cn/tags/maimai/"/>
+    <category term="maimai" scheme="https://www.libmbr.com/tags/maimai/"/>
     
-    <category term="中通快递" scheme="https://www.mbrjun.cn/tags/%E4%B8%AD%E9%80%9A%E5%BF%AB%E9%80%92/"/>
+    <category term="中通快递" scheme="https://www.libmbr.com/tags/%E4%B8%AD%E9%80%9A%E5%BF%AB%E9%80%92/"/>
     
-    <category term="头文字D" scheme="https://www.mbrjun.cn/tags/%E5%A4%B4%E6%96%87%E5%AD%97D/"/>
+    <category term="头文字D" scheme="https://www.libmbr.com/tags/%E5%A4%B4%E6%96%87%E5%AD%97D/"/>
     
-    <category term="中二" scheme="https://www.mbrjun.cn/tags/%E4%B8%AD%E4%BA%8C/"/>
+    <category term="中二" scheme="https://www.libmbr.com/tags/%E4%B8%AD%E4%BA%8C/"/>
     
-    <category term="AIME" scheme="https://www.mbrjun.cn/tags/AIME/"/>
+    <category term="AIME" scheme="https://www.libmbr.com/tags/AIME/"/>
     
-    <category term="AmusementIC" scheme="https://www.mbrjun.cn/tags/AmusementIC/"/>
+    <category term="AmusementIC" scheme="https://www.libmbr.com/tags/AmusementIC/"/>
     
   </entry>
   
