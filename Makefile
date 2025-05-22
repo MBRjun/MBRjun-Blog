@@ -41,18 +41,14 @@ git: init
 	fi
 
 modify: git substash
-	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(1/12)" && patch -p0 --verbose < patches/0001-*
-	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(2/12)" && patch -p0 --verbose < patches/0002-*
-	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(3/12)" && patch -p0 --verbose < patches/0003-*
-	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(4/12)" && patch -p0 --verbose < patches/0004-*
-	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(5/12)" && patch -p0 --verbose < patches/0005-*
-	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(6/12)" && patch -p0 --verbose < patches/0006-*
-	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(7/12)" && patch -p0 --verbose < patches/0007-*
-	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(8/12)" && patch -p0 --verbose < patches/0008-*
-	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(9/12)" && patch -p0 --verbose < patches/0009-*
-	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(10/12)" && patch -p0 --verbose < patches/0010-*
-	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(11/12)" && patch -p0 --verbose < patches/0011-*
-	@echo -e "\033[32m[MODIFY ]\033[0m Patching theme(12/12)" && patch -p0 --verbose < patches/0012-*
+	@patches=$$(ls patches/*.patch | sort); \
+	count=$$(echo "$$patches" | wc -l); \
+	idx=1; \
+	for patch_file in $$patches; do \
+		echo -e "\033[32m[MODIFY ]\033[0m Patching theme($$idx/$$count) - $$patch_file"; \
+		patch -p0 --verbose < $$patch_file; \
+		idx=$$((idx + 1)); \
+	done
 	@echo -e "\033[32m[MODIFY ]\033[0m Cleaning theme fonts" && rm -f themes/tranquilpeak/source/_fonts/*
 	@echo -e "\033[32m[MODIFY ]\033[0m Copying fonts binary" && cp patches/binary/fonts/* themes/tranquilpeak/source/_fonts/
 
