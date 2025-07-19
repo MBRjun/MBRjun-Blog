@@ -6,7 +6,7 @@
   <link href="https://www.libmbr.com/atom.xml" rel="self"/>
   
   <link href="https://www.libmbr.com/"/>
-  <updated>2025-05-16T15:36:02.000Z</updated>
+  <updated>2025-07-18T22:15:14.000Z</updated>
   <id>https://www.libmbr.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>北京地铁银行卡乘车全攻略</title>
+    <link href="https://www.libmbr.com/archives/507/"/>
+    <id>https://www.libmbr.com/archives/507/</id>
+    <published>2025-07-18T22:15:14.000Z</published>
+    <updated>2025-07-18T22:15:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>本文全面解析北京地铁银行卡支付的支持程度、扣款流程、乘车优惠等实用细节，助你轻松无感通行。</p><span id="more"></span><p>随着移动支付和数字交通的普及，北京地铁早已支持多种非现金支付方式，其中使用银行卡 Tap To Ride 乘车成为越来越多市民和游客的选择。本文将为你详细介绍北京地铁支持的银行卡支付方式、扣款流程、实际金额、适用优惠等关键信息，方便你快速上手。</p><div class="alert info"><p>纯个人经验分享，有错误可以指出。本文不含任何商业推广。</p></div><div class="alert info"><p>支持情况和优惠信息可能随着时间推移而改变。仅供参考。</p></div><p>先从银行卡的支持情况讲起：</p><h2 id="支持情况"><a href="#支持情况" class="headerlink" title="支持情况"></a>支持情况</h2><h3 id="入闸"><a href="#入闸" class="headerlink" title="入闸"></a>入闸</h3><p>入闸指的是：使用银行卡直接拍闸机，然后进入地铁付费区  </p><p>一般来说，实体卡卡面上或者卡背印有 <strong>Contactless 非接触式交易</strong> 或者 <strong>QuickPass 闪付</strong> 且<strong>支持在中国大陆付款</strong>的卡都支持直接入闸。Apple Pay、Mi Pay 等基于手机 NFC 或类似技术的虚拟卡大多数不需要印有标志也支持。  </p><p><img src="https://lfs.libmbr.com/assets/2025/07/19/6ba115cc-e441-418d-9b47-abd54b58e08d.webp" alt="非接标识"></p><p>另外，还需要确保卡支持以下任意卡组织的付款：银联（含银联国际）、万事达（MasterCard）、维萨（VISA）、美国运通（American Express&#x2F;AMEX）、JCB。</p><p>针对不同卡组织的卡，测试情况详见下表：</p><table><thead><tr><th>卡组织&#x2F;发卡地</th><th>支持情况</th><th>备注</th></tr></thead><tbody><tr><td>银联</td><td>支持</td><td></td></tr><tr><td>银联国际</td><td>支持</td><td></td></tr><tr><td>境外发行的 VISA</td><td>支持</td><td></td></tr><tr><td>境内发行的 VISA</td><td><strong>基本不支持</strong></td><td>如果是银联、VISA双标，正常走银联付款；单标一律不支持：入闸时报错</td></tr><tr><td>境外发行的万事达卡</td><td>支持</td><td></td></tr><tr><td>境内发行的万事达卡</td><td>部分支持</td><td>卡片必须包含万事达中国（万事网联）应用；其他不支持：入闸时报错</td></tr><tr><td>境外发行的 AMEX</td><td>支持</td><td></td></tr><tr><td>境内发行的 AMEX</td><td>部分支持</td><td>卡片必须包含杭州连通应用；其他不支持：入闸时报错</td></tr><tr><td>境外发行的 JCB</td><td>支持</td><td></td></tr><tr><td>境内发行的 JCB</td><td><strong>不支持</strong></td><td>入闸时报错</td></tr><tr><td>Discover、Interac 等其他卡片</td><td><strong>不支持</strong></td><td>闸机不响应</td></tr></tbody></table><div class="alert info"><p>不支持 Apple Pay 将付款卡作为快速交通卡入闸。</p></div><h3 id="购票"><a href="#购票" class="headerlink" title="购票"></a>购票</h3><p>购票指的是：在自助机或人工窗口付费购买单程票以入闸，或对一卡通进行充值。  </p><p>支持入闸的卡均支持购票。</p><p>部分车站自助机购票仅支持插卡交易，此时不需要卡片有非接支付功能，但要求卡片有芯片，且不支持手机 Pay。<br>人工窗口同时支持非接、插卡、磁条。  </p><h2 id="扣款流程"><a href="#扣款流程" class="headerlink" title="扣款流程"></a>扣款流程</h2><h3 id="入闸-1"><a href="#入闸-1" class="headerlink" title="入闸"></a>入闸</h3><p>入闸时预授权 11 人民币元（首都机场线为 25 元、大兴机场线为 35 元）。如果入闸时预授权扣款失败，并不会有任何影响。  </p><h3 id="出闸"><a href="#出闸" class="headerlink" title="出闸"></a>出闸</h3><p>出闸时撤销预授权，然后根据实际消费金额进行扣款。<br>如果出闸时扣款失败：</p><ul><li>闸机正常开启，你仍然可以正常出站</li><li>银联卡会在每天北京时间中午 12:00 重试扣款</li><li>其他卡片不会再次重试扣款</li><li>可以前往人工窗口补票扣款，不过据说很浪费时间，可能要折腾半个小时以上</li></ul><p>扣款成功或人工补票前，相同卡号无法再次入闸（针对手机 Pay：仅限制设备卡；使用实体卡或其他设备卡不被限制）。</p><div class="alert warning"><p><strong>出闸特殊情况</strong><br>不要使用没有进站记录的万事达卡出闸！<br>闸机仍会正常开放，但这会导致出闸时预授权 8 元（首都机场线无动作、大兴机场线为 25 元），然后 24 小时后出现预授权扣款。<br>这似乎是一个 Bug，且仅在万事达卡上出现。</p></div><h2 id="优惠"><a href="#优惠" class="headerlink" title="优惠"></a>优惠</h2><p>持万事达人民币卡，拍卡入闸乘坐北京地铁，可享受每日前 2 笔每笔减 2 元的优惠（部分卡为前 3 笔减 1 元）。</p><p>部分银行也会有自己的优惠，这个就要去自己刷银行公告了。  </p><h2 id="其他技术细节"><a href="#其他技术细节" class="headerlink" title="其他技术细节"></a>其他技术细节</h2><p>万事达预授权类型为 MAAF。</p><p>使用银联卡入闸，商户名显示为<strong>北京市轨道交通指挥中心</strong>；使用万事达中国&#x2F;美国运通人民币卡入闸，商户名显示为<strong>北京轨道交通路网管理有限公司</strong>。</p><p>部分银行会将商户名显示为 <strong>GUIDAO BEIJINGSHI CHN</strong> 和 <strong>UMS* Beijing Metro</strong>。  </p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;本文全面解析北京地铁银行卡支付的支持程度、扣款流程、乘车优惠等实用细节，助你轻松无感通行。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="交通" scheme="https://www.libmbr.com/categories/%E4%BA%A4%E9%80%9A/"/>
+    
+    
+    <category term="北京地铁" scheme="https://www.libmbr.com/tags/%E5%8C%97%E4%BA%AC%E5%9C%B0%E9%93%81/"/>
+    
+    <category term="北京" scheme="https://www.libmbr.com/tags/%E5%8C%97%E4%BA%AC/"/>
+    
+    <category term="地铁" scheme="https://www.libmbr.com/tags/%E5%9C%B0%E9%93%81/"/>
+    
+    <category term="轨道交通" scheme="https://www.libmbr.com/tags/%E8%BD%A8%E9%81%93%E4%BA%A4%E9%80%9A/"/>
+    
+    <category term="银行卡" scheme="https://www.libmbr.com/tags/%E9%93%B6%E8%A1%8C%E5%8D%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>PVE 宿主机配置有状态 DHCPv6</title>
@@ -33,9 +62,9 @@
     <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
-    
     <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
+    
+    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
     
     <category term="虚拟机" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
@@ -88,9 +117,9 @@
     <category term="网络" scheme="https://www.libmbr.com/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
-    
     <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
+    
+    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
     
   </entry>
   
@@ -395,9 +424,9 @@
     
     <category term="Windows" scheme="https://www.libmbr.com/tags/Windows/"/>
     
-    <category term="Hypervisor" scheme="https://www.libmbr.com/tags/Hypervisor/"/>
-    
     <category term="AIDA64" scheme="https://www.libmbr.com/tags/AIDA64/"/>
+    
+    <category term="Hypervisor" scheme="https://www.libmbr.com/tags/Hypervisor/"/>
     
   </entry>
   
@@ -514,37 +543,6 @@
     <category term="Plastic Pollution" scheme="https://www.libmbr.com/tags/Plastic-Pollution/"/>
     
     <category term="Cloth Bags" scheme="https://www.libmbr.com/tags/Cloth-Bags/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>中通快递送丢一张 AIME 卡</title>
-    <link href="https://www.libmbr.com/archives/487/"/>
-    <id>https://www.libmbr.com/archives/487/</id>
-    <published>2023-05-19T11:49:00.000Z</published>
-    <updated>2023-05-19T11:49:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>送丢的是 maimai FESTiVAL 的限定卡，最后快递赔了 385 CNY  </p><span id="more"></span><p><img src="https://lfs.libmbr.com/assets/2023/05/23/4e72591d-1952-4b35-90ec-a885b90dc3d4.webp" alt="maimai FESTiVAL aime"></p><p>快递卡了四天不动，开了个投诉单，然后快递说在找  </p><p>转天就告诉我件丢了  </p><blockquote><p>【中通】您好我是中通锦绣分部网点的客服工号是001您反馈的单号尾号8155发件催件的问题很抱歉给您带来了不便，经核实此件疑似不慎遗失，我司已微信理赔寄件人385元，我司联系寄件人后台给您处理售后问题，因我司电联联系不上您按短信内容有问题请联系17635999968</p></blockquote><p><del>不会真的是快递员太馋了给私吞了吧</del>  </p><p>物流信息到现在也没更新，不知道中通还能不能找到件  </p><p><img src="https://lfs.libmbr.com/assets/2023/05/23/112c2594-a974-460a-8235-1807195d8537.webp" alt="ZTO 78685530518155"><br>运单号： <code>78685530518155</code>（<a href="https://www.17track.net/?nums=78685530518155">追踪</a>）  </p><p><img src="https://lfs.libmbr.com/assets/2023/05/23/90c73b90-66a6-405c-ac92-beba0bbc1a7c.webp" alt="maimai FESTiVAL aime"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;送丢的是 maimai FESTiVAL 的限定卡，最后快递赔了 385 CNY  &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常" scheme="https://www.libmbr.com/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-    <category term="maimai" scheme="https://www.libmbr.com/tags/maimai/"/>
-    
-    <category term="中通快递" scheme="https://www.libmbr.com/tags/%E4%B8%AD%E9%80%9A%E5%BF%AB%E9%80%92/"/>
-    
-    <category term="头文字D" scheme="https://www.libmbr.com/tags/%E5%A4%B4%E6%96%87%E5%AD%97D/"/>
-    
-    <category term="中二" scheme="https://www.libmbr.com/tags/%E4%B8%AD%E4%BA%8C/"/>
-    
-    <category term="AIME" scheme="https://www.libmbr.com/tags/AIME/"/>
-    
-    <category term="AmusementIC" scheme="https://www.libmbr.com/tags/AmusementIC/"/>
     
   </entry>
   
