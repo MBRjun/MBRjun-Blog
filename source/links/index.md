@@ -320,6 +320,15 @@ description: 我的朋友们！
                   <div class="info">Blogger / Technophile / Student</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://shenao1100.github.io/imgs/avatar.jpg" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://shenao1100.github.io/">NTG的小窝</a>
+                  </div>
+                  <div class="info">喵，喵喵喵喵，喵喵喵喵！</div>
+               </div>
+            </div>
             <!-- <div class="card">
                <img class="ava" src="https://img.cdn.loliloli.net/content/images/users/V3Q/av_1625277536.png" />
                <div class="card-header">
