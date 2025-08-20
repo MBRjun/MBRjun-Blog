@@ -1,16 +1,16 @@
 # MBRjun-Blog
-MBRjun-Blog 的源码仓库  
+Repository for MBRjun-Blog
 
-这是一个使用 Hexo 搭建的 Blog，地址：[mbrjun.cn](https://www.mbrjun.cn)（短链：[mbr.moe](https://mbr.moe)） 
+A blog built with Hexo, available at [libmbr.com](https://www.libmbr.com)
 
-出于性能和一些其他原因，该 Blog 已在 2022 年末从 Typecho 转移到 Hexo 平台，并开放源代码  
+This is the Hexo refactored(from 2022) version of the ``MBR's Blog``.
 
+This open-source repository is used for CI deployment, reproducible builds, and comments.
 
-## 构建
-该 Blog 使用 GitHub Action 实现自动构建  
+## About
+See ``source/about`` or [this url](https://www.libmbr.com/about/).
 
----
-
-手动构建：  
-1. 安装 Node.js v18 - v20
-2. 运行 ``make hexo`` 命令进行生产构建  
+## Build
+- Install ``make``
+- Install Node.js v18 or v20 LTS
+- run ``make hexo``

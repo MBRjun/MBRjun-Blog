@@ -3,7 +3,7 @@
 @@ -52,6 +52,22 @@
              <% } %>
          <% } %>
-+        <script src="https://giscus.mbrjun.cn/client.js"
++        <script src="https://hiroko.libmbr.com/client.js"
 +            data-repo="MBRjun/MBRjun-Blog"
 +            data-repo-id="R_kgDOIbI33Q"
 +            data-category="Blog"

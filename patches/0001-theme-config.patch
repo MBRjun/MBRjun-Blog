@@ -82,7 +82,7 @@
 +    location: 地球
 @@ -126 +134 @@
 -    picture:
-+    picture: https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg
++    picture: https://lfs.libmbr.com/assets/pics/LG4v5Ravatar180px.webp
 @@ -128 +136 @@
 -    twitter:
 +    twitter: MBRjun
@@ -94,10 +94,10 @@
 +clear_reading: false
 @@ -175 +183 @@
 -cover_image: cover.jpg
-+cover_image: https://cos.mbrjun.cn/IMGS/2023/03/23/4419f34e-9353-4b44-a6dd-ebb1db958fc5.webp
++cover_image: https://lfs.libmbr.com/assets/2023/03/23/4419f34e-9353-4b44-a6dd-ebb1db958fc5.webp
 @@ -177 +185 @@
 -favicon:
-+favicon: https://cos.mbrjun.cn/PICS/LG4v3avatar144px.jpg
++favicon: https://lfs.libmbr.com/assets/pics/LG4v5Ravatar180px.webp
 @@ -272,9 +280,9 @@
 -    facebook:
 -        icon: "fab fa-facebook"

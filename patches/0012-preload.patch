@@ -8,7 +8,7 @@
 +    <meta http-equiv="x-dns-prefetch-control" content="on" />
 +    <link rel="dns-prefetch" href="//github.githubassets.com">
 +    <link rel="dns-prefetch" href="//avatars.githubusercontent.com">
-+    <link rel="preconnect" href="https://cos.mbrjun.cn">
++    <link rel="preconnect" href="https://lfs.libmbr.com">
 +    <link rel="preload" as="font" crossorigin="anonymous" type="font/woff2" href="/assets/fonts/GoogleSansDisplay-BR.woff2">
 +    <link rel="preload" as="font" crossorigin="anonymous" type="font/woff2" href="/assets/fonts/GoogleSansDisplay-LR.woff2">
 +    <link rel="preload" as="font" crossorigin="anonymous" type="font/woff2" href="/assets/fonts/fa-solid-900.woff2">

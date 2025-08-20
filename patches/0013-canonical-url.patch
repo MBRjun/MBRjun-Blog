@@ -1,0 +1,10 @@
+--- themes/tranquilpeak/layout/_partial/head.ejs
++++ themes/tranquilpeak/layout/_partial/head.ejs
+@@ -195,6 +195,7 @@
+     <link rel="preload" as="font" crossorigin="anonymous" type="font/woff2" href="/assets/fonts/fa-solid-900.woff2">
+     <link rel="preload" as="font" crossorigin="anonymous" type="font/woff2" href="/assets/fonts/fa-brands-400.woff2">
+     <!--PRELOAD END-->
++    <%- canonicalLink(config, page) %>
+ 
+     <%- partial('google-analytics') %>
+     <%- partial('baidu-analytics') %>
