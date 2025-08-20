@@ -182,11 +182,11 @@
     <category term="网络" scheme="https://www.libmbr.com/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="TLS" scheme="https://www.libmbr.com/tags/TLS/"/>
-    
     <category term="证书" scheme="https://www.libmbr.com/tags/%E8%AF%81%E4%B9%A6/"/>
     
     <category term="SSL" scheme="https://www.libmbr.com/tags/SSL/"/>
+    
+    <category term="TLS" scheme="https://www.libmbr.com/tags/TLS/"/>
     
     <category term="CA" scheme="https://www.libmbr.com/tags/CA/"/>
     
