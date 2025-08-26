@@ -131,6 +131,15 @@ description: 我的朋友们！
                </div>
             </div> -->
             <div class="card">
+               <img class="ava" src="https://www.yukina.ink/logo.avif" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://blog.yukina.ink/">Yukina</a>
+                  </div>
+                  <div class="info">Welcome to the melty land.</div>
+               </div>
+            </div>
+            <div class="card">
                <img class="ava" src="https://lfs.libmbr.com/assets/2022/04/30/7e.jpg" />
                <div class="card-header">
                   <div>
