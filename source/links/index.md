@@ -361,6 +361,15 @@ description: 我的朋友们！
             </div>
             友链移除原因：头像404
             -->
+            <div class="card">
+               <img class="ava" src="https://picture.zhanganzhi.com/common/avatar.jpg" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://blog.zhanganzhi.com/">Andy's Blog</a>
+                  </div>
+                  <div class="info">既要努力开拓，又要十分稳妥</div>
+               </div>
+            </div>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
