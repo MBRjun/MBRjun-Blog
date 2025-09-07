@@ -320,6 +320,15 @@ description: 我的朋友们！
                   <div class="info">Blogger / Technophile / Student</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://shenao1100.github.io/imgs/avatar.jpg" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://shenao1100.github.io/">NTG的小窝</a>
+                  </div>
+                  <div class="info">喵，喵喵喵喵，喵喵喵喵！</div>
+               </div>
+            </div>
             <!-- <div class="card">
                <img class="ava" src="https://img.cdn.loliloli.net/content/images/users/V3Q/av_1625277536.png" />
                <div class="card-header">
@@ -352,6 +361,15 @@ description: 我的朋友们！
             </div>
             友链移除原因：头像404
             -->
+            <div class="card">
+               <img class="ava" src="https://rikka.im/avatar/avatar.webp" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://rikka.im/">Rikkaの小小窝</a>
+                  </div>
+                  <div class="info">早上好哦(つω`*)～☆</div>
+               </div>
+            </div>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
