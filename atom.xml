@@ -543,9 +543,9 @@
     
     <category term="Windows" scheme="https://www.libmbr.com/tags/Windows/"/>
     
-    <category term="Hypervisor" scheme="https://www.libmbr.com/tags/Hypervisor/"/>
-    
     <category term="AIDA64" scheme="https://www.libmbr.com/tags/AIDA64/"/>
+    
+    <category term="Hypervisor" scheme="https://www.libmbr.com/tags/Hypervisor/"/>
     
   </entry>
   
