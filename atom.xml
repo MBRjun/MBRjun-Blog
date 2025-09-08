@@ -6,7 +6,7 @@
   <link href="https://www.libmbr.com/atom.xml" rel="self"/>
   
   <link href="https://www.libmbr.com/"/>
-  <updated>2025-09-04T12:51:00.000Z</updated>
+  <updated>2025-09-08T15:26:00.000Z</updated>
   <id>https://www.libmbr.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>月食观察 20250908</title>
+    <link href="https://www.libmbr.com/archives/512/"/>
+    <id>https://www.libmbr.com/archives/512/</id>
+    <published>2025-09-08T15:26:00.000Z</published>
+    <updated>2025-09-08T15:26:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>第一次观测月全食。没啥好的设备，直接用 iPhone 拍几张。</p><span id="more"></span><p>貌似前几年疫情时也是有一次月食的，不过没去看，这次刚好用空就出门看了，不知道下次能看到会是什么时候。  </p><p>下次再看也许会用更好的设备拍摄吧（  </p><p>天气还可以，月亮基本是目视不可见，但是手机拍照就能找到。</p><h2 id="AM-1-36"><a href="#AM-1-36" class="headerlink" title="AM 1:36"></a>AM 1:36</h2><ul><li><p>1x<br><img src="https://lfs.libmbr.com/assets/2025/09/08/cf9d092b-3c5a-4174-894e-9fafb93e4d73.webp" alt="月食观察20250908-1x"></p></li><li><p>3x<br><img src="https://lfs.libmbr.com/assets/2025/09/08/9e8f088e-82bc-47d7-9b0b-49d0067f18e9.webp" alt="月食观察20250908-3x"></p></li></ul><h2 id="AM-2-21"><a href="#AM-2-21" class="headerlink" title="AM 2:21"></a>AM 2:21</h2><ul><li><p>3x<br><img src="https://lfs.libmbr.com/assets/2025/09/08/c627863a-ab65-4388-a733-d91ddd37524a.webp" alt="月食观察20250908-3x2"></p></li><li><p>3x, 换观测位置<br><img src="https://lfs.libmbr.com/assets/2025/09/08/84e64c69-73c7-47df-a18d-56e3eae9293e.webp" alt="月食观察20250908-3x3"></p></li></ul><h2 id="表情包"><a href="#表情包" class="headerlink" title="表情包"></a>表情包</h2><p><img src="https://lfs.libmbr.com/assets/2025/09/08/5a7219a5-2241-4499-8dcf-347c337ab2e0.webp" alt="月食观察表情包"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;第一次观测月全食。没啥好的设备，直接用 iPhone 拍几张。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常" scheme="https://www.libmbr.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+    <category term="月食" scheme="https://www.libmbr.com/tags/%E6%9C%88%E9%A3%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>城市道路观察 Ⅰ 非机动车道</title>
@@ -521,31 +542,6 @@
     <category term="Hypervisor" scheme="https://www.libmbr.com/tags/Hypervisor/"/>
     
     <category term="GPU-PV" scheme="https://www.libmbr.com/tags/GPU-PV/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决 AIDA64 报错 Hypervisor is present</title>
-    <link href="https://www.libmbr.com/archives/492/"/>
-    <id>https://www.libmbr.com/archives/492/</id>
-    <published>2023-07-04T00:00:00.000Z</published>
-    <updated>2023-07-04T00:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>解决 AIDA64 测试性能时警告：Hypervisor is present, forcing AIDA64 into a virtualized or sandbox environment. Such enviro nment may affect AIDA64 benchmark results. It is recommended to disable both Hyper-V and Memory Integrity in order to obtain accurate benchmark results.</p><span id="more"></span><p><img src="https://lfs.libmbr.com/assets/2023/08/08/a31d9f0a-1147-4483-80cb-0a239f28943a.png" alt="Hypervisor is present"></p><h2 id="问题出现的原因"><a href="#问题出现的原因" class="headerlink" title="问题出现的原因"></a>问题出现的原因</h2><p>Windows 11 22H2 版本，新安装的 Windows 默认开启了内存完整性，这个功能有助于提高安全性，但是也可能降低性能  </p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>Win+S 输入 gpedit 回车（家庭版需要先<a href="https://zhuanlan.zhihu.com/p/565402268">启用组策略</a>）  </p><p><img src="https://lfs.libmbr.com/assets/2023/08/08/c88839d0-1516-4fc8-8448-21d0f3d44ee9.png" alt="gpedit"></p><p>打开 <strong>计算机配置-管理模板-系统-Device Guard</strong>，找到启用基于虚拟化的安全，双击点开  </p><p><img src="https://lfs.libmbr.com/assets/2023/08/08/3a24d008-a4b6-48bd-9b14-669511b8ca19.png" alt="VBS"></p><p>点击已禁用，保存  </p><p><img src="https://lfs.libmbr.com/assets/2023/08/08/34d6c4b3-f31c-4ea3-8772-4b5680ceecda.png" alt="disable vbs"></p><p>重启电脑即可正常跑分  </p><p><img src="https://lfs.libmbr.com/assets/2023/08/08/3e3f163f-0a87-4e98-8ae1-1c8593c6a47c.png" alt="aida64 ram benchmark"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;解决 AIDA64 测试性能时警告：Hypervisor is present, forcing AIDA64 into a virtualized or sandbox environment. Such enviro nment may affect AIDA64 benchmark results. It is recommended to disable both Hyper-V and Memory Integrity in order to obtain accurate benchmark results.&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="软件" scheme="https://www.libmbr.com/categories/%E8%BD%AF%E4%BB%B6/"/>
-    
-    
-    <category term="Windows" scheme="https://www.libmbr.com/tags/Windows/"/>
-    
-    <category term="AIDA64" scheme="https://www.libmbr.com/tags/AIDA64/"/>
-    
-    <category term="Hypervisor" scheme="https://www.libmbr.com/tags/Hypervisor/"/>
     
   </entry>
   
