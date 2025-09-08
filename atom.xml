@@ -97,9 +97,9 @@
     <link href="https://www.libmbr.com/archives/509/"/>
     <id>https://www.libmbr.com/archives/509/</id>
     <published>2025-08-10T16:00:00.000Z</published>
-    <updated>2025-08-10T16:00:00.000Z</updated>
+    <updated>2025-09-08T13:14:00.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Proxmox VE 9 和 Debian 13 正式发布。本文主要记录更新时、更新后可能遇到的问题和解决方案。</p><span id="more"></span><h2 id="更新教程"><a href="#更新教程" class="headerlink" title="更新教程"></a>更新教程</h2><p>按官网提供的教程完成即可：<br><a href="https://pve.proxmox.com/wiki/Upgrade_from_8_to_9">https://pve.proxmox.com/wiki/Upgrade_from_8_to_9</a></p><h2 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h2><ul><li>Debian 13</li><li>统计数据：新增了几个统计项，增加了统计频率<ul><li>宿主机：ZFS ARC、IO 压力、内存压力</li><li>VM：IO 压力、内存压力、占宿主机内存（推荐开启 balloon，不兼容 HugePages）</li><li>LXC：IO 压力、内存压力</li></ul></li><li>大幅更改了移动端 WebUI<br><img src="https://lfs.libmbr.com/assets/2025/09/03/afd86bdd-697f-4ce6-85cd-f264231f5271.webp" alt="PVE9 WebUI Mobile"></li><li><del>其他的还没发现</del></li><li>Release Note: <a href="https://www.proxmox.com/en/about/company-details/press-releases/proxmox-virtual-environment-9-0">https://www.proxmox.com/en/about/company-details/press-releases/proxmox-virtual-environment-9-0</a></li></ul><h2 id="升级时注意"><a href="#升级时注意" class="headerlink" title="升级时注意"></a>升级时注意</h2><ul><li>不推荐无人值守更新，升级过程中可能会中断互联网连接</li><li>ssh 更新完成前可能无法再次连接</li><li><code>/etc/sysctl.conf</code> 被弃用，升级后该文件自动备份为 <code>/etc/sysctl.conf.dpkg-bak</code>，规则需手动移动到 <code>/etc/sysctl.d/</code> 才能重新生效<ul><li><code>cp /etc/sysctl.conf.dpkg-bak /etc/sysctl.d/99-previous.conf</code></li></ul></li></ul><h2 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h2><ul><li>宿主机上的 Docker 可能由于 AppArmor 策略无法正常工作</li><li>暂时还没发现别的，发现了会补充在这里</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>Proxmox VE 9 和 Debian 13 正式发布。本文主要记录更新时、更新后可能遇到的问题和解决方案。</p><span id="more"></span><h2 id="更新教程"><a href="#更新教程" class="headerlink" title="更新教程"></a>更新教程</h2><p>按官网提供的教程完成即可：<br><a href="https://pve.proxmox.com/wiki/Upgrade_from_8_to_9">https://pve.proxmox.com/wiki/Upgrade_from_8_to_9</a></p><h2 id="新特性"><a href="#新特性" class="headerlink" title="新特性"></a>新特性</h2><ul><li>Debian 13</li><li>统计数据：新增了几个统计项，增加了统计频率<ul><li>宿主机：ZFS ARC、IO 压力、内存压力</li><li>VM：IO 压力、内存压力、占宿主机内存（推荐开启 balloon，不兼容 HugePages）</li><li>LXC：IO 压力、内存压力</li></ul></li><li>大幅更改了移动端 WebUI<br><img src="https://lfs.libmbr.com/assets/2025/09/03/afd86bdd-697f-4ce6-85cd-f264231f5271.webp" alt="PVE9 WebUI Mobile"></li><li><del>其他的还没发现</del></li><li>Release Note: <a href="https://www.proxmox.com/en/about/company-details/press-releases/proxmox-virtual-environment-9-0">https://www.proxmox.com/en/about/company-details/press-releases/proxmox-virtual-environment-9-0</a></li></ul><h2 id="升级时注意"><a href="#升级时注意" class="headerlink" title="升级时注意"></a>升级时注意</h2><ul><li>不推荐无人值守更新，升级过程中可能会中断互联网连接</li><li>ssh 更新完成前可能无法再次连接</li><li><code>/etc/sysctl.conf</code> 被弃用，升级后该文件自动备份为 <code>/etc/sysctl.conf.dpkg-bak</code>，规则需手动移动到 <code>/etc/sysctl.d/</code> 才能重新生效<ul><li><code>cp /etc/sysctl.conf.dpkg-bak /etc/sysctl.d/99-previous.conf</code></li></ul></li><li>建议在更新前对系统盘快照处理，更新后重启宿主机</li></ul><h2 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h2><ul><li>宿主机上的 Docker 可能由于 AppArmor 策略无法正常工作</li><li>Debian 13 LXC 无法启动（已修复，影响版本：<code>lxc-pve/stable 6.0.4-*</code>, <code>pve-container/stable 6.0.9</code>）</li><li>如果宿主机在更新后未重启，备份功能可能出现故障，针对 Windows VM 的备份不可靠。</li><li>暂时还没发现别的，发现了会补充在这里</li></ul>]]></content>
     
     
     <summary type="html">&lt;p&gt;Proxmox VE 9 和 Debian 13 正式发布。本文主要记录更新时、更新后可能遇到的问题和解决方案。&lt;/p&gt;</summary>
@@ -202,11 +202,11 @@
     <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
+    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
+    
     <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
     
     <category term="虚拟机" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
-    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
     
     <category term="PVE" scheme="https://www.libmbr.com/tags/PVE/"/>
     
@@ -257,9 +257,9 @@
     <category term="网络" scheme="https://www.libmbr.com/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
-    
     <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
+    
+    <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
     
   </entry>
   
