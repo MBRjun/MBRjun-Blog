@@ -202,9 +202,9 @@
     <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
-    
     <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
+    
+    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
     
     <category term="虚拟机" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
@@ -257,9 +257,9 @@
     <category term="网络" scheme="https://www.libmbr.com/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
-    
     <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
+    
+    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
     
   </entry>
   
