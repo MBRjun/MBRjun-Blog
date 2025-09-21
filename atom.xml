@@ -6,7 +6,7 @@
   <link href="https://www.libmbr.com/atom.xml" rel="self"/>
   
   <link href="https://www.libmbr.com/"/>
-  <updated>2025-09-08T15:26:00.000Z</updated>
+  <updated>2025-09-21T14:25:00.000Z</updated>
   <id>https://www.libmbr.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>纸质铁路报销凭证</title>
+    <link href="https://www.libmbr.com/archives/513/"/>
+    <id>https://www.libmbr.com/archives/513/</id>
+    <published>2025-09-21T13:02:00.000Z</published>
+    <updated>2025-09-21T14:25:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>除跨境和非互联网售票区段，2025 年 10 月及之后发车的 CR 车次将不再能打印纸质报销凭证。再过个几年、十几年，也许就会有人完全没见过纸质的车票和报销凭证了  </p><p>在仍然能打印报销凭证的最后几天里，我用这篇文章讲一下纸质票和报销凭证的细节，供后人考古研究吧。</p><span id="more"></span><h2 id="车票正面信息"><a href="#车票正面信息" class="headerlink" title="车票正面信息"></a>车票正面信息</h2><p>先放一张车票的图片再讲。</p><p><img src="https://lfs.libmbr.com/assets/2025/09/21/be8867d3-e82a-480c-8484-aff290cda116.webp" alt="中国铁路车票6437次202509"></p><p>按从上到下，从左到右的顺序来：</p><p>第一行：  </p><ul><li><p><strong>票号</strong><br>为红色字体，其他均为黑色字体<br>票号是自增的，长度不固定，开头可能会存在字母。</p></li><li><p><strong>检票口</strong><br>不一定存在：距离发车时间较远，打印车票或报销凭证不会显示检票口。登机牌其实也是这样的</p></li></ul><p>第二行：</p><ul><li><strong>出发站</strong><br>下面会用小字写车站英文名（境内大多数使用拼音）</li><li><strong>车次号</strong><br>纯数字：普客；K：快速；T：特快；Z：直达特快；C：城际；D：动车；G：高铁动车；S：市域&#x2F;郊；Y：旅游</li><li><strong>到达站</strong></li></ul><p>第三行：</p><ul><li><strong>发车时间</strong><br>列车从出发站开出的日期时间</li><li><strong>席位</strong><br>可能会出现：无座、不对号入座</li></ul><p>第四行：</p><ul><li><strong>购票价格</strong><br>特殊情况（如中转签证车票）可以达到 0 元</li><li><strong>购票标记</strong><ul><li><strong>网</strong>：网上购票，线下取票。（仅适用于车票）</li><li><strong>现</strong>：使用现金支付。（仅适用于车票）</li><li><strong>支</strong>：使用支付宝支付。（仅适用于车票）</li><li><strong>孩</strong>：儿童票。</li><li><strong>惠</strong>：优惠票价。</li></ul></li><li><strong>席别</strong></li></ul><p>第五行为票类型，一般会出现：</p><ul><li><strong>限乘当日当次车</strong><br>这是一张车票。</li><li><strong>退票费</strong><br>这是退票报销凭证。</li><li><strong>（空）</strong><br>这是报销凭证、中转签证或通票。</li></ul><p>第六行是通票信息或报销凭证标记：</p><ul><li><strong>仅供报销使用</strong><br>这是一张报销凭证。</li></ul><p>第七行为购票人信息，非实名制车票此行留空：</p><ul><li><p><strong>证件号</strong><br>购票证件为居民身份证时，11-14 位会被替换为 *<br>使用其他购票证件，后两位替换为 *</p></li><li><p><strong>姓名</strong></p></li></ul><p>第七行结束后，会有一段文字信息，目前的多为：</p><ul><li><strong>报销凭证 遗失不补</strong><br><strong>退票改签请交会车站</strong><br>即使打印的是车票，而不是报销凭证，仍有可能这样显示。  </li><li><strong>温馨提示：本次列车途经琼州海峡，特殊季节遇台风等恶劣天气，轮渡可能停航，敬请关注天气预报。</strong><br>特殊提示可能不会加方框</li><li><strong>买票请到12306 发货请到95306</strong><br><strong>中国铁路祝您路途愉快</strong><br>经典的车票文字，目前已经极为少见</li></ul><p>第六、七行右侧会有一个二维码，内容为一段纯数字，使用微信或 12306 App 扫码可以查看车票信息，具体编码机制未知。</p><p>最后一行：</p><ul><li><strong>完整车票号</strong><ul><li>0-5 位：车票&#x2F;报销凭证的打印车站编号<br><a href="https://www.jprailfan.com/tools/stat/index.php">查询工具</a></li><li>11-14 位：购票日期</li><li>15+ 位：同左上票号</li></ul></li><li><strong>证件类型</strong><ul><li>可能不存在</li><li>HZ：护照，类型为护照时后面可能加入三位地区码</li><li>JM：居民身份证</li></ul></li></ul><h2 id="车票背面信息"><a href="#车票背面信息" class="headerlink" title="车票背面信息"></a>车票背面信息</h2><p>车票的背面为<strong>乘车须知</strong>或<strong>报销凭证使用须知</strong>。</p><p>（图后续补）</p><p>部分红色车票背面下方会有可见磁条。  </p><h2 id="车票颜色"><a href="#车票颜色" class="headerlink" title="车票颜色"></a>车票颜色</h2><p>有红色和蓝色两种。蓝色车票本身质量更好、厚度更高，但车票上文字可能会发生褪色，而红色车票不易褪色。  </p><p>红色车票一般上下切割，而蓝色车票左右切割，且有固定切割点。  </p><p>目前绝大多数车站的可打印车票&#x2F;报销凭证均为蓝色。  </p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;除跨境和非互联网售票区段，2025 年 10 月及之后发车的 CR 车次将不再能打印纸质报销凭证。再过个几年、十几年，也许就会有人完全没见过纸质的车票和报销凭证了  &lt;/p&gt;
+&lt;p&gt;在仍然能打印报销凭证的最后几天里，我用这篇文章讲一下纸质票和报销凭证的细节，供后人考古研究吧。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="日常" scheme="https://www.libmbr.com/categories/%E6%97%A5%E5%B8%B8/"/>
+    
+    
+    <category term="铁路" scheme="https://www.libmbr.com/tags/%E9%93%81%E8%B7%AF/"/>
+    
+    <category term="中国铁路" scheme="https://www.libmbr.com/tags/%E4%B8%AD%E5%9B%BD%E9%93%81%E8%B7%AF/"/>
+    
+    <category term="火车" scheme="https://www.libmbr.com/tags/%E7%81%AB%E8%BD%A6/"/>
+    
+  </entry>
   
   <entry>
     <title>月食观察 20250908</title>
@@ -517,31 +543,6 @@
     <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
     
     <category term="Hyper-V" scheme="https://www.libmbr.com/tags/Hyper-V/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>为 Hyper-V 上的 Linux VM 配置 3D 加速</title>
-    <link href="https://www.libmbr.com/archives/493/"/>
-    <id>https://www.libmbr.com/archives/493/</id>
-    <published>2023-08-01T00:00:00.000Z</published>
-    <updated>2023-08-01T00:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>WSL2 默认已经使用了 GPU 半虚拟化（GPU-PV）来进行 3D 加速，GPU-PV 是 RemoteFX 的替代品，但是 GPU-PV 在 Hyper-V 虚拟机启用却比较复杂，Windows 的教程已经有人写了，所以分享下 Hyper-V Linux 虚拟机配置 GPU-PV 的教程  </p><span id="more"></span><h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ul><li>一个 Hyper-V Linux 虚拟机，内核版本是 5.15 或 6.0 或 6.1，内核头已安装</li><li>一个 WSL 2 虚拟机（提取驱动用，提取后可删除，尽量和 Hyper-V 虚拟机使用相同的操作系统）</li><li>Windows 10 最新版本或 Windows 11，x86&#x2F;x86-64 架构（似乎 ARM 做不到，我没测试）</li></ul><h2 id="测试环境"><a href="#测试环境" class="headerlink" title="测试环境"></a>测试环境</h2><p>我会使用我喜欢的环境进行测试，如果你正在使用相同的环境，应该可以直接照抄我的命令，如果你正在使用其他发行版或其他硬件，操作步骤可能会有差别  </p><ul><li>Windows 11 22H2</li><li>Arch Linux VM，内核：<a href="https://archlinux.org/packages/core/x86_64/linux-lts/">linux-lts</a></li><li>NVIDIA GeForce RTX 4070 Ti</li></ul><h2 id="HV-虚拟机设置"><a href="#HV-虚拟机设置" class="headerlink" title="HV 虚拟机设置"></a>HV 虚拟机设置</h2><h3 id="1-关闭动态内存"><a href="#1-关闭动态内存" class="headerlink" title="1 - 关闭动态内存"></a>1 - 关闭动态内存</h3><p>开启动态内存后，GPU-PV 不能正常工作，所以直接为虚拟机设置足够的内存和 swap 并禁用动态内存，这一步骤应该比较简单<br><img src="https://lfs.libmbr.com/assets/2023/08/26/db886f0e-130b-4ada-bba5-e296e17b66f0.png" alt="Disable dynamic memory hyperv"></p><h3 id="2-添加-GPU-PV-硬件"><a href="#2-添加-GPU-PV-硬件" class="headerlink" title="2 - 添加 GPU-PV 硬件"></a>2 - 添加 GPU-PV 硬件</h3><p>首先确保虚拟机<strong>已关机</strong>，然后按下 Win+X（或右键开始菜单），选择任意一个：  </p><ul><li>命令提示符（管理员）</li><li>PowerShell（管理员）</li><li>终端（管理员）<br><img src="https://lfs.libmbr.com/assets/2023/08/26/810d8ea7-4b55-45d5-adae-cec8c84c70ed.png" alt="terminal admin"></li></ul><p>在弹出的窗口中输入这三行命令，每一行结束后，都请按 Enter 键</p><figure class="codeblock codeblock--tabbed"><figcaption><ul class="tabs"><li class="tab active">pwsh</li></ul></figcaption><div class="tabs-content"><figure class="highlight pwsh" style="display: block;"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pwsh</span><br><span class="line"><span class="built_in">Set-VM</span> <span class="literal">-VMName</span> &lt;vmname&gt; <span class="literal">-GuestControlledCacheTypes</span> <span class="variable">$true</span> <span class="literal">-LowMemoryMappedIoSpace</span> <span class="number">1</span>GB <span class="literal">-HighMemoryMappedIoSpace</span> <span class="number">32</span>GB</span><br><span class="line"><span class="built_in">Add-VMGpuPartitionAdapter</span> <span class="literal">-VMName</span> &lt;vmname&gt;</span><br></pre></td></tr></tbody></table></figure></div></figure><p>其中 <code>&lt;vmname&gt;</code> 替换为你虚拟机的名称。  </p><p>完成此步骤后，打开虚拟机并执行 <code>lspci</code> 命令，检查 GPU-PV 设备是否已经成功安装  </p><p>如果输出中包含 <code>b98b:00:00.0 3D controller: Microsoft Corporation Basic Render Driver</code>，则说明已正确安装设备  </p><h2 id="驱动安装"><a href="#驱动安装" class="headerlink" title="驱动安装"></a>驱动安装</h2><h3 id="3-WSL-驱动"><a href="#3-WSL-驱动" class="headerlink" title="3 - WSL 驱动"></a>3 - WSL 驱动</h3><p>进入 WSL 的终端，运行命令：  </p><figure class="codeblock codeblock--tabbed"><figcaption><ul class="tabs"><li class="tab active">sh</li></ul></figcaption><div class="tabs-content"><figure class="highlight sh" style="display: block;"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvf - /usr/lib/wsl | zstd -T0 &gt; drivers.tzst</span><br></pre></td></tr></tbody></table></figure></div></figure><p>将 drivers.tzst 拷贝至 Hyper-V 虚拟机根目录（使用任何你喜欢的方式），然后解压：</p><figure class="codeblock codeblock--tabbed"><figcaption><ul class="tabs"><li class="tab active">sh</li></ul></figcaption><div class="tabs-content"><figure class="highlight sh" style="display: block;"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unzstd drivers.tzst</span><br><span class="line">tar xvf drivers.tar</span><br></pre></td></tr></tbody></table></figure></div></figure><p>然后复制驱动到 &#x2F;lib：</p><figure class="codeblock codeblock--tabbed"><figcaption><ul class="tabs"><li class="tab active">sh</li></ul></figcaption><div class="tabs-content"><figure class="highlight sh" style="display: block;"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> /usr/lib/wsl/lib/* /usr/lib</span><br></pre></td></tr></tbody></table></figure></div></figure><p>如果是 NVIDIA 显卡，还需要额外安装 <code>nvidia-smi</code>：</p><figure class="codeblock codeblock--tabbed"><figcaption><ul class="tabs"><li class="tab active">sh</li></ul></figcaption><div class="tabs-content"><figure class="highlight sh" style="display: block;"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> /usr/lib/wsl/lib/nvidia-smi /usr/bin</span><br></pre></td></tr></tbody></table></figure></div></figure><h3 id="4-安装-DirectX-驱动"><a href="#4-安装-DirectX-驱动" class="headerlink" title="4 - 安装 DirectX 驱动"></a>4 - 安装 DirectX 驱动</h3><p>GPU-PV Linux 使用的 DirectX 驱动名为 <code>dxgkrnl</code>，直接使用 makepkg 进行安装：</p><figure class="codeblock codeblock--tabbed"><figcaption><ul class="tabs"><li class="tab active">sh</li></ul></figcaption><div class="tabs-content"><figure class="highlight sh" style="display: block;"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /tmp</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/MBRjun/dxgkrnl-dkms-lts</span><br><span class="line"><span class="built_in">cd</span> dxgkrnl-dkms-lts</span><br><span class="line">makepkg -si</span><br><span class="line">modprobe dxgkrnl</span><br></pre></td></tr></tbody></table></figure></div></figure><ul><li><strong>仅适用于 6.0 或 6.1 内核，如果是 5.15 内核，可以直接尝试 <code>yay -Sy dxgkrnl-dkms-git</code> 其他内核你需要自己搬<a href="https://github.com/microsoft/WSL2-Linux-Kernel/">驱动</a></strong></li></ul><h3 id="5-安装-mesa"><a href="#5-安装-mesa" class="headerlink" title="5 - 安装 mesa"></a>5 - 安装 mesa</h3><figure class="codeblock codeblock--tabbed"><figcaption><ul class="tabs"><li class="tab active">sh</li></ul></figcaption><div class="tabs-content"><figure class="highlight sh" style="display: block;"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Sy mesa mesa-utils</span><br></pre></td></tr></tbody></table></figure></div></figure><h3 id="6-检查是否成功安装"><a href="#6-检查是否成功安装" class="headerlink" title="6 - 检查是否成功安装"></a>6 - 检查是否成功安装</h3><p>完成上面五个步骤，<strong>需要先重启系统</strong>  </p><figure class="codeblock codeblock--tabbed"><figcaption><ul class="tabs"><li class="tab active">sh</li></ul></figcaption><div class="tabs-content"><figure class="highlight sh" style="display: block;"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> /dev/dxg -l</span><br><span class="line">lspci -v</span><br></pre></td></tr></tbody></table></figure></div></figure><p>如果 <code>/dev/dxg</code> 存在，则 DX 驱动已正常安装  </p><figure class="codeblock codeblock--tabbed"><figcaption><ul class="tabs"><li class="tab active">txt</li></ul></figcaption><div class="tabs-content"><figure class="highlight txt" style="display: block;"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">crw-rw-rw- 1 root root 10, 119 Aug 26 18:24 /dev/dxg</span><br><span class="line">b98b:00:00.0 3D controller: Microsoft Corporation Basic Render Driver</span><br><span class="line">Physical Slot: 600853645</span><br><span class="line">Flags: bus master, fast devsel, latency 0, NUMA node 0</span><br><span class="line">Capabilities: [40] Null</span><br><span class="line">Kernel driver in use: dxgkrnl</span><br><span class="line">Kernel modules: dxgkrnl</span><br></pre></td></tr></tbody></table></figure></div></figure><h3 id="7-检查-NVIDIA-显卡信息和-CUDA-信息"><a href="#7-检查-NVIDIA-显卡信息和-CUDA-信息" class="headerlink" title="7 - 检查 NVIDIA 显卡信息和 CUDA 信息"></a>7 - 检查 NVIDIA 显卡信息和 CUDA 信息</h3><p>运行 <code>nvidia-smi</code>：  </p><p><img src="https://lfs.libmbr.com/assets/2023/08/26/e59844c1-dba9-43f3-8fa4-af42c07ae3dd.webp" alt="nvidia-smi"></p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;WSL2 默认已经使用了 GPU 半虚拟化（GPU-PV）来进行 3D 加速，GPU-PV 是 RemoteFX 的替代品，但是 GPU-PV 在 Hyper-V 虚拟机启用却比较复杂，Windows 的教程已经有人写了，所以分享下 Hyper-V Linux 虚拟机配置 GPU-PV 的教程  &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="Hyper-V" scheme="https://www.libmbr.com/tags/Hyper-V/"/>
-    
-    <category term="Hypervisor" scheme="https://www.libmbr.com/tags/Hypervisor/"/>
-    
-    <category term="GPU-PV" scheme="https://www.libmbr.com/tags/GPU-PV/"/>
     
   </entry>
   
