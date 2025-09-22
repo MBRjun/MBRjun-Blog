@@ -369,13 +369,12 @@ description: 我的朋友们！
                   </div>
                   <div class="info">早上好哦(つω`*)～☆</div>
                </div>
-            </div>
-           
+            </div>           
             <div class="card">
                <img class="ava" src="https://tuskede0.top/wp-content/uploads/2024/10/sticker1.webp" />
                <div class="card-header">
                   <div>
-                     <a href="https//tuskede0.top/">TuskedEvening0's Blog</a>
+                     <a href="https://tuskede0.top/">TuskedEvening0's Blog</a>
                   </div>
                   <div class="info">Is it Pio's blog? idk btw</div>
                </div>
