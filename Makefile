@@ -3,7 +3,7 @@ nodepm=npm
 SHELL=/bin/bash
 #nodepm=yarn
 
-.PHONY: world check genver init git modify submodules-build submodules-scripts submodules packages hexo cimod ci clean substash
+.PHONY: world check genver modify init git submodules-build submodules-scripts submodules packages hexo cimod ci clean substash
 
 world: hexo
 
