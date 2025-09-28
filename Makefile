@@ -9,15 +9,19 @@ world: hexo
 
 check:
 	@if [ -z $(nodeversion) ]; then\
-		echo -e "\033[41;37m[CHECK  ]\033[0m Node.js was not detected.\n\033[32m[CHECK  ]\033[0m Install Node.js v18 LTS or v20 first." && exit 2;\
-	elif [ $(nodeversion) = "18" ]; then\
-		echo -e "\033[32m[CHECK  ]\033[0m Node.js 18($(shell node -v)) detected";\
-	elif [ $(nodeversion) = "19" ]; then\
-		echo -e "\033[32m[CHECK  ]\033[0m Node.js 19($(shell node -v)) detected.";\
+		echo -e "\033[41;37m[CHECK  ]\033[0m Node.js was not detected.\n\033[32m[CHECK  ]\033[0m Install Node.js v22 or v24 first." && exit 2;\
 	elif [ $(nodeversion) = "20" ]; then\
-		echo -e "\033[32m[CHECK  ]\033[0m Node.js 20($(shell node -v)) detected.";\
+		echo -e "\033[32m[CHECK  ]\033[0m Node.js 20($(shell node -v)) detected. (Warning: Deprecated version!)";\
+	elif [ $(nodeversion) = "21" ]; then\
+		echo -e "\033[32m[CHECK  ]\033[0m Node.js 21($(shell node -v)) detected. (Warning: Deprecated version!)";\
+	elif [ $(nodeversion) = "22" ]; then\
+		echo -e "\033[32m[CHECK  ]\033[0m Node.js 22($(shell node -v)) detected.";\
+	elif [ $(nodeversion) = "23" ]; then\
+		echo -e "\033[32m[CHECK  ]\033[0m Node.js 21($(shell node -v)) detected.";\
+	elif [ $(nodeversion) = "24" ]; then\
+		echo -e "\033[32m[CHECK  ]\033[0m Node.js 21($(shell node -v)) detected.";\
 	else\
-		echo -e "\033[41;37m[CHECK  ]\033[0m Unsupported Node.js version detected.\n\033[32m[CHECK  ]\033[0m You are using $(shell node -v) but the program requires v18 to v20.\n\033[32m[CHECK  ]\033[0m Upgrade/Downgrade Node.js, or use nvm to select version." && exit 2;\
+		echo -e "\033[41;37m[CHECK  ]\033[0m Unsupported Node.js version detected.\n\033[32m[CHECK  ]\033[0m You are using $(shell node -v) but the program requires v22 to v24.\n\033[32m[CHECK  ]\033[0m Upgrade/Downgrade Node.js, or use nvm to select version." && exit 2;\
 	fi
 
 genver: git

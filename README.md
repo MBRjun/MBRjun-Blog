@@ -12,5 +12,6 @@ See ``source/about`` or [this url](https://www.libmbr.com/about/).
 
 ## Build
 - Install ``make``
-- Install Node.js v18 or v20 LTS
+- Install Node.js v24 or v22 LTS
+  *(note: v18 to v20 deprecated in late 2025)*
 - run ``make hexo``
