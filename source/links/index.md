@@ -121,15 +121,15 @@ description: 我的朋友们！
             </div>
             友链移除原因：无法访问
             -->
-            <!-- <div class="card">
-               <img class="ava" src="https://lfs.libmbr.com/assets/2022/04/24/wl.jpg" />
+            <div class="card">
+               <img class="ava" src="https://www.yukina.ink/logo.jpg" />
                <div class="card-header">
                   <div>
-                     <a href="https://blog.cnmobile.link/">LiangBurs' Blog</a>
+                     <a href="https://blog.yukina.ink/">Yukina</a>
                   </div>
-                  <div class="info">May all the beauty be blessed.——《Moon Halo》</div>
+                  <div class="info">Welcome to the melty land.</div>
                </div>
-            </div> -->
+            </div>
             <div class="card">
                <img class="ava" src="https://lfs.libmbr.com/assets/2022/04/30/7e.jpg" />
                <div class="card-header">
