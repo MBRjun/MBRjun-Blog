@@ -34,6 +34,10 @@ jobs:
         restore-keys: |
           ${{ runner.OS }}-npm-cache
 
+    - name: Init
+      run: |
+        sudo hostnamectl hostname runner-prod
+
     - name: Build
       run: |
         make ci

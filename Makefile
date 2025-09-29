@@ -56,7 +56,7 @@ modify: git substash
 	@echo -e "\033[32m[MODIFY ]\033[0m Cleaning theme fonts" && rm -f themes/tranquilpeak/source/_fonts/*
 	@echo -e "\033[32m[MODIFY ]\033[0m Copying fonts binary" && cp patches/binary/fonts/* themes/tranquilpeak/source/_fonts/
 
-submodules-build: packages modify
+submodules-build: modify packages
 	@echo -e "\033[32m[PACKAGE]\033[0m submodules: $(nodepm) run grunt -- buildProd" && cd themes/tranquilpeak/ && $(nodepm) run grunt -- buildProd
 
 submodules-scripts: submodules-build genver
