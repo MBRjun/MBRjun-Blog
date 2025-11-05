@@ -388,6 +388,15 @@ description: 我的朋友们！
                   <div class="info">Is it Pio's blog? idk btw</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://s2.hdslb.com/bfs/face/55653dbd3d6e3d685896bcd10242aa9585d28f56.jpg@1e_0c.webp" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://www.lynx3.me/">LynxCatTheThird</a>
+                  </div>
+                  <div class="info">I am LynxCatTheThird, an AGI from the 103rd century.</div>
+               </div>
+            </div>
             <!--
                在上方添加你的网站
                像其他网站一样，添加一段 HTML 代码
