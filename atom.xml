@@ -6,7 +6,7 @@
   <link href="https://www.libmbr.com/atom.xml" rel="self"/>
   
   <link href="https://www.libmbr.com/"/>
-  <updated>2025-09-21T14:25:00.000Z</updated>
+  <updated>2025-11-18T16:00:00.000Z</updated>
   <id>https://www.libmbr.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Proxmox VE SR-IOV 开启流量统计</title>
+    <link href="https://www.libmbr.com/archives/514/"/>
+    <id>https://www.libmbr.com/archives/514/</id>
+    <published>2025-11-18T16:00:00.000Z</published>
+    <updated>2025-11-18T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>默认配置下，网卡开启 SR-IOV 后需要将虚拟机的网卡类型改为 PCIe 直通，修改为直通后 Proxmox VE 无法正常读取统计信息。提供一个不太优雅的解决方法。</p><span id="more"></span><h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><p>需要使用到 <a href="https://docs.kernel.org/networking/representors.html">VF Representors 接口</a>（下文简称 Reps）。网卡必须支持并开启 SwitchDev 特性。  </p><ul><li>mlx5 网卡开启 E-Switch 分载、SwitchDev 特性可以阅读<a href="/archives/508/#%E9%85%8D%E7%BD%AE-E-Switch-%E5%88%86%E8%BD%BD">这篇文章</a>。</li></ul><h2 id="Reps-接口命名"><a href="#Reps-接口命名" class="headerlink" title="Reps 接口命名"></a>Reps 接口命名</h2><p>Proxmox VE 9 及更新版本中，Reps 接口的系统默认命名规则是 <code>PFNAMErVFID</code>  </p><p>如果使用老版本，Reps 接口命名规则由网卡驱动决定，以 NVIDIA&#x2F;Mellanox 网卡为例，命名规则为 <code>PFNAMEpfXvfY</code>，X 为 PF 接口号，Y 为 VF 接口号。  </p><h2 id="修改前检查"><a href="#修改前检查" class="headerlink" title="修改前检查"></a>修改前检查</h2><p>SR-IOV 接口有网络活动时，宿主机上的 VF Representors 接口统计数据会正常更新。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">$ ifconfig ens0f0h1<br>ens0f0h1: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500<br>        inet6 fe80::1c70:19ff:fefe:56fb  prefixlen 64  scopeid 0x20&lt;link&gt;<br>        ether 1e:70:19:fe:56:fb  txqueuelen 1000  (Ethernet)<br>        RX packets 307679053  bytes 212674010217 (198.0 GiB)<br>        RX errors 0  dropped 0  overruns 0  frame 0<br>        TX packets 246924012  bytes 159490311908 (148.5 GiB)<br>        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0<br></code></pre></td></tr></table></figure><p>确认接口数据正常后即可修改 PVE 代码。</p><h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol><li><p>先找到 SR-IOV VF 对应的 Representor 接口。</p></li><li><p>修改 <code>/usr/share/perl5/PVE/ProcFSTools.pm</code><br>找到 <code>read_proc_net_dev</code> 函数，大概位置在第 375 行。<br>在 <code>return</code> 前加入下面代码：</p></li></ol><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs perl"><span class="hljs-keyword">if</span> (!<span class="hljs-keyword">exists</span> $res-&gt;&#123;<span class="hljs-string">&#x27;TAP-DEV&#x27;</span>&#125; &amp;&amp; <span class="hljs-keyword">exists</span> $res-&gt;&#123;<span class="hljs-string">&#x27;VF-REP-DEV&#x27;</span>&#125;) &#123;<br>    $res-&gt;&#123;<span class="hljs-string">&#x27;TAP-DEV&#x27;</span>&#125; = &#123;<br>        %&#123;$res-&gt;&#123;<span class="hljs-string">&#x27;VF-REP-DEV&#x27;</span>&#125;&#125;<br>    &#125;;<br>&#125;<br></code></pre></td></tr></table></figure><ul><li><code>TAP-DEV</code> 修改为 <code>tapXXXiY</code>，<code>XXX</code> 为 VMID，<code>Y</code>为网卡序号（任意非负整数，且不与已存在的序号重复）</li><li><code>VF-REP-DEV</code> 修改为 Representor 接口名。</li></ul><ol start="3"><li><p>如果存在多个接口、多个 VM，则为每个接口、每个 VM 重复上面的步骤。</p></li><li><p>重启 pvestatd ：<br><code>systemctl restart pvestatd</code></p></li></ol><p>操作完成后即可看到 WebUI 正常显示流量统计：<br><img src="https://lfs.libmbr.com/assets/2025/11/19/52f7f5aa-1b39-4907-b4a9-9192e14aa0b2.webp" alt="Proxmox VE WebUI Network Stats"></p><h2 id="关闭更新"><a href="#关闭更新" class="headerlink" title="关闭更新"></a>关闭更新</h2><div class="alert info"><p>此步骤是可选的。</p></div><p>系统更新可能会覆盖上述更改。  </p><p>使用下面的命令阻止更新：</p><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs perl">apt-mark hold libpve-common-perl<br></code></pre></td></tr></table></figure><p>使用下面的命令恢复更新：</p><figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs perl">apt-mark unhold libpve-common-perl<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;默认配置下，网卡开启 SR-IOV 后需要将虚拟机的网卡类型改为 PCIe 直通，修改为直通后 Proxmox VE 无法正常读取统计信息。提供一个不太优雅的解决方法。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
+    
+    <category term="虚拟机" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
+    
+    <category term="PVE" scheme="https://www.libmbr.com/tags/PVE/"/>
+    
+    <category term="网卡" scheme="https://www.libmbr.com/tags/%E7%BD%91%E5%8D%A1/"/>
+    
+    <category term="SR-IOV" scheme="https://www.libmbr.com/tags/SR-IOV/"/>
+    
+  </entry>
   
   <entry>
     <title>纸质铁路报销凭证</title>
@@ -228,9 +257,9 @@
     <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
-    
     <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
+    
+    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
     
     <category term="虚拟机" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
@@ -283,9 +312,9 @@
     <category term="网络" scheme="https://www.libmbr.com/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
-    
     <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
+    
+    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
     
   </entry>
   
@@ -517,32 +546,6 @@
     <category term="新年" scheme="https://www.libmbr.com/tags/%E6%96%B0%E5%B9%B4/"/>
     
     <category term="跨年" scheme="https://www.libmbr.com/tags/%E8%B7%A8%E5%B9%B4/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>解决 Hyper-V 安装 Linux 黑屏</title>
-    <link href="https://www.libmbr.com/archives/494/"/>
-    <id>https://www.libmbr.com/archives/494/</id>
-    <published>2023-08-20T00:00:00.000Z</published>
-    <updated>2023-08-20T00:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Hyper-V 黑屏或者卡在 Loading initial ramdisk 的可以来参考下  </p><blockquote><p>“你们这是什么间接分支跟踪技术（IBT）啊，你们这是害人不浅啊你们这个技术.<br>麻烦你们，真的太过分了，你们搞这个技术干什么，<br>我游戏本每一种内核，都启动不到那个图形界面呐！你叫我游戏本怎么办啊，它现在连steam都打不开啊好不好<br>你们这是什么技术啊,<br>你们害死我游戏本了.<br>谁是intel 快点出来 再不来我去报警了啊<br>我跟你们说你们这一帮人啊<br>一天到晚乱改，是不是人啊，你们一天到晚乱改”</p></blockquote><span id="more"></span><hr><p>开机，出现 GRUB 界面时按一下 <code>e</code>，然后在 <code>linux</code> 那一行最后加个 <code>ibt=off</code>  </p><p><img src="https://lfs.libmbr.com/assets/2023/08/26/9e50bfeb-c21a-473e-a31b-9b1084ae9d3f.png" alt="ibtoff"></p><p>然后按 Ctrl+X 退出，即可正常开机，登录后编辑 <code>/etc/default/grub</code>  </p><p><img src="https://lfs.libmbr.com/assets/2023/08/26/77c23130-1144-4adb-9544-fe82bb096584.webp" alt="grub"></p><p>在 <code>GRUB_CMDLINE_LINUX_DEFAULT</code> 引号里加上 <code>ibt=off</code> 保存  </p><p>运行 <code>sudo grub-mkconfig -o /boot/grub/grub.cfg</code> (Debian&#x2F;Ubuntu: <code>sudo update-grub</code>) 即可正常使用  </p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;Hyper-V 黑屏或者卡在 Loading initial ramdisk 的可以来参考下  &lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;“你们这是什么间接分支跟踪技术（IBT）啊，你们这是害人不浅啊你们这个技术.&lt;br&gt;麻烦你们，真的太过分了，你们搞这个技术干什么，&lt;br&gt;我游戏本每一种内核，都启动不到那个图形界面呐！你叫我游戏本怎么办啊，它现在连steam都打不开啊好不好&lt;br&gt;你们这是什么技术啊,&lt;br&gt;你们害死我游戏本了.&lt;br&gt;谁是intel 快点出来 再不来我去报警了啊&lt;br&gt;我跟你们说你们这一帮人啊&lt;br&gt;一天到晚乱改，是不是人啊，你们一天到晚乱改”&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
-    
-    
-    <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
-    
-    <category term="Hyper-V" scheme="https://www.libmbr.com/tags/Hyper-V/"/>
     
   </entry>
   
