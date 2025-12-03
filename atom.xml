@@ -168,11 +168,11 @@
     
     <category term="虚拟化" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E5%8C%96/"/>
     
-    <category term="ESXi" scheme="https://www.libmbr.com/tags/ESXi/"/>
-    
     <category term="软路由" scheme="https://www.libmbr.com/tags/%E8%BD%AF%E8%B7%AF%E7%94%B1/"/>
     
     <category term="PVE" scheme="https://www.libmbr.com/tags/PVE/"/>
+    
+    <category term="ESXi" scheme="https://www.libmbr.com/tags/ESXi/"/>
     
     <category term="Proxmox VE" scheme="https://www.libmbr.com/tags/Proxmox-VE/"/>
     
