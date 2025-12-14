@@ -259,9 +259,9 @@
     
     <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
     
-    <category term="虚拟机" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
     <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
+    
+    <category term="虚拟机" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
     <category term="PVE" scheme="https://www.libmbr.com/tags/PVE/"/>
     
