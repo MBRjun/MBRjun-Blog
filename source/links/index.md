@@ -174,6 +174,15 @@ description: 我的朋友们！
                   <div class="info">Is it Pio's blog? idk btw</div>
                </div>
             </div>
+            <div class="card">
+               <img class="ava" src="https://blog.stevezmt.top/images/avatar.jpg" />
+               <div class="card-header">
+                  <div>
+                     <a href="https://blog.stevezmt.top/">老史尬侃</a>
+                  </div>
+                  <div class="info">Steve ZMT 叽里咕噜说什么呢。</div>
+               </div>
+            </div>
             <!--
             <div class="card">
                <img class="ava" src="AVATAR HERE - REQUIRE WEBP PNG OR JPEG - REQUIRE <100kB" />
