@@ -6,7 +6,7 @@
   <link href="https://www.libmbr.com/atom.xml" rel="self"/>
   
   <link href="https://www.libmbr.com/"/>
-  <updated>2025-11-18T16:00:00.000Z</updated>
+  <updated>2025-12-31T16:00:00.000Z</updated>
   <id>https://www.libmbr.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>EdgeOne CDN 使用简评</title>
+    <link href="https://www.libmbr.com/archives/515/"/>
+    <id>https://www.libmbr.com/archives/515/</id>
+    <published>2025-12-31T16:00:00.000Z</published>
+    <updated>2025-12-31T16:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>给 Blog 用了几个月之后写个评测。发点技术细节和常见的坑，顺带和同类产品对比一下，看看 EdgeOne 的优缺点。</p><span id="more"></span><div class="alert info"><p>鉴于 EdgeOne 免费版还是个新东西，本文后续还可能接着更。如果后续更新的话，就直接在末尾按时间追加了。  </p><p>当前文章版本：2026-01-01（初始）</p></div><div class="alert info"><p>仅为个人使用体验分享。文章不构成广告、推广或产品购买建议。若存在内容错误请联系我修改，谢谢。</p></div><h2 id="接入"><a href="#接入" class="headerlink" title="接入"></a>接入</h2><p>支持 NS 接入、CNAME 接入、DNSPod 托管接入。</p><p>CNAME 接入和 DNSPod 托管接入本质上是一个东西。只不过可以直接在 EdgeOne 控制台配置记录了。</p><h3 id="CNAME"><a href="#CNAME" class="headerlink" title="CNAME"></a>CNAME</h3><p>使用 CNAME 接入方法，需要将加速域名解析至 <code>[DOMAIN].eo.dnse2.com.</code>。</p><p>TTL 为 60 秒，不可更改。dnse2.com 区域使用 QEODNS，区域未配置 DNSSEC。</p><h3 id="NS"><a href="#NS" class="headerlink" title="NS"></a>NS</h3><p>NS 接入即使用 QEODNS。  </p><p>使用 NS 接入方法，需要修改域名权威 DNS 至 QEODNS。</p><h3 id="QEODNS"><a href="#QEODNS" class="headerlink" title="QEODNS"></a>QEODNS</h3><p>QEODNS 这个名字未在文档公开提及，但是他域名叫这个。来源应该是 <strong>Q</strong>Q&#x2F;<strong>Q</strong>Cloud <strong>E</strong>dge<strong>O</strong>ne <strong>DNS</strong>。  </p><p>和同类产品去比，主要应该是有这些优点：</p><ul><li>具有 AIA &#x2F; AnyCast 特性。实际测试上，解析性能略优于 DNSPod 和 阿里云 DNS。</li><li>允许自定义 NS 域名（自定义的域名必须是当前加速域名，即，加速 example.com 不能使用 example-2.com 作为自定义 NS 域名）。</li><li>可开启使用 DNSSEC（摘要：2(SHA256) 算法：13(ECDSAP256SHA256)）。</li><li>以上三条是免费特性</li></ul><p>缺点：</p><ul><li>不支持 IPv6。至少写文章的时候还没支持，发 FR 了。可以期待下未来支持。</li><li>TXT 记录最长设置 256 字节。可能影响 DKIM 等应用的配置。</li><li>CNAME 和其他类型记录严格冲突。</li><li>NS 和其他类型记录严格冲突。（这是个 Bug，发工单了，什么时候修复就不知道了。）<br>此 Bug 具体影响是开了自定义 DNS，@ 区域的记录就没法修改和新增了。  </li><li>不支持批量导出记录。（支持导入）</li><li>GeoDNS 为付费特性。</li></ul><p>然后是一些技术特性：</p><ul><li>DNSSEC 的 NSEC 使用了 Black Lies 防止 Zone Walking。</li><li>开启 CNAME 加速后，加速域名解析直接返回 A&#x2F;AAAA，跳过 <code>[DOMAIN].eo.dnse2.com.</code></li><li>解析 TTL 设置范围是 60 - 86400 秒。NS、SOA 记录的默认 TTL 是 21600 秒。</li></ul><h2 id="回源"><a href="#回源" class="headerlink" title="回源"></a>回源</h2><p>回源可以是 IP&#x2F;域名，也可以是 S3 桶。  </p><p>主要技术特性如下：</p><ul><li>免费版支持负载均衡。故障转移要求付费套餐。</li><li>支持 IPv6。（本站就是纯 IPv6 回源）</li><li>支持域名回源。</li><li>支持自定义端口。</li><li>支持自定义 回源 Host。</li><li>支持 HTTP&#x2F;2 回源。<strong>（没有 ALPN 或回落机制！使用 HTTP 回源时强制使用 H2c。若源站不支持 HTTP&#x2F;2，但开启了 H2 回源，请求将直接失败。）</strong></li></ul><h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>看起来是 OK 的，其实可以用本站来测速（  </p><p>后续可能会补个测速结果在这</p><h2 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h2><p>带一点基础 WAF 的功能。最近的 React 漏洞 CDN 自动防护确实保障了服务器稳定性没掉。</p><p>免费版抗 CC 貌似是可以的，帮我扛了一次 18 Gbps，20 TB 的攻击。被打了看后台才知道，也没个主动通知。  </p><p><img src="https://lfs.libmbr.com/assets/2026/01/01/623b40bd-4473-42e2-b8e9-8cf5d96eeb0b.webp" alt="EdgeOne Protection"></p><h2 id="稳定性"><a href="#稳定性" class="headerlink" title="稳定性"></a>稳定性</h2><p>目前看起来也没问题，比某些友商强，先丢个图在这。<br><img src="https://lfs.libmbr.com/assets/2026/01/01/eabb79f0-5afa-4861-b21e-c488631fbaa2.webp" alt="EdgeOne Stability"></p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;给 Blog 用了几个月之后写个评测。发点技术细节和常见的坑，顺带和同类产品对比一下，看看 EdgeOne 的优缺点。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="技术" scheme="https://www.libmbr.com/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="CDN" scheme="https://www.libmbr.com/tags/CDN/"/>
+    
+    <category term="腾讯云" scheme="https://www.libmbr.com/tags/%E8%85%BE%E8%AE%AF%E4%BA%91/"/>
+    
+    <category term="EdgeOne" scheme="https://www.libmbr.com/tags/EdgeOne/"/>
+    
+  </entry>
   
   <entry>
     <title>Proxmox VE SR-IOV 开启流量统计</title>
@@ -33,9 +58,9 @@
     <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="虚拟机" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
-    
     <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
+    
+    <category term="虚拟机" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
     <category term="PVE" scheme="https://www.libmbr.com/tags/PVE/"/>
     
@@ -257,11 +282,11 @@
     <category term="教程" scheme="https://www.libmbr.com/categories/%E6%95%99%E7%A8%8B/"/>
     
     
-    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
+    <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
     
     <category term="虚拟机" scheme="https://www.libmbr.com/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/"/>
     
-    <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
+    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
     
     <category term="PVE" scheme="https://www.libmbr.com/tags/PVE/"/>
     
@@ -312,9 +337,9 @@
     <category term="网络" scheme="https://www.libmbr.com/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
-    
     <category term="Linux" scheme="https://www.libmbr.com/tags/Linux/"/>
+    
+    <category term="IPv6" scheme="https://www.libmbr.com/tags/IPv6/"/>
     
   </entry>
   
@@ -521,31 +546,6 @@
     <category term="BitLocker" scheme="https://www.libmbr.com/tags/BitLocker/"/>
     
     <category term="冷启动攻击" scheme="https://www.libmbr.com/tags/%E5%86%B7%E5%90%AF%E5%8A%A8%E6%94%BB%E5%87%BB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>2024 来啦！</title>
-    <link href="https://www.libmbr.com/archives/495/"/>
-    <id>https://www.libmbr.com/archives/495/</id>
-    <published>2024-01-01T00:00:00.000Z</published>
-    <updated>2024-01-01T00:00:00.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>2024 了喵？2024 了喵！2024 了喵！  </p><span id="more"></span><p><del>唉，咱是废物，我 new post 我都不知道要写啥，看<a href="https://blog.chyk.ink/2023/12/23/my-2023-summary/">其他大佬写的年终总结</a>感觉好厉害，那就 <code>rm -rf brain</code> 然后瞎√8写吧</del>  </p><p><strong>现在是 2024 的第一天，想先吐槽一下，现在能明显感觉到互联网性能下降，这个时候上网的人好多的样子，那就写写咱 2023 最后一天做了点什么吧（</strong>  </p><h2 id="Hexo-更新"><a href="#Hexo-更新" class="headerlink" title="Hexo 更新"></a>Hexo 更新</h2><p>该折腾的折腾了一下，更新 Hexo 大版本到 7：  </p><p><img src="https://lfs.libmbr.com/assets/2024/01/01/06ab9b37-fd79-44fb-bec3-aeb51541973f.webp" alt="Upgrade Hexo 7"></p><h2 id="Home-Assistant-更新"><a href="#Home-Assistant-更新" class="headerlink" title="Home Assistant 更新"></a>Home Assistant 更新</h2><p>本来是想更新的，但是收到了新年的<del>第一份</del>礼物（不是  </p><p><img src="https://lfs.libmbr.com/assets/2024/01/01/623bbf53-444d-4627-8805-4db650f9d9e7.webp" alt="High Packet Loss"></p><p>嗯，那就修好了再搞  </p><hr><p><strong>再看看整个 2023 做了什么喵</strong>  </p><h2 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h2><p><img src="https://lfs.libmbr.com/assets/2024/01/01/5383b7d4-9579-4454-8d7f-d3fea2fab846.webp" alt="GitHub Commits 2023"></p><p>瓷砖贴的还可以？或者说有点不太均匀  </p><p>要不要立一个 1000 commits in 2024 的目标呢？  </p><h2 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h2><p>是整的 <code>1.00 PB</code> w   </p><p><img src="https://lfs.libmbr.com/assets/2024/01/01/dbe31304-a6d0-41ed-bf95-de875cc630c0.webp" alt="1PB traffic in 2023"></p><h2 id="使用的新语言"><a href="#使用的新语言" class="headerlink" title="使用的新语言"></a>使用的新语言</h2><p>嗯，好像只有 TypeScript 喵？  </p><h2 id="乌蒙地插"><a href="#乌蒙地插" class="headerlink" title="乌蒙地插"></a>乌蒙地插</h2><p>街机原神，据说入坑可能导致 21 号染色体数量增加  </p><p>4 月入坑（大概），国服打了 32 PC，不过开学就没时间打了，据说现在经常断网，我也没见过  </p><hr><p><strong>还能再写点什么吗（</strong>  </p><h2 id="高中生活第一集"><a href="#高中生活第一集" class="headerlink" title="高中生活第一集"></a>高中生活第一集</h2><p>基本没问题：  </p><p>每天早晨 6 点起床，95% 的时候都能准时到学校（7:30 之前到），但是下暴雪的那天（2023-12-14，天津天气为暴风雪），也就是“北京地铁发生追尾事故导致 102 人骨折”的那天，交通状况十分差，从出校门到家就用了 130 分钟，路面积雪和道路结冰导致自行车和电动车不可使用。至于打车？这个鬼天气几个小时都打不到的，那就要走到地铁站（不到两公里，用了 30 分钟），坐地铁，然后再走回家（用了一个小时）  </p><p><img src="https://lfs.libmbr.com/assets/2024/01/01/c1976387-4414-428b-9e88-f473c40d9fe7.webp" alt="地铁大学城站，2023-12-14 晚"></p><p>感觉管的不算太严，尤其是初中部，中午完全没有老师管，以至于出现一整个班都在玩手机的情况（甚至有人带了平板），还有人在智能白板打游戏（是什么呢？乌蒙地插）  </p><p>我写这些东西，不说具体是谁在哪，应该不会有人找到我让我删除内容吧（  </p><p>和初中部比起来，高中部确实安静不少，不过我这个性格，一个学期要过去了，班里认识的人还不到 10 个…  </p><h3 id="语文"><a href="#语文" class="headerlink" title="语文"></a>语文</h3><p>相对摆烂的状态？感觉没啥具体的目标欸，就是在背课文  </p><h3 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h3><p>还是有点吃力（函数后面），初中数学就不好，现在的目标是能及格  </p><h3 id="英语"><a href="#英语" class="headerlink" title="英语"></a>英语</h3><p>英语老师是班主任，感觉还是有点可怕的  </p><h3 id="物理"><a href="#物理" class="headerlink" title="物理"></a>物理</h3><p>之前连续发烧了一周，感觉理科落下的内容好难跟上，成绩一下子就下去了，变成废物了  </p><p>对了，我们物理老师对实验很热情，书上的所有实验都去实验室，今年似乎做了四次了  </p><h3 id="化学"><a href="#化学" class="headerlink" title="化学"></a>化学</h3><p>似乎没什么好写的，但是我喜欢化学。  </p><p>另外我们的化学老师会把课外班叫做传销  </p><h3 id="生物"><a href="#生物" class="headerlink" title="生物"></a>生物</h3><p>老师讲课很好，理科中听的最明白的，但是一定要吐槽一下这个进度，期末考试之前就剩三节课了，还有一个单元没讲呢（目前讲到了 ATP）  </p><p>据说是因为现在提倡素质教育，音体美课时增加，老师说之前生物课一周都是四节课，还可以去实验室做书上的实验，但现在一周两节课都讲不完  </p><h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><p>作业全是抄书，抄了几十页 B5 纸了，没啥好写的，这是一定不选的科</p><h3 id="政治"><a href="#政治" class="headerlink" title="政治"></a>政治</h3><p>背不下来，也没啥好写的，这是一定不选的科  </p><h3 id="地理"><a href="#地理" class="headerlink" title="地理"></a>地理</h3><p>还不错，地理课睡着了课后补都很容易，目前还算简单  </p><hr><p>真不知道写啥了，那就想写的时候再补上吧，还是比较喜欢写技术文章，今年看看应该会有时间写一个“冷启动攻击和硬盘加密的一些破解手段”  </p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;2024 了喵？2024 了喵！2024 了喵！  &lt;/p&gt;</summary>
-    
-    
-    
-    <category term="日常" scheme="https://www.libmbr.com/categories/%E6%97%A5%E5%B8%B8/"/>
-    
-    
-    <category term="2024" scheme="https://www.libmbr.com/tags/2024/"/>
-    
-    <category term="新年" scheme="https://www.libmbr.com/tags/%E6%96%B0%E5%B9%B4/"/>
-    
-    <category term="跨年" scheme="https://www.libmbr.com/tags/%E8%B7%A8%E5%B9%B4/"/>
     
   </entry>
   
